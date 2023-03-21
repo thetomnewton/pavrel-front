@@ -7,5 +7,11 @@ useHead({
 </script>
 
 <template>
-  <slot />
+  <section class="mx-auto w-full px-4 sm:max-w-sm">
+    <div class="mb-6 mt-12 flex justify-center">
+      <AuthenticationCardLogo />
+    </div>
+
+    <slot />
+  </section>
 </template>
