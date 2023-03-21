@@ -67,7 +67,7 @@ async function submit() {
     </div>
 
     <div>
-      <ContinueWithGoogleLink />
+      <ContinueWithGoogleLink>Log in with Google</ContinueWithGoogleLink>
     </div>
 
     <OrBadge />

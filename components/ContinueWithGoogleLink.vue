@@ -38,7 +38,7 @@ function goto() {
         </g>
       </svg>
 
-      <span><slot>Continue with Google</slot></span>
+      <span class="dark:text-zinc-300"><slot>Continue with Google</slot></span>
     </span>
   </div>
 </template>
