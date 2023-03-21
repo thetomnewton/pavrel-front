@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { PencilIcon } from '@heroicons/vue/24/solid'
-import { useIdeaActivities } from '../composables/idea-activities'
 import { IdeaActivity } from '../types'
 
 defineProps<{

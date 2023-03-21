@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import JetActionMessage from '../jetstream/ActionMessage.vue'
-import JetButton from '../jetstream/Button.vue'
-import JetFormSection from '../jetstream/FormSection.vue'
-import JetInput from '../jetstream/Input.vue'
-import JetLabel from '../jetstream/Label.vue'
+import JetActionMessage from './ActionMessage.vue'
+import JetButton from './Button.vue'
+import JetFormSection from './FormSection.vue'
+import JetInput from './Input.vue'
+import JetLabel from './Label.vue'
 import api from '../api'
 import { ref } from 'vue'
 

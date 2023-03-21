@@ -6,8 +6,6 @@ import IdeaActivity from './IdeaActivity.vue'
 import IdeaContentSidebar from './IdeaContentSidebar.vue'
 import { Idea, Team } from '../types'
 import IdeaUpvoter from './IdeaUpvoter.vue'
-import { useIdeaUpvotes } from '../composables/idea-upvotes'
-import { useWorkspace } from '../composables/workspace'
 
 const props = defineProps<{
   idea: Idea

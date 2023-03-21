@@ -2,7 +2,6 @@
 import { ulid } from 'ulid'
 import { ref, computed } from 'vue'
 import { useStore } from 'vuex'
-import { useWorkspace } from '../composables/workspace'
 import { Idea, IdeaActivity } from '../types'
 import AddIdeaCommentInput from './AddIdeaCommentInput.vue'
 import IdeaActivityStream from './IdeaActivityStream.vue'
