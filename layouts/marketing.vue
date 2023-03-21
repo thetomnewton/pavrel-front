@@ -1,7 +1,10 @@
 <template>
   <header class="pt-4 px-8 max-w-4xl mx-auto">
     <div class="flex items-center">
-      <div>logo</div>
+      <NuxtLink to="/">
+        <span class="sr-only">Pavrel</span>
+        <LogoColorText class="text-slate-800 w-[96px] h-[30px]" />
+      </NuxtLink>
 
       <div class="ml-10 flex items-center space-x-6">
         <a href="#features" class="font-medium text-sm text-slate-900 hover:text-slate-900">Features</a>
