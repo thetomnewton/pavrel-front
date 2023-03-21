@@ -226,12 +226,12 @@ onUnmounted(() => {
                       Invite people
                     </div>
 
-                    <RouterLink
-                      :to="{ name: 'workspaces.create' }"
+                    <NuxtLink
+                      to="/workspaces/new"
                       class="block cursor-default rounded p-2 leading-[15px] text-slate-700 hover:bg-slate-100 dark:text-zinc-200 dark:hover:bg-zinc-700"
                     >
                       Create new workspace
-                    </RouterLink>
+                    </NuxtLink>
 
                     <form @submit.prevent="logout">
                       <button
@@ -428,16 +428,13 @@ onUnmounted(() => {
 
               <template #content>
                 <div class="px-2 py-1 text-[.8125rem]">
-                  <RouterLink
-                    :to="{
-                      name: 'workspace.settings.team',
-                      params: { workspaceSlug: currentWorkspace.slug, teamSlug: team.slug },
-                    }"
+                  <NuxtLink
+                    :to="`/${currentWorkspace.slug}/settings/teams/${team.slug}`"
                     @click.stop=""
                     class="block cursor-default rounded p-2 leading-[15px] text-slate-700 hover:bg-slate-100 dark:text-zinc-300 dark:hover:bg-zinc-700"
                   >
                     Team settings
-                  </RouterLink>
+                  </NuxtLink>
 
                   <button
                     class="block w-full cursor-default appearance-none rounded p-2 text-left leading-[15px] text-slate-700 hover:bg-slate-100 dark:text-zinc-300 dark:hover:bg-zinc-700"
@@ -565,12 +562,12 @@ onUnmounted(() => {
 
         <template #content>
           <div class="px-2 py-1 text-[.8125rem] font-medium">
-            <RouterLink
-              :to="{ name: 'workspace.user.profile', params: { workspaceSlug: currentWorkspace.slug } }"
+            <NuxtLink
+              :to="`/${currentWorkspace.slug}/user/profile`"
               class="block cursor-default rounded p-2 leading-[15px] text-slate-700 hover:bg-slate-100 dark:text-zinc-300 dark:hover:bg-zinc-700"
             >
               View profile
-            </RouterLink>
+            </NuxtLink>
 
             <form @submit.prevent="logout">
               <button

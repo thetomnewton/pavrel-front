@@ -8,30 +8,23 @@ const { setCurrentTeamFromLocalStorage } = useTeams()
 
 const workspaceContentLoaded = computed(() => store.state.base.workspaceContentLoaded)
 const workspaceContentError = computed(() => store.state.base.workspaceContentError)
-const requiresWorkspaceContent = computed(() => route.params.workspaceSlug != null)
 const userCurrentWorkspaceTeams = computed(() => store.getters['base/userCurrentWorkspaceTeams'])
 
 const loadAllWorkspaceContent = () => store.dispatch('base/loadAllWorkspaceContent')
 
 const { addUserListener, addWorkspaceListeners } = useWebSockets()
 
-watch(
-  route,
-  value => {
-    if (value.params.workspaceSlug && !workspaceContentLoaded.value) loadAllWorkspaceContent()
-  },
-  { deep: true }
-)
+if (!workspaceContentLoaded.value) loadAllWorkspaceContent()
 
 watch(workspaceContentLoaded, value => {
   if (!value) return
 
   if (!store.state.base.teams.length && route.name !== 'workspace.onboarding' && route.params.workspaceSlug)
-    router.push({ name: 'workspace.onboarding', params: { workspaceSlug: route.params.workspaceSlug } })
+    router.push({ path: `/${route.params.workspaceSlug}/welcome` })
 })
 
 function loadWorkspaceContent() {
-  if (workspaceContentLoaded.value || !requiresWorkspaceContent.value) return
+  if (workspaceContentLoaded.value) return
 
   loadAllWorkspaceContent().then(() => {
     addUserListener()
@@ -56,10 +49,13 @@ loadWorkspaceContent()
 
 <template>
   <Transition leave-active-class="transition" leave-to-class="opacity-0 pointer-events-none">
-    <Overlay v-if="!workspaceContentLoaded && requiresWorkspaceContent" :error="workspaceContentError" />
+    <Overlay v-if="!workspaceContentLoaded" :error="workspaceContentError" />
   </Transition>
 
-  <div class="fixed inset-0 z-0 flex h-full w-full flex-col overflow-hidden bg-white dark:bg-zinc-900">
+  <div
+    v-if="workspaceContentLoaded"
+    class="fixed inset-0 z-0 flex h-full w-full flex-col overflow-hidden bg-white dark:bg-zinc-900"
+  >
     <div class="flex h-full min-h-full w-full flex-1 overflow-hidden">
       <Sidebar />
 

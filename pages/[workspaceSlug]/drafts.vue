@@ -3,5 +3,5 @@
 </script>
 
 <template>
-  <div></div>
+  <div>drafts</div>
 </template>
