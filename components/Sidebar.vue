@@ -135,10 +135,7 @@ function handleQuickCreateExpand() {
 }
 
 function selectTeam(team: Team) {
-  goToRoute({
-    name: 'ideas',
-    params: { workspaceSlug: currentWorkspace.value.slug, teamSlug: team.slug, filter: 'all' },
-  })
+  router.push({ path: `/${currentWorkspace.value.slug}/teams/${team.slug}/ideas/all` })
 
   toggleExpandedTeam(team.id)
 }
@@ -276,10 +273,10 @@ onUnmounted(() => {
         <span>Search</span>
       </div>
 
-      <div
-        @click="goToRoute({ name: 'inbox', params: { workspaceSlug: currentWorkspace.slug } })"
+      <NuxtLink
+        :to="`/${currentWorkspace.slug}/inbox`"
         class="group mb-px flex w-full cursor-default items-center rounded px-2 text-[.8125rem] font-medium leading-7 hover:bg-slate-150 dark:hover:bg-zinc-800"
-        :class="{ 'bg-slate-150 dark:bg-zinc-800': $route.name === 'inbox' }"
+        :class="{ 'bg-slate-150 dark:bg-zinc-800': $route.name === 'workspaceSlug-inbox' }"
       >
         <ClockIcon
           class="mr-[9px] ml-px -mt-px h-[17px] w-[17px] text-slate-500 group-hover:text-slate-800 dark:text-zinc-400 dark:group-hover:text-slate-200"
@@ -292,28 +289,28 @@ onUnmounted(() => {
         >
           {{ unreadNotificationsCount < 100 ? unreadNotificationsCount : '99+' }}
         </span>
-      </div>
+      </NuxtLink>
 
-      <div
-        @click="goToRoute({ name: 'drafts', params: { workspaceSlug: currentWorkspace.slug } })"
+      <NuxtLink
+        :to="`/${currentWorkspace.slug}/drafts`"
         class="group mb-px flex w-full cursor-default items-center rounded px-2 text-[.8125rem] font-medium leading-7 hover:bg-slate-150 dark:hover:bg-zinc-800"
-        :class="{ 'bg-slate-150 dark:bg-zinc-800': $route.name === 'drafts' }"
+        :class="{ 'bg-slate-150 dark:bg-zinc-800': $route.name === 'workspaceSlug-drafts' }"
       >
         <DocumentIcon
           class="mr-[9px] ml-px -mt-px h-[17px] w-[17px] text-slate-500 group-hover:text-slate-800 dark:text-zinc-400 dark:group-hover:text-slate-200"
         />
         <span>Drafts</span>
-      </div>
+      </NuxtLink>
 
-      <div
-        @click="goToRoute({ name: 'workspace.settings.general', params: { workspaceSlug: currentWorkspace.slug } })"
+      <NuxtLink
+        :to="`/${currentWorkspace.slug}/settings/general`"
         class="group mb-px flex w-full cursor-default items-center rounded px-2 text-[.8125rem] font-medium leading-7 hover:bg-slate-150 dark:hover:bg-zinc-800"
       >
         <Cog8ToothIcon
           class="mr-[9px] ml-px -mt-px h-[17px] w-[17px] text-slate-500 group-hover:text-slate-800 dark:text-zinc-400 dark:group-hover:text-slate-200"
         />
         <span>Settings</span>
-      </div>
+      </NuxtLink>
     </div>
 
     <div class="mt-4 px-4" v-if="favoriteIdeas.length && currentWorkspaceTeams">
@@ -321,30 +318,18 @@ onUnmounted(() => {
         Starred
       </div>
 
-      <div
+      <NuxtLink
         v-for="{ id, title, team_id, team_idea_id } in favoriteIdeas"
+        :to="`/${currentWorkspace.slug}/ideas/${getTeamSlug(team_id)}-${team_idea_id}`"
         :key="id"
         class="mb-px flex cursor-default items-center rounded px-2 text-[.8125rem] font-medium leading-7 hover:bg-slate-150 dark:hover:bg-zinc-800"
         :class="{
           'bg-slate-150 dark:bg-zinc-800':
-            $route.name === 'idea' &&
-            $route.params.workspaceSlug === currentWorkspaceSlug &&
-            $route.params.teamSlug === getTeamSlug(team_id) &&
-            +$route.params.teamIdeaId === team_idea_id,
+            $route.fullPath === `/${currentWorkspaceSlug}/ideas/${getTeamSlug(team_id)}-${team_idea_id}`,
         }"
-        @click="
-          goToRoute({
-            name: 'idea',
-            params: {
-              workspaceSlug: currentWorkspaceSlug,
-              teamSlug: getTeamSlug(team_id),
-              teamIdeaId: team_idea_id,
-            },
-          })
-        "
       >
         <span class="overflow-hidden whitespace-nowrap">{{ title }}</span>
-      </div>
+      </NuxtLink>
     </div>
 
     <div class="mt-4 px-4">
@@ -352,6 +337,7 @@ onUnmounted(() => {
         class="mb-px flex cursor-default items-center rounded px-2 text-xs font-medium leading-6 text-slate-500 dark:text-zinc-400"
       >
         <span>Teams</span>
+
         <div class="ml-auto mr-[2px]">
           <Dropdown align="left">
             <template #trigger="{ open }">
@@ -395,7 +381,7 @@ onUnmounted(() => {
           class="group mb-px flex w-full cursor-default items-center rounded px-[10px] text-[.8125rem] font-medium leading-7 hover:bg-slate-150 dark:hover:bg-zinc-800"
           :class="{
             'bg-slate-150 dark:bg-zinc-800':
-              $route.name === 'ideas' && $route.params.filter === 'all' && $route.params.teamSlug === team.slug,
+              $route.fullPath === `/${currentWorkspace.slug}/teams/${team.slug}/ideas/all`,
           }"
         >
           <span
@@ -428,13 +414,12 @@ onUnmounted(() => {
 
               <template #content>
                 <div class="px-2 py-1 text-[.8125rem]">
-                  <NuxtLink
-                    :to="`/${currentWorkspace.slug}/settings/teams/${team.slug}`"
-                    @click.stop=""
+                  <div
+                    @click.stop="router.push({ path: `/${currentWorkspace.slug}/settings/teams/${team.slug}` })"
                     class="block cursor-default rounded p-2 leading-[15px] text-slate-700 hover:bg-slate-100 dark:text-zinc-300 dark:hover:bg-zinc-700"
                   >
                     Team settings
-                  </NuxtLink>
+                  </div>
 
                   <button
                     class="block w-full cursor-default appearance-none rounded p-2 text-left leading-[15px] text-slate-700 hover:bg-slate-100 dark:text-zinc-300 dark:hover:bg-zinc-700"
@@ -460,71 +445,49 @@ onUnmounted(() => {
             v-if="expandedTeams.includes(team.id)"
             class="ml-[18px] overflow-hidden border-l border-slate-150 pl-[9px] dark:border-zinc-700"
           >
-            <div
-              @click="
-                goToRoute({
-                  name: 'ideas',
-                  params: { workspaceSlug: currentWorkspace.slug, teamSlug: team.slug, filter: 'review' },
-                })
-              "
+            <NuxtLink
+              :to="`/${currentWorkspace.slug}/teams/${team.slug}/ideas/review`"
               class="group mb-px flex cursor-default rounded px-2 leading-7 hover:bg-slate-150 dark:hover:bg-zinc-800"
               :class="{
                 'bg-slate-150 dark:bg-zinc-800':
-                  $route.name === 'ideas' && $route.params.filter === 'review' && $route.params.teamSlug === team.slug,
+                  $route.fullPath === `/${currentWorkspace.slug}/teams/${team.slug}/ideas/review`,
               }"
             >
               <div>Review</div>
-            </div>
+            </NuxtLink>
 
-            <div
-              @click="
-                goToRoute({
-                  name: 'ideas',
-                  params: { workspaceSlug: currentWorkspace.slug, teamSlug: team.slug, filter: 'backlog' },
-                })
-              "
+            <NuxtLink
+              :to="`/${currentWorkspace.slug}/teams/${team.slug}/ideas/backlog`"
               class="group mb-px flex cursor-default rounded px-2 leading-7 hover:bg-slate-150 dark:hover:bg-zinc-800"
               :class="{
                 'bg-slate-150 dark:bg-zinc-800':
-                  $route.name === 'ideas' && $route.params.filter === 'backlog' && $route.params.teamSlug === team.slug,
+                  $route.fullPath === `/${currentWorkspace.slug}/teams/${team.slug}/ideas/backlog`,
               }"
             >
               <div>Backlog</div>
-            </div>
+            </NuxtLink>
 
-            <div
-              @click="
-                goToRoute({
-                  name: 'ideas',
-                  params: { workspaceSlug: currentWorkspace.slug, teamSlug: team.slug, filter: 'planning' },
-                })
-              "
+            <NuxtLink
+              :to="`/${currentWorkspace.slug}/teams/${team.slug}/ideas/planning`"
               class="group mb-px flex cursor-default rounded px-2 leading-7 hover:bg-slate-150 dark:hover:bg-zinc-800"
               :class="{
                 'bg-slate-150 dark:bg-zinc-800':
-                  $route.name === 'ideas' &&
-                  $route.params.filter === 'planning' &&
-                  $route.params.teamSlug === team.slug,
+                  $route.fullPath === `/${currentWorkspace.slug}/teams/${team.slug}/ideas/planning`,
               }"
             >
               <div>Planning</div>
-            </div>
+            </NuxtLink>
 
-            <div
-              @click="
-                goToRoute({
-                  name: 'ideas',
-                  params: { workspaceSlug: currentWorkspace.slug, teamSlug: team.slug, filter: 'active' },
-                })
-              "
+            <NuxtLink
+              :to="`/${currentWorkspace.slug}/teams/${team.slug}/ideas/active`"
               class="group mb-px flex cursor-default rounded px-2 leading-7 hover:bg-slate-150 dark:hover:bg-zinc-800"
               :class="{
                 'bg-slate-150 dark:bg-zinc-800':
-                  $route.name === 'ideas' && $route.params.filter === 'active' && $route.params.teamSlug === team.slug,
+                  $route.fullPath === `/${currentWorkspace.slug}/teams/${team.slug}/ideas/active`,
               }"
             >
               <div>Active</div>
-            </div>
+            </NuxtLink>
           </div>
         </Transition>
       </div>

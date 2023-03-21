@@ -94,5 +94,5 @@ const team = computed<Team | undefined>(() =>
 </template>
 
 <style>
-@import '../prose.css';
+@import '../assets/css/prose.css';
 </style>

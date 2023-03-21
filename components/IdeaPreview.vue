@@ -8,7 +8,6 @@ import IdeaEditButton from '../components/IdeaEditButton.vue'
 import IdeaContent from '../components/IdeaContent.vue'
 import { computed, onBeforeMount, ref, watch } from 'vue'
 import { Idea, Team, Workspace } from '../types'
-import { useRecentIdeas } from '../composables/recent-ideas'
 
 const props = defineProps<{
   open: boolean

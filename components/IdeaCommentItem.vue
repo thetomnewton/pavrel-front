@@ -165,5 +165,5 @@ function stopProp(event: Event) {
 </template>
 
 <style scoped>
-@import '../prose.css';
+@import '../assets/css/prose.css';
 </style>
