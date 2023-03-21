@@ -6,5 +6,8 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
-  css: ["~/assets/css/tailwind.css"],
-});
+  runtimeConfig: {
+    public: { backendUrl: '' },
+  },
+  css: ['~/assets/css/tailwind.css'],
+})

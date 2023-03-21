@@ -484,11 +484,12 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
             <h2 class="flex items-center text-lg font-medium leading-6 text-slate-900"><span>Enterprise</span></h2>
             <p class="mt-4 text-sm text-slate-500">All the basics for starting a new business</p>
             <p class="mt-8"><span class="text-4xl font-bold tracking-tight text-slate-900">Contact us</span></p>
-            <a
-              href="https://app.pavrel.com/login"
+            <RouterLink
+              to="/login"
               class="mt-8 block w-full rounded-md border border-blue-600 bg-blue-600 py-2 text-center text-sm font-semibold text-white hover:bg-blue-700"
-              >Contact us</a
             >
+              Contact us
+            </RouterLink>
           </div>
           <div class="mx-6 mb-6 flex-1 rounded-[8px] bg-slate-50 p-6">
             <h3 class="text-sm font-medium text-slate-900">What's included</h3>
