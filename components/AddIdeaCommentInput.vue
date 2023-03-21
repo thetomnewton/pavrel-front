@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useStore } from 'vuex'
-import { useUsers } from '../composables/users'
 import Tiptap from './Tiptap.vue'
 
 const props = defineProps({
