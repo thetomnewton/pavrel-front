@@ -10,6 +10,8 @@ useHead({
     class: 'bg-slate-50 antialiased font-sans',
   },
 })
+
+const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
 </script>
 
 <template>
@@ -246,6 +248,287 @@ useHead({
           </dd>
         </div>
       </dl>
+    </div>
+  </section>
+
+  <section id="pricing" class="bg-white py-24 px-4 sm:px-6 lg:px-8">
+    <div class="sm:align-center mx-auto max-w-7xl sm:flex sm:flex-col">
+      <h1 class="text-4xl font-semibold tracking-tight text-slate-900 sm:text-center">Pricing plans</h1>
+
+      <p class="mt-5 text-lg text-slate-500 sm:text-center">
+        Start building for free, then upgrade to get even more done with Pavrel.
+      </p>
+
+      <div class="relative mt-6 flex self-center rounded-lg bg-slate-100 p-0.5 sm:mt-8">
+        <button
+          type="button"
+          class="relative w-1/2 whitespace-nowrap rounded-md py-2 text-sm font-medium text-slate-900 shadow-sm focus:z-10 focus:outline-none focus:ring-2 focus:ring-blue-500 sm:w-auto sm:px-8"
+          @click="billingStrategy = 'yearly'"
+          :class="[billingStrategy === 'yearly' ? 'border-slate-200 bg-white shadow-sm' : 'border-transparent']"
+        >
+          Yearly billing
+        </button>
+
+        <button
+          type="button"
+          class="relative ml-0.5 w-1/2 whitespace-nowrap rounded-md py-2 text-sm font-medium text-slate-900 focus:z-10 focus:outline-none focus:ring-2 focus:ring-blue-500 sm:w-auto sm:px-8"
+          @click="billingStrategy = 'monthly'"
+          :class="[billingStrategy === 'monthly' ? 'border-slate-200 bg-white shadow-sm' : 'border-transparent']"
+        >
+          Monthly billing
+        </button>
+      </div>
+
+      <div
+        class="mt-12 space-y-4 sm:mt-16 sm:grid sm:grid-cols-2 sm:gap-6 sm:space-y-0 lg:mx-auto lg:max-w-4xl xl:mx-0 xl:max-w-none xl:grid-cols-3"
+      >
+        <div class="flex flex-col rounded-xl border border-slate-200 shadow-sm">
+          <div class="p-6">
+            <h2 class="flex items-center text-lg font-medium leading-6 text-slate-900"><span>Free</span></h2>
+            <p class="mt-4 text-sm text-slate-500">All the basics for starting a new business</p>
+            <p class="mt-8">
+              <span class="text-4xl font-bold tracking-tight text-slate-900">$0</span>
+            </p>
+            <NuxtLink
+              to="/register"
+              class="mt-8 block w-full rounded-md border border-blue-600 bg-blue-600 py-2 text-center text-sm font-semibold text-white hover:bg-blue-700"
+            >
+              Sign up for free
+            </NuxtLink>
+          </div>
+          <div class="mx-6 mb-6 flex-1 rounded-[8px] bg-slate-50 p-6">
+            <h3 class="text-sm font-medium text-slate-900">What's included</h3>
+            <ul role="list" class="mt-6 space-y-4">
+              <li class="flex space-x-3">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                  class="h-5 w-5 flex-shrink-0 text-green-500"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                <span class="text-sm text-slate-600">100 ideas</span>
+              </li>
+              <li class="flex space-x-3">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                  class="h-5 w-5 flex-shrink-0 text-green-500"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                <span class="text-sm text-slate-600">Unlimited teams</span>
+              </li>
+              <li class="flex space-x-3">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                  class="h-5 w-5 flex-shrink-0 text-green-500"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                <span class="text-sm text-slate-600">Unlimited team members</span>
+              </li>
+              <li class="flex space-x-3">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                  class="h-5 w-5 flex-shrink-0 text-green-500"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                <span class="text-sm text-slate-600">Unlimited workspaces</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="flex flex-col rounded-xl border border-slate-200 shadow-sm">
+          <div class="p-6">
+            <h2 class="flex items-center text-lg font-medium leading-6 text-slate-900">
+              <span>Pro</span>
+              <span
+                v-if="billingStrategy === 'yearly'"
+                class="ml-auto cursor-default rounded bg-green-200 px-1.5 py-0.5 text-sm leading-5 text-green-800"
+              >
+                -20%
+              </span>
+            </h2>
+            <p class="mt-4 text-sm text-slate-500">All the basics for starting a new business</p>
+            <p class="mt-8">
+              <span class="text-4xl font-bold tracking-tight text-slate-900">
+                {{ billingStrategy === 'monthly' ? '$10' : '$96' }}
+              </span>
+              <span class="text-base font-medium text-slate-500"
+                >/user/{{ billingStrategy === 'monthly' ? 'month' : 'year' }}</span
+              >
+            </p>
+            <NuxtLink
+              to="/login"
+              class="mt-8 block w-full rounded-md border border-blue-600 bg-blue-600 py-2 text-center text-sm font-semibold text-white hover:bg-blue-700"
+            >
+              Buy Pro
+            </NuxtLink>
+          </div>
+          <div class="mx-6 mb-6 flex-1 rounded-[8px] bg-slate-50 p-6">
+            <h3 class="text-sm font-medium text-slate-900">What's included</h3>
+            <ul role="list" class="mt-6 space-y-4">
+              <li class="flex space-x-3">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                  class="h-5 w-5 flex-shrink-0 text-green-500"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                <span class="text-sm text-slate-600">Everything in Free</span>
+              </li>
+              <li class="flex space-x-3">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                  class="h-5 w-5 flex-shrink-0 text-green-500"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                <span class="text-sm text-slate-600">Unlimited workspaces</span>
+              </li>
+              <li class="flex space-x-3">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                  class="h-5 w-5 flex-shrink-0 text-green-500"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                <span class="text-sm text-slate-600">Private teams</span>
+              </li>
+              <li class="flex space-x-3">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                  class="h-5 w-5 flex-shrink-0 text-green-500"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                <span class="text-sm text-slate-600">30 days version history</span>
+              </li>
+              <li class="flex space-x-3">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                  class="h-5 w-5 flex-shrink-0 text-green-500"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                <span class="text-sm text-slate-600">API + integrations</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="flex flex-col rounded-xl border border-slate-200 shadow-sm">
+          <div class="p-6">
+            <h2 class="flex items-center text-lg font-medium leading-6 text-slate-900"><span>Enterprise</span></h2>
+            <p class="mt-4 text-sm text-slate-500">All the basics for starting a new business</p>
+            <p class="mt-8"><span class="text-4xl font-bold tracking-tight text-slate-900">Contact us</span></p>
+            <a
+              href="https://app.pavrel.com/login"
+              class="mt-8 block w-full rounded-md border border-blue-600 bg-blue-600 py-2 text-center text-sm font-semibold text-white hover:bg-blue-700"
+              >Contact us</a
+            >
+          </div>
+          <div class="mx-6 mb-6 flex-1 rounded-[8px] bg-slate-50 p-6">
+            <h3 class="text-sm font-medium text-slate-900">What's included</h3>
+            <ul role="list" class="mt-6 space-y-4">
+              <li class="flex space-x-3">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                  class="h-5 w-5 flex-shrink-0 text-green-500"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                <span class="text-sm text-slate-600">Everything in Pro</span>
+              </li>
+              <li class="flex space-x-3">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                  class="h-5 w-5 flex-shrink-0 text-green-500"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                <span class="text-sm text-slate-600">Unlimited version history</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 </template>
