@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import { useStore } from 'vuex'
+import { watchForDarkMode } from '~/helpers/dark'
 
 useHead({
-  bodyAttrs: {
-    class: 'antialiased h-screen text-slate-900 dark:text-zinc-200',
-  },
+  bodyAttrs: { class: 'antialiased h-screen text-slate-900 dark:text-zinc-200' },
 })
 
 const store = useStore()
@@ -51,23 +50,38 @@ function loadWorkspaceContent() {
 }
 
 loadWorkspaceContent()
+
+watchForDarkMode()
 </script>
 
 <template>
-  <Transition leave-active-class="transition" leave-to-class="opacity-0 pointer-events-none">
-    <Overlay v-if="!workspaceContentLoaded" :error="workspaceContentError" />
-  </Transition>
+  <div>
+    <Head>
+      <link rel="icon" href="/favicon.svg" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" />
+      <link rel="manifest" href="/site.webmanifest" />
+      <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+      <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+      <meta name="msapplication-TileColor" content="#da532c" />
+      <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
+      <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#18181b" />
+    </Head>
 
-  <div
-    v-if="workspaceContentLoaded"
-    class="fixed inset-0 z-0 flex h-full w-full flex-col overflow-hidden bg-white dark:bg-zinc-900"
-  >
-    <div class="flex h-full min-h-full w-full flex-1 overflow-hidden">
-      <Sidebar />
+    <Transition leave-active-class="transition" leave-to-class="opacity-0 pointer-events-none">
+      <Overlay v-if="!workspaceContentLoaded" :error="workspaceContentError" />
+    </Transition>
 
-      <main class="flex min-w-0 flex-1 flex-col">
-        <slot />
-      </main>
+    <div
+      v-if="workspaceContentLoaded"
+      class="fixed inset-0 z-0 flex h-full w-full flex-col overflow-hidden bg-white dark:bg-zinc-900"
+    >
+      <div class="flex h-full min-h-full w-full flex-1 overflow-hidden">
+        <Sidebar />
+
+        <main class="flex min-w-0 flex-1 flex-col">
+          <slot />
+        </main>
+      </div>
     </div>
   </div>
 </template>
