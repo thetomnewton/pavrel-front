@@ -1,9 +1,9 @@
-<cript setup lang="ts">
+<script setup lang="ts">
 definePageMeta({
   layout: 'blank',
   middleware: 'guest',
 })
-</cript>
+</script>
 
 <template>
   <div>Privacy</div>
