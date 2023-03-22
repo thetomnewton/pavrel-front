@@ -2,7 +2,6 @@ import axios from 'axios'
 
 axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'
 axios.defaults.withCredentials = true
-axios.defaults.baseURL = 'http://localhost:8000'
 
 axios.interceptors.response.use(
   response => {
@@ -22,4 +21,29 @@ axios.interceptors.response.use(
   }
 )
 
-export default axios
+export default {
+  get(url: string) {
+    const config = useRuntimeConfig()
+    return axios.get(url, { baseURL: config.public.backendUrl })
+  },
+
+  post(url: string, params: object) {
+    const config = useRuntimeConfig()
+    return axios.post(url, params, { baseURL: config.public.backendUrl })
+  },
+
+  put(url: string, params: object) {
+    const config = useRuntimeConfig()
+    return axios.put(url, params, { baseURL: config.public.backendUrl })
+  },
+
+  patch(url: string, params: object) {
+    const config = useRuntimeConfig()
+    return axios.put(url, params, { baseURL: config.public.backendUrl })
+  },
+
+  delete(url: string) {
+    const config = useRuntimeConfig()
+    return axios.delete(url, { baseURL: config.public.backendUrl })
+  },
+}
