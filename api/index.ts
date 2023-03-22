@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios, { AxiosResponse } from 'axios'
 
 axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'
 axios.defaults.withCredentials = true
@@ -27,17 +27,17 @@ export default {
     return axios.get(url, { baseURL: config.public.backendUrl })
   },
 
-  post(url: string, params: object) {
+  post(url: string, params: object = {}) {
     const config = useRuntimeConfig()
     return axios.post(url, params, { baseURL: config.public.backendUrl })
   },
 
-  put(url: string, params: object) {
+  put(url: string, params: object = {}) {
     const config = useRuntimeConfig()
     return axios.put(url, params, { baseURL: config.public.backendUrl })
   },
 
-  patch(url: string, params: object) {
+  patch(url: string, params: object = {}) {
     const config = useRuntimeConfig()
     return axios.put(url, params, { baseURL: config.public.backendUrl })
   },
@@ -45,5 +45,9 @@ export default {
   delete(url: string) {
     const config = useRuntimeConfig()
     return axios.delete(url, { baseURL: config.public.backendUrl })
+  },
+
+  all(reqs: Promise<AxiosResponse<any, any>>[]) {
+    return axios.all(reqs)
   },
 }
