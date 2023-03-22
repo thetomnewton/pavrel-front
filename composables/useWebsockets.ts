@@ -1,5 +1,5 @@
 import { useStore } from 'vuex'
-import { echo } from '../helpers/broadcasting'
+import { createEcho } from '../helpers/broadcasting'
 import {
   Idea,
   IdeaActivity,
@@ -25,8 +25,12 @@ type IdeaActivityListener = { ideaActivity: IdeaActivity }
 
 export function useWebSockets() {
   const store = useStore()
+  const config = useRuntimeConfig()
+  const echo = createEcho(config.public.backendUrl)
 
   const addUserListener = () => {
+    if (!echo) return
+
     echo
       .private(`App.Users.${store.state.base.user.id}`)
       .listen('WorkspaceNotificationCreated', ({ notification }: NotificationListener) => {
@@ -44,6 +48,7 @@ export function useWebSockets() {
   }
 
   const addWorkspaceListeners = () => {
+    if (!echo) return
     const workspaceId = store.getters['base/currentWorkspace'].id
 
     echo
