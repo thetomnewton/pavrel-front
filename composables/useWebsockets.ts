@@ -29,7 +29,7 @@ export function useWebSockets() {
   const echo = createEcho(config.public.backendUrl)
 
   const addUserListener = () => {
-    if (!echo) return
+    if (!echo || !store.state.base.user) return
 
     echo
       .private(`App.Users.${store.state.base.user.id}`)
@@ -48,7 +48,8 @@ export function useWebSockets() {
   }
 
   const addWorkspaceListeners = () => {
-    if (!echo) return
+    if (!echo || !store.getters['base/currentWorkspace']) return
+
     const workspaceId = store.getters['base/currentWorkspace'].id
 
     echo
