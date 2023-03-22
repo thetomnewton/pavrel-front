@@ -50,7 +50,7 @@ watch(
 
 <template>
   <nav
-    class="fixed top-0 left-0 bottom-0 z-30 min-w-[200px] bg-slate-50 px-4 py-4 text-slate-700 shadow-md dark:border-r dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-300 md:static md:shadow-none"
+    class="fixed top-0 left-0 bottom-0 z-10 min-w-[200px] bg-slate-50 px-4 py-4 text-slate-700 shadow-md dark:border-r dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-300 md:static md:shadow-none"
     :class="{ 'pointer-events-none opacity-0 md:pointer-events-auto md:opacity-100': !open }"
     v-click-outside="closeViaOutsideClick"
   >
