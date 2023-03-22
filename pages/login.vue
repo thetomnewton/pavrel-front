@@ -42,7 +42,7 @@ async function submit() {
 
           router.push({ path: `/${store.getters['base/currentWorkspace'].slug}/drafts` })
         } else {
-          router.push({ path: `/${store.getters['base/currentWorkspace'].slug}/onboarding` })
+          router.push({ path: `/welcome` })
         }
       })
     })
