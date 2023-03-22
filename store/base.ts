@@ -799,13 +799,6 @@ export default {
 
   actions: {
     async loadAllWorkspaceContent({ getters, commit, dispatch }: VuexAction) {
-      if (!getters.currentWorkspace) {
-        const [userResponse, workspacesResponse] = await Promise.allSettled([api.get('/user'), api.get('/workspaces')])
-
-        if (userResponse.status === 'fulfilled') commit('setUser', userResponse.value.data)
-        if (workspacesResponse.status === 'fulfilled') commit('setWorkspaces', workspacesResponse.value.data)
-      }
-
       await Promise.all([
         dispatch('getIdeaFavorites'),
         dispatch('getIdeas'),

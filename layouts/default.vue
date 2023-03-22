@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useStore } from 'vuex'
 import { watchForDarkMode } from '~/helpers/dark'
+import api from '../api'
 
 useHead({
   bodyAttrs: { class: 'antialiased h-screen text-slate-900 dark:text-zinc-200' },
@@ -9,6 +10,8 @@ useHead({
 const store = useStore()
 const route = useRoute()
 const router = useRouter()
+const { user } = useUsers()
+const { currentWorkspace } = useWorkspace()
 const { setCurrentTeamFromLocalStorage } = useTeams()
 
 const workspaceContentLoaded = computed(() => store.state.base.workspaceContentLoaded)
@@ -29,21 +32,40 @@ watch(workspaceContentLoaded, value => {
 })
 
 function loadWorkspaceContent() {
-  if (workspaceContentLoaded.value) return
+  return new Promise((resolve, reject) => {
+    if (workspaceContentLoaded.value) {
+      resolve('Content loaded')
+      return
+    }
 
-  loadAllWorkspaceContent().then(() => {
-    addUserListener()
-    addWorkspaceListeners()
-    setCurrentTeamFromLocalStorage()
+    const requests = []
 
-    // If the user is not part of any teams and the current route is
-    // a workspace route, redirect them to workspace onboarding.
-    const needsWorkspaceOnboarding =
-      !userCurrentWorkspaceTeams.value.length &&
-      route.params.workspaceSlug &&
-      route.fullPath !== `/${route.params.workspaceSlug}/welcome`
+    if (!user.value) requests.push(api.get('/user'))
+    if (!currentWorkspace.value) requests.push(api.get('/workspaces'))
 
-    if (needsWorkspaceOnboarding) router.push(`/${route.params.workspaceSlug}/welcome`)
+    Promise.allSettled(requests)
+      .then(([userResp, workspacesResp]) => {
+        if (userResp.status === 'fulfilled') store.commit('base/setUser', userResp.value.data)
+        if (workspacesResp.status === 'fulfilled') store.commit('base/setWorkspaces', workspacesResp.value.data)
+
+        loadAllWorkspaceContent().then(() => {
+          addUserListener()
+          addWorkspaceListeners()
+          setCurrentTeamFromLocalStorage()
+
+          // If the user is not part of any teams and the current route is
+          // a workspace route, redirect them to workspace onboarding.
+          const needsWorkspaceOnboarding =
+            !userCurrentWorkspaceTeams.value.length &&
+            route.params.workspaceSlug &&
+            route.fullPath !== `/${route.params.workspaceSlug}/welcome`
+
+          if (needsWorkspaceOnboarding) router.push(`/${route.params.workspaceSlug}/welcome`)
+
+          resolve('Content loaded')
+        })
+      })
+      .catch(e => reject(e))
   })
 }
 

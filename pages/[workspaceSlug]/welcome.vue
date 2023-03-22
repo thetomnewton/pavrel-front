@@ -148,7 +148,11 @@ export default {
                   class="flex items-center px-4 py-3"
                   :class="{ 'border-b border-slate-200 dark:border-zinc-700': key < currentWorkspaceTeams.length - 1 }"
                 >
-                  <Checkbox class="mr-3" @update:checked="toggleTeamSelected(team.id)" />
+                  <Checkbox
+                    :checked="selectedTeams.includes(team.id)"
+                    class="mr-3"
+                    @update:checked="toggleTeamSelected(team.id)"
+                  />
                   <span class="font-medium">{{ team.name }}</span>
                   <span class="ml-auto text-xs text-slate-600 dark:text-zinc-400">
                     {{ team.users?.length ?? 0 }}
