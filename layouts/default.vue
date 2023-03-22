@@ -49,8 +49,6 @@ function loadWorkspaceContent() {
   })
 }
 
-loadWorkspaceContent()
-
 watchForDarkMode()
 </script>
 
