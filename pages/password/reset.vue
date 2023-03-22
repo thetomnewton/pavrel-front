@@ -4,6 +4,7 @@ import { ref } from 'vue'
 
 definePageMeta({
   layout: 'auth',
+  middleware: 'guest',
 })
 
 const props = defineProps<{

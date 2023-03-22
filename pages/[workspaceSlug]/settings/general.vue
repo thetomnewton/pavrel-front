@@ -5,6 +5,7 @@ import { useStore } from 'vuex'
 
 definePageMeta({
   layout: 'settings',
+  middleware: 'auth',
 })
 
 const store = useStore()

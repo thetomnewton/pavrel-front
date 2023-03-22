@@ -3,6 +3,10 @@ import { ref, computed } from 'vue'
 import { useStore } from 'vuex'
 import { Idea, Team } from '../../types'
 
+definePageMeta({
+  middleware: 'auth',
+})
+
 const store = useStore()
 const tab = ref<'created' | 'subscribed'>('created')
 

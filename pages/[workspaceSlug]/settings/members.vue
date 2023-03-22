@@ -4,6 +4,7 @@ import dayjs from 'dayjs'
 
 definePageMeta({
   layout: 'settings',
+  middleware: 'auth',
 })
 
 const route = useRoute()

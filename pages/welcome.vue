@@ -7,6 +7,7 @@ import api from '../api'
 
 definePageMeta({
   layout: 'blank',
+  middleware: 'auth',
 })
 
 const store = useStore()

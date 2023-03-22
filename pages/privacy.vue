@@ -1,6 +1,7 @@
 <cript setup lang="ts">
 definePageMeta({
   layout: 'blank',
+  middleware: 'guest',
 })
 </cript>
 

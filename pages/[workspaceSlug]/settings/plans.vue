@@ -4,6 +4,7 @@ import { productIds } from '../../../config/products'
 
 definePageMeta({
   layout: 'settings',
+  middleware: 'auth',
 })
 
 const route = useRoute()

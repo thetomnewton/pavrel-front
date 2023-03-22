@@ -2,6 +2,10 @@
 import api from '../../api'
 import { mapState, mapGetters, mapMutations } from 'vuex'
 
+definePageMeta({
+  middleware: 'auth',
+})
+
 export default {
   props: {
     workspaceSlug: String,

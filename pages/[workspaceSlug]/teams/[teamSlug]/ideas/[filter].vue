@@ -4,6 +4,10 @@ import { useStore } from 'vuex'
 import { Idea, PossibleViewSorts, Team } from '../../../../../types'
 import { truncate } from 'lodash'
 
+definePageMeta({
+  middleware: 'auth',
+})
+
 const route = useRoute()
 const store = useStore()
 

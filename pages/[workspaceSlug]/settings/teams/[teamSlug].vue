@@ -7,6 +7,7 @@ import { InformationCircleIcon, PlusIcon } from '@heroicons/vue/20/solid'
 
 definePageMeta({
   layout: 'settings',
+  middleware: 'auth',
 })
 
 const { currentWorkspace } = useWorkspace()

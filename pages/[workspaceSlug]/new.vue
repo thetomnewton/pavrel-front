@@ -7,6 +7,10 @@ import { Idea, PartialIdea, Team } from '../../types'
 import { ulid } from 'ulid'
 import { Bars3BottomRightIcon } from '@heroicons/vue/24/solid'
 
+definePageMeta({
+  middleware: 'auth',
+})
+
 const store = useStore()
 const router = useRouter()
 

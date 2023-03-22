@@ -4,6 +4,7 @@ import { ComputerDesktopIcon, SunIcon, MoonIcon } from '@heroicons/vue/20/solid'
 
 definePageMeta({
   layout: 'settings',
+  middleware: 'auth',
 })
 
 const theme = ref((localStorage && localStorage.colorTheme) || 'system')

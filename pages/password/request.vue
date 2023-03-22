@@ -4,6 +4,7 @@ import { onMounted, ref } from 'vue'
 
 definePageMeta({
   layout: 'auth',
+  middleware: 'guest',
 })
 
 const form = ref({

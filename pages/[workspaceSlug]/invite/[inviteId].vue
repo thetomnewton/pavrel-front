@@ -5,6 +5,7 @@ import { mapState } from 'vuex'
 
 definePageMeta({
   layout: 'auth',
+  middleware: 'guest',
 })
 
 export default {

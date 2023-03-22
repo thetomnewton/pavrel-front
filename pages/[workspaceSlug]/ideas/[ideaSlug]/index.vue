@@ -6,6 +6,10 @@ import { cloneDeep } from 'lodash'
 import { Bars3BottomRightIcon } from '@heroicons/vue/24/solid'
 import { Idea, Label, Team } from '../../../../types'
 
+definePageMeta({
+  middleware: 'auth',
+})
+
 const store = useStore()
 const router = useRouter()
 const route = useRoute()
