@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { useStore } from 'vuex'
 import { watchForDarkMode } from '~/helpers/dark'
-import api from '../api'
 
 useHead({
   bodyAttrs: { class: 'antialiased h-screen text-slate-900 dark:text-zinc-200' },
@@ -10,17 +9,11 @@ useHead({
 const store = useStore()
 const route = useRoute()
 const router = useRouter()
-const { user } = useUsers()
-const { currentWorkspace } = useWorkspace()
-const { setCurrentTeamFromLocalStorage } = useTeams()
+
+const { loadWorkspaceContent } = useWorkspace()
 
 const workspaceContentLoaded = computed(() => store.state.base.workspaceContentLoaded)
 const workspaceContentError = computed(() => store.state.base.workspaceContentError)
-const userCurrentWorkspaceTeams = computed(() => store.getters['base/userCurrentWorkspaceTeams'])
-
-const loadAllWorkspaceContent = () => store.dispatch('base/loadAllWorkspaceContent')
-
-const { addUserListener, addWorkspaceListeners } = useWebSockets()
 
 watch(workspaceContentLoaded, value => {
   if (!value) return
@@ -33,50 +26,9 @@ watch(workspaceContentLoaded, value => {
     router.push(`/${route.params.workspaceSlug}/welcome`)
 })
 
-function loadWorkspaceContent() {
-  return new Promise((resolve, reject) => {
-    if (workspaceContentLoaded.value) {
-      resolve('Content loaded')
-      return
-    }
-
-    const requests = []
-
-    if (!user.value) requests.push(api.get('/user'))
-    if (!currentWorkspace.value) requests.push(api.get('/workspaces'))
-
-    Promise.allSettled(requests)
-      .then(([userResp, workspacesResp]) => {
-        if (userResp.status === 'fulfilled') store.commit('base/setUser', userResp.value.data)
-        if (workspacesResp.status === 'fulfilled') store.commit('base/setWorkspaces', workspacesResp.value.data)
-
-        if (userResp.status !== 'fulfilled' || workspacesResp.status !== 'fulfilled') {
-          reject('Workspace load error')
-          return
-        }
-
-        loadAllWorkspaceContent().then(() => {
-          addUserListener()
-          addWorkspaceListeners()
-          setCurrentTeamFromLocalStorage()
-
-          // If the user is not part of any teams and the current route is
-          // a workspace route, redirect them to workspace onboarding.
-          const needsWorkspaceOnboarding =
-            !userCurrentWorkspaceTeams.value.length &&
-            route.params.workspaceSlug &&
-            route.fullPath !== `/${route.params.workspaceSlug}/welcome`
-
-          if (needsWorkspaceOnboarding) router.push(`/${route.params.workspaceSlug}/welcome`)
-
-          resolve('Content loaded')
-        })
-      })
-      .catch(e => reject(e))
-  })
-}
-
-if (!workspaceContentLoaded.value) loadWorkspaceContent()
+onMounted(() => {
+  if (!workspaceContentLoaded.value) loadWorkspaceContent()
+})
 
 watchForDarkMode()
 </script>

@@ -9,16 +9,28 @@ useHead({
 })
 
 const store = useStore()
-const { addUserListener, addWorkspaceListeners } = useWebSockets()
+const route = useRoute()
+const router = useRouter()
+
+const { loadWorkspaceContent } = useWorkspace()
 
 const workspaceContentLoaded = computed(() => store.state.base.workspaceContentLoaded)
 const workspaceContentError = computed(() => store.state.base.workspaceContentError)
 
-if (!workspaceContentLoaded.value)
-  store.dispatch('base/loadAllWorkspaceContent').then(() => {
-    addUserListener()
-    addWorkspaceListeners()
-  })
+watch(workspaceContentLoaded, value => {
+  if (!value) return
+
+  if (
+    !store.state.base.teams.length &&
+    route.fullPath !== `/${route.params.workspaceSlug}/welcome` &&
+    route.params.workspaceSlug
+  )
+    router.push(`/${route.params.workspaceSlug}/welcome`)
+})
+
+onMounted(() => {
+  if (!workspaceContentLoaded.value) loadWorkspaceContent()
+})
 
 const sidebarOpen = ref(false)
 
