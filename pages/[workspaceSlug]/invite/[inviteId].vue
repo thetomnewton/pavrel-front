@@ -58,7 +58,7 @@ export default {
           })
       })
       .catch(() => {
-        location.href = '/'
+        this.$router.push('/')
       })
   },
 
@@ -81,7 +81,7 @@ export default {
             .then(() => {
               this.form.password = ''
               this.form.password_confirmation = ''
-              location.href = `/${this.workspace.slug}/drafts`
+              this.$router.push(`/${this.workspace.slug}/drafts`)
             })
         })
     },
@@ -106,7 +106,7 @@ export default {
         })
         .then(() => {
           this.form.password = ''
-          location.href = `/${this.workspace.slug}/drafts`
+          this.$router.push(`/${this.workspace.slug}/drafts`)
         })
     },
 
@@ -114,7 +114,7 @@ export default {
       api
         .post(`/workspaces/${this.workspace.id}/invitations/${this.$route.params.inviteId}/claim`)
         .then(() => {
-          location.href = `/${this.workspace.slug}/drafts`
+          this.$router.push(`/${this.workspace.slug}/drafts`)
         })
         .catch(error => {
           // todo: catch errors
@@ -125,7 +125,7 @@ export default {
 </script>
 
 <template>
-  <div>
+  <div v-if="workspace">
     <div class="mb-6 text-center">
       <h1 class="mb-2 text-2xl font-semibold text-slate-800 dark:text-zinc-200">
         Join the {{ workspace.name }} workspace
@@ -315,7 +315,7 @@ export default {
         <div class="rounded-md border border-slate-200 p-5 text-center">
           <p class="mb-4">This invitation has already been claimed.</p>
           <p>
-            <Button onclick="location.href = '/login'" class="rounded-md px-5 py-2 shadow">
+            <Button onclick="$router.push('/login')" class="rounded-md px-5 py-2 shadow">
               {{ isLoggedIn ? 'Back to Pavrel' : 'Back to login' }}
             </Button>
           </p>

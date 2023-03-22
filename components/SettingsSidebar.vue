@@ -6,10 +6,7 @@ import { Team, Workspace } from '../types'
 import { Bars3Icon } from '@heroicons/vue/24/solid'
 import vClickOutside from '../directives/click-outside'
 import { useRoute, useRouter } from 'vue-router'
-import { useTeams } from '../composables/teams'
-import { useUsers } from '../composables/users'
 import { PlusIcon } from '@heroicons/vue/20/solid'
-import CreateTeamModal from './CreateTeamModal.vue'
 
 const props = defineProps<{
   open: boolean
@@ -64,103 +61,104 @@ watch(
     </div>
 
     <div class="mb-6">
-      <RouterLink
+      <NuxtLink
         :to="`/${currentWorkspace?.slug}/drafts`"
         class="flex cursor-default items-center text-[18px] font-medium"
       >
         <ChevronLeftIcon class="mr-2 mt-px h-[14px] w-[14px] text-slate-400" />
         <span>Settings</span>
-      </RouterLink>
+      </NuxtLink>
     </div>
 
     <div class="space-y-6" v-if="currentWorkspace">
       <div>
         <div class="mb-[2px] ml-2 text-[.8125rem] font-medium text-slate-500 dark:text-zinc-400">Account</div>
 
-        <RouterLink
+        <NuxtLink
           :to="`/${currentWorkspace.slug}/user/profile`"
           class="mb-px block w-full cursor-default rounded px-2 py-1 text-[14px] font-medium hover:bg-slate-200 dark:hover:bg-zinc-800"
           :class="{
-            'bg-slate-200 text-slate-800 dark:bg-zinc-800 dark:text-zinc-200': $route.name === 'workspace.user.profile',
+            'bg-slate-200 text-slate-800 dark:bg-zinc-800 dark:text-zinc-200':
+              $route.fullPath === `/${currentWorkspace.slug}/user/profile`,
           }"
         >
           My account
-        </RouterLink>
+        </NuxtLink>
 
-        <RouterLink
+        <NuxtLink
           :to="`/${currentWorkspace.slug}/user/preferences`"
           class="mb-px block w-full cursor-default rounded px-2 py-1 text-[14px] font-medium hover:bg-slate-200 dark:hover:bg-zinc-800"
           :class="{
             'bg-slate-200 text-slate-800 dark:bg-zinc-800 dark:text-zinc-200':
-              $route.name === 'workspace.user.preferences',
+              $route.fullPath === `/${currentWorkspace.slug}/user/preferences`,
           }"
         >
           Preferences
-        </RouterLink>
+        </NuxtLink>
       </div>
 
       <div>
         <div class="mb-[2px] ml-2 text-[.8125rem] font-medium text-slate-500 dark:text-zinc-400">Workspace</div>
 
-        <RouterLink
+        <NuxtLink
           :to="`/${currentWorkspace.slug}/settings/general`"
           class="mb-px block w-full cursor-default rounded px-2 py-1 text-[14px] font-medium hover:bg-slate-200 dark:hover:bg-zinc-800"
           :class="{
             'bg-slate-200 text-slate-800 dark:bg-zinc-800 dark:text-zinc-200':
-              $route.name === 'workspace.settings.general',
+              $route.fullPath === `/${currentWorkspace.slug}/settings/general`,
           }"
         >
           General
-        </RouterLink>
+        </NuxtLink>
 
-        <RouterLink
+        <NuxtLink
           :to="`/${currentWorkspace.slug}/settings/members`"
           class="mb-px block w-full cursor-default rounded px-2 py-1 text-[14px] font-medium hover:bg-slate-200 dark:hover:bg-zinc-800"
           :class="{
             'bg-slate-200 text-slate-800 dark:bg-zinc-800 dark:text-zinc-200':
-              $route.name === 'workspace.settings.members',
+              $route.fullPath === `/${currentWorkspace.slug}/settings/members`,
           }"
         >
           Members
-        </RouterLink>
+        </NuxtLink>
 
-        <RouterLink
+        <NuxtLink
           :to="`/${currentWorkspace.slug}/settings/plans`"
           class="mb-px block w-full cursor-default rounded px-2 py-1 text-[14px] font-medium hover:bg-slate-200 dark:hover:bg-zinc-800"
           :class="{
             'bg-slate-200 text-slate-800 dark:bg-zinc-800 dark:text-zinc-200':
-              $route.name === 'workspace.settings.plans',
+              $route.fullPath === `/${currentWorkspace.slug}/settings/plans`,
           }"
         >
           Upgrade
-        </RouterLink>
+        </NuxtLink>
 
-        <RouterLink
+        <NuxtLink
           :to="`/${currentWorkspace.slug}/settings/billing`"
           class="mb-px block w-full cursor-default rounded px-2 py-1 text-[14px] font-medium hover:bg-slate-200 dark:hover:bg-zinc-800"
           :class="{
             'bg-slate-200 text-slate-800 dark:bg-zinc-800 dark:text-zinc-200':
-              $route.name === 'workspace.settings.billing',
+              $route.fullPath === `/${currentWorkspace.slug}/settings/billing`,
           }"
         >
           Billing
-        </RouterLink>
+        </NuxtLink>
       </div>
 
       <div>
         <div class="mb-[2px] ml-2 text-[.8125rem] font-medium text-slate-500 dark:text-zinc-400">Your teams</div>
 
         <template v-for="team in myTeams">
-          <RouterLink
+          <NuxtLink
             :to="`/${currentWorkspace.slug}/settings/teams/${team.slug}`"
             class="mb-px block w-full max-w-[175px] cursor-default truncate rounded px-2 py-1 text-sm font-medium hover:bg-slate-200 dark:hover:bg-zinc-800"
             :class="{
               'bg-slate-200 text-slate-800 dark:bg-zinc-800 dark:text-zinc-200':
-                $route.name === 'workspace.settings.team' && $route.params.teamSlug === team.slug,
+                $route.fullPath === `/${currentWorkspace.slug}/settings/teams/${team.slug}`,
             }"
           >
             {{ team.name }}
-          </RouterLink>
+          </NuxtLink>
         </template>
 
         <div
@@ -176,16 +174,16 @@ watch(
         <div class="mb-[2px] ml-2 text-[.8125rem] font-medium text-slate-500 dark:text-zinc-400">Other teams</div>
 
         <template v-for="team in notMyTeams">
-          <RouterLink
+          <NuxtLink
             :to="`/${currentWorkspace.slug}/settings/teams/${team.slug}`"
             class="mb-px block w-full cursor-default rounded px-2 py-1 text-[14px] font-medium hover:bg-slate-200 dark:hover:bg-zinc-800"
             :class="{
               'bg-slate-200 text-slate-800 dark:bg-zinc-800 dark:text-zinc-200':
-                $route.name === 'workspace.settings.team' && $route.params.teamSlug === team.slug,
+                $route.fullPath === `/${currentWorkspace.slug}/settings/teams/${team.slug}`,
             }"
           >
             {{ team.name }}
-          </RouterLink>
+          </NuxtLink>
         </template>
       </div>
     </div>
