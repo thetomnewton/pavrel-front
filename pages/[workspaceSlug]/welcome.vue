@@ -36,8 +36,7 @@ export default {
       immediate: true,
       handler(value) {
         if (value) this.showForm = true
-        if (value && this.userCurrentWorkspaceTeams?.length)
-          this.$router.push({ name: 'drafts', params: { workspaceSlug: this.currentWorkspace.slug } })
+        if (value && this.userCurrentWorkspaceTeams?.length) this.$router.push(`/${this.currentWorkspace.slug}/welcome`)
       },
     },
   },

@@ -135,7 +135,7 @@ function handleQuickCreateExpand() {
 }
 
 function selectTeam(team: Team) {
-  router.push({ path: `/${currentWorkspace.value.slug}/teams/${team.slug}/ideas/all` })
+  router.push(`/${currentWorkspace.value.slug}/teams/${team.slug}/ideas/all`)
 
   toggleExpandedTeam(team.id)
 }
@@ -415,7 +415,7 @@ onUnmounted(() => {
               <template #content>
                 <div class="px-2 py-1 text-[.8125rem]">
                   <div
-                    @click.stop="router.push({ path: `/${currentWorkspace.slug}/settings/teams/${team.slug}` })"
+                    @click.stop="router.push(`/${currentWorkspace.slug}/settings/teams/${team.slug}`)"
                     class="block cursor-default rounded p-2 leading-[15px] text-slate-700 hover:bg-slate-100 dark:text-zinc-300 dark:hover:bg-zinc-700"
                   >
                     Team settings

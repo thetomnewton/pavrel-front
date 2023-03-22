@@ -19,13 +19,13 @@ const loadAllWorkspaceContent = () => store.dispatch('base/loadAllWorkspaceConte
 
 const { addUserListener, addWorkspaceListeners } = useWebSockets()
 
-if (!workspaceContentLoaded.value) loadAllWorkspaceContent()
+if (!workspaceContentLoaded.value) loadWorkspaceContent()
 
 watch(workspaceContentLoaded, value => {
   if (!value) return
 
   if (!store.state.base.teams.length && route.name !== 'workspace.onboarding' && route.params.workspaceSlug)
-    router.push({ path: `/${route.params.workspaceSlug}/welcome` })
+    router.push(`/${route.params.workspaceSlug}/welcome`)
 })
 
 function loadWorkspaceContent() {
@@ -40,12 +40,10 @@ function loadWorkspaceContent() {
     // a workspace route, redirect them to workspace onboarding.
     const needsWorkspaceOnboarding =
       !userCurrentWorkspaceTeams.value.length &&
-      route.meta.auth &&
       route.params.workspaceSlug &&
-      route.name !== 'workspace.onboarding'
+      route.fullPath !== `/${route.params.workspaceSlug}/welcome`
 
-    if (needsWorkspaceOnboarding)
-      router.push({ name: 'workspace.onboarding', params: { workspaceSlug: route.params.workspaceSlug } })
+    if (needsWorkspaceOnboarding) router.push(`/${route.params.workspaceSlug}/welcome`)
   })
 }
 

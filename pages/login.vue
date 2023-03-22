@@ -40,9 +40,9 @@ async function submit() {
         if (y.data?.length) {
           store.commit('base/setCurrentWorkspaceFromMostRecent')
 
-          router.push({ path: `/${store.getters['base/currentWorkspace'].slug}/drafts` })
+          router.push(`/${store.getters['base/currentWorkspace'].slug}/drafts`)
         } else {
-          router.push({ path: `/welcome` })
+          router.push(`/welcome`)
         }
       })
     })
