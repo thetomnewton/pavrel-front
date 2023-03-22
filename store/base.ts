@@ -799,7 +799,7 @@ export default {
 
   actions: {
     async loadAllWorkspaceContent({ getters, commit, dispatch }: VuexAction) {
-      if (!getters.currentWorkspace) throw ReferenceError('No workspace')
+      if (!getters.currentWorkspace) return
 
       await Promise.all([
         dispatch('getIdeaFavorites'),
