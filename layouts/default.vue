@@ -22,12 +22,14 @@ const loadAllWorkspaceContent = () => store.dispatch('base/loadAllWorkspaceConte
 
 const { addUserListener, addWorkspaceListeners } = useWebSockets()
 
-if (!workspaceContentLoaded.value) loadWorkspaceContent()
-
 watch(workspaceContentLoaded, value => {
   if (!value) return
 
-  if (!store.state.base.teams.length && route.name !== 'workspace.onboarding' && route.params.workspaceSlug)
+  if (
+    !store.state.base.teams.length &&
+    route.fullPath !== `/${route.params.workspaceSlug}/welcome` &&
+    route.params.workspaceSlug
+  )
     router.push(`/${route.params.workspaceSlug}/welcome`)
 })
 
@@ -47,6 +49,11 @@ function loadWorkspaceContent() {
       .then(([userResp, workspacesResp]) => {
         if (userResp.status === 'fulfilled') store.commit('base/setUser', userResp.value.data)
         if (workspacesResp.status === 'fulfilled') store.commit('base/setWorkspaces', workspacesResp.value.data)
+
+        if (userResp.status !== 'fulfilled' || workspacesResp.status !== 'fulfilled') {
+          reject('Workspace load error')
+          return
+        }
 
         loadAllWorkspaceContent().then(() => {
           addUserListener()
@@ -68,6 +75,8 @@ function loadWorkspaceContent() {
       .catch(e => reject(e))
   })
 }
+
+if (!workspaceContentLoaded.value) loadWorkspaceContent()
 
 watchForDarkMode()
 </script>
