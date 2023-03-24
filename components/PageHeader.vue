@@ -11,7 +11,7 @@ import { IdeaFilter, Idea } from '../types'
 import StatusIcon from './StatusIcon.vue'
 import ContentFilterModal from './ContentFilterModal.vue'
 import { ulid } from 'ulid'
-import { truncate } from 'lodash'
+import { truncate } from 'lodash-es'
 
 const store = useStore()
 

@@ -4,7 +4,7 @@ import api from '../api'
 import { User, Workspace, WorkspaceInvitation } from '../types'
 import { computed, ref, watch } from 'vue'
 import { useStore } from 'vuex'
-import { cloneDeep } from 'lodash'
+import { cloneDeep } from 'lodash-es'
 import BaseDialog from './BaseDialog.vue'
 
 const store = useStore()

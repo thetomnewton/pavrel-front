@@ -1,4 +1,4 @@
-import { maxBy } from 'lodash'
+import { maxBy } from 'lodash-es'
 import { ulid } from 'ulid'
 import { Idea, PartialIdea, Team } from '../types'
 

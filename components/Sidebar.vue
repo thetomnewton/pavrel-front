@@ -16,7 +16,7 @@ import {
   EllipsisHorizontalIcon,
   LockClosedIcon,
 } from '@heroicons/vue/20/solid'
-import { find } from 'lodash'
+import { find } from 'lodash-es'
 import { useLocalStorage } from '@vueuse/core'
 import { Idea, Team, Workspace } from '../types'
 import { RouteLocationNamedRaw, useRoute, useRouter } from 'vue-router'

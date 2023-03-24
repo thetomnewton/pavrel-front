@@ -4,7 +4,7 @@ import { computed, ref } from 'vue'
 import { IdeaFilter, Idea, IdeaStatus, Team, User, Workspace, Label } from '../types'
 import StatusIcon from './StatusIcon.vue'
 import { ulid } from 'ulid'
-import { cloneDeep } from 'lodash'
+import { cloneDeep } from 'lodash-es'
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
 
 const { getUserById } = useUsers()

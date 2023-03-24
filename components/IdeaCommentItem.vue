@@ -2,7 +2,7 @@
 import { ref, computed } from 'vue'
 import { useStore } from 'vuex'
 import { EllipsisHorizontalIcon } from '@heroicons/vue/24/solid'
-import { cloneDeep } from 'lodash'
+import { cloneDeep } from 'lodash-es'
 import dayjs from 'dayjs/esm'
 import relative from 'dayjs/esm/plugin/relativeTime'
 import Dropdown from './Dropdown.vue'

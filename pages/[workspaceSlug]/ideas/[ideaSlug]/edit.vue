@@ -3,7 +3,7 @@ import { ref, computed, watch } from 'vue'
 import { useStore } from 'vuex'
 import { RouteLocationNormalized, useRouter } from 'vue-router'
 import { Bars3BottomRightIcon } from '@heroicons/vue/24/solid'
-import { cloneDeep } from 'lodash'
+import { cloneDeep } from 'lodash-es'
 import { Idea, Team } from '../../../../types'
 
 definePageMeta({

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import IdeaListItem from '../components/IdeaListItem.vue'
-import { last } from 'lodash'
+import { last } from 'lodash-es'
 import { Idea, Team } from '../types'
 import { computed, ref, watch } from 'vue'
 import store from '../store'

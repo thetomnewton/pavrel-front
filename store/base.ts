@@ -1,5 +1,5 @@
 import { Commit, Dispatch } from 'vuex'
-import { cloneDeep, uniqBy } from 'lodash'
+import { cloneDeep, uniqBy } from 'lodash-es'
 import api from '../api'
 import * as Sentry from '@sentry/browser'
 import { BaseModuleState } from './index'

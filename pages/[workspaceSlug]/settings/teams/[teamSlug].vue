@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { cloneDeep } from 'lodash'
+import { cloneDeep } from 'lodash-es'
 import { ref, computed, watch } from 'vue'
 import { Team, TeamUserRoles, User } from '../../../../types'
 import { LockClosedIcon, UsersIcon } from '@heroicons/vue/24/solid'

@@ -2,7 +2,7 @@
 import { computed } from 'vue'
 import { useStore } from 'vuex'
 import { Idea, PossibleViewSorts, Team } from '../../../../../types'
-import { truncate } from 'lodash'
+import { truncate } from 'lodash-es'
 
 definePageMeta({
   middleware: 'auth',

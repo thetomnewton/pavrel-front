@@ -5,7 +5,7 @@ import DeleteIdeaCommentModal from './DeleteIdeaCommentModal.vue'
 import IdeaCommentItem from './IdeaCommentItem.vue'
 import IdeaActivityItem from './IdeaActivityItem.vue'
 import dayjs from 'dayjs'
-import { groupBy } from 'lodash'
+import { groupBy } from 'lodash-es'
 
 const props = defineProps<{
   comments: IdeaComment[]

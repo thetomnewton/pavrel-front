@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { cloneDeep } from 'lodash'
+import { cloneDeep } from 'lodash-es'
 import { ChevronLeftIcon } from '@heroicons/vue/24/solid'
 import api from '../../api'
 import { nextTick, onMounted, ref } from 'vue'

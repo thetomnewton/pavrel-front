@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { debounce } from 'lodash'
+import { debounce } from 'lodash-es'
 import { onMounted, onUnmounted, ref } from 'vue'
 
 const isMouseDown = ref(false)

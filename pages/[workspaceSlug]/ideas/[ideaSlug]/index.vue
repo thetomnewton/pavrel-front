@@ -2,7 +2,7 @@
 import { ref, computed, watch } from 'vue'
 import { useStore } from 'vuex'
 import { useRouter } from 'vue-router'
-import { cloneDeep } from 'lodash'
+import { cloneDeep } from 'lodash-es'
 import { Bars3BottomRightIcon } from '@heroicons/vue/24/solid'
 import { Idea, Label, Team } from '../../../../types'
 

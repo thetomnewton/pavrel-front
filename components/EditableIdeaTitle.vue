@@ -6,7 +6,7 @@ export default {
 
 <script setup lang="ts">
 import { nextTick, onMounted, ref, Ref, onUnmounted } from 'vue'
-import { debounce } from 'lodash'
+import { debounce } from 'lodash-es'
 
 defineProps({ modelValue: String })
 

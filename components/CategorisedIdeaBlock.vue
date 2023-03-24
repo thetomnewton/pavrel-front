@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, computed, watch, onMounted, onUnmounted } from 'vue'
 import { useRouter } from 'vue-router'
-import { groupBy } from 'lodash'
+import { groupBy } from 'lodash-es'
 import { ideaStatusSort } from '../helpers/ideas'
 import IdeasList from './IdeasList.vue'
 import IdeaPreview from './IdeaPreview.vue'

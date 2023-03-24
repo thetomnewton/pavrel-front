@@ -1,4 +1,4 @@
-import { cloneDeep } from 'lodash'
+import { cloneDeep } from 'lodash-es'
 import { computed, ref } from 'vue'
 import { useStore } from 'vuex'
 import { Idea, WorkspaceNotification } from '../types'

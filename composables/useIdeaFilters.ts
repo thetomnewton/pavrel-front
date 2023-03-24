@@ -1,4 +1,4 @@
-import { cloneDeep } from 'lodash'
+import { cloneDeep } from 'lodash-es'
 import { ref } from 'vue'
 import { IdeaFilter, Idea, IdeaStatus, User, Label } from '../types'
 

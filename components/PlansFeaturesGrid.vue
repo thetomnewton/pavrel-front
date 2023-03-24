@@ -3,7 +3,7 @@ import { computed, ref } from 'vue'
 import Switch from '../components/Switch.vue'
 import { Workspace } from '../types'
 import { priceValues, priceIds, productIds } from '../config/products'
-import { clone } from 'lodash'
+import { clone } from 'lodash-es'
 import { CheckIcon } from '@heroicons/vue/20/solid'
 
 defineProps<{
