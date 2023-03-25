@@ -17,7 +17,7 @@ useHead({
 onMounted(() => {
   api
     .get('/workspaces')
-    .then(({ data }) => router.push(`/${data[data.length - 1].slug}/drafts`))
+    .then(({ data }) => router.push(`/${localStorage.getItem('last-workspace') ?? data[data.length - 1].slug}/drafts`))
     .catch(() => {})
 })
 
