@@ -2,7 +2,7 @@ import Echo from 'laravel-echo'
 import Pusher from 'pusher-js'
 import api from '../api'
 
-export function createEcho(backendUrl: string) {
+export function createEcho(backendUrl: string, websocketHost: string) {
   if (typeof window === 'undefined') return
 
   // @ts-ignore
@@ -14,7 +14,7 @@ export function createEcho(backendUrl: string) {
   return new Echo({
     broadcaster: 'pusher',
     key: 'app-key',
-    wsHost: 'localhost',
+    wsHost: websocketHost,
     wsPort: 6001,
     forceTLS: backendUrl.split(':')[0] === 'https',
     disableStats: true,

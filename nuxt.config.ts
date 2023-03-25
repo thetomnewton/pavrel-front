@@ -7,7 +7,7 @@ export default defineNuxtConfig({
     },
   },
   runtimeConfig: {
-    public: { backendUrl: '' },
+    public: { backendUrl: '', websocketHost: '' },
   },
   css: ['~/assets/css/tailwind.css'],
 })

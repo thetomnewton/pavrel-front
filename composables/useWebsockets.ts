@@ -26,7 +26,7 @@ type IdeaActivityListener = { ideaActivity: IdeaActivity }
 export function useWebSockets() {
   const store = useStore()
   const config = useRuntimeConfig()
-  const echo = createEcho(config.public.backendUrl)
+  const echo = createEcho(config.public.backendUrl, config.public.websocketHost)
 
   const addUserListener = () => {
     if (!echo || !store.state.base.user) return
