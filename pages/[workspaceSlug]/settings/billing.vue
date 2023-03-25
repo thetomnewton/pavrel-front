@@ -8,6 +8,10 @@ const route = useRoute()
 const { getWorkspaceFromSlug } = useWorkspace()
 
 const workspace = getWorkspaceFromSlug(route.params.workspaceSlug as string)
+
+useHead({
+  title: `Billing › ${workspace?.name}`,
+})
 </script>
 
 <template>

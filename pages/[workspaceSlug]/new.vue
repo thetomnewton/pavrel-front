@@ -11,6 +11,10 @@ definePageMeta({
   middleware: 'auth',
 })
 
+useHead({
+  title: 'New idea',
+})
+
 const store = useStore()
 const router = useRouter()
 

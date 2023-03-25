@@ -3,6 +3,10 @@ definePageMeta({
   middleware: 'auth',
 })
 
+useHead({
+  title: 'Inbox',
+})
+
 const {
   notifications,
   selectedNotification,

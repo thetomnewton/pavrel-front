@@ -35,6 +35,10 @@ const team = computed<Team>(() => currentWorkspaceTeams.value?.find((team: Team)
 const updateIdea = (idea: Idea) => store.dispatch('base/updateIdea', idea)
 const toggleFavorite = (idea: Idea) => store.dispatch('base/toggleFavorite', idea)
 
+useHead({
+  title: `${team.value?.slug}-${idea.value?.team_idea_id}: ${idea.value?.title}`,
+})
+
 function updateStatus(id: string) {
   if (!newIdea.value) return
 

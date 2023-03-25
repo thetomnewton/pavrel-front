@@ -10,6 +10,10 @@ definePageMeta({
   layout: 'auth',
 })
 
+useHead({
+  title: 'Log in',
+})
+
 const form = ref({
   email: '',
   password: '',

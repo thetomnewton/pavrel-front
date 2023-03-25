@@ -7,6 +7,10 @@ definePageMeta({
   middleware: 'auth',
 })
 
+useHead({
+  title: `Account preferences`,
+})
+
 const theme = ref((localStorage && localStorage.colorTheme) || 'system')
 
 function updateTheme(newTheme: string) {

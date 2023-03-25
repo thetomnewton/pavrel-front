@@ -7,6 +7,10 @@ definePageMeta({
   middleware: 'guest',
 })
 
+useHead({
+  title: 'Forgot password',
+})
+
 const form = ref({
   email: '',
 })

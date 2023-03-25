@@ -3,6 +3,10 @@ definePageMeta({
   layout: 'blank',
   middleware: 'guest',
 })
+
+useHead({
+  title: 'Pavrel Terms of Service',
+})
 </script>
 
 <template>

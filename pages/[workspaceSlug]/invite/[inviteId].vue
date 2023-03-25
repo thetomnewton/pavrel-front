@@ -8,6 +8,10 @@ definePageMeta({
   middleware: 'guest',
 })
 
+useHead({
+  title: 'Join a workspace on Pavrel',
+})
+
 export default {
   data() {
     return {

@@ -7,6 +7,10 @@ definePageMeta({
   middleware: 'auth',
 })
 
+useHead({
+  title: 'Drafts',
+})
+
 const store = useStore()
 const tab = ref<'created' | 'subscribed'>('created')
 

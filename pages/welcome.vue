@@ -10,6 +10,10 @@ definePageMeta({
   middleware: 'auth',
 })
 
+useHead({
+  title: 'Welcome to Pavrel',
+})
+
 const store = useStore()
 const router = useRouter()
 

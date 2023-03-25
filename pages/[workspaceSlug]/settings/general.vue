@@ -14,6 +14,10 @@ const { currentWorkspace } = useWorkspace()
 const workspaceName = ref(currentWorkspace.value?.name ?? '')
 const saving = ref(false)
 
+useHead({
+  title: `Settings › ${workspaceName.value}`,
+})
+
 const attemptWorkspaceNameUpdate = () => {
   saving.value = true
 

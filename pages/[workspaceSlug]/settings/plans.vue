@@ -14,6 +14,10 @@ const { hasSubscription } = useSubscriptions()
 const products = ref(productIds)
 
 const workspace = getWorkspaceFromSlug(route.params.workspaceSlug as string)
+
+useHead({
+  title: `Plans & Upgrade › ${workspace?.name}`,
+})
 </script>
 
 <template>

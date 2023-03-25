@@ -35,6 +35,10 @@ watch(idea, async newValue => {
   if (newIdea.value === null) newIdea.value = cloneDeep(newValue)
 })
 
+useHead({
+  title: `${team.value?.slug}-${idea.value?.team_idea_id}: ${idea.value?.title}`,
+})
+
 function closeSidebar() {
   sidebarOpen.value = false
 }

@@ -8,6 +8,10 @@ definePageMeta({
   middleware: 'guest',
 })
 
+useHead({
+  title: 'Create an account',
+})
+
 const form = ref({
   processing: false,
   data: {

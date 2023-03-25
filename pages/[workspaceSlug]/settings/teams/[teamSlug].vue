@@ -21,6 +21,11 @@ const teamUpdateStatus = ref<'idle' | 'updating'>('idle')
 const team = computed<Team | undefined>(() =>
   currentWorkspaceTeams.value.find(team => team.slug === route.params.teamSlug)
 )
+
+useHead({
+  title: `Team Settings › ${team.value?.name}`,
+})
+
 const slugAlreadyExists = computed(() =>
   currentWorkspaceTeams.value.find(
     team => newTeam.value && team.id !== newTeam.value.id && team.slug === newTeam.value.slug

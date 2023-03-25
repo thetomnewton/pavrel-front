@@ -6,6 +6,10 @@ definePageMeta({
   middleware: 'auth',
 })
 
+useHead({
+  title: 'Welcome to Pavrel',
+})
+
 export default {
   props: {
     workspaceSlug: String,

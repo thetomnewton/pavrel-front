@@ -7,6 +7,10 @@ definePageMeta({
   middleware: 'guest',
 })
 
+useHead({
+  title: 'Reset your password',
+})
+
 const props = defineProps<{
   email: string
   token: string

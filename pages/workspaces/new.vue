@@ -11,6 +11,10 @@ definePageMeta({
   middleware: 'auth',
 })
 
+useHead({
+  title: 'Create a new workspace',
+})
+
 const store = useStore()
 
 const showForm = ref(false)

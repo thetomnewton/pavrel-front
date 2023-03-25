@@ -15,6 +15,10 @@ const workspace = getWorkspaceFromSlug(route.params.workspaceSlug as string)
 
 const modalOpen = ref(false)
 
+useHead({
+  title: `Members › ${workspace?.name}`,
+})
+
 function niceDate(date: string) {
   return dayjs(date).format('MMM DD YYYY')
 }

@@ -3,6 +3,10 @@ definePageMeta({
   layout: 'settings',
   middleware: 'auth',
 })
+
+useHead({
+  title: `User profile`,
+})
 </script>
 
 <template>

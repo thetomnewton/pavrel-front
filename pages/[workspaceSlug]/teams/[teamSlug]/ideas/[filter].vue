@@ -69,32 +69,40 @@ const relevantTeamIdeas = computed(() => {
 function getIdeaStatusCategory(statusId: string) {
   return (team.value?.statuses ?? []).find(({ id }) => id === statusId)
 }
+
+const heading = computed(() => `${truncate(team.value?.name ?? '', { length: 20 })} › ${title.value}`)
+
+useHead({
+  title: heading.value,
+})
 </script>
 
 <template>
-  <PageHeader
-    :ideas="applyFiltersToIdeas(relevantTeamIdeas)"
-    show-options
-    show-filters
-    :filters="filters"
-    @apply-filter="applyFilter"
-    @update-filter="updateFilter"
-    @remove-filter="removeFilter"
-    class="border-b"
-    :class="[
-      applyFiltersToIdeas(relevantTeamIdeas).length
-        ? 'border-slate-100 dark:border-zinc-700'
-        : 'border-slate-50 dark:border-zinc-800',
-    ]"
-  >
-    <span>
-      <span class="font-medium">{{ truncate(team?.name ?? '', { length: 20 }) }} › {{ title }}</span>
-    </span>
-  </PageHeader>
+  <div>
+    <PageHeader
+      :ideas="applyFiltersToIdeas(relevantTeamIdeas)"
+      show-options
+      show-filters
+      :filters="filters"
+      @apply-filter="applyFilter"
+      @update-filter="updateFilter"
+      @remove-filter="removeFilter"
+      class="border-b"
+      :class="[
+        applyFiltersToIdeas(relevantTeamIdeas).length
+          ? 'border-slate-100 dark:border-zinc-700'
+          : 'border-slate-50 dark:border-zinc-800',
+      ]"
+    >
+      <span>
+        <span class="font-medium">{{ heading }}</span>
+      </span>
+    </PageHeader>
 
-  <CategorisedIdeaBlock
-    :ideas="applyFiltersToIdeas(relevantTeamIdeas)"
-    :category-filter="filter || 'all'"
-    :team-slug="teamSlug"
-  />
+    <CategorisedIdeaBlock
+      :ideas="applyFiltersToIdeas(relevantTeamIdeas)"
+      :category-filter="filter || 'all'"
+      :team-slug="teamSlug"
+    />
+  </div>
 </template>
