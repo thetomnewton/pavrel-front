@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { watchForDarkMode } from '~/helpers/dark'
+import api from '../api'
+
+const router = useRouter()
 
 useHead({
   htmlAttrs: {
@@ -8,6 +11,14 @@ useHead({
   bodyAttrs: {
     class: 'bg-white dark:bg-zinc-900 py-6 overflow-auto antialiased font-sans h-screen text-slate-900 py-6 sm:px-6',
   },
+})
+
+// If already logged in, redirect to logged-in area
+onMounted(() => {
+  api
+    .get('/workspaces')
+    .then(({ data }) => router.push(`/${data[data.length - 1].slug}/drafts`))
+    .catch(() => {})
 })
 
 watchForDarkMode()
