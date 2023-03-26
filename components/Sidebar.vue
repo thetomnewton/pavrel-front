@@ -263,7 +263,8 @@ onUnmounted(() => {
 
     <!-- Nav Links -->
     <div class="px-4" v-if="currentWorkspace">
-      <div
+      <button
+        type="button"
         @click="searchModalOpen = true"
         class="group mb-px flex w-full cursor-default items-center rounded px-2 text-[.8125rem] font-medium leading-7 hover:bg-slate-150 dark:hover:bg-zinc-800"
       >
@@ -271,7 +272,7 @@ onUnmounted(() => {
           class="mr-[9px] ml-px h-4 w-4 text-slate-500 group-hover:text-slate-800 dark:text-zinc-400 dark:group-hover:text-slate-200"
         />
         <span>Search</span>
-      </div>
+      </button>
 
       <NuxtLink
         :to="`/${currentWorkspace.slug}/inbox`"
@@ -341,7 +342,8 @@ onUnmounted(() => {
         <div class="ml-auto mr-[2px]">
           <Dropdown align="left">
             <template #trigger="{ open }">
-              <div
+              <button
+                type="button"
                 class="-mr-[4px] ml-1 flex cursor-default items-center justify-center rounded-[3px] p-1"
                 :class="[
                   open
@@ -350,8 +352,9 @@ onUnmounted(() => {
                 ]"
               >
                 <EllipsisHorizontalIcon class="h-3 w-3" />
-              </div>
+              </button>
             </template>
+
             <template #content>
               <div class="px-2 py-1 text-[.8125rem]">
                 <button
@@ -376,7 +379,8 @@ onUnmounted(() => {
       </div>
 
       <div v-for="team in activePublicTeams" :key="team.id" class="text-[.8125rem] font-medium">
-        <div
+        <button
+          type="button"
           @click="selectTeam(team)"
           class="group mb-px flex w-full cursor-default items-center rounded px-[10px] text-[.8125rem] font-medium leading-7 hover:bg-slate-150 dark:hover:bg-zinc-800"
           :class="{
@@ -400,7 +404,8 @@ onUnmounted(() => {
 
             <Dropdown width="230px" align="left" trigger-wrapper-classes="w-full">
               <template #trigger="{ open }">
-                <div
+                <button
+                  type="button"
                   class="-mr-[4px] ml-1 flex cursor-default items-center justify-center rounded-[3px] p-1"
                   :class="[
                     open
@@ -409,17 +414,17 @@ onUnmounted(() => {
                   ]"
                 >
                   <EllipsisHorizontalIcon class="h-3 w-3" />
-                </div>
+                </button>
               </template>
 
               <template #content>
                 <div class="px-2 py-1 text-[.8125rem]">
-                  <div
+                  <button
                     @click.stop="router.push(`/${currentWorkspace.slug}/settings/teams/${team.slug}`)"
-                    class="block cursor-default rounded p-2 leading-[15px] text-slate-700 hover:bg-slate-100 dark:text-zinc-300 dark:hover:bg-zinc-700"
+                    class="block w-full cursor-default rounded p-2 text-left leading-[15px] text-slate-700 hover:bg-slate-100 dark:text-zinc-300 dark:hover:bg-zinc-700"
                   >
                     Team settings
-                  </div>
+                  </button>
 
                   <button
                     class="block w-full cursor-default appearance-none rounded p-2 text-left leading-[15px] text-slate-700 hover:bg-slate-100 dark:text-zinc-300 dark:hover:bg-zinc-700"
@@ -431,7 +436,7 @@ onUnmounted(() => {
               </template>
             </Dropdown>
           </span>
-        </div>
+        </button>
 
         <Transition
           enter-from-class="h-0"
