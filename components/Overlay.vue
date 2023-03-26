@@ -32,7 +32,7 @@ function retry() {
             <button
               type="button"
               @click="logout"
-              class="ml-3 cursor-default appearance-none rounded border border-slate-200 py-2 px-4 text-sm font-medium leading-5 text-slate-800 shadow-sm hover:border-slate-300 active:bg-slate-50 active:shadow-none"
+              class="ml-3 cursor-default appearance-none rounded-md border border-slate-200 py-2 px-4 text-sm font-medium leading-5 text-slate-800 shadow-sm hover:border-slate-300 active:bg-slate-50 active:shadow-none"
             >
               Log out
             </button>
