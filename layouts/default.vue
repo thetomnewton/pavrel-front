@@ -4,6 +4,19 @@ import { watchForDarkMode } from '~/helpers/dark'
 
 useHead({
   bodyAttrs: { class: 'antialiased h-screen text-slate-900 dark:text-zinc-200' },
+  link: [
+    {
+      rel: 'preconnect',
+      href: 'https://fonts.googleapis.com',
+    },
+    { rel: 'manifest', href: '/site.webmanifest' },
+    { rel: 'icon', href: '/favicon.svg' },
+    {
+      rel: 'apple-touch-icon',
+      sizes: '180x180',
+      href: '/apple-touch-icon.png',
+    },
+  ],
 })
 
 const store = useStore()
@@ -36,12 +49,6 @@ watchForDarkMode()
 <template>
   <div>
     <Head>
-      <link rel="icon" href="/favicon.svg" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" />
-      <link rel="manifest" href="/site.webmanifest" />
-      <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-      <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
-      <meta name="msapplication-TileColor" content="#da532c" />
       <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
       <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#18181b" />
     </Head>

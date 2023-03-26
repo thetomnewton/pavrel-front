@@ -11,6 +11,19 @@ useHead({
   bodyAttrs: {
     class: 'bg-white dark:bg-zinc-900 py-6 overflow-auto antialiased font-sans h-screen text-slate-900 py-6 sm:px-6',
   },
+  link: [
+    {
+      rel: 'preconnect',
+      href: 'https://fonts.googleapis.com',
+    },
+    { rel: 'manifest', href: '/site.webmanifest' },
+    { rel: 'icon', href: '/favicon.svg' },
+    {
+      rel: 'apple-touch-icon',
+      sizes: '180x180',
+      href: '/apple-touch-icon.png',
+    },
+  ],
 })
 
 // If already logged in, redirect to logged-in area

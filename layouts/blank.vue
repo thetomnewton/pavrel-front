@@ -3,6 +3,19 @@ import { watchForDarkMode } from '~~/helpers/dark'
 
 useHead({
   bodyAttrs: { class: 'antialiased h-screen text-slate-900 dark:text-zinc-200' },
+  link: [
+    {
+      rel: 'preconnect',
+      href: 'https://fonts.googleapis.com',
+    },
+    { rel: 'manifest', href: '/site.webmanifest' },
+    { rel: 'icon', href: '/favicon.svg' },
+    {
+      rel: 'apple-touch-icon',
+      sizes: '180x180',
+      href: '/apple-touch-icon.png',
+    },
+  ],
 })
 
 watchForDarkMode()
