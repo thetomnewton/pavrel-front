@@ -34,7 +34,9 @@ defineEmits(['close'])
       <ModalBg />
 
       <ModalWrapper>
-        <DialogPanel class="mx-auto w-full max-w-[850px] rounded-md bg-white shadow-3xl dark:bg-zinc-900 md:mt-[12vh]">
+        <DialogPanel
+          class="mx-auto w-full max-w-[850px] rounded-md bg-white shadow-3xl dark:border dark:border-zinc-700 dark:bg-zinc-900 md:mt-[12vh]"
+        >
           <div class="border-b border-slate-100 dark:border-zinc-700 md:flex">
             <div class="border-slate-100 px-8 py-6 dark:border-zinc-700 md:w-1/2 md:border-r">
               <div class="mb-4 mt-6">

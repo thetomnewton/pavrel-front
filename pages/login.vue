@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useStore } from 'vuex'
-import { User, Workspace } from '~~/types'
+import { Workspace } from '~~/types'
 
 const store = useStore()
 const router = useRouter()
