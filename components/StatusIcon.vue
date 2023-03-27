@@ -35,7 +35,7 @@ defineProps<{
     </svg>
 
     <svg
-      class="h-4 w-4 text-slate-300"
+      class="h-[17px] w-[17px] text-slate-300"
       v-if="category === 2"
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
@@ -49,7 +49,7 @@ defineProps<{
     <svg
       v-if="category === 3"
       xmlns="http://www.w3.org/2000/svg"
-      class="h-4 w-4 text-slate-400"
+      class="h-[17px] w-[17px] text-slate-400"
       fill="none"
       viewBox="0 0 24 24"
       stroke="currentColor"
@@ -63,7 +63,7 @@ defineProps<{
     </svg>
 
     <svg
-      class="h-4 w-4 text-blue-500"
+      class="h-[17px] w-[17px] text-blue-500"
       v-if="category === 4"
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
@@ -77,7 +77,7 @@ defineProps<{
     <svg
       v-if="category === 5"
       xmlns="http://www.w3.org/2000/svg"
-      class="h-4 w-4 text-blue-600"
+      class="h-[17px] w-[17px] text-blue-600"
       fill="none"
       viewBox="0 0 24 24"
       stroke="currentColor"
