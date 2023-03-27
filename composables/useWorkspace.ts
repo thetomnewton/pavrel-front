@@ -1,12 +1,12 @@
 import { computed } from 'vue'
 import { useStore } from 'vuex'
 import { Team, Workspace } from '../types'
-import api from '../api'
 
 export function useWorkspace() {
   const store = useStore()
   const route = useRoute()
   const router = useRouter()
+  const { api } = useApi()
   const { user } = useUsers()
   const { setCurrentTeamFromLocalStorage } = useTeams()
   const { addUserListener, addWorkspaceListeners } = useWebSockets()
@@ -34,8 +34,8 @@ export function useWorkspace() {
 
       const requests = []
 
-      if (!user.value) requests.push(api.get('/user'))
-      if (!currentWorkspace.value) requests.push(api.get('/workspaces'))
+      if (!user.value) requests.push(api('/user'))
+      if (!currentWorkspace.value) requests.push(api('/workspaces'))
 
       Promise.allSettled(requests)
         .then(([userResp, workspacesResp]) => {
