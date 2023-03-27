@@ -252,7 +252,7 @@ onUnmounted(() => {
         type="button"
         @click="toggleQuickCreateIdeaModal"
         :disabled="cantCreateNewIdeas"
-        class="group inline-flex w-full cursor-default items-center rounded-md border border-slate-400 bg-slate-50 py-1.5 pl-[7px] text-[13px] font-medium leading-5 shadow-sm transition hover:shadow active:translate-y-px active:bg-slate-100 active:shadow-none disabled:pointer-events-none disabled:opacity-50 dark:border-zinc-600 dark:bg-zinc-800 dark:hover:border-zinc-500 dark:hover:text-zinc-200 dark:active:bg-[#252528]"
+        class="group inline-flex w-full cursor-default items-center rounded-md border border-slate-400 bg-slate-50 py-1.5 pl-[7px] text-[13px] font-medium leading-5 shadow-sm transition-shadow hover:shadow active:translate-y-px active:bg-slate-100 active:shadow-none disabled:pointer-events-none disabled:opacity-50 dark:border-zinc-600 dark:bg-zinc-800 dark:hover:border-zinc-500 dark:hover:text-zinc-200 dark:active:bg-[#252528]"
       >
         <PlusIcon
           class="mr-[7px] h-[18px] w-[18px] text-slate-500 transition dark:text-zinc-400 dark:group-hover:text-zinc-300"
