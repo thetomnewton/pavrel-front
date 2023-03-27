@@ -812,7 +812,11 @@ export default {
         dispatch('getIdeaActivities'),
       ])
         .then(() => commit('setWorkspaceContentLoaded'))
-        .catch(() => commit('setWorkspaceContentError'))
+        .catch(e => {
+          console.log(e)
+
+          commit('setWorkspaceContentError')
+        })
     },
 
     async createTeam(
