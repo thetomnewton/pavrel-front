@@ -36,9 +36,7 @@ useHead({
   ],
 })
 
-const { data: workspaces } = (await api('/workspaces')) as {
-  data: Ref<Workspace[]>
-}
+const { data: workspaces } = (await api('/workspaces')) as { data: Ref<Workspace[]> }
 
 // If we are logged in
 if (workspaces.value) {

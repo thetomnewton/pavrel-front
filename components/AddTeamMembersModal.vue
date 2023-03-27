@@ -46,7 +46,7 @@ function attemptAddTeamMembers() {
           <h3 class="mx-8 mb-6 pt-6 font-semibold">Add people to {{ team.name }}</h3>
 
           <form @submit.prevent="attemptAddTeamMembers" v-if="team">
-            <div class="max-h-300px overflow-auto pt-1">
+            <div class="max-h-300px overflow-auto pt-1" v-if="usersNotInTeam.length">
               <label
                 v-for="user in usersNotInTeam"
                 :key="user.id"

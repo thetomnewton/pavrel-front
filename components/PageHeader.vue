@@ -60,6 +60,7 @@ const applyContentFilter = (value: string) => {
 
       <span v-if="ideas && (showFilters ?? true)" class="ml-2">
         <IdeaFilterDropdown
+          v-if="ideas.length"
           :team="currentTeam"
           :workspace="currentWorkspace"
           :active-filters="filters ?? []"
