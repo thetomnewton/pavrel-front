@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import api from '../api'
-import { csrf } from '../helpers/auth'
 import { useStore } from 'vuex'
+import { User, Workspace } from '~~/types'
 
 const store = useStore()
 const router = useRouter()
+const { api } = useApi()
 
 definePageMeta({
   layout: 'auth',
@@ -24,6 +24,10 @@ const sending = ref(false)
 const error = ref<{ errors: string[] } | null>(null)
 const email = ref<HTMLInputElement | null>(null)
 
+function csrf() {
+  return api('/sanctum/csrf-cookie')
+}
+
 onMounted(() => {
   setTimeout(() => email.value?.focus())
 })
@@ -33,21 +37,18 @@ async function submit() {
   error.value = null
 
   await csrf()
-  api
-    .post('/login', form.value)
+  api('/login', { method: 'post', body: form.value })
     .then(() => {
-      api.all([api.get('/user'), api.get('/workspaces')]).then(responses => {
-        const [x, y] = responses
-        store.commit('base/setUser', x.data)
-        store.commit('base/setWorkspaces', y.data)
+      Promise.all([api('/user'), api('/workspaces')]).then(responses => {
+        const [{ data: user }, { data: workspaces }] = responses
 
-        if (y.data?.length) {
+        store.commit('base/setUser', user.value)
+        store.commit('base/setWorkspaces', workspaces.value)
+
+        if ((workspaces.value as Workspace[]).length) {
           store.commit('base/setCurrentWorkspaceFromMostRecent')
-
           router.push(`/${store.getters['base/currentWorkspace'].slug}/drafts`)
-        } else {
-          router.push(`/welcome`)
-        }
+        } else router.push(`/welcome`)
       })
     })
     .catch(({ response }) => {

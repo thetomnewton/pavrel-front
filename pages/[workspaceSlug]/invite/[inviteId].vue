@@ -1,6 +1,5 @@
 <script>
 import api from '../../../api'
-import { csrf } from '../../../helpers/auth'
 import { mapState } from 'vuex'
 
 definePageMeta({
@@ -11,6 +10,12 @@ definePageMeta({
 useHead({
   title: 'Join a workspace on Pavrel',
 })
+
+const { $apiFetch } = useNuxtApp()
+
+function csrf() {
+  return $apiFetch('/sanctum/csrf-cookie')
+}
 
 export default {
   data() {

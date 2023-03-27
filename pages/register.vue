@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import api from '../api'
-import { csrf } from '../helpers/auth'
 import { onMounted, ref } from 'vue'
+
+const { api } = useApi()
 
 definePageMeta({
   layout: 'auth',
@@ -31,13 +31,16 @@ onMounted(() => {
   name.value?.focus()
 })
 
+function csrf() {
+  return api('/sanctum/csrf-cookie')
+}
+
 const submit = async () => {
   form.value.processing = true
   error.value = null
   await csrf()
 
-  api
-    .post('/register', form.value.data)
+  api('/register', { method: 'post', body: form.value.data })
     .then(() => {
       form.value.data.password = ''
       form.value.data.password_confirmation = ''

@@ -42,7 +42,7 @@ export function useWorkspace() {
           if (userResp?.status === 'fulfilled') store.commit('base/setUser', userResp.value.data)
           if (workspacesResp?.status === 'fulfilled') store.commit('base/setWorkspaces', workspacesResp.value.data)
 
-          if (userResp?.status == 'rejected' || workspacesResp?.status === 'rejected') {
+          if (userResp?.status === 'rejected' || workspacesResp?.status === 'rejected') {
             reject('Workspace load error')
             return
           }
