@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { watchForDarkMode } from '~/helpers/dark'
 import { Workspace } from '~~/types'
-import { watch, Ref } from 'vue'
+import { Ref } from 'vue'
 
 const { api } = useApi()
 const router = useRouter()
