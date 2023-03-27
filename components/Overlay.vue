@@ -25,7 +25,7 @@ function retry() {
         <div>
           <div class="mb-2 text-center text-lg font-medium">Something went wrong</div>
           <div class="mb-5 text-center text-slate-500 dark:text-zinc-400">
-            There was an error loading your workspace content.
+            There was an error loading your workspace content. {{ error }}
           </div>
 
           <div class="text-center">
