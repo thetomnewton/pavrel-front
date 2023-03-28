@@ -47,6 +47,7 @@ const joinTeamModalOpen = ref(false)
 const nav = ref<HTMLElement | null>(null)
 
 const { user } = useUsers()
+const { getTeamById } = useTeams()
 const { workspaces, currentWorkspace, currentWorkspaceSlug } = useWorkspace()
 
 const quickCreateIdeaModalOpen = computed<boolean>(() => store.state.base.quickCreateIdeaModalOpen)
@@ -62,6 +63,13 @@ const activePublicTeams = computed(() =>
 const expandedTeams = ref<Team['id'][]>([])
 
 const toggleExpandedTeam = (id: Team['id']) => {
+  const teamBeingViewed = route.fullPath === `/${currentWorkspace.value.slug}/teams/${getTeamById(id)?.slug}/ideas/all`
+
+  if (!teamBeingViewed) {
+    expandedTeams.value.push(id)
+    return
+  }
+
   if (expandedTeams.value.includes(id)) expandedTeams.value = expandedTeams.value.filter(teamId => teamId !== id)
   else expandedTeams.value.push(id)
 }
@@ -77,12 +85,6 @@ function setWorkspace(workspace: Workspace) {
 }
 
 const getTeamSlug = (teamId: string) => currentWorkspaceTeams.value?.find(({ id }) => id === teamId)?.slug ?? ''
-
-function goToRoute(data: RouteLocationNamedRaw) {
-  router.push(data).then(() => {
-    if (appSidebarOpen.value) toggleAppSidebar()
-  })
-}
 
 function handleResize(e: MouseEvent) {
   const width = Math.max(200, Math.min(e.pageX, 350))

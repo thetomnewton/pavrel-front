@@ -17,6 +17,8 @@ export function useTeams() {
     )
   )
 
+  const getTeamById = (id: Team['id']) => (store.state.base.teams as Team[]).find(team => team.id === id)
+
   const totalIdeasInTeam = (team: Team) =>
     store.state.base.ideas.filter((idea: Idea) => idea.team_id === team.id).length
 
@@ -123,5 +125,6 @@ export function useTeams() {
     joinTeam,
     updateTeamUserRole,
     addMembersToTeam,
+    getTeamById,
   }
 }
