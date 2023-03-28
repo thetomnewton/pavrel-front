@@ -798,9 +798,10 @@ export default {
   },
 
   actions: {
-    async loadAllWorkspaceContent({ getters, commit, dispatch }: VuexAction) {
+    async loadAllWorkspaceContent({ state, getters, commit, dispatch }: VuexAction) {
       console.log('inside loadAllWorkspaceContent')
       console.log(getters.currentWorkspace)
+      console.log(state.workspaces)
 
       if (!getters.currentWorkspace) return
 
