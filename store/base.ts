@@ -799,6 +799,9 @@ export default {
 
   actions: {
     async loadAllWorkspaceContent({ getters, commit, dispatch }: VuexAction) {
+      console.log('inside loadAllWorkspaceContent')
+      console.log(getters.currentWorkspace)
+
       if (!getters.currentWorkspace) return
 
       await Promise.all([
