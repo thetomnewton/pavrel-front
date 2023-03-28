@@ -35,8 +35,8 @@ export function useWorkspace() {
 
       const requests = []
 
-      if (!user.value) requests.push(axios.get('/user'))
-      if (!currentWorkspace.value) requests.push(axios.get('/workspaces'))
+      if (!user.value) requests.push(api('/user'))
+      if (!currentWorkspace.value) requests.push(api('/workspaces'))
 
       Promise.allSettled(requests)
         .then(([userResp, workspacesResp]) => {
