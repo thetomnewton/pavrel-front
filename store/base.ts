@@ -798,7 +798,9 @@ export default {
   },
 
   actions: {
-    async loadAllWorkspaceContent({ commit, dispatch }: VuexAction) {
+    async loadAllWorkspaceContent({ getters, commit, dispatch }: VuexAction) {
+      if (!getters.currentWorkspace) return
+
       await Promise.all([
         dispatch('getIdeaFavorites'),
         dispatch('getIdeas'),
@@ -812,11 +814,7 @@ export default {
         dispatch('getIdeaActivities'),
       ])
         .then(() => commit('setWorkspaceContentLoaded'))
-        .catch(e => {
-          console.log(e)
-
-          commit('setWorkspaceContentError')
-        })
+        .catch(() => commit('setWorkspaceContentError'))
     },
 
     async createTeam(
