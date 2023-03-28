@@ -38,7 +38,12 @@ export function useWorkspace() {
       if (!currentWorkspace.value) requests.push(axios.get('/workspaces'))
 
       Promise.allSettled(requests)
-        .then(([userResp, workspacesResp]) => {
+        .then(([resp1, resp2]) => {
+          let userResp, workspacesResp
+
+          if (requests.length === 2) [userResp, workspacesResp] = [resp1, resp2]
+          else workspacesResp = resp1
+
           if (userResp?.status === 'fulfilled') store.commit('base/setUser', userResp.value.data)
           if (workspacesResp?.status === 'fulfilled') store.commit('base/setWorkspaces', workspacesResp.value.data)
 

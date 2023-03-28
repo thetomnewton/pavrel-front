@@ -288,12 +288,13 @@ export default {
       if (!state.workspaces?.length) return
 
       const lastWorkspace = localStorage.getItem('last-workspace')
+
       if (lastWorkspace && state.workspaces.find(({ slug }) => slug === lastWorkspace)) {
         state.currentWorkspaceSlug = lastWorkspace
         return
       }
 
-      state.currentWorkspaceSlug = (state.workspaces.at(-1) as Workspace).slug
+      state.currentWorkspaceSlug = state.workspaces[state.workspaces.length - 1].slug
     },
 
     setWorkspaceTeams(state: BaseModuleState, { teams }: { teams: Team[] }) {

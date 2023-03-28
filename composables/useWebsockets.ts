@@ -53,7 +53,7 @@ export function useWebSockets() {
   }
 
   const addWorkspaceListeners = () => {
-    if (!store.state.base.user) return
+    if (!store.getters['base/currentWorkspace']) return
     if (!echo) echo = createEcho(config.public.backendUrl, config.public.websocketHost)
     if (!echo) return
 
