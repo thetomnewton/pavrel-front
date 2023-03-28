@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: "Inter var";
+    font-weight: 100 900;
+    font-style: normal;
+    font-named-instance: "Regular";
+    font-display: swap;
+    src: url("Inter (web)/Inter-roman.var.woff2?v=3.19") format("woff2 supports variations(gvar)");
+  }
+
+  @font-face {
+    font-family: "Inter var";
+    font-weight: 100 900;
+    font-style: italic;
+    font-named-instance: "Italic";
+    font-display: swap;
+    src: url("Inter (web)/Inter-italic.var.woff2?v=3.19") format("woff2 supports variations(gvar)");
+  }
