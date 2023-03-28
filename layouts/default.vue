@@ -4,6 +4,18 @@ import { watchForDarkMode } from '~/helpers/dark'
 
 useHead({
   bodyAttrs: { class: 'antialiased h-screen text-slate-900 dark:text-zinc-200' },
+  meta: [
+    {
+      name: 'theme-color',
+      media: '(prefers-color-scheme: light)',
+      content: '#ffffff',
+    },
+    {
+      name: 'theme-color',
+      media: '(prefers-color-scheme: dark)',
+      content: '#18181b',
+    },
+  ],
   link: [
     {
       rel: 'preconnect',
@@ -59,11 +71,6 @@ watchForDarkMode()
 
 <template>
   <div>
-    <Head>
-      <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
-      <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#18181b" />
-    </Head>
-
     <Transition leave-active-class="transition" leave-to-class="opacity-0 pointer-events-none">
       <Overlay v-if="!workspaceContentLoaded" :error="workspaceContentError" />
     </Transition>
