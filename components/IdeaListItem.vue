@@ -64,7 +64,7 @@ const updateIdea = (idea: Idea) => store.dispatch('base/updateIdea', idea)
 
     <div class="relative">
       <IdeaStatusDropdown :statuses="team.statuses" v-slot="{ toggleOpen }" @selected="updateStatus">
-        <StatusIcon @mousedown="toggleOpen" @click.stop="" :category="statusCategory" />
+        <StatusIcon @click.stop="toggleOpen" :category="statusCategory" />
       </IdeaStatusDropdown>
     </div>
 

@@ -78,7 +78,7 @@ useHead({
 </script>
 
 <template>
-  <div class="flex-1">
+  <div class="flex flex-1 flex-col">
     <PageHeader
       :ideas="applyFiltersToIdeas(relevantTeamIdeas)"
       show-options
