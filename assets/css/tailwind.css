@@ -8,7 +8,7 @@
     font-style: normal;
     font-named-instance: "Regular";
     font-display: swap;
-    src: url("Inter (web)/Inter-roman.var.woff2?v=3.19") format("woff2 supports variations(gvar)");
+    src: url("Inter (web)/Inter-roman.var.woff2?v=3.19") format("woff2 supports variations(gvar)"), url("Inter (web)/Inter-roman.var.woff2?v=3.19") format("woff2-variations"), url("Inter (web)/Inter-roman.var.woff2?v=3.19") format("woff2");
   }
 
   @font-face {
@@ -17,5 +17,5 @@
     font-style: italic;
     font-named-instance: "Italic";
     font-display: swap;
-    src: url("Inter (web)/Inter-italic.var.woff2?v=3.19") format("woff2 supports variations(gvar)");
+    src: url("Inter (web)/Inter-italic.var.woff2?v=3.19") format("woff2 supports variations(gvar)"), url("Inter (web)/Inter-italic.var.woff2?v=3.19") format("woff2-variations"), url("Inter (web)/Inter-italic.var.woff2?v=3.19") format("woff2");
   }
