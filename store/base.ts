@@ -84,6 +84,8 @@ export default {
       if (state.workspaces == null) return null
       if (state.workspaces.length === 1) return state.workspaces[0]
 
+      console.log(state.currentWorkspaceSlug)
+
       return state.workspaces.find(workspace => workspace?.slug === state.currentWorkspaceSlug) || null
     },
 
