@@ -39,7 +39,8 @@ const workspaceContentError = computed(() => store.state.base.workspaceContentEr
 onMounted(() => {
   if (workspaceContentLoaded.value) return
 
-  store.commit('base/setCurrentWorkspaceFromSlug', route.params.workspaceSlug)
+  if (!store.state.base.currentWorkspaceSlug)
+    store.commit('base/setCurrentWorkspaceFromSlug', route.params.workspaceSlug ?? location.pathname.split('/')[1])
 
   loadWorkspaceContent()
     .then(() => {
