@@ -348,18 +348,17 @@ div[data-tippy-root] > div {
 }
 
 .bubble-menu {
-  @apply flex space-x-1 rounded-md border-none bg-slate-800 pl-4 shadow-sm;
+  @apply flex space-x-1 rounded-md border-none bg-slate-800 pl-4 shadow-sm dark:bg-zinc-900;
   padding: 0.2rem;
 }
 .bubble-menu button {
   @apply mb-px ml-px appearance-none border-none bg-none px-1 py-1 text-sm font-medium text-white;
 }
 .bubble-menu button:hover {
-  background: theme('colors.slate.600');
+  @apply bg-slate-600 dark:bg-zinc-600;
 }
 .bubble-menu button.is-active {
-  background: #fff;
-  color: theme('colors.slate.800');
+  @apply bg-white text-slate-800 dark:text-zinc-800;
 }
 
 .ProseMirror .tag,
