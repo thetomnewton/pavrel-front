@@ -801,7 +801,7 @@ export default {
     async loadAllWorkspaceContent({ state, getters, commit, dispatch }: VuexAction) {
       console.log('inside loadAllWorkspaceContent')
       console.log(getters.currentWorkspace)
-      console.log(state.workspaces)
+      console.log(state.workspaces?.length)
 
       if (!getters.currentWorkspace) return
 
