@@ -798,7 +798,7 @@ export default {
   },
 
   actions: {
-    async loadAllWorkspaceContent({ getters, commit, dispatch }: VuexAction) {
+    async loadAllWorkspaceContent({ commit, dispatch }: VuexAction) {
       await Promise.all([
         dispatch('getIdeaFavorites'),
         dispatch('getIdeas'),
