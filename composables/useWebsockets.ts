@@ -78,7 +78,7 @@ export function useWebSockets() {
         store.commit('base/updateIdea', { id: idea.id, updatedIdea: idea })
       })
       .listen('IdeaTrashed', ({ idea }: IdeaListener) => {
-        store.commit('base/trashIdea', { id: idea.id })
+        store.commit('base/trashIdea', idea.id)
       })
       .listen('CommentCreated', ({ comment }: CommentListener) => {
         store.commit('base/updateOrCreateIdeaComment', comment)
