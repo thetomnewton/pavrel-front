@@ -52,7 +52,7 @@ const {
     </div>
 
     <div class="flex-1">
-      <div v-if="!notifications.length" class="flex h-full items-center justify-center p-12">
+      <div v-if="!notifications.length" class="hidden h-full items-center justify-center p-12 lg:flex">
         <div class="flex flex-col items-center justify-center">
           <InboxIcon class="h-12 w-12 stroke-[1px] text-slate-400 dark:text-zinc-500" />
         </div>
