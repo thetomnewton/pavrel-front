@@ -77,6 +77,10 @@ export default {
     },
 
     currentWorkspace(state: BaseModuleState) {
+      console.log('inside currentWorkspace')
+      console.log(`total wspaces: ${state.workspaces?.length}`)
+      console.log(state.workspaces)
+
       if (state.workspaces == null) return null
       if (state.workspaces.length === 1) return state.workspaces[0]
 
