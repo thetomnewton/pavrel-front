@@ -5,7 +5,7 @@ import {
   Bars3Icon,
   DocumentIcon,
   ClockIcon,
-  Cog8ToothIcon,
+  Cog6ToothIcon,
   PresentationChartLineIcon,
   PlusIcon,
 } from '@heroicons/vue/24/outline'
@@ -307,7 +307,7 @@ onUnmounted(() => {
         :to="`/${currentWorkspace.slug}/settings/general`"
         class="group mb-px flex w-full cursor-default items-center rounded px-2 text-[.8125rem] font-medium leading-7 hover:bg-slate-150 dark:hover:bg-zinc-800"
       >
-        <Cog8ToothIcon
+        <Cog6ToothIcon
           class="mr-[9px] ml-px -mt-px h-[17px] w-[17px] text-slate-500 group-hover:text-slate-800 dark:text-zinc-400 dark:group-hover:text-slate-200"
         />
         <span>Settings</span>
