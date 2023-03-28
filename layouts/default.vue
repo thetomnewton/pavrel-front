@@ -37,11 +37,9 @@ const workspaceContentLoaded = computed(() => store.state.base.workspaceContentL
 const workspaceContentError = computed(() => store.state.base.workspaceContentError)
 
 onMounted(() => {
-  console.log(`mounted hook, client is: ${process.client}`)
-
   if (workspaceContentLoaded.value) return
 
-  console.log('workspace content not loaded, about to load...')
+  store.commit('base/setCurrentWorkspaceFromSlug', route.params.workspaceSlug)
 
   loadWorkspaceContent()
     .then(() => {

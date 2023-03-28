@@ -77,14 +77,8 @@ export default {
     },
 
     currentWorkspace(state: BaseModuleState) {
-      console.log('inside currentWorkspace')
-      console.log(`total wspaces: ${state.workspaces?.length}`)
-      console.log(state.workspaces)
-
       if (state.workspaces == null) return null
       if (state.workspaces.length === 1) return state.workspaces[0]
-
-      console.log(state.currentWorkspaceSlug)
 
       return state.workspaces.find(workspace => workspace?.slug === state.currentWorkspaceSlug) || null
     },
@@ -299,7 +293,7 @@ export default {
         return
       }
 
-      state.currentWorkspaceSlug = state.workspaces[state.workspaces.length - 1].slug
+      state.currentWorkspaceSlug = (state.workspaces.at(-1) as Workspace).slug
     },
 
     setWorkspaceTeams(state: BaseModuleState, { teams }: { teams: Team[] }) {
@@ -805,10 +799,6 @@ export default {
 
   actions: {
     async loadAllWorkspaceContent({ state, getters, commit, dispatch }: VuexAction) {
-      console.log('inside loadAllWorkspaceContent')
-      console.log(getters.currentWorkspace)
-      console.log(state.workspaces?.length)
-
       if (!getters.currentWorkspace) return
 
       await Promise.all([
