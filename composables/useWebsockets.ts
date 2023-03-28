@@ -1,3 +1,4 @@
+import Echo from 'laravel-echo'
 import { useStore } from 'vuex'
 import { createEcho } from '../helpers/broadcasting'
 import {
@@ -26,10 +27,14 @@ type IdeaActivityListener = { ideaActivity: IdeaActivity }
 export function useWebSockets() {
   const store = useStore()
   const config = useRuntimeConfig()
-  const echo = createEcho(config.public.backendUrl, config.public.websocketHost)
+
+  let echo: Echo | undefined
+  if (store.state.base.user) echo = createEcho(config.public.backendUrl, config.public.websocketHost)
 
   const addUserListener = () => {
-    if (!echo || !store.state.base.user) return
+    if (!store.state.base.user) return
+    if (!echo) echo = createEcho(config.public.backendUrl, config.public.websocketHost)
+    if (!echo) return
 
     echo
       .private(`App.Users.${store.state.base.user.id}`)
@@ -48,7 +53,9 @@ export function useWebSockets() {
   }
 
   const addWorkspaceListeners = () => {
-    if (!echo || !store.getters['base/currentWorkspace']) return
+    if (!store.state.base.user) return
+    if (!echo) echo = createEcho(config.public.backendUrl, config.public.websocketHost)
+    if (!echo) return
 
     const workspaceId = store.getters['base/currentWorkspace'].id
 
