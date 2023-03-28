@@ -36,10 +36,10 @@ useHead({
 })
 
 if (process.client) {
-  const { data: workspaces } = await axios.get('/workspaces')
+  try {
+    // If we are logged in:
+    const { data: workspaces } = await axios.get('/workspaces')
 
-  // If we are logged in
-  if (workspaces) {
     // If we have a recent workspace in storage, go there
     const storageLastWorkspace = process.client && localStorage.getItem('last-workspace')
 
@@ -49,7 +49,7 @@ if (process.client) {
       if (workspaces.value.length > 0) router.push(`/${(workspaces.value.at(-1) as Workspace).slug}/drafts`)
       else router.push(`/welcome`)
     }
-  }
+  } catch (_) {}
 }
 
 watchForDarkMode()
