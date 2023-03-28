@@ -26,19 +26,29 @@ export function useWorkspace() {
   const getWorkspaceFromSlug = (slug: string) => workspaces.value?.find(workspace => workspace.slug === slug)
 
   function loadWorkspaceContent() {
+    console.log('in loadWorkspaceContent')
+
     return new Promise((resolve, reject) => {
+      console.log(`workspaceContentLoaded.value is: ${workspaceContentLoaded.value}`)
+
       if (workspaceContentLoaded.value) {
         resolve('Content loaded')
         return
       }
+
+      console.log('workspace content not loaded')
 
       const requests = []
 
       if (!user.value) requests.push(axios.get('/user'))
       if (!currentWorkspace.value) requests.push(axios.get('/workspaces'))
 
+      console.log(`requests.length is: ${requests.length}`)
+
       Promise.allSettled(requests)
         .then(([userResp, workspacesResp]) => {
+          console.log(userResp, workspacesResp)
+
           if (userResp?.status === 'fulfilled') store.commit('base/setUser', userResp.value.data)
           if (workspacesResp?.status === 'fulfilled') store.commit('base/setWorkspaces', workspacesResp.value.data)
 
@@ -47,7 +57,11 @@ export function useWorkspace() {
             return
           }
 
+          console.log('about to load remaining workspace content')
+
           loadAllWorkspaceContent().then(() => {
+            console.log('loadAllWorkspaceContent successful')
+
             addUserListener()
             addWorkspaceListeners()
             setCurrentTeamFromLocalStorage()
@@ -64,7 +78,11 @@ export function useWorkspace() {
             resolve('Content loaded')
           })
         })
-        .catch(e => reject(e))
+        .catch(e => {
+          console.log('loadAllWorkspaceContent errored', e)
+
+          reject(e)
+        })
     })
   }
 
