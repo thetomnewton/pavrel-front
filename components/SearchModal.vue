@@ -132,7 +132,7 @@ watch(searchResults, value => {
   if (!value || !value.length) return
   const lengths = value.map(idea => idea.team_idea_id)
 
-  resultsIdentifierWidth.value = `${40 + 5 * Math.max(...lengths).toString().length}px`
+  resultsIdentifierWidth.value = `${43 + 5 * Math.max(...lengths).toString().length}px`
 })
 
 function removeRecentSearch(time: number) {

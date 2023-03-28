@@ -32,7 +32,7 @@ watch(
 
     // Set the CSS variable for the column width, based
     // on the biggest ID of the visible ideas
-    columnWidth.value = `${40 + 5 * mostRecentIdeaIdStringLength}px`
+    columnWidth.value = `${43 + 5 * mostRecentIdeaIdStringLength}px`
   },
   { deep: true, immediate: true }
 )
