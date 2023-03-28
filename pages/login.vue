@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { useStore } from 'vuex'
 import { Workspace } from '~~/types'
+import axios from '~~/api'
 
 const store = useStore()
 const router = useRouter()
-const { api } = useApi()
 
 definePageMeta({
   layout: 'auth',
@@ -25,7 +25,7 @@ const error = ref<{ errors: string[] } | null>(null)
 const email = ref<HTMLInputElement | null>(null)
 
 function csrf() {
-  return api('/sanctum/csrf-cookie')
+  return axios.get('/sanctum/csrf-cookie')
 }
 
 onMounted(() => {
@@ -37,9 +37,10 @@ async function submit() {
   error.value = null
 
   await csrf()
-  api('/login', { method: 'post', body: form.value })
+  axios
+    .post('/login', form.value)
     .then(() => {
-      Promise.all([api('/user'), api('/workspaces')]).then(responses => {
+      Promise.all([axios.get('/user'), axios.get('/workspaces')]).then(responses => {
         const [{ data: user }, { data: workspaces }] = responses
 
         store.commit('base/setUser', user.value)

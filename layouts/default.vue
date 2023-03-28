@@ -48,7 +48,7 @@ watch(workspaceContentLoaded, value => {
 })
 
 onMounted(() => {
-  if (!workspaceContentLoaded.value) loadWorkspaceContent()
+  if (!workspaceContentLoaded.value) loadWorkspaceContent().catch(() => router.push('/login'))
 })
 
 watchForDarkMode()
