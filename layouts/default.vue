@@ -36,19 +36,19 @@ const { loadWorkspaceContent } = useWorkspace()
 const workspaceContentLoaded = computed(() => store.state.base.workspaceContentLoaded)
 const workspaceContentError = computed(() => store.state.base.workspaceContentError)
 
-watch(workspaceContentLoaded, value => {
-  if (!value) return
-
-  if (
-    !store.state.base.teams.length &&
-    route.fullPath !== `/${route.params.workspaceSlug}/welcome` &&
-    route.params.workspaceSlug
-  )
-    router.push(`/${route.params.workspaceSlug}/welcome`)
-})
-
 onMounted(() => {
-  if (!workspaceContentLoaded.value) loadWorkspaceContent().catch(() => router.push('/login'))
+  if (workspaceContentLoaded.value) return
+
+  loadWorkspaceContent()
+    .then(() => {
+      if (
+        !store.state.base.teams.length &&
+        route.fullPath !== `/${route.params.workspaceSlug}/welcome` &&
+        route.params.workspaceSlug
+      )
+        router.push(`/${route.params.workspaceSlug}/welcome`)
+    })
+    .catch(() => router.push('/login'))
 })
 
 watchForDarkMode()

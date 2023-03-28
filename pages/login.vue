@@ -43,10 +43,10 @@ async function submit() {
       Promise.all([axios.get('/user'), axios.get('/workspaces')]).then(responses => {
         const [{ data: user }, { data: workspaces }] = responses
 
-        store.commit('base/setUser', user.value)
-        store.commit('base/setWorkspaces', workspaces.value)
+        store.commit('base/setUser', user)
+        store.commit('base/setWorkspaces', workspaces)
 
-        if ((workspaces.value as Workspace[]).length) {
+        if ((workspaces as Workspace[]).length) {
           store.commit('base/setCurrentWorkspaceFromMostRecent')
           router.push(`/${store.getters['base/currentWorkspace'].slug}/drafts`)
         } else router.push(`/welcome`)
