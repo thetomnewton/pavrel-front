@@ -127,6 +127,7 @@ export default {
         }),
 
         Image.configure({
+          inline: true,
           allowBase64: true,
         }),
 
