@@ -50,7 +50,7 @@ watch(
 
 <template>
   <nav
-    class="fixed top-0 left-0 bottom-0 z-10 min-w-[200px] bg-slate-50 px-4 py-4 text-slate-700 shadow-md dark:border-r dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-300 md:static md:shadow-none"
+    class="fixed top-0 left-0 bottom-0 z-10 min-w-[200px] border-r border-slate-150 bg-white px-4 py-4 text-slate-700 shadow-md dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-300 md:static md:shadow-none"
     :class="{ 'pointer-events-none opacity-0 md:pointer-events-auto md:opacity-100': !open }"
     v-click-outside="closeViaOutsideClick"
   >
@@ -65,7 +65,7 @@ watch(
         :to="`/${currentWorkspace?.slug}/drafts`"
         class="flex cursor-default items-center text-[18px] font-medium"
       >
-        <ChevronLeftIcon class="mr-2 mt-px h-[14px] w-[14px] text-slate-400" />
+        <ChevronLeftIcon class="mr-2 mt-px h-[14px] w-[14px] text-slate-600 dark:text-zinc-300" />
         <span>Settings</span>
       </NuxtLink>
     </div>
@@ -76,9 +76,9 @@ watch(
 
         <NuxtLink
           :to="`/${currentWorkspace.slug}/user/profile`"
-          class="mb-px block w-full cursor-default rounded px-2 py-1 text-[14px] font-medium hover:bg-slate-200 dark:hover:bg-zinc-800"
+          class="mb-px block w-full cursor-default rounded px-2 py-1 text-[14px] font-medium hover:bg-slate-150 dark:hover:bg-zinc-800"
           :class="{
-            'bg-slate-200 text-slate-800 dark:bg-zinc-800 dark:text-zinc-200':
+            'bg-slate-150 text-slate-800 dark:bg-zinc-800 dark:text-zinc-200':
               $route.fullPath === `/${currentWorkspace.slug}/user/profile`,
           }"
         >
@@ -87,9 +87,9 @@ watch(
 
         <NuxtLink
           :to="`/${currentWorkspace.slug}/user/preferences`"
-          class="mb-px block w-full cursor-default rounded px-2 py-1 text-[14px] font-medium hover:bg-slate-200 dark:hover:bg-zinc-800"
+          class="mb-px block w-full cursor-default rounded px-2 py-1 text-[14px] font-medium hover:bg-slate-150 dark:hover:bg-zinc-800"
           :class="{
-            'bg-slate-200 text-slate-800 dark:bg-zinc-800 dark:text-zinc-200':
+            'bg-slate-150 text-slate-800 dark:bg-zinc-800 dark:text-zinc-200':
               $route.fullPath === `/${currentWorkspace.slug}/user/preferences`,
           }"
         >
@@ -102,9 +102,9 @@ watch(
 
         <NuxtLink
           :to="`/${currentWorkspace.slug}/settings/general`"
-          class="mb-px block w-full cursor-default rounded px-2 py-1 text-[14px] font-medium hover:bg-slate-200 dark:hover:bg-zinc-800"
+          class="mb-px block w-full cursor-default rounded px-2 py-1 text-[14px] font-medium hover:bg-slate-150 dark:hover:bg-zinc-800"
           :class="{
-            'bg-slate-200 text-slate-800 dark:bg-zinc-800 dark:text-zinc-200':
+            'bg-slate-150 text-slate-800 dark:bg-zinc-800 dark:text-zinc-200':
               $route.fullPath === `/${currentWorkspace.slug}/settings/general`,
           }"
         >
@@ -113,9 +113,9 @@ watch(
 
         <NuxtLink
           :to="`/${currentWorkspace.slug}/settings/members`"
-          class="mb-px block w-full cursor-default rounded px-2 py-1 text-[14px] font-medium hover:bg-slate-200 dark:hover:bg-zinc-800"
+          class="mb-px block w-full cursor-default rounded px-2 py-1 text-[14px] font-medium hover:bg-slate-150 dark:hover:bg-zinc-800"
           :class="{
-            'bg-slate-200 text-slate-800 dark:bg-zinc-800 dark:text-zinc-200':
+            'bg-slate-150 text-slate-800 dark:bg-zinc-800 dark:text-zinc-200':
               $route.fullPath === `/${currentWorkspace.slug}/settings/members`,
           }"
         >
@@ -124,9 +124,9 @@ watch(
 
         <NuxtLink
           :to="`/${currentWorkspace.slug}/settings/plans`"
-          class="mb-px block w-full cursor-default rounded px-2 py-1 text-[14px] font-medium hover:bg-slate-200 dark:hover:bg-zinc-800"
+          class="mb-px block w-full cursor-default rounded px-2 py-1 text-[14px] font-medium hover:bg-slate-150 dark:hover:bg-zinc-800"
           :class="{
-            'bg-slate-200 text-slate-800 dark:bg-zinc-800 dark:text-zinc-200':
+            'bg-slate-150 text-slate-800 dark:bg-zinc-800 dark:text-zinc-200':
               $route.fullPath === `/${currentWorkspace.slug}/settings/plans`,
           }"
         >
@@ -135,9 +135,9 @@ watch(
 
         <NuxtLink
           :to="`/${currentWorkspace.slug}/settings/billing`"
-          class="mb-px block w-full cursor-default rounded px-2 py-1 text-[14px] font-medium hover:bg-slate-200 dark:hover:bg-zinc-800"
+          class="mb-px block w-full cursor-default rounded px-2 py-1 text-[14px] font-medium hover:bg-slate-150 dark:hover:bg-zinc-800"
           :class="{
-            'bg-slate-200 text-slate-800 dark:bg-zinc-800 dark:text-zinc-200':
+            'bg-slate-150 text-slate-800 dark:bg-zinc-800 dark:text-zinc-200':
               $route.fullPath === `/${currentWorkspace.slug}/settings/billing`,
           }"
         >
@@ -151,9 +151,9 @@ watch(
         <template v-for="team in myTeams">
           <NuxtLink
             :to="`/${currentWorkspace.slug}/settings/teams/${team.slug}`"
-            class="mb-px block w-full max-w-[175px] cursor-default truncate rounded px-2 py-1 text-sm font-medium hover:bg-slate-200 dark:hover:bg-zinc-800"
+            class="mb-px block w-full max-w-[175px] cursor-default truncate rounded px-2 py-1 text-sm font-medium hover:bg-slate-150 dark:hover:bg-zinc-800"
             :class="{
-              'bg-slate-200 text-slate-800 dark:bg-zinc-800 dark:text-zinc-200':
+              'bg-slate-150 text-slate-800 dark:bg-zinc-800 dark:text-zinc-200':
                 $route.fullPath === `/${currentWorkspace.slug}/settings/teams/${team.slug}`,
             }"
           >
@@ -162,7 +162,7 @@ watch(
         </template>
 
         <div
-          class="mt-1 flex cursor-default items-center rounded px-2 py-1 text-sm font-medium hover:bg-slate-200 dark:hover:bg-zinc-800"
+          class="mt-1 flex cursor-default items-center rounded px-2 py-1 text-sm font-medium hover:bg-slate-150 dark:hover:bg-zinc-800"
           @click="createTeamModalOpen = true"
         >
           <PlusIcon class="mr-1.5 h-4 w-4" />
@@ -176,9 +176,9 @@ watch(
         <template v-for="team in notMyTeams">
           <NuxtLink
             :to="`/${currentWorkspace.slug}/settings/teams/${team.slug}`"
-            class="mb-px block w-full cursor-default rounded px-2 py-1 text-[14px] font-medium hover:bg-slate-200 dark:hover:bg-zinc-800"
+            class="mb-px block w-full cursor-default rounded px-2 py-1 text-[14px] font-medium hover:bg-slate-150 dark:hover:bg-zinc-800"
             :class="{
-              'bg-slate-200 text-slate-800 dark:bg-zinc-800 dark:text-zinc-200':
+              'bg-slate-150 text-slate-800 dark:bg-zinc-800 dark:text-zinc-200':
                 $route.fullPath === `/${currentWorkspace.slug}/settings/teams/${team.slug}`,
             }"
           >
