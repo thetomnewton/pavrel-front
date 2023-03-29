@@ -167,7 +167,7 @@ const openContentFilterModal = () => {
             </div>
           </MenuItem>
 
-          <MenuItem as="div" v-slot="{ active }">
+          <!-- <MenuItem as="div" v-slot="{ active }">
             <div
               class="cursor-default px-3 leading-7 active:bg-slate-200 dark:active:bg-zinc-700"
               :class="[
@@ -178,7 +178,7 @@ const openContentFilterModal = () => {
             >
               Date created
             </div>
-          </MenuItem>
+          </MenuItem> -->
 
           <MenuItem as="div" v-slot="{ active }">
             <div
@@ -194,7 +194,7 @@ const openContentFilterModal = () => {
             </div>
           </MenuItem>
 
-          <MenuItem as="div" v-slot="{ active }">
+          <!-- <MenuItem as="div" v-slot="{ active }">
             <div
               class="cursor-default px-3 leading-7 active:bg-slate-200 dark:active:bg-zinc-700"
               :class="[
@@ -205,7 +205,7 @@ const openContentFilterModal = () => {
             >
               Upvotes
             </div>
-          </MenuItem>
+          </MenuItem> -->
         </div>
 
         <div v-if="screen === 'select_status'">
