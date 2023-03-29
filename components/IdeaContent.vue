@@ -46,7 +46,7 @@ const team = computed<Team | undefined>(() =>
             />
           </div>
 
-          <IdeaActivity :idea="idea" class="mx-5 mt-5 border-t border-slate-150 pt-6 dark:border-zinc-800" />
+          <IdeaActivity :idea="idea" class="mx-5 mt-8 border-t border-slate-150 pt-8 dark:border-zinc-800" />
         </div>
       </div>
     </section>
