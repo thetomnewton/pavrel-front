@@ -32,18 +32,13 @@ import ts from 'highlight.js/lib/languages/typescript'
 import html from 'highlight.js/lib/languages/xml'
 import php from 'highlight.js/lib/languages/php'
 import { lowlight } from 'lowlight'
+import axios from '../api'
 
 lowlight.registerLanguage('html', html)
 lowlight.registerLanguage('css', css)
 lowlight.registerLanguage('js', js)
 lowlight.registerLanguage('ts', ts)
 lowlight.registerLanguage('php', php)
-
-async function uploadImage(file) {
-  const data = new FormData()
-  data.append('file', file)
-  return axios.post('/documents/image/upload', data)
-}
 
 export default {
   components: {
@@ -303,15 +298,22 @@ export default {
                   window.alert('Your images need to be less than 5000 pixels in height and width.') // display alert
                 } else {
                   // valid image so upload to server
-                  //  upload the image to the server or s3 bucket somewhere
-                  uploadImage(file)
+                  // uploadImage will be your function to upload the image to the server or s3 bucket somewhere
+                  vm.uploadImage(file)
                     .then(function (response) {
-                      // place the now uploaded image in the editor where it was dropped
-                      // const { schema } = view.state
-                      // const coordinates = view.posAtCoords({ left: event.clientX, top: event.clientY })
-                      // const node = schema.nodes.image.create({ src: response }) // creates the image element
-                      // const transaction = view.state.tr.insert(coordinates.pos, node) // places it in the correct position
-                      // return view.dispatch(transaction)
+                      // response is the image url for where it has been saved
+                      // pre-load the image before responding so loading indicators can stay
+                      // and swaps out smoothly when image is ready
+                      let image = new Image()
+                      image.src = response
+                      image.onload = function () {
+                        // place the now uploaded image in the editor where it was dropped
+                        const { schema } = view.state
+                        const coordinates = view.posAtCoords({ left: event.clientX, top: event.clientY })
+                        const node = schema.nodes.image.create({ src: response }) // creates the image element
+                        const transaction = view.state.tr.insert(coordinates.pos, node) // places it in the correct position
+                        return view.dispatch(transaction)
+                      }
                     })
                     .catch(function (error) {
                       if (error) {
@@ -352,6 +354,15 @@ export default {
       this.$nextTick(() => {
         this.editor.view.dom.focus()
       })
+    },
+
+    async uploadImage(file) {
+      const data = new FormData()
+      data.append('file', file)
+
+      const { data: url } = await axios.post('/workspaces/01GW4S9QC89D7A2ZTECV31HA8D/images/upload', data)
+
+      return url
     },
   },
 }
