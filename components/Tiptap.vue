@@ -77,7 +77,7 @@ export default {
 
   computed: {
     ...mapState('base', ['users', 'user', 'ideas']),
-    ...mapGetters('base', ['getIdeaTeamSlug']),
+    ...mapGetters('base', ['getIdeaTeamSlug', 'currentWorkspace']),
   },
 
   watch: {
@@ -360,7 +360,7 @@ export default {
       const data = new FormData()
       data.append('file', file)
 
-      const { data: url } = await axios.post('/workspaces/01GW4S9QC89D7A2ZTECV31HA8D/images/upload', data)
+      const { data: url } = await axios.post(`/workspaces/${this.currentWorkspace.id}/images/upload`, data)
 
       return url
     },
