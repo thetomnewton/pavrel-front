@@ -62,10 +62,10 @@ const activePublicTeams = computed(() =>
 
 const expandedTeams = ref<Team['id'][]>([])
 
-const toggleExpandedTeam = (id: Team['id']) => {
+const toggleExpandedTeam = (id: Team['id'], force = false) => {
   const teamBeingViewed = route.fullPath === `/${currentWorkspace.value.slug}/teams/${getTeamById(id)?.slug}/ideas/all`
 
-  if (!teamBeingViewed) {
+  if (!teamBeingViewed && !force) {
     expandedTeams.value.push(id)
     return
   }
@@ -392,7 +392,7 @@ onUnmounted(() => {
         >
           <span
             class="-ml-[2px] mr-[8px] rounded-[3px] py-[6px] pl-[6px] pr-[6px] text-slate-500 hover:bg-slate-300 hover:text-slate-600 dark:text-zinc-400 dark:hover:bg-zinc-700 dark:hover:text-zinc-300"
-            @click.stop="toggleExpandedTeam(team.id)"
+            @click.stop="toggleExpandedTeam(team.id, true)"
           >
             <SideTriangle class="h-2 w-2" :class="[expandedTeams.includes(team.id) ? 'rotate-180' : 'rotate-90']" />
           </span>
