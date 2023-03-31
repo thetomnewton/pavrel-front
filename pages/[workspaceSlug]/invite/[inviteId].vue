@@ -1,5 +1,5 @@
 <script>
-import api from '../../../api'
+import axios from '~~/api'
 import { mapState } from 'vuex'
 
 definePageMeta({
@@ -11,10 +11,8 @@ useHead({
   title: 'Join a workspace on Pavrel',
 })
 
-const { $apiFetch } = useNuxtApp()
-
 function csrf() {
-  return $apiFetch('/sanctum/csrf-cookie')
+  return axios.get('/sanctum/csrf-cookie')
 }
 
 export default {
@@ -52,11 +50,11 @@ export default {
   },
 
   created() {
-    api
+    axios
       .get(`/workspaces/search?slug=${this.$route.params.workspaceSlug}`)
       .then(({ data }) => {
         this.workspace = data
-        api
+        axios
           .get(`/workspaces/${this.workspace.id}/invitations/${this.$route.params.inviteId}`)
           .then(({ data }) => {
             this.invite = data
@@ -80,10 +78,10 @@ export default {
     async submitAndRegister() {
       await csrf()
 
-      api
+      axios
         .post(`/workspaces/${this.workspace.id}/invitations/${this.$route.params.inviteId}/claim`, this.form)
         .then(() => {
-          api
+          axios
             .post('/login', {
               email: this.form.email,
               password: this.form.password,
@@ -97,7 +95,7 @@ export default {
     },
 
     checkEmail() {
-      api
+      axios
         .get(`/users/search?email=${this.form.email}`)
         .then(({ data }) => {
           this.loggedOutUserStep = 'login'
@@ -109,7 +107,7 @@ export default {
 
     async submitAndLogin() {
       await csrf()
-      api
+      axios
         .post(`/workspaces/${this.workspace.id}/invitations/${this.$route.params.inviteId}/claim`, {
           email: this.form.email,
           password: this.form.password,
@@ -121,7 +119,7 @@ export default {
     },
 
     joinWorkspace() {
-      api
+      axios
         .post(`/workspaces/${this.workspace.id}/invitations/${this.$route.params.inviteId}/claim`)
         .then(() => {
           this.$router.push(`/${this.workspace.slug}/drafts`)
