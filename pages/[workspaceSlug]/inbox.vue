@@ -22,7 +22,7 @@ const {
 <template>
   <div class="flex h-full">
     <div
-      class="flex w-full flex-col border-slate-200 lg:w-[350px] lg:border-r lg:border-slate-100 dark:lg:border-slate-800"
+      class="flex w-full flex-col border-slate-200 lg:w-[350px] lg:border-r lg:border-slate-100 dark:lg:border-zinc-800"
       :class="[selectedNotification ? 'hidden lg:block' : '']"
     >
       <PageHeader :show-options="false" :show-filters="false" class="border-b border-slate-100 dark:border-zinc-800">

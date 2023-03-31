@@ -48,7 +48,7 @@ const usageFeatures = ref<Feature[]>([
   {
     name: 'Max upload file size',
     desc: '',
-    free: '✓ 5mb',
+    free: '✓ 10mb',
     pro: '✓ Unlimited',
     enterprise: '✓ Unlimited',
   },
