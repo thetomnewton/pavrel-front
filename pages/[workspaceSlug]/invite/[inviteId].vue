@@ -89,7 +89,7 @@ export default {
             .then(() => {
               this.form.password = ''
               this.form.password_confirmation = ''
-              this.$router.push(`/${this.workspace.slug}/drafts`)
+              this.$router.push(`/${this.workspace.slug}/welcome`)
             })
         })
     },
@@ -114,7 +114,7 @@ export default {
         })
         .then(() => {
           this.form.password = ''
-          this.$router.push(`/${this.workspace.slug}/drafts`)
+          this.$router.push(`/${this.workspace.slug}/welcome`)
         })
     },
 
@@ -122,7 +122,7 @@ export default {
       axios
         .post(`/workspaces/${this.workspace.id}/invitations/${this.$route.params.inviteId}/claim`)
         .then(() => {
-          this.$router.push(`/${this.workspace.slug}/drafts`)
+          this.$router.push(`/${this.workspace.slug}/welcome`)
         })
         .catch(error => {
           // todo: catch errors
