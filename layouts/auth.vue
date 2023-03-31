@@ -26,15 +26,16 @@ useHead({
 if (process.client) {
   try {
     // If we are logged in:
-    const { data: workspaces } = await axios.get('/workspaces')
+    const { data: workspaces }: { data: Workspace[] } = await axios.get('/workspaces')
 
     // If we have a recent workspace in storage, go there
     const storageLastWorkspace = process.client && localStorage.getItem('last-workspace')
 
-    if (storageLastWorkspace) router.push(`/${storageLastWorkspace}/drafts`)
+    if (storageLastWorkspace && workspaces.map(({ slug }) => slug).includes('storageLastWorkspace'))
+      router.push(`/${storageLastWorkspace}/drafts`)
     else {
       // Go to the most recent workspace in the list. If none exists, go to onboarding
-      if (workspaces.value.length > 0) router.push(`/${(workspaces.value.at(-1) as Workspace).slug}/drafts`)
+      if (workspaces.length > 0) router.push(`/${(workspaces.at(-1) as Workspace).slug}/drafts`)
       else router.push(`/welcome`)
     }
   } catch (_) {}

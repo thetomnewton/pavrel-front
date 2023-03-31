@@ -44,7 +44,8 @@ onMounted(() => {
 
   loadWorkspaceContent()
     .then(() => {
-      if (
+      if (!store.state.base.workspaces.length && route.fullPath !== '/welcome') router.push('/welcome')
+      else if (
         !store.state.base.teams.length &&
         route.fullPath !== `/${route.params.workspaceSlug}/welcome` &&
         route.params.workspaceSlug

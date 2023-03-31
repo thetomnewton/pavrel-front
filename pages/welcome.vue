@@ -40,7 +40,7 @@ async function saveWorkspace() {
   store.commit('base/setWorkspaces', [data])
   store.commit('base/setCurrentWorkspaceFromSlug', data.slug)
 
-  router.push(`/${data.slug}/welcome`)
+  router.push(`/${data.slug}/drafts`)
 }
 
 function logout() {
