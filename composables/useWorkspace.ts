@@ -41,8 +41,10 @@ export function useWorkspace() {
         .then(([resp1, resp2]) => {
           let userResp, workspacesResp
 
-          if (requests.length === 2) [userResp, workspacesResp] = [resp1, resp2]
-          else workspacesResp = resp1
+          if (!user.value) {
+            userResp = resp1
+            workspacesResp = resp2
+          } else workspacesResp = resp1
 
           if (userResp?.status === 'fulfilled') store.commit('base/setUser', userResp.value.data)
           if (workspacesResp?.status === 'fulfilled') store.commit('base/setWorkspaces', workspacesResp.value.data)
