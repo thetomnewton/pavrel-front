@@ -186,7 +186,7 @@ function cancelInvite(invite: WorkspaceInvitation) {
 
     <div
       v-if="pending && pending.length"
-      class="max-h-[400px] overflow-auto border-t border-slate-200 px-8 pb-6 pt-4 text-[14px] dark:border-zinc-700"
+      class="-mx-8 mt-4 -mb-4 max-h-[400px] overflow-auto border-t border-slate-200 px-8 pb-6 pt-4 text-[14px] dark:border-zinc-700"
     >
       <div class="mb-2 font-medium">Pending invites ({{ pending.length }}):</div>
 
