@@ -276,7 +276,7 @@ export default {
     },
 
     setWorkspaces(state: BaseModuleState, workspaces: Workspace[]) {
-      state.workspaces = workspaces
+      state.workspaces = Array.isArray(workspaces) ? workspaces : [workspaces]
     },
 
     setCurrentWorkspaceFromSlug(state: BaseModuleState, slug: string) {
@@ -799,7 +799,7 @@ export default {
   },
 
   actions: {
-    async loadAllWorkspaceContent({ state, getters, commit, dispatch }: VuexAction) {
+    async loadAllWorkspaceContent({ getters, commit, dispatch }: VuexAction) {
       if (!getters.currentWorkspace) return
 
       await Promise.all([
