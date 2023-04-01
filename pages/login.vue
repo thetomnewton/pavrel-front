@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useStore } from 'vuex'
 import { Workspace } from '~~/types'
+import { csrf } from '~~/helpers/auth'
 import axios from '~~/api'
 
 const store = useStore()
@@ -23,10 +24,6 @@ const form = ref({
 const sending = ref(false)
 const error = ref<{ errors: string[] } | null>(null)
 const email = ref<HTMLInputElement | null>(null)
-
-function csrf() {
-  return axios.get('/sanctum/csrf-cookie')
-}
 
 onMounted(() => {
   setTimeout(() => email.value?.focus())

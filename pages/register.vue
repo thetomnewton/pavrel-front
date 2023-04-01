@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import axios from '~~/api'
+import { csrf } from '~~/helpers/auth'
 
 definePageMeta({
   layout: 'auth',
@@ -29,10 +30,6 @@ const name = ref<HTMLInputElement | null>(null)
 onMounted(() => {
   name.value?.focus()
 })
-
-function csrf() {
-  return axios.get('/sanctum/csrf-cookie')
-}
 
 const submit = async () => {
   form.value.processing = true

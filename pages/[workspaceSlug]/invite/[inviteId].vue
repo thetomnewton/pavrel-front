@@ -1,6 +1,7 @@
 <script>
 import axios from '~~/api'
 import { mapState } from 'vuex'
+import { csrf } from '~~/helpers/auth'
 
 definePageMeta({
   layout: 'auth',
@@ -10,10 +11,6 @@ definePageMeta({
 useHead({
   title: 'Join a workspace on Pavrel',
 })
-
-function csrf() {
-  return axios.get('/sanctum/csrf-cookie')
-}
 
 export default {
   data() {
