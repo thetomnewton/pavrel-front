@@ -121,7 +121,7 @@ function setUrl() {
       leave-active-class="lg:transition lg:origin-center"
     >
       <div
-        class="flex h-full w-full flex-col overflow-hidden rounded-lg bg-white shadow-md dark:border-zinc-800 dark:bg-zinc-900 dark:lg:border dark:lg:border-zinc-700"
+        class="mx-auto flex h-full w-full max-w-[1280px] flex-col overflow-hidden rounded-lg bg-white shadow-md dark:border-zinc-800 dark:bg-zinc-900 dark:lg:border dark:lg:border-zinc-700"
         v-if="open"
       >
         <div class="flex items-center border-b border-slate-150 py-[10px] px-[18px] dark:border-zinc-800">
