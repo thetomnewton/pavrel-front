@@ -29,7 +29,9 @@ const currentWorkspaceTeams = computed(() => store.getters['base/currentWorkspac
 const isFavorite = computed(() => store.getters['base/isFavorite'])
 const ideas = computed<Idea[]>(() => store.state.base.ideas)
 
-const idea = computed<Idea | undefined>(() => ideas.value.find(idea => idea.team_idea_id === +teamIdeaId))
+const idea = computed<Idea | undefined>(() =>
+  ideas.value.find(idea => idea.team_idea_id === +teamIdeaId && idea.team_id === team.value.id)
+)
 const team = computed<Team>(() => currentWorkspaceTeams.value?.find((team: Team) => team.slug === teamSlug))
 
 const updateIdea = (idea: Idea) => store.dispatch('base/updateIdea', idea)
