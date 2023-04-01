@@ -4,7 +4,7 @@ import { useStore } from 'vuex'
 import { useRouter } from 'vue-router'
 import { ulid } from 'ulid'
 import { Dialog, DialogPanel, TransitionRoot } from '@headlessui/vue'
-import { DocumentIcon } from '@heroicons/vue/24/outline'
+import { DocumentIcon, PresentationChartLineIcon } from '@heroicons/vue/24/outline'
 import { XMarkIcon } from '@heroicons/vue/20/solid'
 import { Idea, Label, PartialIdea, Team } from '../types'
 import { generateTempIdea } from '../helpers/ideas'
@@ -328,6 +328,15 @@ function handleTitleEnterPress(e: KeyboardEvent) {
             </div>
 
             <div class="flex items-center border-t border-slate-200 py-4 px-6 dark:border-zinc-700">
+              <NuxtLink
+                :href="`/${currentWorkspace.slug}/settings/plans`"
+                v-if="cantCreateNewIdeas"
+                class="flex cursor-default items-center rounded-md bg-blue-100 px-3 py-1.5 text-xs font-medium leading-5 text-blue-800"
+              >
+                <PresentationChartLineIcon class="mr-2 h-[18px] w-[18px]" />
+                <span>Upgrade to add new ideas</span>
+              </NuxtLink>
+
               <div class="ml-auto">
                 <BaseButton type="submit" button="primary" :disabled="cantCreateNewIdeas">Save idea</BaseButton>
               </div>

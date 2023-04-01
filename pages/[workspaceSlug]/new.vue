@@ -6,6 +6,7 @@ import { generateTempIdea } from '../../helpers/ideas'
 import { Idea, PartialIdea, Team } from '../../types'
 import { ulid } from 'ulid'
 import { Bars3BottomRightIcon } from '@heroicons/vue/24/solid'
+import { PresentationChartLineIcon } from '@heroicons/vue/24/outline'
 
 definePageMeta({
   middleware: 'auth',
@@ -138,6 +139,15 @@ onMounted(() => {
 
       <div class="flex w-full flex-1 overflow-y-auto">
         <div class="mx-auto flex w-full max-w-4xl flex-col pl-6 pr-6 lg:pl-10">
+          <NuxtLink
+            :href="`/${currentWorkspace.slug}/settings/plans`"
+            v-if="cantCreateNewIdeas"
+            class="flex max-w-[205px] cursor-default items-center rounded-md bg-blue-100 px-3 py-1.5 text-xs font-medium leading-5 text-blue-800"
+          >
+            <PresentationChartLineIcon class="mr-2 h-[18px] w-[18px]" />
+            <span>Upgrade to add new ideas</span>
+          </NuxtLink>
+
           <EditableIdeaTitle @entered="handleTitleEnterPress" v-model="newIdea.title" ref="titleEl" required />
 
           <Tiptap ref="content" v-model="(newIdea.description as string)" @save="create" />
