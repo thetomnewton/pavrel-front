@@ -156,7 +156,7 @@ onUnmounted(() => {
 <template>
   <nav
     ref="nav"
-    class="fixed top-0 left-0 z-20 flex h-full w-[300px] min-w-[200px] max-w-[80%] flex-col border-r border-slate-150 bg-slate-50 text-slate-700 shadow transition dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300 lg:relative lg:w-[200px] lg:shadow-none lg:transition-none"
+    class="fixed top-0 left-0 z-20 flex h-full w-[300px] min-w-[200px] max-w-[80%] flex-col border-r border-slate-150 bg-[#fcfcfe] text-slate-700 shadow transition dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300 lg:relative lg:w-[200px] lg:shadow-none lg:transition-none"
     :class="[!appSidebarOpen ? 'translate-x-[-100%] lg:translate-x-0' : '']"
   >
     <ResizeHandler

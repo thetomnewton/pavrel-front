@@ -20,7 +20,9 @@ const [teamSlug, teamIdeaId] = ideaSlug.split('-')
 const { currentWorkspace } = useWorkspace()
 const team = computed(() => (store.state.base.teams as Team[] | undefined)?.find(({ slug }) => slug === teamSlug))
 const idea = computed<Idea | undefined>(() =>
-  store.state.base.ideas.find(({ team_idea_id }: Idea) => team_idea_id === +teamIdeaId)
+  store.state.base.ideas.find(
+    ({ team_id, team_idea_id }: Idea) => team_idea_id === +teamIdeaId && team_id === team.value?.id
+  )
 )
 
 const newIdea = ref<Idea | null>(null)
