@@ -10,7 +10,7 @@ defineProps<{
   workspace: Workspace
 }>()
 
-const apiUrl = import.meta.env.VITE_BACKEND_URL
+const config = useRuntimeConfig()
 
 const isMonthlyBilling = ref(false)
 const billingFrequency = computed(() => (isMonthlyBilling.value ? 'monthly' : 'yearly'))
@@ -172,7 +172,7 @@ const supportFeatures = ref<Feature[]>([
       <div>
         <a
           v-if="!hasSubscription(products.pro)"
-          :href="`${apiUrl}/workspaces/${workspace.id}/subscribe/${products.pro}/${prices[billingFrequency]}`"
+          :href="`${config.public.backendUrl}/workspaces/${workspace.id}/subscribe/${products.pro}/${prices[billingFrequency]}`"
           type="button"
           class="block w-full appearance-none rounded-md border border-transparent bg-blue-600 px-4 py-2 text-center text-sm font-medium leading-5 text-white hover:shadow active:translate-y-px active:bg-blue-700"
         >

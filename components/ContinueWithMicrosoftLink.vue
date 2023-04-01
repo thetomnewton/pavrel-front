@@ -1,6 +1,8 @@
 <script setup lang="ts">
+const config = useRuntimeConfig()
+
 function goto() {
-  location.href = `${import.meta.env.VITE_BACKEND_URL}/auth/microsoft/redirect`
+  location.href = `${config.public.backendUrl}/auth/microsoft/redirect`
 }
 </script>
 
