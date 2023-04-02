@@ -3,7 +3,7 @@ import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
 import { ref } from 'vue'
 import { useStore } from 'vuex'
 import { EllipsisHorizontalIcon } from '@heroicons/vue/24/outline'
-import { Idea } from '../types'
+import { Idea, Team } from '../types'
 
 const store = useStore()
 
@@ -11,7 +11,7 @@ const props = defineProps<{
   idea: Idea
 }>()
 
-const emit = defineEmits(['delete-idea'])
+const emit = defineEmits(['delete-idea', 'move-teams'])
 
 const deleting = ref(false)
 const movingTeam = ref(false)
@@ -19,6 +19,11 @@ const movingTeam = ref(false)
 function handleDeletion() {
   deleting.value = false
   emit('delete-idea', props.idea)
+}
+
+function handleMove(newTeam: Team) {
+  movingTeam.value = false
+  emit('move-teams', newTeam)
 }
 
 function copyLink() {
@@ -91,5 +96,5 @@ function copyLink() {
   </Menu>
 
   <DeleteIdeaModal :open="deleting" :idea="idea" @close="deleting = false" @delete="handleDeletion" />
-  <MoveTeamsModal :open="movingTeam" :idea="idea" @close="movingTeam = false" />
+  <MoveTeamsModal :open="movingTeam" :idea="idea" @close="movingTeam = false" @moved="handleMove" />
 </template>
