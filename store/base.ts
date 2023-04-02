@@ -383,6 +383,26 @@ export default {
       })
     },
 
+    moveIdeaToTeam(state: BaseModuleState, { idea, team }: { idea: Idea; team: Team }) {
+      state.ideas = state.ideas.map(currIdea => {
+        if (currIdea.id !== idea.id) return currIdea
+        const newIdea = cloneDeep(currIdea)
+
+        const existingTeam = state.teams.find(({ id }) => id === idea.team_id)
+        if (!existingTeam) return currIdea
+
+        const newStatusId = team.statuses.find(
+          teamStatus =>
+            teamStatus.category === existingTeam.statuses.find(({ id }) => id === currIdea.status_id)?.category ?? 0
+        )?.id
+
+        newIdea.team_id = team.id
+        newIdea.status_id = newStatusId ?? (team.statuses.find(s => s.default)?.id as string)
+
+        return newIdea
+      })
+    },
+
     setWorkspaceContentLoaded(state: BaseModuleState, status = true) {
       state.workspaceContentLoaded = status
     },
