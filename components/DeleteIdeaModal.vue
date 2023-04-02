@@ -13,21 +13,25 @@ const emit = defineEmits(['close', 'delete'])
 
 const store = useStore()
 
-const currentWorkspaceTeams = computed(() => store.getters['base/currentWorkspaceTeams'])
+const { currentWorkspaceTeams } = useWorkspace()
 
-const team = computed(() => currentWorkspaceTeams.value.find((team: Team) => team.id === props.idea.team_id))
+const team = computed<Team | undefined>(() =>
+  currentWorkspaceTeams.value.find((team: Team) => team.id === props.idea.team_id)
+)
 
 const deleteIdea = (idea: Idea) => store.commit('base/deleteIdea', idea)
 
 function destroy() {
+  if (!team.value) return
   const { id, team_idea_id, title } = props.idea
+
   deleteIdea(props.idea)
   emit('delete')
   store.commit('base/showToast', {
     type: 'trash-idea',
     data: {
       ideaId: id,
-      teamIdeaId: `${team.value.slug}-${props.idea.team_idea_id}`,
+      teamIdeaId: `${team.value.slug}-${team_idea_id}`,
       title,
     },
   })
@@ -42,7 +46,7 @@ function destroy() {
     >
       <div>
         Are you sure you want to delete the idea
-        <span class="font-semibold">{{ team.slug }}-{{ idea.team_idea_id }} - {{ idea.title }}</span
+        <span class="font-semibold">{{ team?.slug ?? 'Unknown Team' }}-{{ idea.team_idea_id }} - {{ idea.title }}</span
         >?
       </div>
 
