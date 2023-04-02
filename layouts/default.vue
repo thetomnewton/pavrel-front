@@ -70,6 +70,7 @@ watchForDarkMode()
     >
       <div class="flex h-full min-h-full w-full flex-1 overflow-hidden">
         <Sidebar />
+        <Toast />
 
         <main class="flex min-w-0 flex-1 flex-col">
           <slot />
