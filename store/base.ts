@@ -392,12 +392,13 @@ export default {
         if (!existingTeam) return currIdea
 
         const newStatusId = team.statuses.find(
-          teamStatus =>
-            teamStatus.category === existingTeam.statuses.find(({ id }) => id === currIdea.status_id)?.category ?? 0
+          ({ category }) => category === existingTeam.statuses.find(({ id }) => id === currIdea.status_id)?.category
         )?.id
 
         newIdea.team_id = team.id
         newIdea.status_id = newStatusId ?? (team.statuses.find(s => s.default)?.id as string)
+        // todo: map labels correctly
+        newIdea.labels = []
 
         return newIdea
       })
@@ -890,6 +891,10 @@ export default {
 
     async removeUserFromTeam({ getters }: VuexAction, { user, team }: { user: User; team: Team }) {
       await api.delete(`/workspaces/${getters.currentWorkspace.id}/teams/${team.id}/users/${user.id}`)
+    },
+
+    async moveIdeaToTeam({ getters }: VuexAction, { idea, team }: { idea: Idea; team: Team }) {
+      await api.post(`/workspaces/${getters.currentWorkspace.id}/ideas/${idea.id}/move-teams`, { teamId: team.id })
     },
 
     async getWorkspaces({ commit }: VuexAction) {
