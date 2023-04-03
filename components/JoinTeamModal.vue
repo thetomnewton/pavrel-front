@@ -35,7 +35,7 @@ function attemptJoinTeam(id: Team['id']) {
 
           <TeamList
             :teams="publicTeamsToJoin"
-            @select-team="$event => attemptJoinTeam($event.id)"
+            @select-team="($event: Team) => attemptJoinTeam($event.id)"
             v-if="publicTeamsToJoin.length"
             class="-mx-8 max-h-[300px] overflow-auto pt-1"
           />
