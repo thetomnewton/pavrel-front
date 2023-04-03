@@ -7,7 +7,10 @@ export function useSubscriptions() {
   const hasSubscription = (productId: string) =>
     store.state.base.subscriptions.find((subscription: Subscription) => subscription.name === productId)
 
+  const isPro = computed<boolean>(() => !!store.state.base.subscriptions.length)
+
   return {
     hasSubscription,
+    isPro,
   }
 }

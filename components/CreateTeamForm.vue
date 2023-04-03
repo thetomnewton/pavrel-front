@@ -13,12 +13,16 @@ defineProps<{
   slugAlreadyExists?: Team
 }>()
 
+const { isPro } = useSubscriptions()
+
 const updateName = (name: string) => {
   emit('update:name', name)
   emit('update:slug', name.split('').slice(0, 3).join('').toUpperCase())
 }
 const updateSlug = (slug: string) => emit('update:slug', slug.toUpperCase())
-const updatePrivacy = (privacy: string) => emit('update:privacy', privacy)
+const updatePrivacy = (privacy: string) => {
+  if (isPro.value) emit('update:privacy', privacy)
+}
 
 const emit = defineEmits(['update:name', 'update:slug', 'update:privacy'])
 </script>
@@ -58,11 +62,16 @@ const emit = defineEmits(['update:name', 'update:slug', 'update:privacy'])
       </div>
     </div>
 
-    <div>
-      <FormLabel for="teamPrivacy">Team privacy</FormLabel>
+    <div :class="{ 'pointer-events-none opacity-50': !isPro }">
+      <FormLabel for="teamPrivacy">
+        Team privacy
+        <span class="rounded bg-blue-100 px-1 py-0.5 text-[11px] font-medium leading-4 text-blue-800">PRO</span>
+      </FormLabel>
+
       <div class="mt-1">
         <Listbox
           id="teamPrivacy"
+          :disabled="!isPro"
           class="z-10"
           :value="privacy"
           @update-value="updatePrivacy"
