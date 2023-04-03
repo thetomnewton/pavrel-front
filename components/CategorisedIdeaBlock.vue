@@ -165,7 +165,7 @@ function confirmBulkDeleteIdeas() {
 </script>
 
 <template>
-  <section v-if="ideas.length" class="flex-1 overflow-auto">
+  <section v-if="ideas.length" class="max-h-[calc(100vh-53px)] flex-1 overflow-auto">
     <template v-for="statusId in ideaStatusesSortedByCategory" :key="statusId">
       <div v-if="ideasGroupedByStatus[statusId]">
         <div

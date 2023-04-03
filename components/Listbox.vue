@@ -37,6 +37,7 @@ const selectedOption = computed(() => props.options.find(option => option.value 
       >
         <ListboxOptions
           class="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-zinc-800 sm:text-sm"
+          :class="{ hidden: !!disabled }"
         >
           <ListboxOption
             v-slot="{ active }"
@@ -44,6 +45,7 @@ const selectedOption = computed(() => props.options.find(option => option.value 
             :key="option.text"
             :value="option.value"
             as="template"
+            :disabled="!!disabled"
           >
             <li
               :class="[

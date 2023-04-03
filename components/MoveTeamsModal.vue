@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue'
 import { useStore } from 'vuex'
-import Modal from '../components/Modal.vue'
 import { Idea, Team } from '../types'
 
 const props = defineProps<{
