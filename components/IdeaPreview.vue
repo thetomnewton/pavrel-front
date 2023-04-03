@@ -208,7 +208,7 @@ function handleTeamMove(team: Team) {
 <style scoped>
 @media (min-width: 1024px) {
   .overlaps-sidebar {
-    padding: 32px 64px;
+    padding: 24px 64px;
   }
 }
 </style>
