@@ -4,20 +4,20 @@ import PopoutDropdownOption from '../components/PopoutDropdownOption.vue'
 import StatusIcon from '../components/StatusIcon.vue'
 import { computed, ref } from 'vue'
 import { IdeaStatus } from '../types'
-import { useStore } from 'vuex'
+import { ideaStatusSort } from '~~/helpers/ideas'
 
 const emit = defineEmits(['selected'])
 
-defineProps<{
+const props = defineProps<{
   statuses: IdeaStatus[]
 }>()
 
 const open = ref(false)
 const status = ref('')
 
-const store = useStore()
-
-const sortedStatuses = computed<IdeaStatus[]>(() => store.getters['base/currentTeamStatuses'])
+const sortedStatuses = computed<IdeaStatus[]>(() =>
+  props.statuses.sort((a, b) => ideaStatusSort(a.category, b.category))
+)
 
 const filteredStatuses = computed(() => {
   if (!status.value) return sortedStatuses.value
