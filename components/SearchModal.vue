@@ -26,7 +26,7 @@ const { getRecentIdeasFromStorage } = useRecentIdeas()
 const recentIdeaIds = ref<{ [id: string]: number[] }>({})
 
 const recentIdeas = computed<Idea[]>(() =>
-  recentIdeaIds.value[currentWorkspace.value.id].map(id => getCurrentTeamIdeaById.value(id)).filter(Boolean)
+  recentIdeaIds.value[currentWorkspace.value.id].map(id => getWorkspaceIdeaById.value(id)).filter(Boolean)
 )
 
 const searchInput = ref<HTMLInputElement | null>(null)
@@ -58,7 +58,7 @@ const currentKeyboardIndex = ref<number>(0)
 const { currentWorkspace } = useWorkspace()
 
 const recentSearches = useLocalStorage<{ [id: string]: { value: string; time: number }[] }>('recent-searches', {})
-const getCurrentTeamIdeaById = computed(() => store.getters['base/getCurrentTeamIdeaById'])
+const getWorkspaceIdeaById = computed(() => store.getters['base/getWorkspaceIdeaById'])
 
 if (!(currentWorkspace.value.id in recentSearches.value)) recentSearches.value[currentWorkspace.value.id] = []
 
