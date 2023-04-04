@@ -133,7 +133,7 @@ watch(
           Upgrade
         </NuxtLink>
 
-        <NuxtLink
+        <!-- <NuxtLink
           :to="`/${currentWorkspace.slug}/settings/billing`"
           class="mb-px block w-full cursor-default rounded px-2 py-1 text-[14px] font-medium hover:bg-slate-150 dark:hover:bg-zinc-800"
           :class="{
@@ -142,7 +142,7 @@ watch(
           }"
         >
           Billing
-        </NuxtLink>
+        </NuxtLink> -->
       </div>
 
       <div>
