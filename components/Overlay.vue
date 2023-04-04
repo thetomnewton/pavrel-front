@@ -16,9 +16,9 @@ function retry() {
       <LogoColor class="mx-auto mb-6 h-12 w-16" />
 
       <template v-if="!error">
-        <div class="cursor-default text-center text-[.8125rem] font-medium text-slate-500 dark:text-zinc-300">
-          Loading...
-        </div>
+        <div
+          class="spinner mx-auto h-5 w-5 rounded-full border-2 border-blue-200 border-t-blue-600 dark:border-zinc-700 dark:border-t-blue-600"
+        ></div>
       </template>
 
       <template v-else>
@@ -44,3 +44,18 @@ function retry() {
     </div>
   </div>
 </template>
+
+<style scoped>
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+}
+</style>
