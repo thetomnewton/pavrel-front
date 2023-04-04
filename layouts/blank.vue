@@ -3,6 +3,7 @@ import { watchForDarkMode } from '~~/helpers/dark'
 
 useHead({
   bodyAttrs: { class: 'antialiased h-screen text-slate-900 dark:text-zinc-200' },
+  title: 'Pavrel',
   link: [
     { rel: 'manifest', href: '/site.webmanifest' },
     { rel: 'icon', href: '/favicon.svg' },

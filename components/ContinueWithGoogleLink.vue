@@ -12,9 +12,10 @@ function goto() {
 </script>
 
 <template>
-  <div
+  <button
+    type="button"
     @click="goto"
-    class="mb-2 block w-full cursor-pointer rounded-md border border-slate-300 bg-white py-2 text-center text-sm font-medium leading-[20px] shadow-sm active:translate-y-[1px] active:shadow-none dark:border-zinc-700 dark:bg-zinc-800"
+    class="mb-2 block w-full cursor-pointer appearance-none rounded-md border border-slate-300 bg-white py-2 text-center text-sm font-medium leading-[20px] shadow-sm active:translate-y-[1px] active:shadow-none dark:border-zinc-700 dark:bg-zinc-800"
   >
     <span class="flex items-center justify-center">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="mr-2 h-4 w-4">
@@ -40,5 +41,5 @@ function goto() {
 
       <span class="dark:text-zinc-300"><slot>Continue with Google</slot></span>
     </span>
-  </div>
+  </button>
 </template>
