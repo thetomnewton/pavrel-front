@@ -30,9 +30,13 @@ const workspaceContentError = computed(() => store.state.base.workspaceContentEr
 onMounted(() => {
   if (workspaceContentLoaded.value) return
 
+  if (!store.state.base.currentWorkspaceSlug)
+    store.commit('base/setCurrentWorkspaceFromSlug', route.params.workspaceSlug ?? location.pathname.split('/')[1])
+
   loadWorkspaceContent()
     .then(() => {
-      if (
+      if (!store.state.base.workspaces.length) router.push('/welcome')
+      else if (
         !store.state.base.teams.length &&
         route.fullPath !== `/${route.params.workspaceSlug}/welcome` &&
         route.params.workspaceSlug

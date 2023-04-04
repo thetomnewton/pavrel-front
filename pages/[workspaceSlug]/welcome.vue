@@ -144,7 +144,7 @@ export default {
 
           <form @submit.prevent="selectTeams">
             <div
-              class="mb-4 rounded-md border border-slate-200 bg-white text-left text-[14px] dark:border-zinc-700 dark:bg-zinc-800"
+              class="mb-4 rounded-md border border-slate-200 bg-white text-left text-[14px] shadow-sm dark:border-zinc-700 dark:bg-zinc-800"
             >
               <template v-for="(team, key) in currentWorkspaceTeams">
                 <label
