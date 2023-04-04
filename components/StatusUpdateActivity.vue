@@ -12,15 +12,17 @@ const props = defineProps<{
 }>()
 
 const { fromNow, initiatorName } = useIdeaActivities()
-const { currentTeam } = useTeams()
+const { currentWorkspaceTeams } = useTeams()
 
-const oldStatus = computed<IdeaStatus | undefined>(() => {
-  return currentTeam.value.statuses.find(({ id }) => id === props.activity.meta.prevStatusId)
-})
+const allStatuses = computed(() => currentWorkspaceTeams.value.map(t => t.statuses).flat())
 
-const newStatus = computed<IdeaStatus | undefined>(() => {
-  return currentTeam.value.statuses.find(({ id }) => id === props.activity.meta.newStatusId)
-})
+const oldStatus = computed<IdeaStatus | undefined>(() =>
+  allStatuses.value.find(({ id }) => id === props.activity.meta.prevStatusId)
+)
+
+const newStatus = computed<IdeaStatus | undefined>(() =>
+  allStatuses.value.find(({ id }) => id === props.activity.meta.newStatusId)
+)
 </script>
 
 <template>
