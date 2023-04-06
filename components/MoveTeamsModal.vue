@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useStore } from 'vuex'
 import { Idea, Team } from '../types'
+import { useOnline } from '@vueuse/core'
 
 const props = defineProps<{
   open: boolean
@@ -11,6 +12,7 @@ const emit = defineEmits(['close', 'moved'])
 
 const store = useStore()
 const { user } = useUsers()
+const online = useOnline()
 const { currentWorkspaceTeams } = useWorkspace()
 
 const teamsToMoveTo = computed(() =>
@@ -42,16 +44,26 @@ function attemptMove(team: Team) {
         to which team?
       </div>
 
-      <div class="mt-6">
-        <TeamList class="-mx-8" :teams="teamsToMoveTo" @select-team="attemptMove" />
-
+      <template v-if="!online">
         <div
-          v-if="!teamsToMoveTo.length"
-          class="flex cursor-default items-center justify-center rounded-md border border-slate-200 px-10 py-5 text-sm text-slate-500 dark:border-zinc-700 dark:text-zinc-400"
+          class="mt-6 rounded-md border border-slate-200 py-4 text-center text-slate-600 dark:border-zinc-800 dark:text-zinc-300"
         >
-          No teams available.
+          Please go online to move ideas between teams.
         </div>
-      </div>
+      </template>
+
+      <template v-else>
+        <div class="mt-6">
+          <TeamList class="-mx-8" :teams="teamsToMoveTo" @select-team="attemptMove" />
+
+          <div
+            v-if="!teamsToMoveTo.length"
+            class="flex cursor-default items-center justify-center rounded-md border border-slate-200 px-10 py-5 text-sm text-slate-500 dark:border-zinc-700 dark:text-zinc-400"
+          >
+            No teams available.
+          </div>
+        </div>
+      </template>
     </div>
   </Modal>
 </template>
