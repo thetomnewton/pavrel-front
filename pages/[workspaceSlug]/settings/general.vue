@@ -21,11 +21,22 @@ useHead({
 const attemptWorkspaceNameUpdate = () => {
   saving.value = true
 
-  api.post(`/workspaces/${currentWorkspace.value.id}`, { name: workspaceName.value })
-
-  store.commit('base/updateWorkspace', { ...currentWorkspace.value, ...{ name: workspaceName.value } })
-
-  saving.value = false
+  api
+    .post(`/workspaces/${currentWorkspace.value.id}`, { name: workspaceName.value })
+    .then(() => {
+      const newWorkspace = { ...currentWorkspace.value, ...{ name: workspaceName.value } }
+      store.commit('base/updateWorkspace', newWorkspace)
+      store.commit('base/showToast', {
+        type: 'workspace-update',
+        data: newWorkspace,
+      })
+    })
+    .catch(() => {
+      //
+    })
+    .finally(() => {
+      saving.value = false
+    })
 }
 </script>
 
@@ -48,14 +59,7 @@ const attemptWorkspaceNameUpdate = () => {
         </div>
 
         <div class="mt-4">
-          <button
-            type="submit"
-            class="inline-flex items-center justify-center rounded border border-transparent bg-blue-600 px-[10px] py-1 text-xs font-medium leading-5 text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            :class="{ 'pointer-events-none opacity-50': saving }"
-            :disabled="saving"
-          >
-            Save
-          </button>
+          <Button :disabled="saving"> Save </Button>
         </div>
       </form>
     </section>
