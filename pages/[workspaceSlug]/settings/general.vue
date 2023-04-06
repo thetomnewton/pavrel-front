@@ -59,7 +59,7 @@ const attemptWorkspaceNameUpdate = () => {
         </div>
 
         <div class="mt-4">
-          <Button :disabled="saving"> Save </Button>
+          <Button :disabled="saving">Save</Button>
         </div>
       </form>
     </section>
