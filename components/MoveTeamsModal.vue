@@ -14,6 +14,7 @@ const store = useStore()
 const { user } = useUsers()
 const online = useOnline()
 const { currentWorkspaceTeams } = useWorkspace()
+const movingStatus = ref<'idle' | 'processing' | 'error'>('idle')
 
 const teamsToMoveTo = computed(() =>
   currentWorkspaceTeams.value.filter(
@@ -26,9 +27,17 @@ const team = computed<Team | undefined>(() =>
 )
 
 function attemptMove(team: Team) {
-  store.commit('base/moveIdeaToTeam', { idea: props.idea, team })
-  store.dispatch('base/moveIdeaToTeam', { idea: props.idea, team })
-  emit('moved', team)
+  movingStatus.value = 'processing'
+
+  store
+    .dispatch('base/moveIdeaToTeam', { idea: props.idea, team })
+    .then(() => {
+      movingStatus.value = 'idle'
+      emit('moved', team)
+    })
+    .catch(() => {
+      movingStatus.value = 'error'
+    })
 }
 </script>
 
@@ -54,7 +63,16 @@ function attemptMove(team: Team) {
 
       <template v-else>
         <div class="mt-6">
-          <TeamList class="-mx-8" :teams="teamsToMoveTo" @select-team="attemptMove" />
+          <div class="relative -mx-8">
+            <TeamList :teams="teamsToMoveTo" @select-team="attemptMove" />
+
+            <div
+              v-if="movingStatus === 'processing'"
+              class="absolute inset-0 z-10 flex h-full w-full items-center justify-center bg-slate-100/70 dark:bg-zinc-800/90"
+            >
+              <div class="cursor-default text-[13px] font-medium text-slate-600 dark:text-zinc-400">Processing...</div>
+            </div>
+          </div>
 
           <div
             v-if="!teamsToMoveTo.length"

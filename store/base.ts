@@ -383,27 +383,6 @@ export default {
       })
     },
 
-    moveIdeaToTeam(state: BaseModuleState, { idea, team }: { idea: Idea; team: Team }) {
-      state.ideas = state.ideas.map(currIdea => {
-        if (currIdea.id !== idea.id) return currIdea
-        const newIdea = cloneDeep(currIdea)
-
-        const existingTeam = state.teams.find(({ id }) => id === idea.team_id)
-        if (!existingTeam) return currIdea
-
-        const newStatusId = team.statuses.find(
-          ({ category }) => category === existingTeam.statuses.find(({ id }) => id === currIdea.status_id)?.category
-        )?.id
-
-        newIdea.team_id = team.id
-        newIdea.status_id = newStatusId ?? (team.statuses.find(s => s.default)?.id as string)
-        // todo: map labels correctly
-        newIdea.labels = []
-
-        return newIdea
-      })
-    },
-
     setWorkspaceContentLoaded(state: BaseModuleState, status = true) {
       state.workspaceContentLoaded = status
     },
@@ -893,8 +872,15 @@ export default {
       await api.delete(`/workspaces/${getters.currentWorkspace.id}/teams/${team.id}/users/${user.id}`)
     },
 
-    async moveIdeaToTeam({ getters }: VuexAction, { idea, team }: { idea: Idea; team: Team }) {
-      await api.post(`/workspaces/${getters.currentWorkspace.id}/ideas/${idea.id}/move-teams`, { teamId: team.id })
+    async moveIdeaToTeam({ getters, commit }: VuexAction, { idea, team }: { idea: Idea; team: Team }) {
+      const { data: updatedIdea } = await api.post(
+        `/workspaces/${getters.currentWorkspace.id}/ideas/${idea.id}/move-teams`,
+        {
+          teamId: team.id,
+        }
+      )
+
+      commit('updateIdea', { id: idea.id, updatedIdea })
     },
 
     async getWorkspaces({ commit }: VuexAction) {
