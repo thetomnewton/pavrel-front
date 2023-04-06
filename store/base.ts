@@ -872,6 +872,17 @@ export default {
       await api.delete(`/workspaces/${getters.currentWorkspace.id}/teams/${team.id}/users/${user.id}`)
     },
 
+    async moveIdeaToTeam({ getters, commit }: VuexAction, { idea, team }: { idea: Idea; team: Team }) {
+      const { data: updatedIdea } = await api.post(
+        `/workspaces/${getters.currentWorkspace.id}/ideas/${idea.id}/move-teams`,
+        {
+          teamId: team.id,
+        }
+      )
+
+      commit('updateIdea', { id: idea.id, updatedIdea })
+    },
+
     async getWorkspaces({ commit }: VuexAction) {
       const { data } = await api.get('/workspaces')
       commit('setWorkspaces', data)

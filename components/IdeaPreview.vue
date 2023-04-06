@@ -106,6 +106,10 @@ function setUrl() {
     `/${currentWorkspace.value.slug}/ideas/${team.value?.slug}-${idea.value?.team_idea_id}`
   )
 }
+
+function handleTeamMove(team: Team) {
+  router.push(`/${currentWorkspace.value.slug}/teams/${team.slug}/ideas/all`)
+}
 </script>
 
 <template>
@@ -185,7 +189,7 @@ function setUrl() {
             <span class="ml-auto flex items-center">
               <IdeaEditButton :url="`/${currentWorkspace?.slug}/ideas/${team?.slug}-${idea.team_idea_id}/edit`" />
 
-              <IdeaActionsDropdown :idea="idea" />
+              <IdeaActionsDropdown :idea="idea" @move-teams="handleTeamMove" />
 
               <span
                 @click="sidebarOpen = !sidebarOpen"
@@ -204,7 +208,7 @@ function setUrl() {
 <style scoped>
 @media (min-width: 1024px) {
   .overlaps-sidebar {
-    padding: 32px 64px;
+    padding: 24px 64px;
   }
 }
 </style>

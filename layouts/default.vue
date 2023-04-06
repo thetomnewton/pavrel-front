@@ -65,18 +65,20 @@ watchForDarkMode()
       <Overlay v-if="!workspaceContentLoaded" :error="workspaceContentError" />
     </Transition>
 
-    <div
-      v-if="workspaceContentLoaded"
-      class="fixed inset-0 z-0 flex h-full w-full flex-col overflow-hidden bg-white dark:bg-zinc-900"
-    >
-      <div class="flex h-full min-h-full w-full flex-1 overflow-hidden">
-        <Sidebar />
-        <Toast />
+    <ClientOnly>
+      <div
+        v-if="workspaceContentLoaded"
+        class="fixed inset-0 z-0 flex h-full w-full flex-col overflow-hidden bg-white dark:bg-zinc-900"
+      >
+        <div class="flex h-full min-h-full w-full flex-1 overflow-hidden">
+          <Sidebar />
+          <Toast />
 
-        <main class="flex min-w-0 flex-1 flex-col">
-          <slot />
-        </main>
+          <main class="flex min-w-0 flex-1 flex-col">
+            <slot />
+          </main>
+        </div>
       </div>
-    </div>
+    </ClientOnly>
   </div>
 </template>

@@ -81,7 +81,7 @@ const team = computed<Team | undefined>(() =>
         ></path>
       </svg>
 
-      <div class="mt-3 text-center text-[.8125rem] font-medium text-slate-800">Idea not found</div>
+      <div class="mt-3 text-center text-[.8125rem] font-medium text-slate-800 dark:text-zinc-200">Idea not found</div>
       <div class="text-center">
         <RouterLink
           :to="`/${currentWorkspace.slug}/teams/${team?.slug}/ideas/all`"

@@ -139,7 +139,7 @@ watch(
         </div>
 
         <div class="mt-3 text-sm">
-          <div class="mt-3 mb-1 font-medium text-slate-800">Idea not found.</div>
+          <div class="mt-3 mb-1 font-medium text-slate-800 dark:text-zinc-200">Idea not found.</div>
 
           <RouterLink :to="`/${currentWorkspace.slug}/drafts`" class="font-medium text-blue-500 hover:underline">
             Go to my drafts

@@ -68,7 +68,7 @@ function handleBlur() {
         <div class="mt-2 flex justify-end">
           <button
             type="submit"
-            class="inline-flex cursor-default appearance-none rounded px-3 py-[6px] text-sm font-medium leading-5 ring-blue-500 focus:ring-2"
+            class="inline-flex cursor-default appearance-none rounded-md px-3 py-[6px] text-sm font-medium leading-5 ring-blue-500 focus:ring-2"
             :class="[
               commentBoxFocused
                 ? 'bg-blue-600 text-white hover:bg-blue-700'
