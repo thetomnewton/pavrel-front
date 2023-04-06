@@ -23,7 +23,7 @@ const teamsToMoveTo = computed(() =>
 )
 
 const team = computed<Team | undefined>(() =>
-  currentWorkspaceTeams.value.find((team: Team) => team.id === props.idea.team_id)
+  currentWorkspaceTeams.value.find(({ id }: Team) => id === props.idea.team_id)
 )
 
 function attemptMove(team: Team) {
