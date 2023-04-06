@@ -29,7 +29,7 @@ const { getUserById } = useUsers()
         </div>
       </div>
 
-      <div class="ml-auto">
+      <div class="ml-auto flex items-center space-x-1">
         <div v-for="user in team.users.slice(0, 3)" :key="user.id">
           <template v-if="getUserById(user.id)">
             <img
