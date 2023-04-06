@@ -63,6 +63,10 @@ function attemptMove(team: Team) {
 
       <template v-else>
         <div class="mt-6">
+          <Alert v-if="movingStatus === 'error' || true" class="mb-6">
+            Something went wrong when moving this team. Please try again.
+          </Alert>
+
           <div class="relative -mx-8">
             <TeamList :teams="teamsToMoveTo" @select-team="attemptMove" />
 

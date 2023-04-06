@@ -5,10 +5,10 @@ defineProps({
 </script>
 
 <template>
-  <div class="rounded-md p-4" :class="{ 'bg-red-50 text-red-800': color === 'red' }">
+  <div class="rounded-md p-4" :class="{ 'bg-red-50 text-red-800 dark:bg-red-800 dark:text-red-200': color === 'red' }">
     <div class="flex text-sm">
       <svg
-        class="mr-3 h-5 w-5 text-red-400"
+        class="mr-3 h-5 w-5 text-red-400 dark:text-red-300"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 20 20"
         fill="currentColor"
