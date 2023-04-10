@@ -6,23 +6,29 @@ import axios from '../api'
 const router = useRouter()
 
 useHead({
-  htmlAttrs: {
-    lang: 'en',
-  },
-  title: 'Pavrel',
   bodyAttrs: {
     class: 'bg-white dark:bg-zinc-900 py-6 overflow-auto antialiased font-sans h-screen text-slate-900 py-6 sm:px-6',
   },
+  title: 'Pavrel',
   meta: [
-    { name: 'msapplication-TileColor', content: '#0f172a' },
-    { name: 'theme-color', content: '#0f172a' },
+    {
+      name: 'theme-color',
+      media: '(prefers-color-scheme: light)',
+      content: '#ffffff',
+    },
+    {
+      name: 'theme-color',
+      media: '(prefers-color-scheme: dark)',
+      content: '#18181b',
+    },
+    { name: 'msapplication-TileColor', content: '#18181b' },
   ],
   link: [
     { rel: 'manifest', href: '/site.webmanifest' },
     { rel: 'icon', href: '/favicon.svg' },
     { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' },
     { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' },
-    { rel: 'mask-icon', href: '/safari-pinned-tab.svg', color: '#0f172a' },
+    { rel: 'mask-icon', href: '/safari-pinned-tab.svg', color: '#18181b' },
     {
       rel: 'apple-touch-icon',
       sizes: '180x180',
