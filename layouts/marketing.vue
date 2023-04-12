@@ -16,6 +16,7 @@ useHead({
     { name: 'msapplication-TileColor', content: '#18181b' },
   ],
   link: [
+    { rel: 'preload', href: '/fonts/Inter-roman.var.woff2', as: 'font', type: 'font/woff2', crossorigin: '' },
     { rel: 'manifest', href: '/site.webmanifest' },
     { rel: 'icon', href: '/favicon.svg' },
     { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' },
