@@ -286,7 +286,7 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
         <div class="flex flex-col rounded-xl border border-slate-200 shadow-sm">
           <div class="p-6">
             <h2 class="flex items-center text-lg font-medium leading-6 text-slate-900"><span>Free</span></h2>
-            <p class="mt-4 text-sm text-slate-500">All the basics for starting a new business</p>
+            <p class="mt-4 text-sm text-slate-500">Get your whole team using Pavrel, completely free</p>
             <p class="mt-8">
               <span class="text-4xl font-bold tracking-tight text-slate-900">$0</span>
             </p>
@@ -378,7 +378,7 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
                 -20%
               </span>
             </h2>
-            <p class="mt-4 text-sm text-slate-500">All the basics for starting a new business</p>
+            <p class="mt-4 text-sm text-slate-500">Take your company to the next level with Pavrel Pro</p>
             <p class="mt-8">
               <span class="text-4xl font-bold tracking-tight text-slate-900">
                 {{ billingStrategy === 'monthly' ? '$10' : '$96' }}
@@ -483,7 +483,7 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
         <div class="flex flex-col rounded-xl border border-slate-200 shadow-sm">
           <div class="p-6">
             <h2 class="flex items-center text-lg font-medium leading-6 text-slate-900"><span>Enterprise</span></h2>
-            <p class="mt-4 text-sm text-slate-500">All the basics for starting a new business</p>
+            <p class="mt-4 text-sm text-slate-500">Get even more with a Pavrel Enterprise plan</p>
             <p class="mt-8"><span class="text-4xl font-bold tracking-tight text-slate-900">Contact us</span></p>
             <RouterLink
               to="/login"
