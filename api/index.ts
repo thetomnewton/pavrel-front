@@ -11,7 +11,10 @@ axios.interceptors.response.use(
   },
   error => {
     // If we're supposed to be logged-in, redirect to /login
-    if (error.response.status === 419) location.href = '/login'
+    if (error.response.status === 419) {
+      localStorage.setItem('isLoggedIn', 'false')
+      location.href = '/login'
+    }
 
     // Any status codes that falls outside the range of 2xx cause this function to trigger
     // Do something with response error

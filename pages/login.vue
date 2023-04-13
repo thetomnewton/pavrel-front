@@ -9,6 +9,7 @@ const router = useRouter()
 
 definePageMeta({
   layout: 'auth',
+  middleware: 'guest',
 })
 
 useHead({
@@ -37,6 +38,8 @@ async function submit() {
   axios
     .post('/login', form.value)
     .then(() => {
+      localStorage.setItem('isLoggedIn', 'true')
+
       Promise.all([axios.get('/user'), axios.get('/workspaces')]).then(responses => {
         const [{ data: user }, { data: workspaces }] = responses
 
