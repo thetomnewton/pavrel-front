@@ -108,7 +108,8 @@ function setUrl() {
 }
 
 function handleTeamMove(team: Team) {
-  router.push(`/${currentWorkspace.value.slug}/teams/${team.slug}/ideas/all`)
+  if (!team.personal) router.push(`/${currentWorkspace.value.slug}/teams/${team.slug}/ideas/all`)
+  else router.push(`/${currentWorkspace.value.slug}/drafts`)
 }
 </script>
 
