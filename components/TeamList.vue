@@ -22,14 +22,14 @@ const { getUserById } = useUsers()
       <div>
         <div class="leading-6 group-hover:text-blue-600 dark:group-hover:text-zinc-100">{{ team.name }}</div>
         <div class="text-xs text-slate-600 group-hover:text-blue-600 dark:text-zinc-300 dark:group-hover:text-zinc-200">
-          <span
-            >{{ team.users.length }} {{ team.users.length === 1 ? 'member' : 'members' }},
-            {{ totalIdeasInTeam(team) }} ideas</span
-          >
+          <span>
+            {{ team.users.length }} {{ team.users.length === 1 ? 'member' : 'members' }},
+            {{ totalIdeasInTeam(team) }} ideas
+          </span>
         </div>
       </div>
 
-      <div class="ml-auto">
+      <div class="ml-auto flex items-center space-x-1">
         <div v-for="user in team.users.slice(0, 3)" :key="user.id">
           <template v-if="getUserById(user.id)">
             <img

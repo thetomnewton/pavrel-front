@@ -564,7 +564,7 @@ export default {
         state.toastVisible = false
         state.toastType = null
         state.toastData = null
-      }, 10000)
+      }, 8000)
     },
 
     hideToast(state: BaseModuleState) {

@@ -81,6 +81,7 @@ watchForDarkMode()
 
       <div class="flex h-full w-full flex-1">
         <SettingsSidebar :open="sidebarOpen" @close="sidebarOpen = false" />
+        <Toast />
 
         <main class="min-w-0 flex-1 overflow-auto">
           <slot />

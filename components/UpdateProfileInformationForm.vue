@@ -6,7 +6,7 @@ import JetLabel from './Label.vue'
 import JetActionMessage from './ActionMessage.vue'
 import JetSecondaryButton from './SecondaryButton.vue'
 import api from '../api'
-import { mapState } from 'vuex'
+import { mapMutations, mapState } from 'vuex'
 import { CheckIcon } from '@heroicons/vue/24/solid'
 
 export default {
@@ -47,6 +47,8 @@ export default {
   },
 
   methods: {
+    ...mapMutations('base', ['showToast']),
+
     updateProfileInformation() {
       if (this.$refs.photo) {
         this.form.photo = this.photoPreview
@@ -55,11 +57,7 @@ export default {
       api.put('/user/profile-information', this.form).then(({ data }) => {
         this.clearPhotoFileInput()
 
-        this.form.recentlySuccessful = true
-
-        setTimeout(() => {
-          this.form.recentlySuccessful = false
-        }, 4000)
+        this.showToast({ type: 'profile-update', data: {} })
 
         this.$store.commit('base/setUser', data)
       })
@@ -88,11 +86,7 @@ export default {
         this.photoPreview = null
         this.clearPhotoFileInput()
 
-        this.form.recentlySuccessful = true
-
-        setTimeout(() => {
-          this.form.recentlySuccessful = false
-        }, 4000)
+        this.showToast({ type: 'profile-update', data: {} })
 
         const user = this.user
         user.profile_photo_path = null
@@ -173,12 +167,6 @@ export default {
     <template #actions>
       <div class="flex items-center">
         <jet-button :class="{ 'opacity-25': form.processing }" :disabled="form.processing"> Save </jet-button>
-        <jet-action-message :on="form.recentlySuccessful || false" class="ml-4">
-          <div class="flex items-center">
-            <CheckIcon class="mr-1 h-5 w-5 text-green-600" />
-            <span>Saved</span>
-          </div>
-        </jet-action-message>
       </div>
     </template>
   </jet-form-section>
