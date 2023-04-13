@@ -17,9 +17,14 @@ useHead({
 const store = useStore()
 const router = useRouter()
 
-const { workspaces } = useWorkspace()
+if (process.client) {
+  // If user is already a member of a workspace, redirect
+  api.get('/workspaces').then(({ data }) => {
+    if (data?.length >= 1) router.push(`/${data[data.length - 1].slug}/drafts`)
+  })
+}
 
-const newWorkspace = ref(workspaces.value?.[0] ?? { name: '' })
+const newWorkspace = ref({ name: '' })
 
 const saving = ref(false)
 const showForm = ref(false)
