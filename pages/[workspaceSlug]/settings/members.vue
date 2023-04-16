@@ -40,9 +40,7 @@ function niceDate(date: string) {
         </div>
 
         <span class="ml-auto">
-          <BaseButton button="primary" class="whitespace-nowrap" @click.native="modalOpen = true">
-            Invite people
-          </BaseButton>
+          <Button @click.native="modalOpen = true"> Invite people </Button>
         </span>
       </div>
 

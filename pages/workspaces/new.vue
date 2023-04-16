@@ -94,7 +94,7 @@ async function storeWorkspace() {
             </div>
 
             <div class="text-right">
-              <BaseButton type="submit" button="primary" size="md" :disabled="saving"> Create workspace </BaseButton>
+              <Button type="submit" :disabled="saving"> Create workspace </Button>
             </div>
           </form>
         </div>
