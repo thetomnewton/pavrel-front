@@ -89,12 +89,7 @@ export default {
         const user = this.user
         user.profile_photo_path = null
 
-        const initials = user.name
-          .split(' ')
-          .map(word => word[0].toUpperCase())
-          .join('+')
-
-        user.profile_photo_url = `https://ui-avatars.com/api/?name=${initials}&color=7F9CF5&background=EBF4FF`
+        user.profile_photo_url = `https://ui-avatars.com/api/?name=${user.name}&color=7F9CF5&background=EBF4FF`
         this.$store.commit('base/setUser', user)
       })
     },
