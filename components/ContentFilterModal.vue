@@ -33,7 +33,7 @@ const applyFilter = () => {
   <BaseDialog
     :open="open"
     :initial-focus="content"
-    class="mx-auto w-full max-w-[500px] rounded-md bg-white px-8 py-6 shadow-3xl dark:border dark:border-zinc-700 dark:bg-zinc-900 md:mt-[12vh]"
+    class="mx-auto w-full max-w-[500px] rounded-lg bg-white px-8 py-6 shadow-3xl dark:border dark:border-zinc-700 dark:bg-zinc-900 md:mt-[12vh]"
     @close="emit('close')"
   >
     <div class="mb-4 font-medium">Filter by content</div>

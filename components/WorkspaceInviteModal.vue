@@ -138,7 +138,7 @@ function cancelInvite(invite: WorkspaceInvitation) {
     :open="open"
     :initial-focus="emailsInput ?? undefined"
     @close="emit('close')"
-    class="mx-auto w-full max-w-[500px] rounded border bg-white px-8 py-6 shadow-3xl dark:border-zinc-700 dark:bg-zinc-900 md:mt-[12vh]"
+    class="mx-auto w-full max-w-[500px] rounded-lg border bg-white px-8 py-6 shadow-3xl dark:border-zinc-700 dark:bg-zinc-900 md:mt-[12vh]"
   >
     <h3 class="mb-6 font-semibold">Invite people to the {{ workspace?.name }} workspace</h3>
 
