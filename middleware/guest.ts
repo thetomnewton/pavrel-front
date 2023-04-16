@@ -1,7 +1,7 @@
 export default defineNuxtRouteMiddleware(to => {
   if (!process.client) return
 
-  if (localStorage.getItem('isLoggedIn') === 'true') {
+  if (localStorage.getItem('is-logged-in') === 'true') {
     // We are already logged in, so redirect elsewhere
     const lastWorkspace = localStorage.getItem('last-workspace')
 

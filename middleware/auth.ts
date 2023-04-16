@@ -1,5 +1,5 @@
 export default defineNuxtRouteMiddleware(to => {
   if (!process.client) return
 
-  if (localStorage.getItem('isLoggedIn') !== 'true') location.href = '/login'
+  if (localStorage.getItem('is-logged-in') !== 'true') location.href = '/login'
 })
