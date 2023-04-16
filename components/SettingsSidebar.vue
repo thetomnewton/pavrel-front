@@ -72,32 +72,6 @@ watch(
 
     <div class="space-y-6" v-if="currentWorkspace">
       <div>
-        <div class="mb-[2px] ml-2 text-[.8125rem] font-medium text-slate-500 dark:text-zinc-400">Account</div>
-
-        <NuxtLink
-          :to="`/${currentWorkspace.slug}/user/profile`"
-          class="mb-px block w-full cursor-default rounded px-2 py-1 text-[14px] font-medium hover:bg-slate-150 dark:hover:bg-zinc-800"
-          :class="{
-            'bg-slate-150 text-slate-800 dark:bg-zinc-800 dark:text-zinc-200':
-              $route.fullPath === `/${currentWorkspace.slug}/user/profile`,
-          }"
-        >
-          My account
-        </NuxtLink>
-
-        <NuxtLink
-          :to="`/${currentWorkspace.slug}/user/preferences`"
-          class="mb-px block w-full cursor-default rounded px-2 py-1 text-[14px] font-medium hover:bg-slate-150 dark:hover:bg-zinc-800"
-          :class="{
-            'bg-slate-150 text-slate-800 dark:bg-zinc-800 dark:text-zinc-200':
-              $route.fullPath === `/${currentWorkspace.slug}/user/preferences`,
-          }"
-        >
-          Preferences
-        </NuxtLink>
-      </div>
-
-      <div>
         <div class="mb-[2px] ml-2 text-[.8125rem] font-medium text-slate-500 dark:text-zinc-400">Workspace</div>
 
         <NuxtLink
@@ -143,6 +117,32 @@ watch(
         >
           Billing
         </NuxtLink> -->
+      </div>
+
+      <div>
+        <div class="mb-[2px] ml-2 text-[.8125rem] font-medium text-slate-500 dark:text-zinc-400">Account</div>
+
+        <NuxtLink
+          :to="`/${currentWorkspace.slug}/user/profile`"
+          class="mb-px block w-full cursor-default rounded px-2 py-1 text-[14px] font-medium hover:bg-slate-150 dark:hover:bg-zinc-800"
+          :class="{
+            'bg-slate-150 text-slate-800 dark:bg-zinc-800 dark:text-zinc-200':
+              $route.fullPath === `/${currentWorkspace.slug}/user/profile`,
+          }"
+        >
+          My account
+        </NuxtLink>
+
+        <NuxtLink
+          :to="`/${currentWorkspace.slug}/user/preferences`"
+          class="mb-px block w-full cursor-default rounded px-2 py-1 text-[14px] font-medium hover:bg-slate-150 dark:hover:bg-zinc-800"
+          :class="{
+            'bg-slate-150 text-slate-800 dark:bg-zinc-800 dark:text-zinc-200':
+              $route.fullPath === `/${currentWorkspace.slug}/user/preferences`,
+          }"
+        >
+          Preferences
+        </NuxtLink>
       </div>
 
       <div>
