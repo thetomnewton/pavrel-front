@@ -5,7 +5,7 @@ export default defineNuxtRouteMiddleware(to => {
     // We are already logged in, so redirect elsewhere
     const lastWorkspace = localStorage.getItem('last-workspace')
 
-    if (lastWorkspace) location.href = `${lastWorkspace}/drafts`
+    if (lastWorkspace) location.href = `/${lastWorkspace}/drafts`
     else location.href = '/welcome'
   }
 })
