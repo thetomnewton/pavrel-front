@@ -105,7 +105,7 @@ watch(
       <div class="flex min-w-0 items-center">
         <div class="hidden cursor-default truncate whitespace-nowrap xs:block">{{ team.name }}</div>
         <div class="mx-1 hidden xs:block">›</div>
-        <div class="cursor-default whitespace-nowrap">#{{ idea.team_idea_id }}</div>
+        <div class="cursor-default whitespace-nowrap">{{ team.slug }}-{{ idea.team_idea_id }}</div>
       </div>
 
       <FavoriteButton class="ml-4" @click="idea ? toggleFavorite(idea) : ''" :on="isFavorite(idea)" />
