@@ -330,7 +330,7 @@ function handleTitleEnterPress(e: KeyboardEvent) {
             </div>
 
             <div
-              class="flex items-center rounded-b-lg border-t border-slate-150 bg-[#fcfdff] py-4 px-6 dark:border-zinc-600 dark:bg-zinc-800"
+              class="flex items-center rounded-b-lg border-t border-slate-150 bg-[#fafbfe] py-4 px-6 dark:border-zinc-600 dark:bg-zinc-800"
             >
               <NuxtLink
                 :href="`/${currentWorkspace.slug}/settings/plans`"
