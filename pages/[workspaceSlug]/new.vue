@@ -120,15 +120,7 @@ onMounted(() => {
               Cancel
             </RouterLink>
 
-            <BaseButton
-              @click="create"
-              type="button"
-              button="primary"
-              class="cursor-default leading-5"
-              :disabled="cantCreateNewIdeas"
-            >
-              Save
-            </BaseButton>
+            <Button @click="create" type="button" :disabled="cantCreateNewIdeas"> Save </Button>
 
             <span class="ml-2 rounded py-[5px] px-[6px] hover:bg-slate-100 lg:hidden" @click="sidebarOpen = true">
               <Bars3BottomRightIcon class="h-5 w-5 min-w-[1.25rem] text-slate-600" />

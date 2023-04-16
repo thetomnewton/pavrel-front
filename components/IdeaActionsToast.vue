@@ -18,13 +18,13 @@ defineProps<{
   >
     <div
       v-if="ideaIds.length"
-      class="fixed left-0 bottom-0 z-40 w-full border border-b-0 border-slate-900 bg-slate-800 px-6 py-[10px] text-sm font-medium text-white shadow-md dark:border-zinc-900 dark:bg-zinc-800 sm:left-[50%] sm:w-auto sm:translate-x-[-50%] sm:rounded-t-lg"
+      class="fixed left-0 bottom-4 z-40 w-full border border-slate-900 bg-slate-800 px-6 py-[10px] text-sm font-medium text-white shadow-md dark:border-zinc-900 dark:bg-zinc-800 sm:left-[50%] sm:w-auto sm:translate-x-[-50%] sm:rounded-lg"
     >
       <div class="flex items-center">
         <span class="cursor-default whitespace-nowrap">{{ ideaIds.length }} selected</span>
         <button
           type="button"
-          class="dark:hover:zinc-slate-400 dark:active:zinc-slate-900 ml-auto inline-flex cursor-default appearance-none items-center rounded-md border border-slate-500 px-2 py-[6px] text-center text-sm font-medium leading-5 hover:border-slate-400 active:bg-slate-900 dark:border-zinc-500 sm:ml-4"
+          class="ml-auto inline-flex cursor-default appearance-none items-center rounded-md border border-slate-500 px-2 py-[6px] text-center text-sm font-medium leading-5 hover:border-slate-400 active:bg-slate-900 dark:border-zinc-500 dark:hover:bg-zinc-700/20 dark:active:bg-zinc-700/50 sm:ml-4"
           @click="emit('show-actions-modal')"
         >
           <CommandLineIcon class="mr-2 h-5 w-5 text-slate-300 dark:text-zinc-300" />

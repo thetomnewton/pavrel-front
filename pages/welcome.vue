@@ -106,7 +106,7 @@ function logout() {
               </div>
 
               <div class="flex justify-end">
-                <BaseButton type="submit" button="primary" size="md" :disabled="saving"> Save & continue </BaseButton>
+                <Button type="submit" :disabled="saving"> Save & continue </Button>
               </div>
             </form>
           </div>

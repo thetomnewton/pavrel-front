@@ -1,10 +1,10 @@
 <script>
-import JetButton from './Button.vue'
-import JetFormSection from './FormSection.vue'
-import JetInput from './Input.vue'
-import JetLabel from './Label.vue'
-import JetActionMessage from './ActionMessage.vue'
-import JetSecondaryButton from './SecondaryButton.vue'
+import FormSection from './FormSection.vue'
+import Button from './Button.vue'
+import Input from './Input.vue'
+import Label from './Label.vue'
+import ActionMessage from './ActionMessage.vue'
+import SecondaryButton from './SecondaryButton.vue'
 import api from '../api'
 import { mapMutations, mapState } from 'vuex'
 import { CheckIcon } from '@heroicons/vue/24/solid'
@@ -12,12 +12,10 @@ import { CheckIcon } from '@heroicons/vue/24/solid'
 export default {
   components: {
     CheckIcon,
-    JetActionMessage,
-    JetButton,
-    JetFormSection,
-    JetInput,
-    JetLabel,
-    JetSecondaryButton,
+    ActionMessage,
+    Input,
+    Label,
+    SecondaryButton,
   },
 
   data() {
@@ -91,12 +89,7 @@ export default {
         const user = this.user
         user.profile_photo_path = null
 
-        const initials = user.name
-          .split(' ')
-          .map(word => word[0].toUpperCase())
-          .join('+')
-
-        user.profile_photo_url = `https://ui-avatars.com/api/?name=${initials}&color=7F9CF5&background=EBF4FF`
+        user.profile_photo_url = `https://ui-avatars.com/api/?name=${user.name}&color=7F9CF5&background=EBF4FF`
         this.$store.commit('base/setUser', user)
       })
     },
@@ -111,7 +104,7 @@ export default {
 </script>
 
 <template>
-  <jet-form-section @submitted="updateProfileInformation">
+  <FormSection @submitted="updateProfileInformation">
     <template #title> Basic details </template>
 
     <template #description> Update your account's profile information and email address. </template>
@@ -122,7 +115,7 @@ export default {
         <!-- Profile Photo File Input -->
         <input type="file" class="hidden" ref="photo" @change="updatePhotoPreview" />
 
-        <JetLabel for="photo" value="Photo" />
+        <Label for="photo" value="Photo" />
 
         <!-- Current Profile Photo -->
         <div class="mt-2" v-show="!photoPreview">
@@ -142,32 +135,32 @@ export default {
           </span>
         </div>
 
-        <JetSecondaryButton class="mt-2 mr-2" type="button" @click.prevent="selectNewPhoto">
+        <SecondaryButton class="mt-2 mr-2" type="button" @click.prevent="selectNewPhoto">
           Select new photo
-        </JetSecondaryButton>
+        </SecondaryButton>
 
-        <JetSecondaryButton type="button" class="mt-2" @click.prevent="deletePhoto" v-if="user.profile_photo_path">
+        <SecondaryButton type="button" class="mt-2" @click.prevent="deletePhoto" v-if="user.profile_photo_path">
           Remove photo
-        </JetSecondaryButton>
+        </SecondaryButton>
       </div>
 
       <!-- Name -->
       <div class="col-span-6 sm:col-span-4">
-        <JetLabel for="name" value="Name" />
-        <jet-input id="name" type="text" class="mt-1 block w-full" v-model="form.name" autocomplete="name" />
+        <Label for="name" value="Name" />
+        <Input id="name" type="text" class="mt-1 block w-full" v-model="form.name" autocomplete="name" />
       </div>
 
       <!-- Email -->
       <div class="col-span-6 sm:col-span-4">
-        <JetLabel for="email" value="Email" />
-        <jet-input id="email" type="email" class="mt-1 block w-full" v-model="form.email" />
+        <Label for="email" value="Email" />
+        <Input id="email" type="email" class="mt-1 block w-full" v-model="form.email" />
       </div>
     </template>
 
     <template #actions>
       <div class="flex items-center">
-        <jet-button :class="{ 'opacity-25': form.processing }" :disabled="form.processing"> Save </jet-button>
+        <Button :class="{ 'opacity-25': form.processing }" :disabled="form.processing"> Save </Button>
       </div>
     </template>
-  </jet-form-section>
+  </FormSection>
 </template>

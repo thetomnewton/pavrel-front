@@ -42,7 +42,7 @@ if (process.client) {
   try {
     // If we are logged in:
     const { data: workspaces }: { data: Workspace[] } = await axios.get('/workspaces')
-    localStorage.setItem('isLoggedIn', 'true')
+    localStorage.setItem('is-logged-in', 'true')
 
     // If we have a recent workspace in storage, go there
     const storageLastWorkspace = process.client && localStorage.getItem('last-workspace')
@@ -62,7 +62,7 @@ watchForDarkMode()
 
 <template>
   <section class="mx-auto w-full px-4 sm:max-w-sm">
-    <div class="mb-6 mt-12 flex justify-center">
+    <div class="mb-6 mt-16 flex justify-center">
       <AuthenticationCardLogo />
     </div>
 

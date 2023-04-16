@@ -19,7 +19,7 @@ import {
 import { find } from 'lodash-es'
 import { useLocalStorage } from '@vueuse/core'
 import { Idea, Team, Workspace } from '../types'
-import { RouteLocationNamedRaw, useRoute, useRouter } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import Dropdown from './Dropdown.vue'
 import QuickCreateIdeaModal from './QuickCreateIdeaModal.vue'
 import WorkspaceInviteModal from './WorkspaceInviteModal.vue'
@@ -37,6 +37,7 @@ const store = useStore()
 const router = useRouter()
 const route = useRoute()
 const theme = useLocalStorage('theme', defaultTheme)
+const expandedTeams = useLocalStorage<Team['id'][]>('expanded-teams', [])
 const { logout } = useLogout()
 const { unreadNotificationsCount } = useInbox()
 const workspaceInviteModalOpen = ref(false)
@@ -59,8 +60,6 @@ const favoriteIdeas = computed<Idea[]>(() => store.getters['base/favoriteIdeas']
 const activePublicTeams = computed(() =>
   currentWorkspaceTeams.value?.filter(({ users, personal }) => !personal && find(users, { id: user.value.id }))
 )
-
-const expandedTeams = ref<Team['id'][]>([])
 
 const toggleExpandedTeam = (id: Team['id'], force = false) => {
   const teamBeingViewed = route.fullPath === `/${currentWorkspace.value.slug}/teams/${getTeamById(id)?.slug}/ideas/all`

@@ -64,7 +64,7 @@ function setHeight(el: HTMLTextAreaElement) {
       class="pointer-events-none absolute inset-0 py-2 px-0 text-[26px] font-semibold leading-[35px] text-slate-400 dark:text-zinc-500"
       v-if="!modelValue || !modelValue.length"
     >
-      Idea title
+      Title
     </div>
   </div>
 </template>

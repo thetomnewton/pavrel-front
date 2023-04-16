@@ -1,5 +1,5 @@
 <template>
   <NuxtLink to="/">
-    <LogoColor class="block h-[72px] w-[50px]" />
+    <LogoColor class="block h-[80px] w-[70px]" />
   </NuxtLink>
 </template>
