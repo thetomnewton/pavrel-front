@@ -201,7 +201,9 @@ function handleTitleEnterPress(e: KeyboardEvent) {
       <ModalBg />
 
       <ModalWrapper>
-        <DialogPanel class="mx-auto w-full max-w-[700px] rounded-lg bg-white shadow-3xl dark:bg-zinc-800 md:mt-[12vh]">
+        <DialogPanel
+          class="mx-auto w-full max-w-[600px] rounded-lg bg-white shadow-3xl dark:border dark:border-zinc-600 dark:bg-zinc-800 md:mt-[12vh]"
+        >
           <form class="relative flex w-full flex-col" @submit.prevent="saveIdea">
             <span class="absolute top-6 right-6 z-10 flex bg-white dark:bg-zinc-800">
               <button
@@ -240,7 +242,7 @@ function handleTitleEnterPress(e: KeyboardEvent) {
                 ref="ideaTitle"
                 type="text"
                 :tabindex="open ? 0 : -1"
-                placeholder="Idea title"
+                placeholder="Title"
                 v-model="newIdea.title"
                 required
                 @keydown.enter="handleTitleEnterPress"
@@ -327,7 +329,9 @@ function handleTitleEnterPress(e: KeyboardEvent) {
               </div>
             </div>
 
-            <div class="flex items-center border-t border-slate-200 py-4 px-6 dark:border-zinc-700">
+            <div
+              class="flex items-center rounded-b-lg border-t border-slate-150 bg-[#fcfdff] py-4 px-6 dark:border-zinc-600 dark:bg-zinc-800"
+            >
               <NuxtLink
                 :href="`/${currentWorkspace.slug}/settings/plans`"
                 v-if="cantCreateNewIdeas"
@@ -338,7 +342,13 @@ function handleTitleEnterPress(e: KeyboardEvent) {
               </NuxtLink>
 
               <div class="ml-auto">
-                <BaseButton type="submit" button="primary" :disabled="cantCreateNewIdeas">Save idea</BaseButton>
+                <button
+                  type="submit"
+                  class="inline-flex cursor-default whitespace-nowrap rounded-lg border border-slate-300 bg-white px-3 py-1.5 text-sm font-medium text-slate-800 shadow-sm active:translate-y-px active:shadow-none dark:border-zinc-500 dark:bg-zinc-700 dark:text-zinc-100 dark:shadow"
+                  :disabled="cantCreateNewIdeas"
+                >
+                  Save idea
+                </button>
               </div>
             </div>
           </form>
