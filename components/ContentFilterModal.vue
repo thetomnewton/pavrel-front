@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue'
-import BaseButton from './BaseButton.vue'
 import BaseDialog from './BaseDialog.vue'
 import FormTextInput from './FormTextInput.vue'
 
@@ -45,7 +44,7 @@ const applyFilter = () => {
       </div>
 
       <div class="mt-4 flex justify-end">
-        <BaseButton button="primary" size="md" type="submit">Apply</BaseButton>
+        <Button type="submit">Apply</Button>
       </div>
     </form>
   </BaseDialog>

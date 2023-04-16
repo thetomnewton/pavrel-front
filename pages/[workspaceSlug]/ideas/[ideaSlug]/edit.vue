@@ -103,9 +103,7 @@ export default {
             Cancel
           </span>
 
-          <BaseButton @click="update" type="button" button="primary" class="cursor-default leading-5">
-            Save
-          </BaseButton>
+          <Button @click="update" type="button">Save</Button>
 
           <span
             @click="sidebarOpen = true"

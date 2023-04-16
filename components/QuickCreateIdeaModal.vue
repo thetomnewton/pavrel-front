@@ -8,7 +8,6 @@ import { DocumentIcon, PresentationChartLineIcon } from '@heroicons/vue/24/outli
 import { XMarkIcon } from '@heroicons/vue/20/solid'
 import { Idea, Label, PartialIdea, Team } from '../types'
 import { generateTempIdea } from '../helpers/ideas'
-import BaseButton from './BaseButton.vue'
 import Tiptap from './Tiptap.vue'
 import IdeaLabelDropdown from './IdeaLabelDropdown.vue'
 import IdeaStatusDropdown from './IdeaStatusDropdown.vue'

@@ -130,7 +130,7 @@ export default {
             </div>
 
             <div class="flex justify-end">
-              <BaseButton type="submit" button="primary" size="md" :disabled="saving">Save & finish</BaseButton>
+              <Button type="submit" :disabled="saving">Save & finish</Button>
             </div>
           </form>
         </div>
@@ -167,9 +167,7 @@ export default {
             </div>
 
             <div class="flex justify-end">
-              <BaseButton type="submit" button="primary" size="md" :disabled="saving || !selectedTeams.length">
-                Save & finish
-              </BaseButton>
+              <Button type="submit" :disabled="saving || !selectedTeams.length"> Save & finish </Button>
             </div>
           </form>
         </div>
