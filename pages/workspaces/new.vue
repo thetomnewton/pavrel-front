@@ -63,7 +63,7 @@ async function storeWorkspace() {
   <div class="absolute inset-0 z-50 flex min-h-screen flex-col bg-white px-6 pb-6 pt-4 text-[15px] dark:bg-zinc-900">
     <div>
       <div
-        class="-ml-2 inline-flex cursor-default items-center rounded py-2 pr-4 pl-3 text-[.8125rem] font-medium hover:bg-slate-50 active:bg-slate-100 dark:hover:bg-zinc-800/70 dark:active:bg-zinc-800"
+        class="-ml-2 inline-flex cursor-default items-center rounded-md py-2 pr-4 pl-3 text-[.8125rem] font-medium hover:bg-slate-50 active:bg-slate-100 dark:hover:bg-zinc-800/70 dark:active:bg-zinc-800"
         @click="back"
       >
         <ChevronLeftIcon class="-ml-1 mr-1 h-4 w-4 text-slate-500 dark:text-zinc-400" />
