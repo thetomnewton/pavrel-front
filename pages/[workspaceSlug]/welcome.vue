@@ -40,7 +40,10 @@ export default {
       immediate: true,
       handler(value) {
         if (value) this.showForm = true
-        if (value && this.userCurrentWorkspaceTeams?.length) this.$router.push(`/${this.currentWorkspace.slug}/drafts`)
+
+        // If this person has at least 1 non-personal team already, redirect them
+        if (value && this.userCurrentWorkspaceTeams?.filter(t => !t.personal).length)
+          this.$router.push(`/${this.currentWorkspace.slug}/drafts`)
       },
     },
   },
@@ -69,7 +72,7 @@ export default {
         .post(`/workspace/${this.currentWorkspace.id}/teams/join`, {
           teams: this.selectedTeams,
         })
-        .then(({ data }) => {
+        .then(() => {
           this.$store.dispatch('base/getCurrentWorkspaceTeams').then(() => {
             this.$router.push(`/${this.currentWorkspace.slug}/drafts`)
           })
@@ -83,7 +86,7 @@ export default {
       }
 
       this.selectedTeams.splice(
-        this.selectedTeams.findIndex(x => x === id),
+        this.selectedTeams.findIndex(tId => tId === id),
         1
       )
     },
