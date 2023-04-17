@@ -4,7 +4,7 @@ import { mapState } from 'vuex'
 import { csrf } from '~~/helpers/auth'
 
 definePageMeta({
-  layout: 'auth',
+  layout: 'onboarding',
 })
 
 useHead({
@@ -278,7 +278,7 @@ export default {
         </template>
 
         <template v-else>
-          <div class="mb-6 flex items-center rounded border border-slate-200 px-4 py-3 text-sm">
+          <div class="mb-6 flex items-center rounded-md border border-slate-200 px-4 py-3 text-sm">
             <div class="mr-4">
               <img
                 v-if="workspace.logo_path"
@@ -296,7 +296,7 @@ export default {
             </div>
           </div>
 
-          <div class="mb-6 flex items-center rounded border border-slate-200 px-4 py-3 text-sm">
+          <div class="mb-6 flex items-center rounded-md border border-slate-200 px-4 py-3 text-sm">
             <div class="mr-4">
               <img class="h-[24px] w-[24px] min-w-[24px] rounded-full object-cover" :src="user.profile_photo_url" />
             </div>
