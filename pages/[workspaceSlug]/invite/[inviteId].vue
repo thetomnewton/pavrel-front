@@ -292,7 +292,9 @@ export default {
 
             <div class="flex-1">
               <div class="font-medium">{{ workspace.name }}</div>
-              <div class="text-[.8125rem]">{{ workspace.users_count }} members</div>
+              <div class="text-[.8125rem]">
+                {{ workspace.users_count }} member{{ workspace.users_count === 1 ? '' : 's' }}
+              </div>
             </div>
           </div>
 
