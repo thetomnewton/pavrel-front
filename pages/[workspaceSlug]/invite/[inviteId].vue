@@ -5,7 +5,6 @@ import { csrf } from '~~/helpers/auth'
 
 definePageMeta({
   layout: 'auth',
-  middleware: 'guest',
 })
 
 useHead({
@@ -162,7 +161,7 @@ export default {
           </form>
 
           <div v-else-if="loggedOutUserStep === 'register'">
-            <ValidationErrors class="mb-6" />
+            <!-- <ValidationErrors class="mb-6" /> -->
 
             <form @submit.prevent="submitAndRegister">
               <div>
