@@ -118,7 +118,7 @@ export default {
       axios
         .post(`/workspaces/${this.workspace.id}/invitations/${this.$route.params.inviteId}/claim`)
         .then(() => {
-          this.$router.push(`/${this.workspace.slug}/welcome`)
+          location.href = `/${this.workspace.slug}/welcome`
         })
         .catch(error => {
           // todo: catch errors
@@ -328,7 +328,7 @@ export default {
         <div class="rounded-md border border-slate-200 p-5 text-center">
           <p class="mb-4">This invitation has already been claimed.</p>
           <p>
-            <Button onclick="$router.push('/login')" class="rounded-md px-5 py-2 shadow">
+            <Button @click="$router.push('/login')" class="rounded-md px-5 py-2 shadow">
               {{ isLoggedIn ? 'Back to Pavrel' : 'Back to login' }}
             </Button>
           </p>
