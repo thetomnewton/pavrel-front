@@ -281,7 +281,14 @@ export default {
         <template v-else>
           <div class="mb-6 flex items-center rounded border border-slate-200 px-4 py-3 text-sm">
             <div class="mr-4">
-              <WorkspaceIcon :size="24" class="mr-[10px] bg-blue-500" :initial="workspace.initial" />
+              <img
+                v-if="workspace.logo_path"
+                :src="workspace.logo_path"
+                :alt="workspace.name"
+                class="inline-block h-[24px] w-[24px] min-w-[24px] rounded"
+              />
+
+              <WorkspaceIcon v-else :size="24" class="mr-[10px] bg-blue-500" :initial="workspace.initial" />
             </div>
 
             <div class="flex-1">
