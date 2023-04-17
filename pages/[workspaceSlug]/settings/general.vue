@@ -32,6 +32,21 @@ function saveNewLogo() {
     .post(`/workspaces/${currentWorkspace.value.id}/logo`, { logo: newLogoPreview.value })
     .then(() => {
       store.commit('base/showToast', { type: 'workspace-logo-update', data: {} })
+      cancelNewLogoUpload()
+    })
+    .finally(() => {
+      newLogoSaveProgress.value = 'idle'
+    })
+}
+
+function removeLogo() {
+  newLogoSaveProgress.value = 'processing'
+
+  api
+    .post(`/workspaces/${currentWorkspace.value.id}/logo`, { logo: null })
+    .then(() => {
+      store.commit('base/showToast', { type: 'workspace-logo-removal', data: {} })
+      cancelNewLogoUpload()
     })
     .finally(() => {
       newLogoSaveProgress.value = 'idle'
@@ -119,12 +134,25 @@ const attemptWorkspaceNameUpdate = () => {
           {{ currentWorkspace.initial }}
         </WorkspaceFallbackLogo>
 
-        <img
-          v-else-if="currentWorkspace.logo_path && !newLogoPreview"
-          :src="currentWorkspace.logo_path"
-          :alt="currentWorkspace.name"
-          class="inline-block h-[84px] w-[84px] rounded-lg"
-        />
+        <div v-else-if="currentWorkspace.logo_path && !newLogoPreview">
+          <div>
+            <img
+              :src="currentWorkspace.logo_path"
+              :alt="currentWorkspace.name"
+              class="inline-block h-[84px] w-[84px] rounded-lg"
+            />
+          </div>
+
+          <div class="mt-1 flex justify-center">
+            <button
+              type="button"
+              @click="removeLogo"
+              class="text-center text-xs font-medium text-blue-600 hover:underline"
+            >
+              Remove
+            </button>
+          </div>
+        </div>
 
         <img
           class="inline-block h-[84px] w-[84px] rounded-lg"
