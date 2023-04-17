@@ -15,7 +15,7 @@ const props = defineProps<{
   team: Team | null
 }>()
 
-const emit = defineEmits(['close'])
+const emit = defineEmits(['close', 'leave'])
 
 const store = useStore()
 const { leaveTeam, disbandTeam } = useTeams()
@@ -27,7 +27,7 @@ function attemptLeaveTeam() {
   if (props.team.users.length === 1) disbandTeam(props.team)
   else leaveTeam(props.team)
 
-  emit('close')
+  emit('leave')
 }
 </script>
 

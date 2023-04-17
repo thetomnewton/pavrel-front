@@ -16,7 +16,7 @@ import {
   EllipsisHorizontalIcon,
   LockClosedIcon,
 } from '@heroicons/vue/20/solid'
-import { find } from 'lodash-es'
+import { cloneDeep, find } from 'lodash-es'
 import { useLocalStorage } from '@vueuse/core'
 import { Idea, Team, Workspace } from '../types'
 import { useRoute, useRouter } from 'vue-router'
@@ -103,6 +103,13 @@ function openLeaveTeamModal(team: Team) {
 function closeLeaveTeamModal() {
   teamToLeave.value = null
   leaveTeamModalOpen.value = false
+}
+
+function leaveTeam() {
+  const teamJustLeft = cloneDeep(teamToLeave.value)
+  closeLeaveTeamModal()
+
+  if (route.params.teamSlug === teamJustLeft?.slug) router.push(`/${currentWorkspace.value.slug}/drafts`)
 }
 
 const keydownListener = (e: KeyboardEvent) => {
@@ -579,6 +586,7 @@ onUnmounted(() => {
     :open="leaveTeamModalOpen"
     :team="teamToLeave"
     @close="closeLeaveTeamModal"
+    @leave="leaveTeam"
   />
 </template>
 

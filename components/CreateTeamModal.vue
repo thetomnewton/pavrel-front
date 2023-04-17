@@ -7,8 +7,10 @@ import ModalBg from './ModalBg.vue'
 import ModalWrapper from './ModalWrapper.vue'
 import { useOnline } from '@vueuse/core'
 import { ExclamationTriangleIcon } from '@heroicons/vue/24/solid'
+import { useStore } from 'vuex'
 
 const online = useOnline()
+const store = useStore()
 
 const props = defineProps<{
   open: boolean
@@ -32,6 +34,7 @@ function attemptTeamCreation() {
   status.value = 'creating'
 
   createTeam(newTeam.value).then(data => {
+    store.commit('base/showToast', { type: 'team-creation', data })
     emit('saved', data)
   })
 

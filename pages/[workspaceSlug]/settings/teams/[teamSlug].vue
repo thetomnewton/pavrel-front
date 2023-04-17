@@ -252,7 +252,13 @@ watch(
       </div>
     </div>
 
-    <LeaveTeamModal v-if="team" :team="team" :open="leaveTeamModalOpen" @close="leaveTeamModalOpen = false" />
+    <LeaveTeamModal
+      v-if="team"
+      :team="team"
+      :open="leaveTeamModalOpen"
+      @close="leaveTeamModalOpen = false"
+      @leave="leaveTeamModalOpen = false"
+    />
 
     <RemoveFromTeamModal
       v-if="team && userToRemoveFromTeam"
