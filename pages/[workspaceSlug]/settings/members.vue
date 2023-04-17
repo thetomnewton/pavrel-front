@@ -44,15 +44,17 @@ function niceDate(date: string) {
         </span>
       </div>
 
-      <div>
-        <div v-for="user in users" :key="user.id" class="mb-4 flex items-center">
-          <img class="mr-3 h-6 w-6 rounded-full object-cover" :src="user.profile_photo_url" />
+      <div class="space-y-4">
+        <div v-for="user in users" :key="user.id" class="flex items-start">
+          <img class="mr-3 h-6 w-6 min-w-[1.5rem] rounded-full object-cover" :src="user.profile_photo_url" />
 
-          <span class="min-w-[35%] cursor-default text-[14px] font-medium">{{ user.name }}</span>
-          <span class="ml-2 cursor-default text-[.8125rem] text-slate-600 dark:text-zinc-400">{{ user.email }}</span>
-          <span class="ml-auto text-[.8125rem] text-slate-600 dark:text-zinc-400"
-            >Since {{ niceDate(user.created_at) }}</span
-          >
+          <div class="flex-1 lg:flex lg:items-center">
+            <div class="min-w-[35%] cursor-default text-[14px] font-medium">{{ user.name }}</div>
+            <div class="cursor-default text-[.8125rem] text-slate-600 dark:text-zinc-400 lg:ml-2">{{ user.email }}</div>
+            <div class="text-[.8125rem] text-slate-600 dark:text-zinc-400 lg:ml-auto">
+              Since {{ niceDate(user.created_at) }}
+            </div>
+          </div>
         </div>
       </div>
     </div>
