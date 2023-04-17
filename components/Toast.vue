@@ -102,6 +102,13 @@ const hideToast = () => store.commit('base/hideToast')
           </div>
         </div>
       </div>
+
+      <div v-if="toastType === 'workspace-logo-update'">
+        <div class="flex items-start">
+          <CheckCircleIcon class="-ml-1 h-[22px] w-[22px] min-w-[22px] text-green-600" />
+          <div class="ml-[10px]">Workspace logo updated successfully</div>
+        </div>
+      </div>
     </div>
   </transition>
 </template>
