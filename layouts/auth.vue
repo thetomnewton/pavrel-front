@@ -45,7 +45,7 @@ if (process.client) {
     localStorage.setItem('is-logged-in', 'true')
 
     // If we have a recent workspace in storage, go there
-    const storageLastWorkspace = process.client && localStorage.getItem('last-workspace')
+    const storageLastWorkspace = localStorage.getItem('last-workspace')
 
     if (storageLastWorkspace && workspaces.map(({ slug }) => slug).includes('storageLastWorkspace'))
       router.push(`/${storageLastWorkspace}/drafts`)
