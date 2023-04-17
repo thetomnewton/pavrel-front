@@ -31,7 +31,7 @@ function saveNewLogo() {
   api
     .post(`/workspaces/${currentWorkspace.value.id}/logo`, { logo: newLogoPreview.value })
     .then(() => {
-      store.commit('base/showToast', { type: 'workspace-logo-update' })
+      store.commit('base/showToast', { type: 'workspace-logo-update', data: {} })
     })
     .finally(() => {
       newLogoSaveProgress.value = 'idle'
@@ -115,9 +115,16 @@ const attemptWorkspaceNameUpdate = () => {
       <input type="file" ref="workspaceLogoUploadInput" accept="image/*" class="hidden" @change="updatePhotoPreview" />
 
       <div class="flex items-center space-x-6">
-        <WorkspaceFallbackLogo v-if="!currentWorkspace.logo_path && !newLogoPreview" :size="64"
-          >P</WorkspaceFallbackLogo
-        >
+        <WorkspaceFallbackLogo v-if="!currentWorkspace.logo_path && !newLogoPreview" :size="64">
+          {{ currentWorkspace.initial }}
+        </WorkspaceFallbackLogo>
+
+        <img
+          v-else-if="currentWorkspace.logo_path && !newLogoPreview"
+          :src="currentWorkspace.logo_path"
+          :alt="currentWorkspace.name"
+          class="inline-block h-[84px] w-[84px] rounded-lg"
+        />
 
         <img
           class="inline-block h-[84px] w-[84px] rounded-lg"
@@ -133,7 +140,7 @@ const attemptWorkspaceNameUpdate = () => {
             @click="triggerFileOpen"
             class="cursor-default whitespace-nowrap rounded-md border border-slate-300 bg-white px-3 py-1.5 text-sm font-medium leading-5 text-slate-800 shadow-sm transition active:translate-y-px active:bg-slate-50 active:shadow-none dark:border-zinc-600 dark:bg-zinc-900 dark:text-zinc-200 dark:transition-none dark:active:bg-zinc-800"
           >
-            Upload logo
+            Upload new logo
           </button>
 
           <div class="mt-1.5 text-xs text-slate-500 dark:text-zinc-400">Recommended size is 280 x 280 pixels.</div>
