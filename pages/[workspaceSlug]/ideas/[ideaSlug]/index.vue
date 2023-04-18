@@ -103,8 +103,16 @@ watch(
       class="alongside-sidebar fixed left-0 top-0 right-0 z-10 bg-white/80 backdrop-blur dark:border-b dark:border-zinc-800 dark:bg-zinc-900 lg:right-[270px] xl:right-[270px]"
     >
       <div class="flex min-w-0 items-center">
-        <div class="hidden cursor-default truncate whitespace-nowrap xs:block">{{ team.name }}</div>
-        <div class="mx-1 hidden xs:block">›</div>
+        <NuxtLink
+          :href="
+            !team.personal
+              ? `/${currentWorkspace.slug}/teams/${team.slug}/ideas/all`
+              : `/${currentWorkspace.slug}/drafts`
+          "
+          class="hidden cursor-default truncate whitespace-nowrap rounded px-1 leading-6 hover:bg-slate-100 active:bg-slate-150 dark:hover:bg-zinc-800 dark:active:bg-zinc-700/50 xs:block"
+          >{{ team.name }}</NuxtLink
+        >
+        <div class="mr-1 hidden xs:block">›</div>
         <div class="cursor-default whitespace-nowrap">#{{ idea.team_idea_id }}</div>
       </div>
 
