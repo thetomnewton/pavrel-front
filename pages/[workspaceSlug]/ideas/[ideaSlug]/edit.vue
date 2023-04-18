@@ -96,14 +96,21 @@ export default {
         </span>
 
         <span class="ml-auto flex items-center">
-          <span
-            class="mr-2 cursor-default rounded px-[10px] py-1 text-xs font-medium leading-[22px] text-slate-700 hover:bg-slate-100 hover:text-slate-900 active:bg-slate-200 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-300 dark:active:bg-zinc-700/50 dark:active:text-zinc-200"
+          <button
+            type="button"
+            class="mr-2 cursor-default rounded-md px-[10px] py-1 text-xs font-medium leading-[22px] text-slate-700 hover:bg-slate-100 hover:text-slate-900 active:bg-slate-200 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-300 dark:active:bg-zinc-700/50 dark:active:text-zinc-200"
             @click="cancel"
           >
             Cancel
-          </span>
+          </button>
 
-          <Button @click="update" type="button">Save</Button>
+          <button
+            class="border-md inline-flex cursor-default items-center justify-center whitespace-nowrap rounded-md border-transparent bg-blue-600 py-1 px-[10px] text-xs font-medium leading-5 text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:pointer-events-none disabled:opacity-50"
+            @click="update"
+            type="button"
+          >
+            Save
+          </button>
 
           <span
             @click="sidebarOpen = true"
