@@ -47,9 +47,10 @@ useHead({
       <div class="ml-auto">
         <NuxtLink
           to="/login"
-          class="inline-block rounded-lg border border-slate-300 px-3 py-1.5 text-sm font-medium leading-5 text-slate-800 transition-all hover:shadow-sm active:translate-y-px active:shadow-none"
-          >Log in</NuxtLink
+          class="inline-block whitespace-nowrap rounded-lg border border-slate-300 px-3 py-1.5 text-sm font-medium leading-5 text-slate-800 transition-all hover:shadow-sm active:translate-y-px active:shadow-none"
         >
+          Log in
+        </NuxtLink>
       </div>
     </div>
   </header>
