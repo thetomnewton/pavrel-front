@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { ComputerDesktopIcon, SunIcon, MoonIcon } from '@heroicons/vue/20/solid'
+import { useStore } from 'vuex'
 
 definePageMeta({
   layout: 'settings',
@@ -10,6 +11,8 @@ definePageMeta({
 useHead({
   title: `Account preferences`,
 })
+
+const store = useStore()
 
 const theme = ref((localStorage && localStorage.colorTheme) || 'system')
 
@@ -25,6 +28,8 @@ function updateTheme(newTheme: string) {
   if (newTheme === 'dark' || (newTheme === 'system' && hasSystemDarkTheme))
     document.documentElement.classList.add('dark')
   else document.documentElement.classList.remove('dark')
+
+  store.commit('base/showToast', { type: 'color-theme-update', data: {} })
 }
 </script>
 

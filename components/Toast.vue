@@ -116,6 +116,13 @@ const hideToast = () => store.commit('base/hideToast')
           <div class="ml-[10px]">Workspace logo removed successfully</div>
         </div>
       </div>
+
+      <div v-if="toastType === 'color-theme-update'">
+        <div class="flex items-start">
+          <CheckCircleIcon class="-ml-1 h-[22px] w-[22px] min-w-[22px] text-green-600" />
+          <div class="ml-[10px]">Color theme updated successfully</div>
+        </div>
+      </div>
     </div>
   </transition>
 </template>
