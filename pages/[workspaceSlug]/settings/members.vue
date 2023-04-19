@@ -46,7 +46,7 @@ function niceDate(date: string) {
 
       <div class="space-y-4">
         <div v-for="user in users" :key="user.id" class="flex items-center">
-          <div class="lg:mr-4">
+          <div class="mr-4">
             <img class="block h-8 w-8 min-w-[2rem] rounded-full object-cover" :src="user.profile_photo_url" />
           </div>
 

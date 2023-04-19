@@ -194,7 +194,7 @@ watch(
               class="w-full space-y-2 lg:flex lg:items-center lg:space-y-0"
             >
               <template v-if="getUserById(teamUser.id)">
-                <div class="lg:mr-4">
+                <div class="mr-4">
                   <img
                     :src="getUserById(teamUser.id)?.profile_photo_url"
                     class="block h-8 w-8 min-w-[2rem] rounded-full object-cover"
