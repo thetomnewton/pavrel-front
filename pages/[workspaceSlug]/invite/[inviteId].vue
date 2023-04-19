@@ -281,8 +281,8 @@ export default {
           <div class="mb-6 flex items-center rounded-md border border-slate-200 px-4 py-3 text-sm">
             <div class="mr-4">
               <img
-                v-if="workspace.logo_path"
-                :src="workspace.logo_path"
+                v-if="workspace.logo_url"
+                :src="workspace.logo_url"
                 :alt="workspace.name"
                 class="inline-block h-[24px] w-[24px] min-w-[24px] rounded"
               />

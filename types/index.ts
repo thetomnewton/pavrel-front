@@ -108,7 +108,7 @@ export interface Workspace {
   slug: string
   created_at: string
   updated_at: string
-  logo_path: string | null
+  logo_url: string | null
   initial: string
   plan: 'free' | 'pro' | 'enterprise'
 }

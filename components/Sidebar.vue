@@ -192,8 +192,8 @@ onUnmounted(() => {
                   >
                     <button class="flex flex-shrink-0 cursor-default items-center rounded py-[6px] pl-[10px] pr-2">
                       <img
-                        v-if="currentWorkspace.logo_path"
-                        :src="currentWorkspace.logo_path"
+                        v-if="currentWorkspace.logo_url"
+                        :src="currentWorkspace.logo_url"
                         class="mr-[10px] inline-block h-[18px] w-[18px] min-w-[18px] rounded"
                       />
 
@@ -217,8 +217,8 @@ onUnmounted(() => {
                       class="flex cursor-default items-center rounded px-2 py-[6px] font-medium leading-[18px] hover:bg-slate-100 dark:hover:bg-zinc-700"
                     >
                       <img
-                        v-if="workspace.logo_path"
-                        :src="workspace.logo_path"
+                        v-if="workspace.logo_url"
+                        :src="workspace.logo_url"
                         class="mr-[10px] inline-block h-[18px] w-[18px] min-w-[18px] rounded"
                       />
 

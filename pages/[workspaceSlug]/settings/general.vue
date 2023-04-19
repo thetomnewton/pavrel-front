@@ -130,14 +130,14 @@ const attemptWorkspaceNameUpdate = () => {
       <input type="file" ref="workspaceLogoUploadInput" accept="image/*" class="hidden" @change="updatePhotoPreview" />
 
       <div class="flex items-center space-x-6">
-        <WorkspaceFallbackLogo v-if="!currentWorkspace.logo_path && !newLogoPreview" :size="64">
+        <WorkspaceFallbackLogo v-if="!currentWorkspace.logo_url && !newLogoPreview" :size="64">
           {{ currentWorkspace.initial }}
         </WorkspaceFallbackLogo>
 
-        <div v-else-if="currentWorkspace.logo_path && !newLogoPreview">
+        <div v-else-if="currentWorkspace.logo_url && !newLogoPreview">
           <div>
             <img
-              :src="currentWorkspace.logo_path"
+              :src="currentWorkspace.logo_url"
               :alt="currentWorkspace.name"
               class="inline-block h-[84px] w-[84px] rounded-lg"
             />
