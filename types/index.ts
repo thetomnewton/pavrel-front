@@ -8,6 +8,10 @@ export interface User {
   profile_photo_url: string
 }
 
+export interface WorkspaceUser extends User {
+  pivot: { role: 'member' | 'admin' }
+}
+
 export interface Idea {
   id: string
   title: string

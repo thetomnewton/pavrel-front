@@ -45,15 +45,30 @@ function niceDate(date: string) {
       </div>
 
       <div class="space-y-4">
-        <div v-for="user in users" :key="user.id" class="flex items-start">
-          <img class="mr-3 h-6 w-6 min-w-[1.5rem] rounded-full object-cover" :src="user.profile_photo_url" />
+        <div v-for="user in users" :key="user.id" class="flex items-center">
+          <div class="lg:mr-4">
+            <img class="block h-8 w-8 min-w-[2rem] rounded-full object-cover" :src="user.profile_photo_url" />
+          </div>
 
-          <div class="flex-1 lg:flex lg:items-center">
-            <div class="min-w-[35%] cursor-default text-[14px] font-medium">{{ user.name }}</div>
-            <div class="cursor-default text-[.8125rem] text-slate-600 dark:text-zinc-400 lg:ml-2">{{ user.email }}</div>
-            <div class="text-[.8125rem] text-slate-600 dark:text-zinc-400 lg:ml-auto">
-              Since {{ niceDate(user.created_at) }}
-            </div>
+          <div>
+            <div class="truncate lg:max-w-[200px]">{{ user.name }}</div>
+            <div class="text-[13px] leading-5 text-slate-600 dark:text-zinc-400">{{ user.email }}</div>
+          </div>
+
+          <div class="mx-auto">
+            <Listbox
+              class="min-w-[150px]"
+              disabled
+              :options="[
+                { value: 'member', text: 'Member' },
+                { value: 'admin', text: 'Admin' },
+              ]"
+              :value="user.pivot.role"
+            ></Listbox>
+          </div>
+
+          <div class="ml-auto">
+            <div class="text-[.8125rem] text-slate-600 dark:text-zinc-400">Since {{ niceDate(user.created_at) }}</div>
           </div>
         </div>
       </div>
