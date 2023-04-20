@@ -1,9 +1,12 @@
 <script setup lang="ts">
-import { watchForDarkMode } from '~~/helpers/dark'
+import { getSsrColorTheme, watchForDarkMode } from '~/helpers/dark'
 import api from '../api'
 import { useStore } from 'vuex'
 
+watchForDarkMode()
+
 useHead({
+  htmlAttrs: { class: getSsrColorTheme() ?? '' },
   bodyAttrs: {
     class: 'bg-white dark:bg-zinc-900 py-6 overflow-auto antialiased font-sans h-screen text-slate-900 py-6 sm:px-6',
   },
@@ -53,8 +56,6 @@ if (process.client) {
       ready.value = true
     })
 }
-
-watchForDarkMode()
 </script>
 
 <template>

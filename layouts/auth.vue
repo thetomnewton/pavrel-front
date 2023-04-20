@@ -1,11 +1,14 @@
 <script setup lang="ts">
-import { watchForDarkMode } from '~/helpers/dark'
+import { getSsrColorTheme, watchForDarkMode } from '~/helpers/dark'
 import { Workspace } from '~~/types'
 import axios from '../api'
+
+watchForDarkMode()
 
 const router = useRouter()
 
 useHead({
+  htmlAttrs: { class: getSsrColorTheme() ?? '' },
   bodyAttrs: {
     class: 'bg-white dark:bg-zinc-900 py-6 overflow-auto antialiased font-sans h-screen text-slate-900 py-6 sm:px-6',
   },
@@ -56,8 +59,6 @@ if (process.client) {
     }
   } catch (_) {}
 }
-
-watchForDarkMode()
 </script>
 
 <template>

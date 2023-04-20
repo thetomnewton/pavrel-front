@@ -1,7 +1,10 @@
 <script setup lang="ts">
-import { watchForDarkMode } from '~~/helpers/dark'
+import { getSsrColorTheme, watchForDarkMode } from '~/helpers/dark'
+
+watchForDarkMode()
 
 useHead({
+  htmlAttrs: { class: getSsrColorTheme() ?? '' },
   bodyAttrs: { class: 'antialiased h-screen text-slate-900 dark:text-zinc-200' },
   title: 'Pavrel',
   meta: [

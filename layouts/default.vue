@@ -1,8 +1,11 @@
 <script setup lang="ts">
 import { useStore } from 'vuex'
-import { watchForDarkMode } from '~/helpers/dark'
+import { getSsrColorTheme, watchForDarkMode } from '~/helpers/dark'
+
+watchForDarkMode()
 
 useHead({
+  htmlAttrs: { class: getSsrColorTheme() ?? '' },
   bodyAttrs: { class: 'antialiased h-screen text-slate-900 dark:text-zinc-200' },
   title: 'Pavrel',
   meta: [
@@ -60,8 +63,6 @@ onMounted(() => {
     })
     .catch(() => router.push('/login'))
 })
-
-watchForDarkMode()
 </script>
 
 <template>
