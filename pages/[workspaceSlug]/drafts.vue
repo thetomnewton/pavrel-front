@@ -35,7 +35,7 @@ const { draftTeam } = useTeams()
 
 const { filters, applyFilter, applyFiltersToIdeas, updateFilter, removeFilter } = useIdeaFilters()
 
-const workspaceContentLoaded = computed(() => store.state.base.workspaceContentLoaded)
+const workspaceContentLoaded = computed<boolean>(() => store.state.base.workspaceContentLoaded)
 const justUpgraded = ref(false)
 const justUpgradedPlan = ref<string | null>(null)
 
@@ -55,10 +55,12 @@ checkForRecentUpgrade()
 
 <template>
   <PageHeader
+    v-if="draftTeam"
     show-filters
     show-options
     :ideas="relevantIdeas"
     :filters="filters"
+    :team="draftTeam"
     @apply-filter="applyFilter"
     @update-filter="updateFilter"
     @remove-filter="removeFilter"

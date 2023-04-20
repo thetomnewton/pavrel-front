@@ -100,6 +100,7 @@ watch(
       :show-options="false"
       :show-filters="false"
       v-if="idea"
+      :team="team"
       class="alongside-sidebar fixed left-0 top-0 right-0 z-10 bg-white/80 backdrop-blur dark:border-b dark:border-zinc-800 dark:bg-zinc-900 lg:right-[270px] xl:right-[270px]"
     >
       <div class="flex min-w-0 items-center">

@@ -83,6 +83,7 @@ useHead({
       :ideas="applyFiltersToIdeas(relevantTeamIdeas)"
       show-options
       show-filters
+      :team="team"
       :filters="filters"
       @apply-filter="applyFilter"
       @update-filter="updateFilter"

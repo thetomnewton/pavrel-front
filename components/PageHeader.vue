@@ -7,7 +7,7 @@ import ActiveFilter from './ActiveFilter.vue'
 import Dropdown from './Dropdown.vue'
 import { computed, ref } from 'vue'
 import IdeaFilterDropdown from './IdeaFilterDropdown.vue'
-import { IdeaFilter, Idea } from '../types'
+import { IdeaFilter, Idea, Team } from '../types'
 import StatusIcon from './StatusIcon.vue'
 import ContentFilterModal from './ContentFilterModal.vue'
 import { ulid } from 'ulid'
@@ -20,6 +20,7 @@ const emit = defineEmits(['apply-filter', 'update-filter', 'remove-filter'])
 defineProps<{
   showOptions: boolean
   showFilters: boolean
+  team?: Team
   ideas?: Idea[]
   filters?: IdeaFilter[]
 }>()
@@ -27,7 +28,6 @@ defineProps<{
 const options = computed(() => store.state.base.viewOptions)
 const setViewOptions = (options: object) => store.commit('base/setViewOptions', options)
 
-const { currentTeam } = useTeams()
 const { currentWorkspace } = useWorkspace()
 
 const toggleAppSidebar = () => store.commit('base/toggleAppSidebar')
@@ -58,10 +58,10 @@ const applyContentFilter = (value: string) => {
       />
       <slot />
 
-      <span v-if="ideas && (showFilters ?? true)" class="ml-2">
+      <span v-if="ideas && (showFilters ?? true) && team" class="ml-2">
         <IdeaFilterDropdown
           v-if="ideas.length"
-          :team="currentTeam"
+          :team="team"
           :workspace="currentWorkspace"
           :active-filters="filters ?? []"
           :ideas="ideas"
@@ -149,8 +149,8 @@ const applyContentFilter = (value: string) => {
         </ActiveFilter>
 
         <IdeaFilterDropdown
-          v-if="ideas && (showFilters ?? true)"
-          :team="currentTeam"
+          v-if="ideas && (showFilters ?? true) && team"
+          :team="team"
           :workspace="currentWorkspace"
           :active-filters="filters ?? []"
           :ideas="ideas"

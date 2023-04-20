@@ -87,6 +87,7 @@ export default {
   <div class="flex h-full" v-if="idea && team">
     <section class="flex min-w-0 flex-1 flex-col">
       <PageHeader
+        :team="team"
         :show-options="false"
         :show-filters="false"
         class="alongside-sidebar fixed left-0 top-0 right-0 z-10 bg-white/80 backdrop-blur dark:border-b dark:border-zinc-800 dark:bg-zinc-900 lg:right-[250px] xl:right-[250px]"
