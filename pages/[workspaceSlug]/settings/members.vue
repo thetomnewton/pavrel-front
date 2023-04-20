@@ -55,7 +55,7 @@ function niceDate(date: string) {
             <div class="text-[13px] leading-5 text-slate-600 dark:text-zinc-400">{{ user.email }}</div>
           </div>
 
-          <div class="mx-auto">
+          <div class="ml-auto">
             <Listbox
               class="min-w-[150px]"
               disabled
@@ -67,7 +67,7 @@ function niceDate(date: string) {
             ></Listbox>
           </div>
 
-          <div class="ml-auto">
+          <div class="ml-6 max-w-[180px]">
             <div class="text-[.8125rem] text-slate-600 dark:text-zinc-400">Since {{ niceDate(user.created_at) }}</div>
           </div>
         </div>
