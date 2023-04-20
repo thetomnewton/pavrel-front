@@ -261,7 +261,7 @@ function handleTitleEnterPress(e: KeyboardEvent) {
                 <TeamDropdown v-slot="{ open, toggleOpen }" @selected="selectTeam">
                   <button
                     type="button"
-                    class="mr-2 inline-flex cursor-default appearance-none items-center rounded bg-slate-100 px-2 text-xs leading-6 text-slate-700 dark:bg-zinc-700 dark:text-zinc-200"
+                    class="mr-2 inline-flex cursor-default appearance-none items-center rounded-md border border-slate-200 bg-slate-50 px-3 text-xs leading-7 text-slate-700 dark:border-none dark:bg-zinc-700 dark:text-zinc-200"
                     @click="toggleOpen"
                   >
                     <DocumentIcon class="mr-1 h-[13px] w-[13px]" />
@@ -278,13 +278,13 @@ function handleTitleEnterPress(e: KeyboardEvent) {
                 >
                   <button
                     type="button"
-                    class="inline-flex cursor-default appearance-none items-center rounded bg-slate-100 px-2 leading-6 text-slate-700 dark:bg-zinc-700 dark:text-zinc-200"
+                    class="inline-flex cursor-default appearance-none items-center rounded-md border border-slate-200 bg-slate-50 px-3 leading-7 text-slate-700 dark:border-none dark:bg-zinc-700 dark:text-zinc-200"
                     @click="toggleOpen"
                     :class="{ 'bg-slate-200': open }"
                   >
                     <StatusIcon
                       :category="currentTeam?.statuses.find(({ id }) => id === newIdea.status_id)?.category"
-                      class="mr-1"
+                      class="mr-1.5"
                     />
                     <span>{{ currentTeam?.statuses.find(({ id }) => id === newIdea.status_id)?.name }}</span>
                   </button>
@@ -303,7 +303,7 @@ function handleTitleEnterPress(e: KeyboardEvent) {
                 >
                   <button
                     type="button"
-                    class="inline-block cursor-default appearance-none rounded bg-slate-100 px-2 leading-6 text-slate-700 dark:bg-zinc-700 dark:text-zinc-200"
+                    class="inline-block cursor-default appearance-none rounded-md border border-slate-200 bg-slate-50 px-3 leading-7 text-slate-700 dark:border-none dark:bg-zinc-700 dark:text-zinc-200"
                     @click="toggleOpen"
                     :class="{ 'bg-slate-200': open }"
                   >
