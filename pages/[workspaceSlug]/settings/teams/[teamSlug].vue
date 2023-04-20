@@ -183,7 +183,7 @@ watch(
       >
         <div class="md:w-1/3">
           <h3 class="text-lg font-medium text-slate-900 dark:text-zinc-200">Members</h3>
-          <p class="mt-1 text-sm text-slate-600 dark:text-zinc-400">Set who has access to the team.</p>
+          <p class="mt-1 text-sm text-slate-600 dark:text-zinc-400">Manage who has access to the team.</p>
         </div>
 
         <div class="md:w-2/3">

@@ -50,7 +50,7 @@ function niceDate(date: string) {
             <img class="block h-8 w-8 min-w-[2rem] rounded-full object-cover" :src="user.profile_photo_url" />
           </div>
 
-          <div>
+          <div class="mr-6">
             <div class="truncate lg:max-w-[200px]">{{ user.name }}</div>
             <div class="text-[13px] leading-5 text-slate-600 dark:text-zinc-400">{{ user.email }}</div>
           </div>
