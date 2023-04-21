@@ -40,8 +40,9 @@ useHead({
       </NuxtLink>
 
       <div class="ml-10 flex items-center space-x-6">
-        <a href="#features" class="text-sm font-medium text-slate-900 hover:text-slate-900">Features</a>
-        <a href="#pricing" class="text-sm font-medium text-slate-900 hover:text-slate-900">Pricing</a>
+        <NuxtLink href="/#features" class="text-sm font-medium text-slate-900 hover:text-slate-900">Features</NuxtLink>
+        <NuxtLink href="/#pricing" class="text-sm font-medium text-slate-900 hover:text-slate-900">Pricing</NuxtLink>
+        <NuxtLink href="/changelog" class="text-sm font-medium text-slate-900 hover:text-slate-900">Changelog</NuxtLink>
       </div>
 
       <div class="ml-auto">
