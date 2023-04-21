@@ -22,8 +22,9 @@ useHead({
     <h3 id="april-2023-moving-between-teams">Moving ideas between teams</h3>
 
     <p>
-      We've now added the ability to move ideas between teams! So once a draft idea has been shaped for example, and
-      you're ready to move it across for the rest of your team to view and collaborate on, you can now do so.
+      You can now easily move ideas between teams! Once a draft idea has been shaped (for example), and you're ready to
+      move it across for the rest of your team to view and collaborate on, you can now easily do so from the Actions
+      menu.
     </p>
 
     <img src="/changelog/2304/move-teams.png" alt="Move teams screenshot" class="mx-auto max-w-[700px]" />
@@ -31,11 +32,14 @@ useHead({
     <h3 id="april-2023-branding-refresh">Branding refresh</h3>
 
     <p>
-      We've also refreshed the logo and branding for Pavrel. The cube theme is meant to indicate that ideas can be
-      building blocks towards a great product.
+      Pavrel is designed to help create the building blocks towards amazing products. With that in mind, we've refreshed
+      our logo and branding.
     </p>
 
-    <p>The new brand can be seen throughout the site, including while loading your workspace.</p>
+    <p>
+      The new brand can be seen throughout the site, including while loading your workspace. Check it out next time you
+      log in!
+    </p>
 
     <p>
       <span class="md:flex md:items-center md:justify-center md:space-x-8">
@@ -44,7 +48,7 @@ useHead({
       </span>
     </p>
 
-    <h3 id="april-2023-new-logo">Workspace logo</h3>
+    <h3 id="april-2023-custom-logo">Custom workspace logo</h3>
 
     <p>
       You can now add a logo for your workspace! This helps to personalise your workspace and provide a recognisable
@@ -60,12 +64,12 @@ useHead({
       <img src="/changelog/2304/logo-upload.png" alt="Logo upload screenshot" class="mx-auto max-w-[550px]" />
     </p>
 
-    <h3>Fixes & Improvements</h3>
+    <h3 id="april-2023-fixes-improvements">Fixes & Improvements</h3>
 
     <ul>
       <li>Updated colour scheme in dark mode to have a friendlier blue tint</li>
       <li>Fixed white screen flash in dark mode when refreshing the page</li>
-      <li>Set useful page titles across all pages</li>
+      <li>Set more useful page titles across all pages</li>
       <li>Better handling for redirections when login session has expired</li>
       <li>Better indications for functionality which is only available while online</li>
       <li>Added extra messages to confirm once an action has been completed</li>
