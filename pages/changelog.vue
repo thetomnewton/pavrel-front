@@ -27,7 +27,7 @@ useHead({
       menu.
     </p>
 
-    <img src="/changelog/2304/move-teams.png" alt="Move teams screenshot" class="mx-auto max-w-[700px]" />
+    <img src="/changelog/2304/move-teams.png" alt="Move teams screenshot" class="mx-auto w-full max-w-[700px]" />
 
     <h3 id="april-2023-branding-refresh">Branding refresh</h3>
 
@@ -61,7 +61,7 @@ useHead({
     </p>
 
     <p>
-      <img src="/changelog/2304/logo-upload.png" alt="Logo upload screenshot" class="mx-auto max-w-[550px]" />
+      <img src="/changelog/2304/logo-upload.png" alt="Logo upload screenshot" class="mx-auto w-full max-w-[550px]" />
     </p>
 
     <h3 id="april-2023-fixes-improvements">Fixes & Improvements</h3>
