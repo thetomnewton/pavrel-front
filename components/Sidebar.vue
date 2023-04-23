@@ -6,8 +6,11 @@ import {
   DocumentIcon,
   ClockIcon,
   Cog6ToothIcon,
-  PresentationChartLineIcon,
   PlusIcon,
+  ArrowRightOnRectangleIcon,
+  UserPlusIcon,
+  PresentationChartLineIcon,
+  UserCircleIcon,
 } from '@heroicons/vue/24/outline'
 import {
   MagnifyingGlassIcon,
@@ -379,18 +382,20 @@ onUnmounted(() => {
               <div class="px-2 py-1 text-[.8125rem]">
                 <button
                   type="button"
-                  class="block w-full cursor-default appearance-none rounded p-2 text-left leading-[15px] text-slate-700 hover:bg-slate-100 dark:text-zinc-200 dark:hover:bg-zinc-700"
+                  class="flex w-full cursor-default appearance-none items-center rounded p-2 text-left leading-[15px] text-slate-700 hover:bg-slate-100 dark:text-zinc-200 dark:hover:bg-zinc-700"
                   @click="createTeamModalOpen = true"
                 >
-                  Create new team
+                  <PlusIcon class="mr-2 h-5 w-5" />
+                  <span>Create new team</span>
                 </button>
 
                 <button
                   type="button"
-                  class="block w-full cursor-default appearance-none rounded p-2 text-left leading-[15px] text-slate-700 hover:bg-slate-100 dark:text-zinc-200 dark:hover:bg-zinc-700"
+                  class="flex w-full cursor-default appearance-none items-center rounded p-2 text-left leading-[15px] text-slate-700 hover:bg-slate-100 dark:text-zinc-200 dark:hover:bg-zinc-700"
                   @click="joinTeamModalOpen = true"
                 >
-                  Join a team
+                  <UserPlusIcon class="mr-2 h-5 w-5" />
+                  <span>Join a team</span>
                 </button>
               </div>
             </template>
@@ -441,16 +446,18 @@ onUnmounted(() => {
                 <div class="px-2 py-1 text-[.8125rem]">
                   <button
                     @click.stop="router.push(`/${currentWorkspace.slug}/settings/teams/${team.slug}`)"
-                    class="block w-full cursor-default rounded p-2 text-left leading-[15px] text-slate-700 hover:bg-slate-100 dark:text-zinc-300 dark:hover:bg-zinc-700"
+                    class="flex w-full cursor-default items-center rounded p-2 text-left leading-[15px] text-slate-700 hover:bg-slate-100 dark:text-zinc-300 dark:hover:bg-zinc-700"
                   >
-                    Team settings
+                    <Cog6ToothIcon class="mr-2 h-5 w-5" />
+                    <span>Team settings</span>
                   </button>
 
                   <button
-                    class="block w-full cursor-default appearance-none rounded p-2 text-left leading-[15px] text-slate-700 hover:bg-slate-100 dark:text-zinc-300 dark:hover:bg-zinc-700"
+                    class="flex w-full cursor-default appearance-none items-center rounded p-2 text-left leading-[15px] text-slate-700 hover:bg-slate-100 dark:text-zinc-300 dark:hover:bg-zinc-700"
                     @click.stop="openLeaveTeamModal(team)"
                   >
-                    Leave team...
+                    <ArrowRightOnRectangleIcon class="mr-2 h-5 w-5" />
+                    <span>Leave team...</span>
                   </button>
                 </div>
               </template>
@@ -552,17 +559,19 @@ onUnmounted(() => {
           <div class="px-2 py-1 text-[.8125rem] font-medium">
             <NuxtLink
               :to="`/${currentWorkspace.slug}/user/profile`"
-              class="block cursor-default rounded p-2 leading-[15px] text-slate-700 hover:bg-slate-100 dark:text-zinc-300 dark:hover:bg-zinc-700"
+              class="flex cursor-default items-center rounded p-2 leading-[15px] text-slate-700 hover:bg-slate-100 dark:text-zinc-300 dark:hover:bg-zinc-700"
             >
-              View profile
+              <UserCircleIcon class="mr-2 h-5 w-5" />
+              <span>View profile</span>
             </NuxtLink>
 
             <form @submit.prevent="logout">
               <button
                 type="submit"
-                class="block w-full cursor-default appearance-none rounded p-2 text-left leading-[15px] text-slate-700 hover:bg-slate-100 dark:text-zinc-300 dark:hover:bg-zinc-700"
+                class="flex w-full cursor-default appearance-none items-center rounded p-2 text-left leading-[15px] text-slate-700 hover:bg-slate-100 dark:text-zinc-300 dark:hover:bg-zinc-700"
               >
-                Log out
+                <ArrowRightOnRectangleIcon class="mr-2 h-5 w-5" />
+                <span>Log out</span>
               </button>
             </form>
           </div>
