@@ -1,12 +1,7 @@
 <script setup lang="ts">
 import { getSsrColorTheme, watchForDarkMode } from '~/helpers/dark'
-import { Workspace } from '~~/types'
-import axios from '../api'
-import Cookies from 'js-cookie'
 
 watchForDarkMode()
-
-const router = useRouter()
 
 useHead({
   htmlAttrs: { class: getSsrColorTheme() ?? '' },
@@ -41,24 +36,6 @@ useHead({
     },
   ],
 })
-
-if (process.client) {
-  try {
-    // If we are logged in:
-    const { data: workspaces }: { data: Workspace[] } = await axios.get('/workspaces')
-
-    // If we have a recent workspace in storage, go there
-    const storageLastWorkspace = Cookies.get('last-workspace')
-
-    if (storageLastWorkspace && workspaces.map(({ slug }) => slug).includes('storageLastWorkspace'))
-      router.push(`/${storageLastWorkspace}/drafts`)
-    else {
-      // Go to the most recent workspace in the list. If none exists, go to onboarding
-      if (workspaces.length > 0) router.push(`/${(workspaces.at(-1) as Workspace).slug}/drafts`)
-      else router.push(`/welcome`)
-    }
-  } catch (_) {}
-}
 </script>
 
 <template>
