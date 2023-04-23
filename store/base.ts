@@ -22,6 +22,7 @@ import {
 import { ulid } from 'ulid'
 import dayjs from 'dayjs'
 import md5 from 'md5'
+import Cookies from 'js-cookie'
 
 interface Getters {
   currentWorkspace: Workspace
@@ -281,13 +282,13 @@ export default {
 
     setCurrentWorkspaceFromSlug(state: BaseModuleState, slug: string) {
       state.currentWorkspaceSlug = slug
-      localStorage.setItem('last-workspace', slug)
+      Cookies.set('last-workspace', slug)
     },
 
     setCurrentWorkspaceFromMostRecent(state: BaseModuleState) {
       if (!state.workspaces?.length) return
 
-      const lastWorkspace = localStorage.getItem('last-workspace')
+      const lastWorkspace = Cookies.get('last-workspace')
 
       if (lastWorkspace && state.workspaces.find(({ slug }) => slug === lastWorkspace)) {
         state.currentWorkspaceSlug = lastWorkspace

@@ -1,5 +1,9 @@
 export default defineNuxtRouteMiddleware(to => {
-  if (!process.client) return
-
-  if (localStorage.getItem('is-logged-in') !== 'true') location.href = '/login'
+  if (process.server && !hasLoginCookie) return '/login'
 })
+
+function hasLoginCookie() {
+  const { cookie } = useRequestHeaders(['cookie'])
+
+  return cookie?.includes('remember_web_')
+}

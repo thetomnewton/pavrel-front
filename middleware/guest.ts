@@ -1,11 +1,22 @@
+import Cookies from 'js-cookie'
+
 export default defineNuxtRouteMiddleware(to => {
-  if (!process.client) return
-
-  if (localStorage.getItem('is-logged-in') === 'true') {
+  if (process.server && hasLoginCookie()) {
     // We are already logged in, so redirect elsewhere
-    const lastWorkspace = localStorage.getItem('last-workspace')
+    const lastWorkspace = getLastWorkspaceFromStorage()
 
-    if (lastWorkspace) location.href = `/${lastWorkspace}/drafts`
-    else location.href = '/welcome'
+    if (lastWorkspace) return `/${lastWorkspace}/drafts`
+
+    return '/welcome'
   }
 })
+
+function hasLoginCookie() {
+  const { cookie } = useRequestHeaders(['cookie'])
+
+  return cookie?.includes('remember_web_')
+}
+
+function getLastWorkspaceFromStorage() {
+  return Cookies.get('last-workspace')
+}

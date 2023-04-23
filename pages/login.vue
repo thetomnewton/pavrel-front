@@ -38,8 +38,6 @@ async function submit() {
   axios
     .post('/login', form.value)
     .then(() => {
-      localStorage.setItem('is-logged-in', 'true')
-
       Promise.all([axios.get('/user'), axios.get('/workspaces')]).then(responses => {
         const [{ data: user }, { data: workspaces }] = responses
 

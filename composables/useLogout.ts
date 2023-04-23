@@ -14,7 +14,6 @@ export function useLogout() {
     // Axios does not resolve on 204, so hacking with setTimeout
     setTimeout(() => {
       handleLogout()
-      localStorage.setItem('is-logged-in', 'false')
       router.push('/login')
     }, 100)
   }

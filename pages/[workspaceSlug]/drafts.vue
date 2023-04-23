@@ -4,7 +4,7 @@ import { useStore } from 'vuex'
 import { Idea, Team } from '../../types'
 
 definePageMeta({
-  middleware: 'auth',
+  middleware: ['auth'],
 })
 
 useHead({

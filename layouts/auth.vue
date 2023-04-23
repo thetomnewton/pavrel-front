@@ -2,6 +2,7 @@
 import { getSsrColorTheme, watchForDarkMode } from '~/helpers/dark'
 import { Workspace } from '~~/types'
 import axios from '../api'
+import Cookies from 'js-cookie'
 
 watchForDarkMode()
 
@@ -45,10 +46,9 @@ if (process.client) {
   try {
     // If we are logged in:
     const { data: workspaces }: { data: Workspace[] } = await axios.get('/workspaces')
-    localStorage.setItem('is-logged-in', 'true')
 
     // If we have a recent workspace in storage, go there
-    const storageLastWorkspace = localStorage.getItem('last-workspace')
+    const storageLastWorkspace = Cookies.get('last-workspace')
 
     if (storageLastWorkspace && workspaces.map(({ slug }) => slug).includes('storageLastWorkspace'))
       router.push(`/${storageLastWorkspace}/drafts`)

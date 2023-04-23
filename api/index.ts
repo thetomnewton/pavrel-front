@@ -12,7 +12,6 @@ axios.interceptors.response.use(
   error => {
     // If we're supposed to be logged-in, redirect to /login
     if (error.response.status === 419) {
-      localStorage.setItem('is-logged-in', 'false')
       location.href = '/login'
     }
 
