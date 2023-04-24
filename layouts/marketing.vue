@@ -72,7 +72,7 @@ const mobileMenuOpen = ref(false)
 
         <div
           v-if="mobileMenuOpen"
-          class="absolute top-0 right-0 min-w-[250px] rounded-lg border border-slate-200 bg-white pb-1.5 shadow-md sm:hidden"
+          class="absolute top-0 right-0 w-full max-w-[250px] rounded-lg border border-slate-200 bg-white pb-1.5 shadow-md sm:hidden"
         >
           <div class="pr-0.5 text-right">
             <button type="button" class="p-2" @click="mobileMenuOpen = false">
@@ -110,8 +110,8 @@ const mobileMenuOpen = ref(false)
   </main>
 
   <footer class="border-t border-slate-150 bg-gradient-to-b from-slate-50 to-white py-16 px-4 sm:px-6">
-    <div class="mx-auto max-w-7xl md:flex md:items-start md:justify-between">
-      <div class="min-w-[250px] pt-1">
+    <div class="mx-auto max-w-7xl space-y-8 md:flex md:items-start md:justify-between md:space-y-0">
+      <div class="w-full max-w-[250px] pt-1">
         <svg
           class="h-[27px] w-[24px]"
           width="86"
@@ -128,7 +128,7 @@ const mobileMenuOpen = ref(false)
         </svg>
       </div>
 
-      <div class="min-w-[250px]">
+      <div class="w-full max-w-[250px]">
         <div class="mb-2 text-[13px] font-medium text-slate-700">Product</div>
         <NuxtLink href="/" class="block cursor-pointer text-[13px] leading-7 text-slate-500 hover:text-slate-800">
           Home
@@ -153,7 +153,7 @@ const mobileMenuOpen = ref(false)
         </NuxtLink>
       </div>
 
-      <div class="min-w-[250px]">
+      <div class="w-full max-w-[250px]">
         <div class="mb-2 text-[13px] font-medium text-slate-700">Company</div>
         <NuxtLink href="/terms" class="block cursor-pointer text-[13px] leading-7 text-slate-500 hover:text-slate-700">
           Terms
@@ -181,7 +181,7 @@ const mobileMenuOpen = ref(false)
         </NuxtLink>
       </div>
 
-      <div class="min-w-[250px]">
+      <div class="w-full max-w-[250px]">
         <div class="mb-2 text-[13px] font-medium text-slate-700">Community</div>
         <a
           href="https://join.slack.com/t/pavrelcommunity/shared_invite/zt-1t5h5g1tz-32KKfZL0QbEDIIpLsRMJTw"
