@@ -36,7 +36,7 @@ const mobileMenuOpen = ref(false)
 </script>
 
 <template>
-  <header class="mx-auto max-w-4xl px-8 pt-4">
+  <header class="mx-auto max-w-4xl px-6 pt-4 lg:px-8">
     <div class="flex items-center">
       <NuxtLink to="/">
         <span class="sr-only">Pavrel</span>
