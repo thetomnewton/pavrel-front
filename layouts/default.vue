@@ -45,6 +45,22 @@ const { loadWorkspaceContent } = useWorkspace()
 const workspaceContentLoaded = computed(() => store.state.base.workspaceContentLoaded)
 const workspaceContentError = computed(() => store.state.base.workspaceContentError)
 
+const helpSlideoverOpen = ref(false)
+
+const keydownListener = (e: KeyboardEvent) => {
+  if (
+    // @ts-ignore
+    ['input', 'textarea'].includes(e.target?.localName) ||
+    // @ts-ignore
+    e.target?.attributes?.contenteditable
+  )
+    return
+
+  if (e.key === '?') {
+    helpSlideoverOpen.value = true
+  }
+}
+
 onMounted(() => {
   if (workspaceContentLoaded.value) return
 
@@ -62,6 +78,12 @@ onMounted(() => {
         router.push(`/${route.params.workspaceSlug}/welcome`)
     })
     .catch(() => router.push('/login'))
+
+  window.addEventListener('keydown', keydownListener)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('keydown', keydownListener)
 })
 </script>
 
@@ -79,6 +101,8 @@ onMounted(() => {
         <div class="flex h-full min-h-full w-full flex-1 overflow-hidden">
           <Sidebar />
           <Toast />
+
+          <HelpSlideover :open="helpSlideoverOpen" @close="helpSlideoverOpen = false" />
 
           <main class="flex min-w-0 flex-1 flex-col">
             <slot />
