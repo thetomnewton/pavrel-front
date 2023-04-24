@@ -10,7 +10,7 @@ defineProps<{
       v-if="category === 0"
       xmlns="http://www.w3.org/2000/svg"
       class="h-[17px] w-[17px] text-slate-400"
-      viewBox="0 0 20 20"
+      viewBox="1 1 18 18"
       fill="currentColor"
     >
       <path
@@ -38,7 +38,7 @@ defineProps<{
       v-if="category === 2"
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
-      viewBox="0 0 24 24"
+      viewBox="1 1 21.5 21.5"
       stroke="currentColor"
       stroke-width="2.5"
     >
@@ -50,7 +50,7 @@ defineProps<{
       xmlns="http://www.w3.org/2000/svg"
       class="h-[17px] w-[17px] text-slate-400"
       fill="none"
-      viewBox="0 0 24 24"
+      viewBox="1 1 21.5 21.5"
       stroke="currentColor"
       stroke-width="2.5"
     >
@@ -66,7 +66,7 @@ defineProps<{
       v-if="category === 4"
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
-      viewBox="0 0 24 24"
+      viewBox="1 1 21.5 21.5"
       stroke="currentColor"
       stroke-width="2.5"
     >
@@ -78,7 +78,7 @@ defineProps<{
       xmlns="http://www.w3.org/2000/svg"
       class="h-[17px] w-[17px] text-blue-600"
       fill="none"
-      viewBox="0 0 24 24"
+      viewBox="1 1 21.5 21.5"
       stroke="currentColor"
       stroke-width="2.5"
     >
@@ -93,7 +93,7 @@ defineProps<{
       v-if="category === 6"
       xmlns="http://www.w3.org/2000/svg"
       class="h-[17px] w-[17px] text-green-600"
-      viewBox="0 0 20 20"
+      viewBox="1 1 18 18"
       fill="currentColor"
     >
       <path
