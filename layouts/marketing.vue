@@ -186,8 +186,16 @@ const mobileMenuOpen = ref(false)
         <a
           href="https://join.slack.com/t/pavrelcommunity/shared_invite/zt-1t5h5g1tz-32KKfZL0QbEDIIpLsRMJTw"
           class="flex cursor-pointer items-center text-[13px] leading-7 text-slate-500 hover:text-slate-700"
+          target="_blank"
         >
           <span>Slack</span> <ArrowUpRightIcon class="ml-0.5 h-4 w-4" />
+        </a>
+        <a
+          href="https://twitter.com/usePavrel"
+          class="flex cursor-pointer items-center text-[13px] leading-7 text-slate-500 hover:text-slate-700"
+          target="_blank"
+        >
+          <span>Twitter</span> <ArrowUpRightIcon class="ml-0.5 h-4 w-4" />
         </a>
       </div>
     </div>
