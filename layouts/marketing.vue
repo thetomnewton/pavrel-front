@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ArrowUpRightIcon } from '@heroicons/vue/20/solid'
 import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
 
 useHead({
@@ -108,9 +109,87 @@ const mobileMenuOpen = ref(false)
     <slot />
   </main>
 
-  <footer class="border-t border-slate-150 py-32">
-    <div class="mx-auto max-w-7xl">
-      <div>logo</div>
+  <footer class="border-t border-slate-150 py-16 px-4 sm:px-6">
+    <div class="mx-auto max-w-7xl md:flex md:items-start md:justify-between">
+      <div class="min-w-[250px] pt-1">
+        <svg
+          class="h-[27px] w-[24px]"
+          width="86"
+          height="98"
+          viewBox="0 0 86 98"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M46 73.5V50.7435L83 29.6621V71.7565L46 92.8379V73.5ZM40 92.8379L3 71.7565V29.6621L40 50.7435V73.5V92.8379ZM79.94 24.5L43 45.5472L6.05999 24.5L43 3.45278L79.94 24.5Z"
+            class="fill-slate-400 stroke-white dark:fill-white dark:stroke-zinc-900"
+            stroke-width="1"
+          />
+        </svg>
+      </div>
+
+      <div class="min-w-[250px]">
+        <div class="mb-2 text-[13px] font-medium text-slate-700">Product</div>
+        <NuxtLink href="/" class="block cursor-pointer text-[13px] leading-6 text-slate-500 hover:text-slate-800">
+          Home
+        </NuxtLink>
+        <NuxtLink
+          href="/#features"
+          class="block cursor-pointer text-[13px] leading-6 text-slate-500 hover:text-slate-700"
+        >
+          Features
+        </NuxtLink>
+        <NuxtLink
+          href="/#pricing"
+          class="block cursor-pointer text-[13px] leading-6 text-slate-500 hover:text-slate-700"
+        >
+          Pricing
+        </NuxtLink>
+        <NuxtLink
+          href="/changelog"
+          class="block cursor-pointer text-[13px] leading-6 text-slate-500 hover:text-slate-700"
+        >
+          Changelog
+        </NuxtLink>
+      </div>
+
+      <div class="min-w-[250px]">
+        <div class="mb-2 text-[13px] font-medium text-slate-700">Company</div>
+        <NuxtLink href="/terms" class="block cursor-pointer text-[13px] leading-6 text-slate-500 hover:text-slate-700">
+          Terms
+        </NuxtLink>
+        <NuxtLink
+          href="/privacy"
+          class="block cursor-pointer text-[13px] leading-6 text-slate-500 hover:text-slate-700"
+        >
+          Privacy
+        </NuxtLink>
+        <a
+          href="mailto:support@pavrel.com"
+          class="block cursor-pointer text-[13px] leading-6 text-slate-500 hover:text-slate-700"
+        >
+          Contact
+        </a>
+        <NuxtLink href="/login" class="block cursor-pointer text-[13px] leading-6 text-slate-500 hover:text-slate-700">
+          Log in
+        </NuxtLink>
+        <NuxtLink
+          href="/register"
+          class="block cursor-pointer text-[13px] leading-6 text-slate-500 hover:text-slate-700"
+        >
+          Register
+        </NuxtLink>
+      </div>
+
+      <div class="min-w-[250px]">
+        <div class="mb-2 text-[13px] font-medium text-slate-700">Community</div>
+        <a
+          href="https://join.slack.com/t/pavrelcommunity/shared_invite/zt-1t5h5g1tz-32KKfZL0QbEDIIpLsRMJTw"
+          class="flex cursor-pointer items-center text-[13px] leading-6 text-slate-500 hover:text-slate-700"
+        >
+          <span>Slack</span> <ArrowUpRightIcon class="ml-0.5 h-4 w-4" />
+        </a>
+      </div>
     </div>
   </footer>
 
