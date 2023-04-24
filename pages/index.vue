@@ -34,6 +34,12 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
     <div class="mt-3 text-xs text-slate-500">No credit card required.</div>
   </section>
 
+  <section class="mx-auto hidden max-w-[1249px] py-8 px-6 lg:block lg:py-12 lg:px-8">
+    <div class="rounded-lg bg-gradient-to-r from-blue-500 to-sky-500 p-1 shadow-md">
+      <img src="/app-ss1.png" class="rounded-[6px]" />
+    </div>
+  </section>
+
   <section class="mx-auto flex flex-wrap justify-center gap-6 px-6 pt-20 pb-20 lg:px-8" id="features">
     <div class="w-full rounded-2xl border border-slate-200 bg-white px-10 py-8 shadow-sm md:w-[350px]">
       <div class="mb-3 text-sm font-medium tracking-tight text-blue-600">Organization</div>
