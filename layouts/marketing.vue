@@ -36,17 +36,23 @@ const mobileMenuOpen = ref(false)
 </script>
 
 <template>
-  <header class="mx-auto max-w-4xl px-6 pt-4 lg:px-8">
+  <header class="mx-auto max-w-4xl border-b border-slate-150 px-6 lg:px-8">
     <div class="flex items-center">
-      <NuxtLink to="/">
+      <NuxtLink to="/" class="py-3">
         <span class="sr-only">Pavrel</span>
         <LogoColorText class="h-[30px] w-[96px] text-slate-800" />
       </NuxtLink>
 
-      <div class="ml-10 hidden items-center space-x-6 sm:flex">
-        <NuxtLink href="/#features" class="text-sm font-medium text-slate-900 hover:text-slate-900">Features</NuxtLink>
-        <NuxtLink href="/#pricing" class="text-sm font-medium text-slate-900 hover:text-slate-900">Pricing</NuxtLink>
-        <NuxtLink href="/changelog" class="text-sm font-medium text-slate-900 hover:text-slate-900">Changelog</NuxtLink>
+      <div class="ml-10 hidden items-center sm:flex">
+        <NuxtLink href="/#features" class="py-4 px-3 text-sm font-medium text-slate-900 hover:text-slate-900"
+          >Features</NuxtLink
+        >
+        <NuxtLink href="/#pricing" class="py-4 px-3 text-sm font-medium text-slate-900 hover:text-slate-900"
+          >Pricing</NuxtLink
+        >
+        <NuxtLink href="/changelog" class="px-3 py-4 text-sm font-medium text-slate-900 hover:text-slate-900"
+          >Changelog</NuxtLink
+        >
       </div>
 
       <div class="relative ml-auto flex items-center space-x-2">
