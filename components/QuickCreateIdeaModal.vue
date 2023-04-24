@@ -343,7 +343,7 @@ function handleTitleEnterPress(e: KeyboardEvent) {
               <div class="ml-auto">
                 <button
                   type="submit"
-                  class="inline-flex cursor-default whitespace-nowrap rounded-lg border border-slate-300 bg-white px-3 py-1.5 text-sm font-medium text-slate-800 shadow-sm active:translate-y-px active:shadow-none dark:border-zinc-500 dark:bg-zinc-700 dark:text-zinc-100 dark:shadow"
+                  class="inline-flex cursor-default whitespace-nowrap rounded-lg border border-slate-300 bg-white px-3 py-1.5 text-sm font-medium text-slate-800 shadow-sm active:translate-y-px active:shadow-none dark:border-zinc-500 dark:bg-zinc-700 dark:text-zinc-100 dark:shadow dark:hover:bg-zinc-700/60"
                   :disabled="cantCreateNewIdeas"
                 >
                   Save idea
