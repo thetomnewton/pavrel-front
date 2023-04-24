@@ -8,14 +8,11 @@ export function useLogout() {
 
   const handleLogout = () => store.commit('base/handleLogout')
 
-  const logout = () => {
-    api.post('/logout')
+  const logout = async () => {
+    await api.post('/logout')
 
-    // Axios does not resolve on 204, so hacking with setTimeout
-    setTimeout(() => {
-      handleLogout()
-      router.push('/login')
-    }, 100)
+    handleLogout()
+    router.push('/login')
   }
 
   return { logout }
