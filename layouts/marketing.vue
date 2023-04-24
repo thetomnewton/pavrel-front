@@ -109,7 +109,7 @@ const mobileMenuOpen = ref(false)
     <slot />
   </main>
 
-  <footer class="border-t border-slate-150 py-16 px-4 sm:px-6">
+  <footer class="border-t border-slate-150 bg-gradient-to-b from-slate-50 to-white py-16 px-4 sm:px-6">
     <div class="mx-auto max-w-7xl md:flex md:items-start md:justify-between">
       <div class="min-w-[250px] pt-1">
         <svg
@@ -130,24 +130,24 @@ const mobileMenuOpen = ref(false)
 
       <div class="min-w-[250px]">
         <div class="mb-2 text-[13px] font-medium text-slate-700">Product</div>
-        <NuxtLink href="/" class="block cursor-pointer text-[13px] leading-6 text-slate-500 hover:text-slate-800">
+        <NuxtLink href="/" class="block cursor-pointer text-[13px] leading-7 text-slate-500 hover:text-slate-800">
           Home
         </NuxtLink>
         <NuxtLink
           href="/#features"
-          class="block cursor-pointer text-[13px] leading-6 text-slate-500 hover:text-slate-700"
+          class="block cursor-pointer text-[13px] leading-7 text-slate-500 hover:text-slate-700"
         >
           Features
         </NuxtLink>
         <NuxtLink
           href="/#pricing"
-          class="block cursor-pointer text-[13px] leading-6 text-slate-500 hover:text-slate-700"
+          class="block cursor-pointer text-[13px] leading-7 text-slate-500 hover:text-slate-700"
         >
           Pricing
         </NuxtLink>
         <NuxtLink
           href="/changelog"
-          class="block cursor-pointer text-[13px] leading-6 text-slate-500 hover:text-slate-700"
+          class="block cursor-pointer text-[13px] leading-7 text-slate-500 hover:text-slate-700"
         >
           Changelog
         </NuxtLink>
@@ -155,27 +155,27 @@ const mobileMenuOpen = ref(false)
 
       <div class="min-w-[250px]">
         <div class="mb-2 text-[13px] font-medium text-slate-700">Company</div>
-        <NuxtLink href="/terms" class="block cursor-pointer text-[13px] leading-6 text-slate-500 hover:text-slate-700">
+        <NuxtLink href="/terms" class="block cursor-pointer text-[13px] leading-7 text-slate-500 hover:text-slate-700">
           Terms
         </NuxtLink>
         <NuxtLink
           href="/privacy"
-          class="block cursor-pointer text-[13px] leading-6 text-slate-500 hover:text-slate-700"
+          class="block cursor-pointer text-[13px] leading-7 text-slate-500 hover:text-slate-700"
         >
           Privacy
         </NuxtLink>
         <a
           href="mailto:support@pavrel.com"
-          class="block cursor-pointer text-[13px] leading-6 text-slate-500 hover:text-slate-700"
+          class="block cursor-pointer text-[13px] leading-7 text-slate-500 hover:text-slate-700"
         >
           Contact
         </a>
-        <NuxtLink href="/login" class="block cursor-pointer text-[13px] leading-6 text-slate-500 hover:text-slate-700">
+        <NuxtLink href="/login" class="block cursor-pointer text-[13px] leading-7 text-slate-500 hover:text-slate-700">
           Log in
         </NuxtLink>
         <NuxtLink
           href="/register"
-          class="block cursor-pointer text-[13px] leading-6 text-slate-500 hover:text-slate-700"
+          class="block cursor-pointer text-[13px] leading-7 text-slate-500 hover:text-slate-700"
         >
           Register
         </NuxtLink>
@@ -185,7 +185,7 @@ const mobileMenuOpen = ref(false)
         <div class="mb-2 text-[13px] font-medium text-slate-700">Community</div>
         <a
           href="https://join.slack.com/t/pavrelcommunity/shared_invite/zt-1t5h5g1tz-32KKfZL0QbEDIIpLsRMJTw"
-          class="flex cursor-pointer items-center text-[13px] leading-6 text-slate-500 hover:text-slate-700"
+          class="flex cursor-pointer items-center text-[13px] leading-7 text-slate-500 hover:text-slate-700"
         >
           <span>Slack</span> <ArrowUpRightIcon class="ml-0.5 h-4 w-4" />
         </a>
