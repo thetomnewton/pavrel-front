@@ -58,7 +58,7 @@ const mobileMenuOpen = ref(false)
       <div class="relative ml-auto flex items-center space-x-2">
         <NuxtLink
           to="/login"
-          class="inline-block whitespace-nowrap rounded-lg border border-slate-300 px-3 py-1.5 text-sm font-medium leading-5 text-slate-800 transition-all hover:shadow-sm active:translate-y-px active:shadow-none"
+          class="inline-block whitespace-nowrap rounded-lg border border-slate-300 bg-white px-3 py-1.5 text-sm font-medium leading-5 text-slate-800 transition-all hover:shadow-sm active:translate-y-px active:shadow-none"
         >
           Log in
         </NuxtLink>
@@ -73,7 +73,7 @@ const mobileMenuOpen = ref(false)
           v-if="mobileMenuOpen"
           class="absolute top-0 right-0 min-w-[250px] rounded-lg border border-slate-200 bg-white pb-1.5 shadow-md sm:hidden"
         >
-          <div class="text-right">
+          <div class="pr-0.5 text-right">
             <button type="button" class="p-2" @click="mobileMenuOpen = false">
               <XMarkIcon class="h-6 w-6" />
             </button>
@@ -107,5 +107,14 @@ const mobileMenuOpen = ref(false)
   <main>
     <slot />
   </main>
-  <footer></footer>
+
+  <footer class="border-t border-slate-150 py-32">
+    <div class="mx-auto max-w-7xl">
+      <div>logo</div>
+    </div>
+  </footer>
+
+  <div class="absolute inset-0 -z-20 bg-repeat" style="background-image: url('/cube.svg'); background-size: 50px">
+    <div class="absolute inset-0 -z-10 bg-gradient-to-tr from-slate-100 via-slate-50"></div>
+  </div>
 </template>
