@@ -114,7 +114,7 @@ useHead({
     </template>
 
     <template v-else>
-      <div class="px-6 py-6 text-sm text-slate-600 dark:text-zinc-400 lg:px-10">Board view coming soon!</div>
+      <IdeaBoardView v-if="team && team.slug" :ideas="applyFiltersToIdeas(relevantTeamIdeas)" :team="team" />
     </template>
   </div>
 </template>
