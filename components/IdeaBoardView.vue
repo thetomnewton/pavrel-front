@@ -88,7 +88,7 @@ function ideaLabels(ids: Label[]): Label[] {
           >
             <div class="flex items-start">
               <div class="text-[13px] font-medium text-slate-800 dark:text-zinc-300">
-                {{ truncate(idea.title, { length: 30 }) }}
+                {{ truncate(idea.title, { length: 60 }) }}
               </div>
               <div class="ml-auto whitespace-nowrap pt-0.5 pl-2 text-xs text-slate-500 dark:text-zinc-400">
                 {{ team.slug }}-{{ idea.team_idea_id }}
