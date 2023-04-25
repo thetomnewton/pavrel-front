@@ -2,6 +2,7 @@
 import { ref, computed } from 'vue'
 import { useStore } from 'vuex'
 import { Idea, Team } from '../../types'
+import { useLocalStorage } from '@vueuse/core'
 
 definePageMeta({
   middleware: ['auth'],
@@ -17,6 +18,8 @@ const tab = ref<'created' | 'subscribed'>('created')
 const { user, userIsSubscribedTo } = useUsers()
 
 const teamIdeas = computed<(id: Team['id']) => Idea[]>(() => store.getters['base/teamIdeas'])
+
+const ideaView = useLocalStorage<'list' | 'board' | undefined>('idea-view-preference', 'list')
 
 const tabFilters = {
   created: (idea: Idea) => idea.creator_id === user.value.id,
@@ -58,6 +61,8 @@ checkForRecentUpgrade()
     v-if="draftTeam"
     show-filters
     show-options
+    :idea-view="ideaView"
+    @setIdeaView="($event: 'board' | 'list' | undefined) => (ideaView = $event)"
     :ideas="relevantIdeas"
     :filters="filters"
     :team="draftTeam"
@@ -74,12 +79,18 @@ checkForRecentUpgrade()
     <span class="font-medium">Drafts</span>
   </PageHeader>
 
-  <CategorisedIdeaBlock
-    v-if="draftTeam && draftTeam.slug"
-    :ideas="applyFiltersToIdeas(relevantIdeas)"
-    :team-slug="draftTeam.slug"
-    category-filter="all"
-  />
+  <template v-if="ideaView === 'list'">
+    <CategorisedIdeaBlock
+      v-if="draftTeam && draftTeam.slug"
+      :ideas="applyFiltersToIdeas(relevantIdeas)"
+      :team-slug="draftTeam.slug"
+      category-filter="all"
+    />
+  </template>
+
+  <template v-else>
+    <div class="px-6 py-6 text-sm text-slate-600 dark:text-zinc-400 lg:px-10">Board view coming soon!</div>
+  </template>
 
   <JustUpgradedModal
     :open="justUpgraded && workspaceContentLoaded"

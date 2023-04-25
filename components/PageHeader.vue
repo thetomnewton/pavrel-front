@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { useStore } from 'vuex'
-import { Bars3Icon } from '@heroicons/vue/24/outline'
+import { Bars3Icon, ViewColumnsIcon } from '@heroicons/vue/24/outline'
 import { AdjustmentsHorizontalIcon } from '@heroicons/vue/24/solid'
-import { PlusIcon } from '@heroicons/vue/20/solid'
+import { ListBulletIcon, PlusIcon } from '@heroicons/vue/20/solid'
 import ActiveFilter from './ActiveFilter.vue'
 import Dropdown from './Dropdown.vue'
 import { computed, ref } from 'vue'
@@ -20,6 +20,7 @@ const emit = defineEmits(['apply-filter', 'update-filter', 'remove-filter'])
 defineProps<{
   showOptions: boolean
   showFilters: boolean
+  ideaView?: 'list' | 'board'
   team?: Team
   ideas?: Idea[]
   filters?: IdeaFilter[]
@@ -56,6 +57,7 @@ const applyContentFilter = (value: string) => {
         class="mr-5 -ml-1 h-5 w-5 min-w-[1.25rem] text-slate-700 dark:text-zinc-400 lg:hidden"
         @click="toggleAppSidebar"
       />
+
       <slot />
 
       <span v-if="ideas && (showFilters ?? true) && team" class="ml-2">
@@ -71,7 +73,37 @@ const applyContentFilter = (value: string) => {
         />
       </span>
 
-      <span class="ml-auto -mr-1 flex" v-if="showOptions ?? true">
+      <span v-if="ideas && !!ideaView && team" class="ml-2">
+        <span class="flex w-[60px] items-center rounded-[5px] bg-slate-100 p-px dark:bg-zinc-800">
+          <button
+            type="button"
+            @click="$emit('setIdeaView', 'list')"
+            class="inline-flex w-1/2 cursor-default appearance-none items-center justify-center rounded py-[3px] leading-6"
+            :class="{
+              'border border-slate-200 bg-white text-slate-600 shadow-sm dark:border-zinc-600 dark:bg-zinc-700 dark:text-zinc-300':
+                ideaView === 'list',
+              'text-slate-500 active:bg-slate-150 dark:active:bg-zinc-700/50': ideaView !== 'list',
+            }"
+          >
+            <ListBulletIcon class="h-[18px] w-[18px]" />
+          </button>
+
+          <button
+            type="button"
+            @click="$emit('setIdeaView', 'board')"
+            class="inline-flex w-1/2 cursor-default appearance-none items-center justify-center rounded py-[3px] leading-6"
+            :class="{
+              'border border-slate-200 bg-white text-slate-600 shadow-sm dark:border-zinc-600 dark:bg-zinc-700 dark:text-zinc-300':
+                ideaView === 'board',
+              'text-slate-500 active:bg-slate-150 dark:active:bg-zinc-700/50': ideaView !== 'board',
+            }"
+          >
+            <ViewColumnsIcon class="h-[18px] w-[18px]" />
+          </button>
+        </span>
+      </span>
+
+      <span class="ml-auto -mr-1 flex items-center space-x-2" v-if="showOptions ?? true">
         <Dropdown width="250px" align="right" dont-close-on-click trigger-wrapper-classes="flex">
           <template #trigger="{ open }">
             <button

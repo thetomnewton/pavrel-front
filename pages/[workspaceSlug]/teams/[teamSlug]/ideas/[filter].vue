@@ -3,6 +3,7 @@ import { computed } from 'vue'
 import { useStore } from 'vuex'
 import { Idea, PossibleViewSorts, Team } from '../../../../../types'
 import { truncate } from 'lodash-es'
+import { useLocalStorage } from '@vueuse/core'
 
 definePageMeta({
   middleware: 'auth',
@@ -13,6 +14,8 @@ const store = useStore()
 
 const teamSlug = route.params.teamSlug as string
 const filter = route.params.filter as 'all' | 'review' | 'backlog' | 'planning' | 'active'
+
+const ideaView = useLocalStorage<'list' | 'board' | undefined>('idea-view-preference', 'list')
 
 const ideas = computed<Idea[]>(() => store.state.base.ideas)
 
@@ -83,6 +86,8 @@ useHead({
       :ideas="applyFiltersToIdeas(relevantTeamIdeas)"
       show-options
       show-filters
+      :idea-view="filter === 'all' ? ideaView : undefined"
+      @setIdeaView="($event: 'board' | 'list' | undefined) => (ideaView = $event)"
       :team="team"
       :filters="filters"
       @apply-filter="applyFilter"
@@ -100,10 +105,16 @@ useHead({
       </span>
     </PageHeader>
 
-    <CategorisedIdeaBlock
-      :ideas="applyFiltersToIdeas(relevantTeamIdeas)"
-      :category-filter="filter || 'all'"
-      :team-slug="teamSlug"
-    />
+    <template v-if="ideaView === 'list' || (filter || 'all') !== 'all'">
+      <CategorisedIdeaBlock
+        :ideas="applyFiltersToIdeas(relevantTeamIdeas)"
+        :category-filter="filter || 'all'"
+        :team-slug="teamSlug"
+      />
+    </template>
+
+    <template v-else>
+      <div class="px-6 py-6 text-sm text-slate-600 dark:text-zinc-400 lg:px-10">Board view coming soon!</div>
+    </template>
   </div>
 </template>
