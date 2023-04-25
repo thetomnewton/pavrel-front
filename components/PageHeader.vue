@@ -82,7 +82,7 @@ const applyContentFilter = (value: string) => {
             :class="{
               'border border-slate-200 bg-white text-slate-600 shadow-sm dark:border-zinc-600 dark:bg-zinc-700 dark:text-zinc-300':
                 ideaView === 'list',
-              'text-slate-500 active:bg-slate-150 dark:active:bg-zinc-700/50': ideaView !== 'list',
+              'text-slate-500 active:bg-slate-150 dark:text-zinc-500 dark:active:bg-zinc-700/50': ideaView !== 'list',
             }"
           >
             <ListBulletIcon class="h-[18px] w-[18px]" />
@@ -95,7 +95,7 @@ const applyContentFilter = (value: string) => {
             :class="{
               'border border-slate-200 bg-white text-slate-600 shadow-sm dark:border-zinc-600 dark:bg-zinc-700 dark:text-zinc-300':
                 ideaView === 'board',
-              'text-slate-500 active:bg-slate-150 dark:active:bg-zinc-700/50': ideaView !== 'board',
+              'text-slate-500 active:bg-slate-150 dark:text-zinc-500 dark:active:bg-zinc-700/50': ideaView !== 'board',
             }"
           >
             <ViewColumnsIcon class="h-[18px] w-[18px]" />
