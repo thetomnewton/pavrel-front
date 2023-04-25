@@ -10,4 +10,9 @@ export default defineNuxtConfig({
     public: { backendUrl: '', websocketHost: '' },
   },
   css: ['~/assets/css/tailwind.css'],
+  nitro: {
+    prerender: {
+      routes: ['/', '/changelog'],
+    },
+  },
 })
