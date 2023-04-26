@@ -19,6 +19,19 @@ useHead({
 
     <h2 id="april-2023">April 2023</h2>
 
+    <h3 id="april-2023-kanban-board">New board view</h3>
+
+    <p>
+      You can now view your team's ideas in a board view! This is one of our most requested features since launch, and
+      is now live for you to enjoy.
+    </p>
+
+    <p>As with everything in Pavrel, it looks great in both light and dark mode.</p>
+
+    <img src="/changelog/2304/new-board-view.png" alt="Board view screenshot" />
+
+    <p>We have plenty more additions in mind for this new board view, so stay tuned for those.</p>
+
     <h3 id="april-2023-moving-between-teams">Moving ideas between teams</h3>
 
     <p>
