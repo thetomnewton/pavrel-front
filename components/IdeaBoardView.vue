@@ -72,7 +72,7 @@ function ideaLabels(ids: Label[]): Label[] {
     class="max-h-[calc(100vh-53px)] w-full flex-1 overflow-x-auto py-6 pr-6 pl-6 lg:pl-10"
   >
     <div class="flex items-start">
-      <div v-for="status in visibleStatuses" :key="status.id" class="min-w-[280px] pr-8">
+      <div v-for="status in visibleStatuses" :key="status.id" class="w-[300px] pr-8">
         <div class="mb-6 flex items-center text-[13px] font-medium">
           <StatusIcon :category="status.category" class="mr-2" />
           <span>{{ status.name }}</span>
