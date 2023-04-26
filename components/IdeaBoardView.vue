@@ -67,10 +67,14 @@ function nextIdea() {
 <template>
   <section
     v-if="sortedTeamStatuses.length"
-    class="max-h-[calc(100vh-53px)] w-full flex-1 overflow-x-auto py-6 pr-6 pl-6 lg:pl-10"
+    class="max-h-[calc(100vh-53px)] w-full flex-1 overflow-x-auto pr-6 pl-6 lg:pl-10"
   >
     <div class="flex items-start">
-      <div v-for="status in sortedTeamStatuses" :key="status.id" class="w-[290px] min-w-[290px] max-w-[290px] pr-8">
+      <div
+        v-for="status in sortedTeamStatuses"
+        :key="status.id"
+        class="flex h-full w-[290px] min-w-[290px] max-w-[290px] flex-col pr-8 pt-6"
+      >
         <div class="mb-6 flex items-center text-[13px] font-medium">
           <StatusIcon :category="status.category" class="mr-2" />
           <span>{{ status.name }}</span>
@@ -85,7 +89,7 @@ function nextIdea() {
           </div>
         </div>
 
-        <div class="space-y-4">
+        <div class="max-h-[calc(100vh-127px)] flex-1 space-y-4 overflow-y-auto pb-6">
           <!-- IdeaBoardItem -->
           <IdeaBoardItem
             v-for="idea in ideasGroupedByStatus[status.id] ?? []"
