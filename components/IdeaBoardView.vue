@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { groupBy, truncate } from 'lodash-es'
-import { Idea, Label, Team } from '~/types'
+import { cloneDeep, groupBy, truncate } from 'lodash-es'
+import { Idea, IdeaStatus, Label, Team } from '~/types'
 import { ideaStatusSort } from '~/helpers/ideas'
 
 const props = defineProps<{
@@ -14,6 +14,10 @@ const ideasGroupedByStatus = computed(() => groupBy(props.ideas, 'status_id'))
 
 const previewModalOpen = ref(false)
 const selectedIdea = ref<string | null>(null)
+
+const sortedTeamStatuses = computed(() => {
+  return cloneDeep(props.team.statuses).sort((a: IdeaStatus, b: IdeaStatus) => ideaStatusSort(a.category, b.category))
+})
 
 const ideasListFlattened = computed(() => {
   if (!props.team) return []
@@ -64,11 +68,11 @@ function ideaLabels(ids: Label[]): Label[] {
 
 <template>
   <section
-    v-if="team.statuses.length"
+    v-if="sortedTeamStatuses.length"
     class="max-h-[calc(100vh-53px)] w-full flex-1 overflow-x-auto py-6 pr-6 pl-6 lg:pl-10"
   >
     <div class="flex items-start">
-      <div v-for="status in team.statuses" :key="status.id" class="w-[290px] min-w-[290px] max-w-[290px] pr-8">
+      <div v-for="status in sortedTeamStatuses" :key="status.id" class="w-[290px] min-w-[290px] max-w-[290px] pr-8">
         <div class="mb-6 flex items-center text-[13px] font-medium">
           <StatusIcon :category="status.category" class="mr-2" />
           <span>{{ status.name }}</span>
