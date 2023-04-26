@@ -10,10 +10,6 @@ const props = defineProps<{
 
 const { isIdeaUpvoted, ideaUpvoteCount, toggleUpvoteIdea } = useIdeaUpvotes()
 
-const visibleStatuses = computed(() =>
-  props.team.statuses.filter(({ id }) => props.ideas.filter(({ status_id }) => status_id === id).length > 0)
-)
-
 const ideasGroupedByStatus = computed(() => groupBy(props.ideas, 'status_id'))
 
 const previewModalOpen = ref(false)
@@ -68,11 +64,11 @@ function ideaLabels(ids: Label[]): Label[] {
 
 <template>
   <section
-    v-if="visibleStatuses.length"
+    v-if="team.statuses.length"
     class="max-h-[calc(100vh-53px)] w-full flex-1 overflow-x-auto py-6 pr-6 pl-6 lg:pl-10"
   >
     <div class="flex items-start">
-      <div v-for="status in visibleStatuses" :key="status.id" class="w-[300px] pr-8">
+      <div v-for="status in team.statuses" :key="status.id" class="w-[290px] min-w-[290px] max-w-[290px] pr-8">
         <div class="mb-6 flex items-center text-[13px] font-medium">
           <StatusIcon :category="status.category" class="mr-2" />
           <span>{{ status.name }}</span>
