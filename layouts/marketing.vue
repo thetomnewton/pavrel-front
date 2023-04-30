@@ -110,7 +110,7 @@ const mobileMenuOpen = ref(false)
   </main>
 
   <footer class="border-t border-slate-150 bg-gradient-to-b from-slate-50 to-white py-16 px-4 sm:px-6">
-    <div class="mx-auto max-w-7xl space-y-8 md:flex md:items-start md:justify-between md:space-y-0">
+    <div class="mx-auto max-w-4xl space-y-8 px-6 md:flex md:items-start md:justify-between md:space-y-0 lg:px-8">
       <div class="w-full max-w-[250px] pt-1">
         <svg
           class="h-[27px] w-[24px]"
