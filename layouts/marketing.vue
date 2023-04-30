@@ -3,7 +3,7 @@ import { ArrowUpRightIcon } from '@heroicons/vue/20/solid'
 import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
 
 useHead({
-  bodyAttrs: { class: 'antialiased h-screen text-slate-900 dark:text-zinc-200' },
+  bodyAttrs: { class: 'antialiased h-screen text-slate-900 dark:text-zinc-200 bg-slate-100' },
   title: 'Pavrel',
   meta: [
     {
@@ -150,6 +150,9 @@ const mobileMenuOpen = ref(false)
           class="block cursor-pointer text-[13px] leading-7 text-slate-500 hover:text-slate-700"
         >
           Changelog
+        </NuxtLink>
+        <NuxtLink href="/docs" class="block cursor-pointer text-[13px] leading-7 text-slate-500 hover:text-slate-700">
+          Documentation
         </NuxtLink>
       </div>
 

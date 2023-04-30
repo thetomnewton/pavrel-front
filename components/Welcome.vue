@@ -1,7 +1,3 @@
-<script setup lang="ts">
-import JetApplicationLogo from '../jetstream/ApplicationLogo.vue'
-</script>
-
 <template>
   <div>
     <div class="border-b border-slate-200 bg-white p-6 sm:px-20">
