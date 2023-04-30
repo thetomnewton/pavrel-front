@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useStore } from 'vuex'
-import { Idea, PossibleViewSorts, Team } from '../../../../../types'
+import { Idea, PossibleViewSorts, Team } from '~/types'
 import { truncate } from 'lodash-es'
 import { useLocalStorage } from '@vueuse/core'
 
@@ -105,16 +105,12 @@ useHead({
       </span>
     </PageHeader>
 
-    <template v-if="ideaView === 'list' || (filter || 'all') !== 'all'">
-      <IdeaListView
-        :ideas="applyFiltersToIdeas(relevantTeamIdeas)"
-        :category-filter="filter || 'all'"
-        :team-slug="teamSlug"
-      />
-    </template>
-
-    <template v-else>
-      <IdeaBoardView v-if="team && team.slug" :ideas="applyFiltersToIdeas(relevantTeamIdeas)" :team="team" />
-    </template>
+    <IdeaViewWrapper
+      v-if="ideaView && team"
+      :view="ideaView"
+      :ideas="applyFiltersToIdeas(relevantTeamIdeas)"
+      :team="team"
+      :category-filter="filter || 'all'"
+    />
   </div>
 </template>

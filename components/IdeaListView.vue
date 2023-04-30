@@ -17,7 +17,7 @@ const store = useStore()
 
 const props = defineProps<{
   ideas: Idea[]
-  categoryFilter: PossibleCategoryFilters
+  categoryFilter: PossibleCategoryFilters | undefined
   teamSlug: string
 }>()
 
@@ -36,10 +36,10 @@ function uncheckAllIdeas() {
   checkedIdeaIds.value = []
 }
 
-const quickCreateIdeaModalOpen = computed(() => store.state.base.quickCreateIdeaModalOpen)
+const quickCreateOpen = computed(() => store.state.base.quickCreateIdeaModalOpen)
 
 const selectAllListener = (e: KeyboardEvent) => {
-  if (quickCreateIdeaModalOpen.value || previewModalOpen.value) return
+  if (quickCreateOpen.value || previewModalOpen.value) return
 
   if (e.key.toLowerCase() === 'a' && (e.ctrlKey || e.metaKey)) {
     e.preventDefault()
@@ -49,11 +49,9 @@ const selectAllListener = (e: KeyboardEvent) => {
 }
 
 const escapeListener = (e: KeyboardEvent) => {
-  if (quickCreateIdeaModalOpen.value || previewModalOpen.value) return
+  if (quickCreateOpen.value || previewModalOpen.value) return
 
-  if (e.key.toLowerCase() === 'escape') {
-    uncheckAllIdeas()
-  }
+  if (e.key.toLowerCase() === 'escape') uncheckAllIdeas()
 }
 
 onMounted(() => {

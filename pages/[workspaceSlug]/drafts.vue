@@ -79,18 +79,13 @@ checkForRecentUpgrade()
     <span class="font-medium">Drafts</span>
   </PageHeader>
 
-  <template v-if="ideaView === 'list'">
-    <IdeaListView
-      v-if="draftTeam && draftTeam.slug"
-      :ideas="applyFiltersToIdeas(relevantIdeas)"
-      :team-slug="draftTeam.slug"
-      category-filter="all"
-    />
-  </template>
-
-  <template v-else>
-    <IdeaBoardView v-if="draftTeam && draftTeam.slug" :ideas="applyFiltersToIdeas(relevantIdeas)" :team="draftTeam" />
-  </template>
+  <IdeaViewWrapper
+    v-if="ideaView && draftTeam"
+    :view="ideaView"
+    :ideas="applyFiltersToIdeas(relevantIdeas)"
+    :team="draftTeam"
+    :category-filter="ideaView === 'list' ? 'all' : undefined"
+  />
 
   <JustUpgradedModal
     :open="justUpgraded && workspaceContentLoaded"
