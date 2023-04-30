@@ -8,8 +8,8 @@ It's designed to slot right into your workflow — instantly available when you 
 
 ## Learn
 
-- [Workspaces](./docs/workspaces.md)  
+- [Workspaces](workspaces)  
 Learn the basics of Workspaces in Pavrel and how to operate them.
 
-- [Teams](./docs/teams.md)  
+- [Teams](teams)  
 Discover how Teams work in Pavrel, and how to construct them inside your workspaces.

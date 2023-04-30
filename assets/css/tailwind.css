@@ -27,3 +27,58 @@ button {
 .dark {
     color-scheme: dark;
 }
+
+.docs {
+    color: theme('colors.slate.800');
+    line-height: 1.5;
+}
+
+.docs h1 {
+    font-weight: 700;
+    font-size: 2rem;
+    color: theme('colors.slate.900');
+    margin-bottom: 1.5rem;
+}
+
+.docs h2 {
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: theme('colors.slate.900');
+    margin-bottom: .75rem;
+    margin-top: 1.5rem;
+}
+
+.docs h3 {
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: theme('colors.slate.900');
+    margin-bottom: .5rem;
+    margin-top: .75rem;
+}
+
+.docs p a,
+.docs li a {
+    color: theme('colors.blue.600');
+    font-weight: 500;
+}
+
+.docs p a:hover,
+.docs li a:hover {
+    text-decoration: underline;
+}
+
+.docs p {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.docs ul {
+    padding-left: 1rem;
+}
+
+.docs li {
+    font-size: 1rem;
+    list-style: disc;
+    padding-left: .25rem;
+    margin-bottom: 0.5rem;
+}

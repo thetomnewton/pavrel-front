@@ -10,11 +10,6 @@ export default defineNuxtConfig({
     public: { backendUrl: '', websocketHost: '' },
   },
   modules: ['@nuxt/content'],
-  content: {
-    highlight: {
-      theme: 'github-light',
-    },
-  },
   css: ['~/assets/css/tailwind.css'],
   nitro: {
     prerender: {

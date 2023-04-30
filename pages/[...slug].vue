@@ -5,7 +5,7 @@ definePageMeta({
 </script>
 
 <template>
-  <main class="prose mx-auto max-w-4xl px-6 py-16 lg:px-8">
+  <main class="docs mx-auto max-w-4xl px-6 py-16 lg:px-8">
     <ContentDoc />
   </main>
 </template>
