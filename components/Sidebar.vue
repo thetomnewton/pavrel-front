@@ -526,7 +526,7 @@ onUnmounted(() => {
     </div>
 
     <div class="mt-auto">
-      <div v-if="currentWorkspace.plan === 'free'" class="my-4">
+      <div v-if="currentWorkspace.plan === 'free'" class="py-4">
         <button
           type="button"
           @click="upgradePreviewOpen = true"
@@ -540,43 +540,49 @@ onUnmounted(() => {
         </button>
       </div>
 
-      <Dropdown width="230px" align="top_left" trigger-wrapper-classes="w-full">
-        <template #trigger="{ open }">
-          <button
-            class="group flex w-full cursor-default items-center space-x-2 border-t border-slate-150 px-6 py-3 text-[13px] font-medium text-slate-700 disabled:pointer-events-none disabled:opacity-50 dark:border-zinc-800 dark:text-zinc-300"
-            :class="[
-              open
-                ? 'bg-slate-200 dark:bg-zinc-800'
-                : 'hover:bg-slate-200/60 active:bg-slate-200 dark:hover:bg-zinc-800 dark:active:bg-zinc-800',
-            ]"
-          >
-            <img :src="user.profile_photo_url" class="min-w-6 mr-2 h-6 w-6 rounded-full object-cover" />
-            <span>{{ user.name }}</span>
-          </button>
-        </template>
-
-        <template #content>
-          <div class="px-2 py-1 text-[.8125rem] font-medium">
-            <NuxtLink
-              :to="`/${currentWorkspace.slug}/user/profile`"
-              class="flex cursor-default items-center rounded p-2 leading-[15px] text-slate-700 hover:bg-slate-100 dark:text-zinc-300 dark:hover:bg-zinc-700"
+      <div class="px-2 pb-2">
+        <Dropdown
+          width="230px"
+          align="top_left"
+          trigger-wrapper-classes="pt-2 pb-0.5 border-t border-slate-150 dark:border-zinc-800"
+        >
+          <template #trigger="{ open }">
+            <button
+              class="group flex w-full cursor-default items-center space-x-1.5 rounded-md px-4 py-3 text-[13px] font-medium text-slate-700 disabled:pointer-events-none disabled:opacity-50 dark:text-zinc-300"
+              :class="[
+                open
+                  ? 'bg-slate-200 dark:bg-zinc-800'
+                  : 'hover:bg-slate-200/60 active:bg-slate-200 dark:hover:bg-zinc-800 dark:active:bg-zinc-800',
+              ]"
             >
-              <UserCircleIcon class="mr-2 h-5 w-5" />
-              <span>View profile</span>
-            </NuxtLink>
+              <img :src="user.profile_photo_url" class="min-w-6 mr-2 h-6 w-6 rounded-full object-cover" />
+              <span>{{ user.name }}</span>
+            </button>
+          </template>
 
-            <form @submit.prevent="logout">
-              <button
-                type="submit"
-                class="flex w-full cursor-default appearance-none items-center rounded p-2 text-left leading-[15px] text-slate-700 hover:bg-slate-100 dark:text-zinc-300 dark:hover:bg-zinc-700"
+          <template #content>
+            <div class="px-2 py-1 text-[.8125rem] font-medium">
+              <NuxtLink
+                :to="`/${currentWorkspace.slug}/user/profile`"
+                class="flex cursor-default items-center rounded p-2 leading-[15px] text-slate-700 hover:bg-slate-100 dark:text-zinc-300 dark:hover:bg-zinc-700"
               >
-                <ArrowRightOnRectangleIcon class="mr-2 h-5 w-5" />
-                <span>Log out</span>
-              </button>
-            </form>
-          </div>
-        </template>
-      </Dropdown>
+                <UserCircleIcon class="mr-2 h-5 w-5" />
+                <span>View profile</span>
+              </NuxtLink>
+
+              <form @submit.prevent="logout">
+                <button
+                  type="submit"
+                  class="flex w-full cursor-default appearance-none items-center rounded p-2 text-left leading-[15px] text-slate-700 hover:bg-slate-100 dark:text-zinc-300 dark:hover:bg-zinc-700"
+                >
+                  <ArrowRightOnRectangleIcon class="mr-2 h-5 w-5" />
+                  <span>Log out</span>
+                </button>
+              </form>
+            </div>
+          </template>
+        </Dropdown>
+      </div>
     </div>
   </nav>
 
