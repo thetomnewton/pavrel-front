@@ -123,11 +123,29 @@ if (typeof prevState?.back === 'string') {
     if (idea) selectIdea(idea)
   }
 }
+
+const ideaActionsModalOpen = ref(false)
+const bulkDeleteIdeasModalOpen = ref(false)
+
+const bulkDeleteIdeas = (ids: Idea['id'][]) => store.dispatch('base/bulkDeleteIdeas', ids)
+
+function showActionsModal() {
+  ideaActionsModalOpen.value = true
+}
+
+function confirmBulkDeleteIdeas() {
+  bulkDeleteIdeas(checkedIdeaIds.value)
+  bulkDeleteIdeasModalOpen.value = false
+  uncheckAllIdeas()
+}
 </script>
 
 <template>
-  <template v-if="view === 'list'">
+  <IdeasEmptyState v-if="!ideas.length" />
+
+  <template v-else>
     <IdeaListView
+      v-if="view === 'list'"
       :ideas="ideas"
       :team="team"
       :categoryFilter="categoryFilter"
@@ -136,19 +154,33 @@ if (typeof prevState?.back === 'string') {
       @toggle-checked="toggleIdeaChecked"
       @uncheck-all="uncheckAllIdeas"
     />
-  </template>
 
-  <template v-else>
-    <IdeaBoardView :ideas="ideas" :team="team" />
-  </template>
+    <IdeaBoardView v-else :ideas="ideas" :team="team" />
 
-  <IdeaPreview
-    :open="previewModalOpen"
-    :idea-id="selectedIdea ?? undefined"
-    :idea-index="selectedIdeaIndex"
-    :total-ideas="ideasListFlattened.length"
-    @close="closeIdeaPreviewModal"
-    @prev-idea="prevIdea"
-    @next-idea="nextIdea"
-  />
+    <IdeaPreview
+      :open="previewModalOpen"
+      :idea-id="selectedIdea ?? undefined"
+      :idea-index="selectedIdeaIndex"
+      :total-ideas="ideasListFlattened.length"
+      @close="closeIdeaPreviewModal"
+      @prev-idea="prevIdea"
+      @next-idea="nextIdea"
+    />
+
+    <IdeaActionsModal
+      :open="ideaActionsModalOpen"
+      :idea-ids="checkedIdeaIds"
+      @close="ideaActionsModalOpen = false"
+      @open-bulk-delete-ideas-modal="bulkDeleteIdeasModalOpen = true"
+    />
+
+    <BulkDeleteIdeasModal
+      :open="bulkDeleteIdeasModalOpen"
+      :idea-ids="checkedIdeaIds"
+      @close="bulkDeleteIdeasModalOpen = false"
+      @destroy="confirmBulkDeleteIdeas"
+    />
+
+    <IdeaActionsToast :idea-ids="checkedIdeaIds" @show-actions-modal="showActionsModal" @cancel="uncheckAllIdeas" />
+  </template>
 </template>

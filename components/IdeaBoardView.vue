@@ -65,10 +65,7 @@ function nextIdea() {
 </script>
 
 <template>
-  <section
-    v-if="sortedTeamStatuses.length"
-    class="max-h-[calc(100vh-53px)] w-full flex-1 overflow-x-auto pr-6 pl-6 lg:pl-10"
-  >
+  <section class="max-h-[calc(100vh-53px)] w-full flex-1 overflow-x-auto pr-6 pl-6 lg:pl-10">
     <div class="flex items-start">
       <div
         v-for="status in sortedTeamStatuses"
@@ -90,7 +87,6 @@ function nextIdea() {
         </div>
 
         <div class="max-h-[calc(100vh-127px)] flex-1 space-y-4 overflow-y-auto pb-6">
-          <!-- IdeaBoardItem -->
           <IdeaBoardItem
             v-for="idea in ideasGroupedByStatus[status.id] ?? []"
             :key="idea.id"
@@ -112,6 +108,4 @@ function nextIdea() {
       @next-idea="nextIdea"
     />
   </section>
-
-  <IdeasEmptyState v-else />
 </template>

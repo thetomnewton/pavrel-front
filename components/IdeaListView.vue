@@ -3,9 +3,6 @@ import { ref, computed } from 'vue'
 import { groupBy } from 'lodash-es'
 import { ideaStatusSort } from '@/helpers/ideas'
 import { Idea, IdeaStatus, PossibleCategoryFilters, Team } from '@/types'
-import { useStore } from 'vuex'
-
-const store = useStore()
 
 const props = defineProps<{
   ideas: Idea[]
@@ -14,7 +11,7 @@ const props = defineProps<{
   checkedIdeaIds: Idea['id'][]
 }>()
 
-const emit = defineEmits(['select-idea', 'toggle-checked', 'uncheck-all'])
+defineEmits(['select-idea', 'toggle-checked', 'uncheck-all'])
 
 const ideasGroupedByStatus = computed(() => groupBy(props.ideas, 'status_id'))
 
@@ -25,25 +22,10 @@ const ideaStatusesSortedByCategory = computed(() => {
     .sort((a: IdeaStatus, b: IdeaStatus) => ideaStatusSort(a.category, b.category))
     .map(({ id }) => id)
 })
-
-const ideaActionsModalOpen = ref(false)
-const bulkDeleteIdeasModalOpen = ref(false)
-
-const bulkDeleteIdeas = (ids: Idea['id'][]) => store.dispatch('base/bulkDeleteIdeas', ids)
-
-function showActionsModal() {
-  ideaActionsModalOpen.value = true
-}
-
-function confirmBulkDeleteIdeas() {
-  bulkDeleteIdeas(props.checkedIdeaIds)
-  bulkDeleteIdeasModalOpen.value = false
-  emit('uncheck-all')
-}
 </script>
 
 <template>
-  <section v-if="ideas.length" class="max-h-[calc(100vh-53px)] flex-1 overflow-auto">
+  <section class="max-h-[calc(100vh-53px)] flex-1 overflow-auto">
     <template v-for="statusId in ideaStatusesSortedByCategory" :key="statusId">
       <div v-if="ideasGroupedByStatus[statusId]">
         <div
@@ -64,22 +46,4 @@ function confirmBulkDeleteIdeas() {
       </div>
     </template>
   </section>
-
-  <IdeasEmptyState v-else />
-
-  <IdeaActionsToast :idea-ids="checkedIdeaIds" @show-actions-modal="showActionsModal" @cancel="$emit('uncheck-all')" />
-
-  <IdeaActionsModal
-    :open="ideaActionsModalOpen"
-    :idea-ids="checkedIdeaIds"
-    @close="ideaActionsModalOpen = false"
-    @open-bulk-delete-ideas-modal="bulkDeleteIdeasModalOpen = true"
-  />
-
-  <BulkDeleteIdeasModal
-    :open="bulkDeleteIdeasModalOpen"
-    :idea-ids="checkedIdeaIds"
-    @close="bulkDeleteIdeasModalOpen = false"
-    @destroy="confirmBulkDeleteIdeas"
-  />
 </template>
