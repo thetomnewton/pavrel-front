@@ -11,7 +11,7 @@ const props = defineProps<{
   checkedIdeaIds: Idea['id'][]
 }>()
 
-defineEmits(['select-idea', 'toggle-checked', 'uncheck-all'])
+defineEmits(['select-idea', 'toggle-checked'])
 
 const ideasGroupedByStatus = computed(() => groupBy(props.ideas, 'status_id'))
 

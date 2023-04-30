@@ -8,6 +8,7 @@ import { useStore } from 'vuex'
 const props = defineProps<{
   ideas: Idea[]
   team: Team
+  checkedIdeaIds: Idea['id'][]
 }>()
 
 const store = useStore()
@@ -49,6 +50,7 @@ const sortedTeamStatuses = computed(() =>
             :key="idea.id"
             :idea="idea"
             :team="team"
+            :checked="checkedIdeaIds.includes(idea.id)"
             @click="$emit('select-idea', idea)"
           />
         </div>

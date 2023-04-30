@@ -5,6 +5,7 @@ import { Idea, Team } from '~~/types'
 defineProps<{
   team: Team
   idea: Idea
+  checked: boolean
 }>()
 
 const { isIdeaUpvoted, ideaUpvoteCount, toggleUpvoteIdea } = useIdeaUpvotes()
@@ -13,7 +14,11 @@ const { ideaLabels } = useIdeaLabels()
 
 <template>
   <div
-    class="cursor-default rounded-md border border-slate-300 bg-slate-50 py-2 px-3 shadow-sm dark:border-zinc-600 dark:bg-zinc-800"
+    class="cursor-default rounded-md border py-2 px-3 shadow-sm"
+    :class="{
+      'border-blue-300 bg-blue-100 dark:border-blue-600 dark:bg-blue-900': checked,
+      'border-slate-300 bg-slate-50 dark:border-zinc-600 dark:bg-zinc-800': !checked,
+    }"
   >
     <div class="flex items-start">
       <div class="text-[13px] font-medium text-slate-800 dark:text-zinc-300">

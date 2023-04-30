@@ -152,10 +152,9 @@ function confirmBulkDeleteIdeas() {
       :checkedIdeaIds="checkedIdeaIds"
       @select-idea="selectIdea"
       @toggle-checked="toggleIdeaChecked"
-      @uncheck-all="uncheckAllIdeas"
     />
 
-    <IdeaBoardView v-else :ideas="ideas" :team="team" @select-idea="selectIdea" />
+    <IdeaBoardView v-else :ideas="ideas" :team="team" @select-idea="selectIdea" :checkedIdeaIds="checkedIdeaIds" />
 
     <IdeaPreview
       :open="previewModalOpen"
