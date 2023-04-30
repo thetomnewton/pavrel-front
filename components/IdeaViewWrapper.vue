@@ -155,7 +155,7 @@ function confirmBulkDeleteIdeas() {
       @uncheck-all="uncheckAllIdeas"
     />
 
-    <IdeaBoardView v-else :ideas="ideas" :team="team" />
+    <IdeaBoardView v-else :ideas="ideas" :team="team" @select-idea="selectIdea" />
 
     <IdeaPreview
       :open="previewModalOpen"

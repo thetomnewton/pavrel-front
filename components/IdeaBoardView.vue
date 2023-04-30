@@ -16,52 +16,9 @@ const toggleQuickCreateIdeaModal = () => store.commit('base/toggleQuickCreateIde
 
 const ideasGroupedByStatus = computed(() => groupBy(props.ideas, 'status_id'))
 
-const previewModalOpen = ref(false)
-const selectedIdea = ref<string | null>(null)
-
-const sortedTeamStatuses = computed(() => {
-  return cloneDeep(props.team.statuses).sort((a: IdeaStatus, b: IdeaStatus) => ideaStatusSort(a.category, b.category))
-})
-
-const ideasListFlattened = computed(() => {
-  if (!props.team) return []
-
-  return props.ideas.sort((a, b) => {
-    // Check the status category
-    const categoryA = props.team?.statuses.find(({ id }) => id === a.status_id)?.category || 0
-    const categoryB = props.team?.statuses.find(({ id }) => id === b.status_id)?.category || 0
-
-    if (categoryA !== categoryB) return ideaStatusSort(categoryA, categoryB)
-
-    return +b.id - +a.id
-  })
-})
-
-const selectedIdeaIndex = computed(() => {
-  if (!selectedIdea.value) return null
-
-  return ideasListFlattened.value.findIndex(({ id }) => id === selectedIdea.value)
-})
-
-function closeIdeaPreviewModal() {
-  previewModalOpen.value = false
-  selectedIdea.value = null
-}
-
-function selectIdea({ id }: Idea) {
-  selectedIdea.value = id
-  previewModalOpen.value = true
-}
-
-function prevIdea() {
-  if (selectedIdeaIndex.value == null || ideasListFlattened.value[selectedIdeaIndex.value - 1] == null) return
-  selectedIdea.value = ideasListFlattened.value[selectedIdeaIndex.value - 1].id
-}
-
-function nextIdea() {
-  if (selectedIdeaIndex.value == null || ideasListFlattened.value[selectedIdeaIndex.value + 1] == null) return
-  selectedIdea.value = ideasListFlattened.value[selectedIdeaIndex.value + 1].id
-}
+const sortedTeamStatuses = computed(() =>
+  cloneDeep(props.team.statuses).sort((a: IdeaStatus, b: IdeaStatus) => ideaStatusSort(a.category, b.category))
+)
 </script>
 
 <template>
@@ -92,20 +49,10 @@ function nextIdea() {
             :key="idea.id"
             :idea="idea"
             :team="team"
-            @click="selectIdea(idea)"
+            @click="$emit('select-idea', idea)"
           />
         </div>
       </div>
     </div>
-
-    <IdeaPreview
-      :open="previewModalOpen"
-      :idea-id="selectedIdea ?? undefined"
-      :idea-index="selectedIdeaIndex"
-      :total-ideas="ideasListFlattened.length"
-      @close="closeIdeaPreviewModal"
-      @prev-idea="prevIdea"
-      @next-idea="nextIdea"
-    />
   </section>
 </template>
