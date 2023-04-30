@@ -12,7 +12,7 @@ const store = useStore()
 
 const emit = defineEmits(['apply-filter', 'update-filter', 'remove-filter', 'set-idea-view'])
 
-defineProps<{
+const props = defineProps<{
   showOptions: boolean
   showFilters: boolean
   ideaView?: 'list' | 'board'
@@ -45,10 +45,10 @@ const applyContentFilter = (value: string) => {
 }
 
 const keyupListener = (e: KeyboardEvent) => {
-  if (e.key === '[') {
+  if (e.key === '[' && props.ideaView) {
     e.stopPropagation()
     emit('set-idea-view', 'list')
-  } else if (e.key === ']') {
+  } else if (e.key === ']' && props.ideaView) {
     e.stopPropagation()
     emit('set-idea-view', 'board')
   }
