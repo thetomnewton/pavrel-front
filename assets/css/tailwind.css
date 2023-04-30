@@ -30,7 +30,7 @@ button {
 
 .docs {
     color: theme('colors.slate.800');
-    line-height: 1.5;
+    @apply leading-7;
 }
 
 .docs h1 {
@@ -68,12 +68,13 @@ button {
 }
 
 .docs p {
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
     font-size: 1rem;
 }
 
 .docs ul {
     padding-left: 1rem;
+    margin-bottom: .75rem;
 }
 
 .docs li {
