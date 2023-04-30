@@ -3,19 +3,14 @@ import { useStore } from 'vuex'
 import { Bars3Icon, ViewColumnsIcon } from '@heroicons/vue/24/outline'
 import { AdjustmentsHorizontalIcon } from '@heroicons/vue/24/solid'
 import { ListBulletIcon, PlusIcon } from '@heroicons/vue/20/solid'
-import ActiveFilter from './ActiveFilter.vue'
-import Dropdown from './Dropdown.vue'
 import { computed, ref } from 'vue'
-import IdeaFilterDropdown from './IdeaFilterDropdown.vue'
 import { IdeaFilter, Idea, Team } from '../types'
-import StatusIcon from './StatusIcon.vue'
-import ContentFilterModal from './ContentFilterModal.vue'
 import { ulid } from 'ulid'
 import { truncate } from 'lodash-es'
 
 const store = useStore()
 
-const emit = defineEmits(['apply-filter', 'update-filter', 'remove-filter'])
+const emit = defineEmits(['apply-filter', 'update-filter', 'remove-filter', 'set-idea-view'])
 
 defineProps<{
   showOptions: boolean
@@ -48,6 +43,24 @@ const applyContentFilter = (value: string) => {
     data: value,
   })
 }
+
+const keyupListener = (e: KeyboardEvent) => {
+  if (e.key === '[') {
+    e.stopPropagation()
+    emit('set-idea-view', 'list')
+  } else if (e.key === ']') {
+    e.stopPropagation()
+    emit('set-idea-view', 'board')
+  }
+}
+
+onMounted(() => {
+  document.addEventListener('keyup', keyupListener)
+})
+
+onUnmounted(() => {
+  document.removeEventListener('keyup', keyupListener)
+})
 </script>
 
 <template>
