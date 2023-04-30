@@ -11,14 +11,59 @@ const { isIdeaUpvoted, ideaUpvoteCount, toggleUpvoteIdea } = useIdeaUpvotes()
 
 function ideaLabels(ids: Label[]): Label[] {
   const isLabel = (label: Label | undefined): label is Label => !!label
-
   return ids.map(({ id }) => props.team.labels.find(label => label.id === id)).filter(isLabel)
+}
+
+const mousedown = ref(false)
+const dragging = ref(false)
+const initElXY = ref<[number | null, number | null]>([null, null])
+const initMouseXY = ref<[number | null, number | null]>([null, null])
+const newMouseXY = ref<[number | null, number | null]>([null, null])
+
+const diff = computed<[number, number]>(() => {
+  return [initMouseXY.value[0] - initElXY.value[0], initMouseXY.value[1] - initElXY.value[1]]
+})
+
+const handleMousedown = (e: MouseEvent) => {
+  mousedown.value = true
+  const rect = (e.target as HTMLDivElement).getBoundingClientRect()
+
+  initElXY.value = [rect.x, rect.y]
+  initMouseXY.value = [e.clientX, e.clientY]
+}
+
+const handleClick = () => {
+  // mousedown.value = false
+  // initMouseXY.value = [null, null]
+}
+
+const handleMouseMove = (e: MouseEvent) => {
+  if (!mousedown.value) return
+
+  dragging.value = true
+  newMouseXY.value = [e.clientX, e.clientY]
+}
+
+const handleMouseUp = (e: MouseEvent) => {
+  if (dragging.value) {
+    e.stopPropagation()
+    dragging.value = false
+  }
 }
 </script>
 
 <template>
   <div
     class="cursor-default rounded-md border border-slate-300 bg-slate-50 py-2 px-3 shadow-sm dark:border-zinc-600 dark:bg-zinc-800"
+    :class="{ 'fixed z-20': dragging }"
+    :style="{
+      top: dragging ? `${newMouseXY[1] - diff[1]}px` : 'auto',
+      left: dragging ? `${newMouseXY[0] - diff[0]}px` : 'auto',
+    }"
+    @click="handleClick"
+    @mousedown="handleMousedown"
+    @mousemove="handleMouseMove"
+    @mouseup="handleMouseUp"
   >
     <div class="flex items-start">
       <div class="text-[13px] font-medium text-slate-800 dark:text-zinc-300">
