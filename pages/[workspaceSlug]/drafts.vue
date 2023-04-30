@@ -80,7 +80,7 @@ checkForRecentUpgrade()
   </PageHeader>
 
   <template v-if="ideaView === 'list'">
-    <CategorisedIdeaBlock
+    <IdeaListView
       v-if="draftTeam && draftTeam.slug"
       :ideas="applyFiltersToIdeas(relevantIdeas)"
       :team-slug="draftTeam.slug"

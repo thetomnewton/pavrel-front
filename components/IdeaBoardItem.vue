@@ -1,19 +1,14 @@
 <script setup lang="ts">
 import { truncate } from 'lodash-es'
-import { Idea, Label, Team } from '~~/types'
+import { Idea, Team } from '~~/types'
 
-const props = defineProps<{
+defineProps<{
   team: Team
   idea: Idea
 }>()
 
 const { isIdeaUpvoted, ideaUpvoteCount, toggleUpvoteIdea } = useIdeaUpvotes()
-
-function ideaLabels(ids: Label[]): Label[] {
-  const isLabel = (label: Label | undefined): label is Label => !!label
-
-  return ids.map(({ id }) => props.team.labels.find(label => label.id === id)).filter(isLabel)
-}
+const { ideaLabels } = useIdeaLabels()
 </script>
 
 <template>
@@ -31,7 +26,11 @@ function ideaLabels(ids: Label[]): Label[] {
 
     <div class="mt-2 flex items-center text-[13px]">
       <template v-if="idea.labels.length <= 2">
-        <IdeaLabel v-for="{ name, color } in ideaLabels(idea.labels)" :color="color" class="-ml-1.5 truncate">
+        <IdeaLabel
+          v-for="{ name, color } in ideaLabels(idea.labels, team.labels)"
+          :color="color"
+          class="-ml-1.5 truncate"
+        >
           {{ name }}
         </IdeaLabel>
       </template>
@@ -40,7 +39,7 @@ function ideaLabels(ids: Label[]): Label[] {
         <div class="flex items-center px-1">
           <span class="inline-flex items-center">
             <span
-              v-for="{ color } in ideaLabels(idea.labels)"
+              v-for="{ color } in ideaLabels(idea.labels, team.labels)"
               :style="{ backgroundColor: color }"
               class="mr-1 h-[6px] w-[6px] rounded-full"
             ></span>

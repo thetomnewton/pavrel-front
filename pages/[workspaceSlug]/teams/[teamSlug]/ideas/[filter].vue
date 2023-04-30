@@ -106,7 +106,7 @@ useHead({
     </PageHeader>
 
     <template v-if="ideaView === 'list' || (filter || 'all') !== 'all'">
-      <CategorisedIdeaBlock
+      <IdeaListView
         :ideas="applyFiltersToIdeas(relevantTeamIdeas)"
         :category-filter="filter || 'all'"
         :team-slug="teamSlug"
