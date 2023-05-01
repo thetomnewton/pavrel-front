@@ -33,7 +33,7 @@ useHead({
 
 <template>
   <div class="h-screen w-full overflow-hidden">
-    <div class="mx-auto flex h-full max-w-7xl px-6 lg:px-8">
+    <div class="mx-auto flex h-full max-w-7xl px-6 lg:px-10">
       <section class="relative h-full w-[270px] border-r border-slate-200 bg-slate-50 py-4 pl-2 pr-4">
         <div class="absolute right-[100%] top-0 z-10 h-full w-screen bg-slate-50"></div>
 
@@ -79,8 +79,25 @@ useHead({
         </nav>
       </section>
 
-      <section class="h-full flex-1 overflow-auto">
-        <slot />
+      <section class="h-full flex-1 overflow-auto px-6 py-6 lg:px-10">
+        <div class="mb-4 flex justify-end space-x-4 pt-1 text-sm">
+          <a
+            href="mailto:support@pavrel.com"
+            class="inline-flex px-3 py-1 leading-6 text-slate-500 hover:text-slate-800"
+            >Contact us</a
+          >
+
+          <NuxtLink
+            href="/login"
+            class="inline-flex rounded-md border border-slate-200 py-1 px-3 font-medium leading-6 text-slate-800 hover:border-slate-300 hover:bg-slate-50"
+          >
+            Log in
+          </NuxtLink>
+        </div>
+
+        <div class="mx-auto max-w-4xl">
+          <slot />
+        </div>
       </section>
     </div>
   </div>

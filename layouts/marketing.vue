@@ -122,7 +122,7 @@ const mobileMenuOpen = ref(false)
         >
           <path
             d="M46 73.5V50.7435L83 29.6621V71.7565L46 92.8379V73.5ZM40 92.8379L3 71.7565V29.6621L40 50.7435V73.5V92.8379ZM79.94 24.5L43 45.5472L6.05999 24.5L43 3.45278L79.94 24.5Z"
-            class="fill-slate-400 stroke-white dark:fill-white dark:stroke-zinc-900"
+            class="fill-slate-400 stroke-white"
             stroke-width="1"
           />
         </svg>
