@@ -152,7 +152,7 @@ const mobileMenuOpen = ref(false)
           Changelog
         </NuxtLink>
         <NuxtLink href="/docs" class="block cursor-pointer text-[13px] leading-7 text-slate-500 hover:text-slate-700">
-          Documentation
+          Docs
         </NuxtLink>
       </div>
 
