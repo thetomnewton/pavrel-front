@@ -1,6 +1,6 @@
-# Getting Started With Pavrel
+# Documentation
 
-## Meet Pavrel
+## Getting Started: Meet Pavrel
 
 Pavrel is a tool to store, manage, develop, and share ideas. It's built by software product people to be used on teams of all sizes, from personal use to large organizations with many different teams.
 
