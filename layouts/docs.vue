@@ -50,28 +50,28 @@ useHead({
 
         <nav class="mt-4">
           <NuxtLink
-            class="my-1 flex rounded-md py-1.5 text-sm font-medium leading-5"
+            class="flex rounded-md py-1 text-sm font-medium leading-5"
             :class="{
               'font-semibold text-blue-600': $route.path === '/docs',
-              'text-slate-700 hover:text-blue-600': $route.path !== '/docs',
+              'text-slate-600 hover:text-slate-800': $route.path !== '/docs',
             }"
             href="/docs"
             >Getting started</NuxtLink
           >
           <NuxtLink
-            class="my-1 flex rounded-md py-1.5 text-sm font-medium leading-5"
+            class="flex rounded-md py-1 text-sm font-medium leading-5"
             :class="{
               'font-semibold text-blue-600': $route.path === '/docs/workspaces',
-              'text-slate-700 hover:text-blue-600': $route.path !== '/docs/workspaces',
+              'text-slate-600 hover:text-slate-800': $route.path !== '/docs/workspaces',
             }"
             href="/docs/workspaces"
             >Workspaces</NuxtLink
           >
           <NuxtLink
-            class="my-1 flex rounded-md py-1.5 text-sm font-medium leading-5"
+            class="flex rounded-md py-1 text-sm font-medium leading-5"
             :class="{
               'font-semibold text-blue-600': $route.path === '/docs/teams',
-              'text-slate-700 hover:text-blue-600': $route.path !== '/docs/teams',
+              'text-slate-600 hover:text-slate-800': $route.path !== '/docs/teams',
             }"
             href="/docs/teams"
             >Teams</NuxtLink
