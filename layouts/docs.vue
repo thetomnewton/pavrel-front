@@ -34,7 +34,7 @@ useHead({
 <template>
   <div class="h-screen w-full overflow-hidden">
     <div class="mx-auto flex h-full max-w-7xl px-6 lg:px-10">
-      <section class="relative h-full w-[270px] border-r border-slate-200 bg-slate-50 py-4 pl-2 pr-4">
+      <section class="relative h-full w-[270px] bg-slate-50 py-4 pl-2 pr-4">
         <div class="absolute right-[100%] top-0 z-10 h-full w-screen bg-slate-50"></div>
 
         <div class="flex items-center text-sm font-medium text-slate-700">
