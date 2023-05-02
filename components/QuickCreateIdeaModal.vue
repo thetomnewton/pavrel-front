@@ -14,6 +14,7 @@ import IdeaStatusDropdown from './IdeaStatusDropdown.vue'
 import StatusIcon from './StatusIcon.vue'
 import ModalBg from './ModalBg.vue'
 import ModalWrapper from './ModalWrapper.vue'
+import { dialogState } from '~/helpers/dialog-state'
 import TeamDropdown from './TeamDropdown.vue'
 
 const props = defineProps<{
@@ -64,6 +65,8 @@ const descriptionElement = ref<HTMLInputElement | null>(null)
 watch(
   () => props.open,
   status => {
+    dialogState.ideaQuickCreateOpen = status
+
     if (status) {
       const defaultStatus = currentTeam.value.statuses.find(status => status.default)
       if (!defaultStatus) throw new Error('Missing default team status')

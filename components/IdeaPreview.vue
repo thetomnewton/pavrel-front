@@ -2,10 +2,6 @@
 import { ChevronUpIcon, ChevronDownIcon, Bars3BottomRightIcon, XMarkIcon } from '@heroicons/vue/20/solid'
 import { useStore } from 'vuex'
 import { useRouter } from 'vue-router'
-import FavoriteButton from '../components/FavoriteButton.vue'
-import IdeaActionsDropdown from '../components/IdeaActionsDropdown.vue'
-import IdeaEditButton from '../components/IdeaEditButton.vue'
-import IdeaContent from '../components/IdeaContent.vue'
 import { computed, onBeforeMount, ref, watch } from 'vue'
 import { Idea, Team, Workspace } from '../types'
 

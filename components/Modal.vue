@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { watch } from 'vue'
+import { dialogState } from '~/helpers/dialog-state'
 
 const props = defineProps({
   open: { type: Boolean, default: false },
@@ -14,6 +15,8 @@ const listener = (e: KeyboardEvent) => {
 watch(
   () => props.open,
   newValue => {
+    dialogState.modalOpen = !!newValue
+
     if (newValue) window.addEventListener('keydown', listener)
     else window.removeEventListener('keydown', listener)
   }

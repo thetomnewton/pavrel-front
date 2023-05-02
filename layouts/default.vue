@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useStore } from 'vuex'
 import { getSsrColorTheme, watchForDarkMode } from '~/helpers/dark'
+import { dialogState } from '~/helpers/dialog-state'
 
 watchForDarkMode()
 
@@ -63,6 +64,22 @@ onMounted(() => {
     })
     .catch(() => router.push('/login'))
 })
+
+const keyupListener = (e: KeyboardEvent) => {
+  if (dialogState.ideaPreviewOpen || dialogState.ideaQuickCreateOpen || dialogState.modalOpen) return
+  if (e.key !== '?' && e.key !== 'Escape') return
+
+  if (e.key === '?') dialogState.helpModalOpen = !dialogState.helpModalOpen
+  else if (e.key === 'Escape') dialogState.helpModalOpen = false
+}
+
+onMounted(() => {
+  document.addEventListener('keyup', keyupListener)
+})
+
+onUnmounted(() => {
+  document.removeEventListener('keyup', keyupListener)
+})
 </script>
 
 <template>
@@ -79,6 +96,8 @@ onMounted(() => {
         <div class="flex h-full min-h-full w-full flex-1 overflow-hidden">
           <Sidebar />
           <Toast />
+
+          <HelpSlideover :open="dialogState.helpModalOpen" @close="dialogState.helpModalOpen = false" />
 
           <main class="flex min-w-0 flex-1 flex-col">
             <slot />

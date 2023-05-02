@@ -2,6 +2,7 @@
 import { useStore } from 'vuex'
 import { Idea, PossibleCategoryFilters, Team } from '~/types'
 import { ideaStatusSort } from '../helpers/ideas'
+import { dialogState } from '~/helpers/dialog-state'
 
 const props = defineProps<{
   view: 'list' | 'board'
@@ -26,8 +27,6 @@ const quickCreateOpen = computed(() => store.state.base.quickCreateIdeaModalOpen
 
 const checkedIdeaIds = ref<Idea['id'][]>([])
 
-const previewModalOpen = ref(false)
-
 const selectedIdea = ref<string | null>(null)
 
 const selectedIdeaIndex = computed(() => {
@@ -45,7 +44,7 @@ function uncheckAllIdeas() {
 }
 
 const selectAllListener = (e: KeyboardEvent) => {
-  if (quickCreateOpen.value || previewModalOpen.value) return
+  if (quickCreateOpen.value || dialogState.ideaPreviewOpen) return
 
   if (e.key.toLowerCase() === 'a' && (e.ctrlKey || e.metaKey)) {
     e.preventDefault()
@@ -55,7 +54,7 @@ const selectAllListener = (e: KeyboardEvent) => {
 }
 
 const escapeListener = (e: KeyboardEvent) => {
-  if (quickCreateOpen.value || previewModalOpen.value) return
+  if (quickCreateOpen.value || dialogState.ideaPreviewOpen) return
 
   if (e.key.toLowerCase() === 'escape') uncheckAllIdeas()
 }
@@ -100,13 +99,13 @@ function nextIdea() {
 }
 
 function closeIdeaPreviewModal() {
-  previewModalOpen.value = false
+  dialogState.ideaPreviewOpen = false
   selectedIdea.value = null
 }
 
 function selectIdea({ id }: Idea) {
   selectedIdea.value = id
-  previewModalOpen.value = true
+  dialogState.ideaPreviewOpen = true
   checkedIdeaIds.value = []
 }
 
@@ -157,7 +156,7 @@ function confirmBulkDeleteIdeas() {
     <IdeaBoardView v-else :ideas="ideas" :team="team" @select-idea="selectIdea" :checkedIdeaIds="checkedIdeaIds" />
 
     <IdeaPreview
-      :open="previewModalOpen"
+      :open="dialogState.ideaPreviewOpen"
       :idea-id="selectedIdea ?? undefined"
       :idea-index="selectedIdeaIndex"
       :total-ideas="ideasListFlattened.length"
