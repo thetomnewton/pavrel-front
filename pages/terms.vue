@@ -16,18 +16,15 @@ useHead({
     <p><strong>Effective date</strong>: May 2nd, 2023</p>
 
     <p>
-      THESE TERMS OF SERVICE (the “<strong>Agreement</strong>”) GOVERN CUSTOMER’S RECEIPT, ACCESS, TO AND USE OF THE
-      SERVICE (AS DEFINED BELOW) PROVIDED BY PAVREL LTD. (“<strong>Pavrel</strong>”). IN ACCEPTING THIS AGREEMENT BY (A)
-      PURCHASING ACCESS TO THE SERVICE THROUGH AN ONLINE ORDERING PROCESS THAT REFERENCES THIS AGREEMENT, (B) SIGNING UP
-      FOR A FREE ACCESS PLAN FOR THE SERVICE THROUGH A SCREEN THAT REFERENCES THIS AGREEMENT, OR (C) CLICKING A BOX
-      INDICATING ACCEPTANCE, CUSTOMER AGREES TO BE BOUND BY ITS TERMS.
-    </p>
-    <p>
-      THE INDIVIDUAL ACCEPTING THIS AGREEMENT DOES SO ON BEHALF OF A COMPANY OR OTHER LEGAL ENTITY (“Customer”); SUCH
-      INDIVIDUAL REPRESENTS AND WARRANTS THAT THEY HAVE THE AUTHORITY TO BIND SUCH ENTITY TO THIS AGREEMENT. IF THE
-      INDIVIDUAL ACCEPTING THIS AGREEMENT DOES NOT HAVE SUCH AUTHORITY, OR THE APPLICABLE ENTITY DOES NOT AGREE WITH
-      THESE TERMS AND CONDITIONS, SUCH INDIVIDUAL MUST NOT ACCEPT THIS AGREEMENT AND MAY NOT USE OR RECEIVE THE SERVICE.
-      CAPITALIZED TERMS HAVE THE DEFINITIONS SET FORTH HEREIN. THE PARTIES AGREE AS FOLLOWS:
+      These Terms of Service ("Agreement") regulates the Customer's utilization of the Service (as defined below)
+      provided by Pavrel Ltd. ("Pavrel"), including receipt and access to it. By accepting this Agreement, the Customer
+      agrees to be bound by its terms. Acceptance can be made through purchasing access to the Service via an online
+      ordering process, signing up for a free access plan through a screen that references this Agreement, or clicking a
+      box indicating acceptance. The individual who accepts this Agreement on behalf of a company or legal entity
+      represents and warrants that they have the authority to bind such entity to this Agreement. If they do not have
+      such authority or the applicable entity does not agree with these terms, they cannot accept this Agreement and may
+      not use or receive the Service. The capitalized terms used in this Agreement have definitions specified in the
+      Agreement. The parties agree as follows:
     </p>
     <p><strong>1. The Service.</strong></p>
     <p>
