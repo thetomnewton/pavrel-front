@@ -69,6 +69,14 @@ const keyupListener = (e: KeyboardEvent) => {
   if (dialogState.ideaPreviewOpen || dialogState.ideaQuickCreateOpen || dialogState.modalOpen) return
   if (e.key !== '?' && e.key !== 'Escape') return
 
+  if (
+    // @ts-ignore
+    ['input', 'textarea'].includes(e.target?.localName) ||
+    // @ts-ignore
+    e.target?.attributes?.contenteditable
+  )
+    return
+
   if (e.key === '?') dialogState.helpModalOpen = !dialogState.helpModalOpen
   else if (e.key === 'Escape') dialogState.helpModalOpen = false
 }
