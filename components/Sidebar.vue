@@ -11,6 +11,7 @@ import {
   UserPlusIcon,
   PresentationChartLineIcon,
   UserCircleIcon,
+  LifebuoyIcon,
 } from '@heroicons/vue/24/outline'
 import {
   MagnifyingGlassIcon,
@@ -35,6 +36,7 @@ import SideTriangle from './SideTriangle.vue'
 import CreateTeamModal from './CreateTeamModal.vue'
 import JoinTeamModal from './JoinTeamModal.vue'
 import LeaveTeamModal from './LeaveTeamModal.vue'
+import { dialogState } from '~/helpers/dialog-state'
 
 const store = useStore()
 const router = useRouter()
@@ -569,6 +571,15 @@ onUnmounted(() => {
                 <UserCircleIcon class="mr-2 h-5 w-5" />
                 <span>View profile</span>
               </NuxtLink>
+
+              <button
+                type="button"
+                @click="dialogState.helpModalOpen = true"
+                class="flex w-full cursor-default items-center rounded p-2 leading-[15px] text-slate-700 hover:bg-slate-100 dark:text-zinc-300 dark:hover:bg-zinc-700"
+              >
+                <LifebuoyIcon class="mr-2 h-5 w-5" />
+                <span>Help & support</span>
+              </button>
 
               <form @submit.prevent="logout">
                 <button
