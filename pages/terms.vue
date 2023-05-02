@@ -13,7 +13,7 @@ useHead({
   <div class="prose prose-slate mx-auto max-w-4xl px-6 py-16 lg:px-8">
     <h1>Terms of service</h1>
 
-    <p><strong>Effective date</strong>: 3rd of June, 2022</p>
+    <p><strong>Effective date</strong>: May 2nd, 2023</p>
 
     <p>
       THESE TERMS OF SERVICE (the “<strong>Agreement</strong>”) GOVERN CUSTOMER’S RECEIPT, ACCESS, TO AND USE OF THE
