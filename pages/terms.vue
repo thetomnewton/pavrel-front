@@ -232,28 +232,28 @@ useHead({
       Submissions submitted by Users follow all applicable laws, rules and regulations.
     </p>
     <p>
-      6.2. <span style="text-decoration: underline">Warranty Disclaimer</span>. EXCEPT AS EXPRESSLY PROVIDED FOR HEREIN,
-      THE SERVICES AND ALL RELATED COMPONENTS AND INFORMATION ARE PROVIDED ON AN “AS IS” AND “AS AVAILABLE” BASIS
-      WITHOUT ANY WARRANTIES OF ANY KIND, AND PAVREL EXPRESSLY DISCLAIMS ANY AND ALL WARRANTIES, WHETHER EXPRESS OR
-      IMPLIED, INCLUDING THE IMPLIED WARRANTIES OF MERCHANTABILITY, TITLE, FITNESS FOR A PARTICULAR PURPOSE, AND
-      NON-INFRINGEMENT. CUSTOMER ACKNOWLEDGES THAT PAVREL DOES NOT WARRANT THAT THE SERVICES WILL BE UNINTERRUPTED,
-      TIMELY, SECURE, OR ERROR-FREE. SOME JURISDICTIONS DO NOT ALLOW THE DISCLAIMER OF CERTAIN TYPES OF WARRANTIES. THE
-      FOREGOING DISCLAIMERS WILL NOT APPLY TO THE EXTENT PROHIBITED BY APPLICABLE LAW.
+      6.2. <span style="text-decoration: underline">Warranty Disclaimer</span>. The Services, along with all related
+      components and information, are provided "as is" and "as available" unless expressly stated otherwise in this
+      Agreement. Pavrel explicitly disclaims all warranties, whether express or implied, including but not limited to
+      implied warranties of merchantability, title, fitness for a particular purpose, and non-infringement. Pavrel also
+      acknowledges that the Services may not be uninterrupted, timely, secure, or error-free, and therefore, cannot be
+      responsible for any such interruptions, delays, or errors. Please note that certain jurisdictions may not allow
+      the disclaimer of specific types of warranties. To the extent prohibited by applicable law, the foregoing
+      disclaimers will not apply.
     </p>
     <p>
-      <strong>7. Limitation of Liability.</strong> NOTWITHSTANDING ANYTHING TO THE CONTRARY IN THIS AGREEMENT, PAVREL
-      WILL NOT BE LIABLE WITH RESPECT TO ANY CAUSE RELATED TO OR ARISING OUT OF THIS AGREEMENT, WHETHER IN AN ACTION
-      BASED ON A CONTRACT, TORT (INCLUDING NEGLIGENCE AND STRICT LIABILITY) OR ANY OTHER LEGAL THEORY, HOWEVER ARISING,
-      FOR (A) INDIRECT, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES, (B) ANY DAMAGES BASED ON USE OR ACCESS,
-      INTERRUPTION, DELAY OR INABILITY TO USE THE SERVICE, LOST REVENUES OR PROFITS, DELAYS, INTERRUPTION OR LOSS OF
-      SERVICES, BUSINESS OR GOODWILL, LOSS OR CORRUPTION OF DATA, LOSS RESULTING FROM SYSTEM OR SYSTEM SERVICE FAILURE,
-      MALFUNCTION OR SHUTDOWN, FAILURE TO ACCURATELY TRANSFER, READ OR TRANSMIT INFORMATION, FAILURE TO UPDATE OR
-      PROVIDE CORRECT INFORMATION, SYSTEM INCOMPATIBILITY OR PROVISION OF INCORRECT COMPATIBILITY INFORMATION OR
-      BREACHES IN SYSTEM SECURITY, OR (C) ANY DAMAGES THAT IN THE AGGREGATE EXCEED THE TOTAL FEES PAID OR PAYABLE BY
-      CUSTOMER FOR THE SERVICE THAT IS OR THE PROFESSIONAL SERVICES THAT ARE THE SUBJECT OF THE CLAIM DURING THE TWELVE
-      (12) MONTH PERIOD IMMEDIATELY PRECEDING THE EVENT WHICH GIVES RISE TO SUCH DAMAGES. THESE LIMITATIONS WILL APPLY
-      WHETHER OR NOT A PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES AND NOTWITHSTANDING ANY FAILURE OF
-      ESSENTIAL PURPOSE OF ANY LIMITED REMEDY.
+      <strong>7. Limitation of Liability.</strong> Despite any contrary provisions in this Agreement, Pavrel will not be
+      held liable for any causes related to or arising out of this Agreement, including but not limited to actions based
+      on contracts, torts (including negligence and strict liability), or any other legal theories. Pavrel's liability
+      will not exceed the total fees paid or payable by the Customer for the Service that is the subject of the claim
+      during the preceding twelve (12) months. Pavrel will not be responsible for indirect, special, incidental, or
+      consequential damages. This includes any damages based on access, use, interruption, delay, or inability to use
+      the Service, lost revenues or profits, interruptions, delays or loss of services, business or goodwill, data loss
+      or corruption, system or system service failure, malfunction or shutdown, inaccurate transfer, reading or
+      transmission of information, failure to update or provide correct information, system incompatibility, provision
+      of incorrect compatibility information, or breaches in system security. These limitations will apply, even if a
+      party has been advised of the possibility of such damages and notwithstanding any failure of essential purpose of
+      any limited remedy.
     </p>
     <p><strong>8. Confidentiality.</strong></p>
     <p>
