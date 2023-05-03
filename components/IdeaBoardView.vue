@@ -142,7 +142,7 @@ function selectIdea(idea: Idea) {
 
             <div
               v-if="dragging && draggingIdea?.id === idea.id"
-              class="w-full cursor-default rounded-md border border-dashed border-slate-200 py-2 px-3 text-[13px] text-slate-500 dark:border-zinc-700 dark:text-zinc-500"
+              class="mb-4 w-full cursor-default rounded-md border border-dashed border-slate-200 py-2 px-3 text-[13px] text-slate-500 dark:border-zinc-700 dark:text-zinc-500"
             >
               <div class="flex items-start">
                 <div>{{ truncate(idea.title, { length: 60 }) }}</div>
