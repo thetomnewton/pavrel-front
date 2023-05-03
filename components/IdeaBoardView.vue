@@ -63,15 +63,12 @@ function handleMouseup(e: MouseEvent) {
   if (dragging.value) {
     dragging.value = false
 
-    // Todo: Handle drag end
     // Deduce which section we have dropped the element over
     // If it's a relevant status column, update the idea's status to the new one
     const cols = document.querySelectorAll('.status-column')
     const col = [...cols].find(col => {
-      return (
-        e.clientX > (col as HTMLElement).getBoundingClientRect().x &&
-        e.clientX < (col as HTMLElement).getBoundingClientRect().x + (col as HTMLElement).getBoundingClientRect().width
-      )
+      const rect = (col as HTMLElement).getBoundingClientRect()
+      return e.clientX > rect.x && e.clientX < rect.x + rect.width
     })
 
     if (col) {
@@ -84,6 +81,7 @@ function handleMouseup(e: MouseEvent) {
     // For 50ms set that we just finished dragging,
     // so that the subsequent click event does not fire
     dragEnd.value = true
+    draggingIdea.value = null
     setTimeout(() => (dragEnd.value = false), 50)
   }
 }
