@@ -31,7 +31,10 @@ useHead({
       always see at a glance which column an idea belongs to.
     </p>
 
-    <p>Check it out and please let us know how we can improve the board view even further!</p>
+    <p>
+      We have several more updates to the board view and the drag/drop functionality in the works, but please check it
+      out and let us know how we can improve things even further!
+    </p>
 
     <h2 id="april-2023">April 2023</h2>
 
