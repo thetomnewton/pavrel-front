@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { cloneDeep, groupBy } from 'lodash-es'
+import { cloneDeep, groupBy, truncate } from 'lodash-es'
 import { Idea, IdeaStatus, Team } from '~/types'
 import { ideaStatusSort } from '~/helpers/ideas'
 import { PlusIcon } from '@heroicons/vue/20/solid'
@@ -82,6 +82,10 @@ function handleMouseup(e: MouseEvent) {
     // so that the subsequent click event does not fire
     dragEnd.value = true
     draggingIdea.value = null
+    dragWidth.value = 0
+    dragElCoords.value = { x: 0, y: 0 }
+    dragCoords.value = { x: 0, y: 0 }
+
     setTimeout(() => (dragEnd.value = false), 50)
   }
 }
@@ -121,21 +125,34 @@ function selectIdea(idea: Idea) {
         </div>
 
         <div class="max-h-[calc(100vh-127px)] flex-1 overflow-y-auto pb-6">
-          <IdeaBoardItem
-            v-for="idea in ideasGroupedByStatus[status.id] ?? []"
-            :key="idea.id"
-            :idea="idea"
-            :team="team"
-            :checked="checkedIdeaIds.includes(idea.id)"
-            :dragging="dragging && draggingIdea?.id === idea.id"
-            @click="selectIdea(idea)"
-            :style="{
-              left: dragging && draggingIdea?.id === idea.id ? `${dragCoords.x - dragElCoords.x}px` : null,
-              top: dragging && draggingIdea?.id === idea.id ? `${dragCoords.y - dragElCoords.y}px` : null,
-              width: dragging && draggingIdea?.id === idea.id ? `${dragWidth}px` : null,
-            }"
-            @mousedown="$event => handleMousedown($event, idea)"
-          />
+          <template v-for="idea in ideasGroupedByStatus[status.id] ?? []">
+            <IdeaBoardItem
+              :idea="idea"
+              :team="team"
+              :checked="checkedIdeaIds.includes(idea.id)"
+              :dragging="dragging && draggingIdea?.id === idea.id"
+              @click="selectIdea(idea)"
+              :style="{
+                left: dragging && draggingIdea?.id === idea.id ? `${dragCoords.x - dragElCoords.x}px` : null,
+                top: dragging && draggingIdea?.id === idea.id ? `${dragCoords.y - dragElCoords.y}px` : null,
+                width: dragging && draggingIdea?.id === idea.id ? `${dragWidth}px` : null,
+              }"
+              @mousedown="$event => handleMousedown($event, idea)"
+            />
+
+            <div
+              v-if="dragging && draggingIdea?.id === idea.id"
+              class="w-full cursor-default rounded-md border border-dashed border-slate-200 py-2 px-3 text-[13px] text-slate-500 dark:border-zinc-700 dark:text-zinc-500"
+            >
+              <div class="flex items-start">
+                <div>{{ truncate(idea.title, { length: 60 }) }}</div>
+
+                <div class="ml-auto whitespace-nowrap pt-0.5 pl-2 text-xs text-slate-500 dark:text-zinc-500">
+                  {{ team.slug }}-{{ idea.team_idea_id }}
+                </div>
+              </div>
+            </div>
+          </template>
         </div>
       </div>
     </div>
