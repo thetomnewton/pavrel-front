@@ -14,6 +14,9 @@ const props = defineProps<{
 const emit = defineEmits(['select-idea'])
 
 const store = useStore()
+function updateStatus(idea: Idea, statusId: Idea['status_id']) {
+  store.dispatch('base/updateIdea', { ...idea, ...{ status_id: statusId } })
+}
 
 const toggleQuickCreateIdeaModal = () => store.commit('base/toggleQuickCreateIdeaModal')
 
@@ -26,7 +29,7 @@ const sortedTeamStatuses = computed(() =>
 const mouseDown = ref(false)
 const mouseDownInitCoords = ref({ x: 0, y: 0 })
 const dragging = ref(false)
-const draggingIdeaId = ref<string | null>(null)
+const draggingIdea = ref<Idea | null>(null)
 const dragElCoords = ref({ x: 0, y: 0 })
 const dragCoords = ref({ x: 0, y: 0 })
 const dragEnd = ref(false)
@@ -43,14 +46,14 @@ function handleMousemove(e: MouseEvent) {
   }
 }
 
-function handleMousedown(e: MouseEvent, id: Idea['id']) {
+function handleMousedown(e: MouseEvent, idea: Idea) {
   mouseDown.value = true
   mouseDownInitCoords.value = { x: e.clientX, y: e.clientY }
   dragElCoords.value = {
     x: e.clientX - (e.target as HTMLElement).getBoundingClientRect().x,
     y: e.clientY - (e.target as HTMLElement).getBoundingClientRect().y,
   }
-  draggingIdeaId.value = id
+  draggingIdea.value = idea
   dragWidth.value = (e.target as HTMLElement).getBoundingClientRect().width
 }
 
@@ -60,7 +63,26 @@ function handleMouseup(e: MouseEvent) {
   if (dragging.value) {
     dragging.value = false
 
-    // For 50ms set that we just finished dragging, so that the subsequent click event does not fire
+    // Todo: Handle drag end
+    // Deduce which section we have dropped the element over
+    // If it's a relevant status column, update the idea's status to the new one
+    const cols = document.querySelectorAll('.status-column')
+    const col = [...cols].find(col => {
+      return (
+        e.clientX > (col as HTMLElement).getBoundingClientRect().x &&
+        e.clientX < (col as HTMLElement).getBoundingClientRect().x + (col as HTMLElement).getBoundingClientRect().width
+      )
+    })
+
+    if (col) {
+      const statusId = (col as HTMLElement).dataset?.statusid
+      if (statusId && draggingIdea.value) {
+        updateStatus(draggingIdea.value, statusId)
+      }
+    }
+
+    // For 50ms set that we just finished dragging,
+    // so that the subsequent click event does not fire
     dragEnd.value = true
     setTimeout(() => (dragEnd.value = false), 50)
   }
@@ -83,7 +105,8 @@ function selectIdea(idea: Idea) {
       <div
         v-for="status in sortedTeamStatuses"
         :key="status.id"
-        class="flex h-full w-[290px] min-w-[290px] max-w-[290px] flex-col pr-8 pt-6"
+        :data-statusid="status.id"
+        class="status-column flex h-full w-[290px] min-w-[290px] max-w-[290px] flex-col pr-8 pt-6"
       >
         <div class="mb-6 flex items-center text-[13px] font-medium">
           <StatusIcon :category="status.category" class="mr-2" />
@@ -106,14 +129,14 @@ function selectIdea(idea: Idea) {
             :idea="idea"
             :team="team"
             :checked="checkedIdeaIds.includes(idea.id)"
-            :dragging="dragging && draggingIdeaId === idea.id"
+            :dragging="dragging && draggingIdea?.id === idea.id"
             @click="selectIdea(idea)"
             :style="{
-              left: dragging && draggingIdeaId === idea.id ? `${dragCoords.x - dragElCoords.x}px` : null,
-              top: dragging && draggingIdeaId === idea.id ? `${dragCoords.y - dragElCoords.y}px` : null,
-              width: dragging && draggingIdeaId === idea.id ? `${dragWidth}px` : null,
+              left: dragging && draggingIdea?.id === idea.id ? `${dragCoords.x - dragElCoords.x}px` : null,
+              top: dragging && draggingIdea?.id === idea.id ? `${dragCoords.y - dragElCoords.y}px` : null,
+              width: dragging && draggingIdea?.id === idea.id ? `${dragWidth}px` : null,
             }"
-            @mousedown="$event => handleMousedown($event, idea.id)"
+            @mousedown="$event => handleMousedown($event, idea)"
           />
         </div>
       </div>
