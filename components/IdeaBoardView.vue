@@ -30,6 +30,7 @@ const draggingIdeaId = ref<string | null>(null)
 const dragElCoords = ref({ x: 0, y: 0 })
 const dragCoords = ref({ x: 0, y: 0 })
 const dragEnd = ref(false)
+const dragWidth = ref<number>(0)
 
 function handleMousemove(e: MouseEvent) {
   // if mouse down and the mouse has moved more than 5px, start dragging
@@ -50,6 +51,7 @@ function handleMousedown(e: MouseEvent, id: Idea['id']) {
     y: e.clientY - (e.target as HTMLElement).getBoundingClientRect().y,
   }
   draggingIdeaId.value = id
+  dragWidth.value = (e.target as HTMLElement).getBoundingClientRect().width
 }
 
 function handleMouseup(e: MouseEvent) {
@@ -109,6 +111,7 @@ function selectIdea(idea: Idea) {
             :style="{
               left: dragging && draggingIdeaId === idea.id ? `${dragCoords.x - dragElCoords.x}px` : null,
               top: dragging && draggingIdeaId === idea.id ? `${dragCoords.y - dragElCoords.y}px` : null,
+              width: dragging && draggingIdeaId === idea.id ? `${dragWidth}px` : null,
             }"
             @mousedown="$event => handleMousedown($event, idea.id)"
           />
