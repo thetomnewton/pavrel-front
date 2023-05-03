@@ -11,6 +11,8 @@ const props = defineProps<{
   checkedIdeaIds: Idea['id'][]
 }>()
 
+const emit = defineEmits(['select-idea'])
+
 const store = useStore()
 
 const toggleQuickCreateIdeaModal = () => store.commit('base/toggleQuickCreateIdeaModal')
@@ -20,10 +22,55 @@ const ideasGroupedByStatus = computed(() => groupBy(props.ideas, 'status_id'))
 const sortedTeamStatuses = computed(() =>
   cloneDeep(props.team.statuses).sort((a: IdeaStatus, b: IdeaStatus) => ideaStatusSort(a.category, b.category))
 )
+
+const mouseDown = ref(false)
+const mouseDownInitCoords = ref({ x: 0, y: 0 })
+const dragging = ref(false)
+const dragEnd = ref(false)
+
+function handleMousemove(e: MouseEvent) {
+  // if mouse down and the mouse has moved more than 5px, start dragging
+  if (mouseDown.value && !dragging.value && Math.abs(e.clientX - mouseDownInitCoords.value.x) > 5) {
+    dragging.value = true
+  }
+
+  if (mouseDown.value && dragging.value) {
+    console.log('dragging')
+  }
+}
+
+function handleMousedown(e: MouseEvent) {
+  console.log('mouse down')
+  mouseDown.value = true
+  mouseDownInitCoords.value = { x: e.clientX, y: e.clientY }
+}
+
+function handleMouseup(e: MouseEvent) {
+  console.log('mouse up')
+  mouseDown.value = false
+
+  if (dragging.value) {
+    dragging.value = false
+
+    // For 50ms set that we just finished dragging, so that the subsequent click event does not fire
+    dragEnd.value = true
+    setTimeout(() => (dragEnd.value = false), 50)
+  }
+}
+
+function selectIdea(idea: Idea) {
+  if (dragEnd.value) return
+  emit('select-idea', idea)
+}
 </script>
 
 <template>
-  <section class="max-h-[calc(100vh-53px)] w-full flex-1 overflow-x-auto pr-6 pl-6 lg:pl-10">
+  <section
+    class="max-h-[calc(100vh-53px)] w-full flex-1 overflow-x-auto pr-6 pl-6 lg:pl-10"
+    @mousemove="handleMousemove"
+    @mouseup="handleMouseup"
+    :class="{ 'select-none': dragging }"
+  >
     <div class="flex items-start">
       <div
         v-for="status in sortedTeamStatuses"
@@ -51,7 +98,8 @@ const sortedTeamStatuses = computed(() =>
             :idea="idea"
             :team="team"
             :checked="checkedIdeaIds.includes(idea.id)"
-            @click="$emit('select-idea', idea)"
+            @click="selectIdea(idea)"
+            @mousedown="handleMousedown"
           />
         </div>
       </div>
