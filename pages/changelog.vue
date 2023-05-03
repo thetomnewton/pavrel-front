@@ -17,6 +17,22 @@ useHead({
   <article class="prose prose-slate mx-auto max-w-4xl py-16 px-8">
     <h1>Changelog</h1>
 
+    <h2 id="may-2023">May 2023</h2>
+
+    <h3 id="may-2023-board-enhancements">Board view enhancements</h3>
+
+    <p>
+      We have kicked off May with some enhancements to the board view, including some drag and drop functionality for
+      quick updating of idea statuses.
+    </p>
+
+    <p>
+      From feedback we have also improved the way scrolling works on longer lists of ideas in a column, so you can
+      always see at a glance which column an idea belongs to.
+    </p>
+
+    <p>Check it out and please let us know how we can improve the board view even further!</p>
+
     <h2 id="april-2023">April 2023</h2>
 
     <h3 id="april-2023-kanban-board">New board view</h3>
