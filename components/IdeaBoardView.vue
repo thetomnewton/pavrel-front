@@ -26,6 +26,9 @@ const sortedTeamStatuses = computed(() =>
 const mouseDown = ref(false)
 const mouseDownInitCoords = ref({ x: 0, y: 0 })
 const dragging = ref(false)
+const draggingIdeaId = ref<string | null>(null)
+const dragElCoords = ref({ x: 0, y: 0 })
+const dragCoords = ref({ x: 0, y: 0 })
 const dragEnd = ref(false)
 
 function handleMousemove(e: MouseEvent) {
@@ -35,18 +38,21 @@ function handleMousemove(e: MouseEvent) {
   }
 
   if (mouseDown.value && dragging.value) {
-    console.log('dragging')
+    dragCoords.value = { x: e.clientX, y: e.clientY }
   }
 }
 
-function handleMousedown(e: MouseEvent) {
-  console.log('mouse down')
+function handleMousedown(e: MouseEvent, id: Idea['id']) {
   mouseDown.value = true
   mouseDownInitCoords.value = { x: e.clientX, y: e.clientY }
+  dragElCoords.value = {
+    x: e.clientX - (e.target as HTMLElement).getBoundingClientRect().x,
+    y: e.clientY - (e.target as HTMLElement).getBoundingClientRect().y,
+  }
+  draggingIdeaId.value = id
 }
 
 function handleMouseup(e: MouseEvent) {
-  console.log('mouse up')
   mouseDown.value = false
 
   if (dragging.value) {
@@ -91,15 +97,20 @@ function selectIdea(idea: Idea) {
           </div>
         </div>
 
-        <div class="max-h-[calc(100vh-127px)] flex-1 space-y-4 overflow-y-auto pb-6">
+        <div class="max-h-[calc(100vh-127px)] flex-1 overflow-y-auto pb-6">
           <IdeaBoardItem
             v-for="idea in ideasGroupedByStatus[status.id] ?? []"
             :key="idea.id"
             :idea="idea"
             :team="team"
             :checked="checkedIdeaIds.includes(idea.id)"
+            :dragging="dragging && draggingIdeaId === idea.id"
             @click="selectIdea(idea)"
-            @mousedown="handleMousedown"
+            :style="{
+              left: dragging && draggingIdeaId === idea.id ? `${dragCoords.x - dragElCoords.x}px` : null,
+              top: dragging && draggingIdeaId === idea.id ? `${dragCoords.y - dragElCoords.y}px` : null,
+            }"
+            @mousedown="$event => handleMousedown($event, idea.id)"
           />
         </div>
       </div>

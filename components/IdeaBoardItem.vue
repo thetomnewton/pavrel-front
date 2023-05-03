@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import { truncate } from 'lodash-es'
-import { Idea, Team } from '~~/types'
+import { Idea, Team } from '~/types'
 
 defineProps<{
   team: Team
   idea: Idea
   checked: boolean
+  dragging: boolean
 }>()
 
 const { isIdeaUpvoted, ideaUpvoteCount, toggleUpvoteIdea } = useIdeaUpvotes()
@@ -14,10 +15,12 @@ const { ideaLabels } = useIdeaLabels()
 
 <template>
   <div
-    class="cursor-default rounded-md border py-2 px-3 shadow-sm"
+    class="cursor-default rounded-md border py-2 px-3 shadow-sm active:translate-y-px active:shadow-none"
     :class="{
       'border-blue-300 bg-blue-100 dark:border-blue-600 dark:bg-blue-900': checked,
       'border-slate-300 bg-slate-50 dark:border-zinc-600 dark:bg-zinc-800': !checked,
+      'fixed z-50 opacity-50': dragging,
+      'mb-4': !dragging,
     }"
   >
     <div class="flex items-start">
