@@ -17,7 +17,9 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
 
 <template>
   <section class="mx-auto max-w-4xl px-6 pt-20 pb-20 sm:pt-24 lg:px-8">
-    <h1 class="text-3xl font-semibold tracking-tight text-slate-900 sm:text-5xl">Unleash your creativity.</h1>
+    <h1 class="text-3xl font-semibold tracking-tight text-slate-900 sm:text-5xl">
+      Idea tracker for modern software teams
+    </h1>
     <p class="mt-3 text-lg font-medium leading-8 text-slate-500">
       Pavrel is a home for your ideas. Designed for modern software teams.
     </p>
@@ -41,49 +43,96 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
   </section>
 
   <section class="mx-auto flex flex-wrap justify-center gap-6 px-6 pt-20 pb-20 lg:px-8" id="features">
-    <div class="w-full rounded-2xl border border-slate-200 bg-white px-10 py-8 shadow-sm md:w-[350px]">
-      <div class="mb-3 text-sm font-medium tracking-tight text-blue-600">Organization</div>
-      <div class="mb-3 text-[20px] font-medium tracking-tight text-slate-900">
-        Free your backlog from "maybe one day" work
+    <div class="w-full rounded-2xl border border-slate-200 bg-white shadow-sm md:w-[450px]">
+      <div class="relative flex h-[300px]">
+        <div
+          class="h-full w-full rounded-t-2xl"
+          style="background-image: url('/marketing/list-view.png'); background-position-x: -8px; background-size: 500px"
+        ></div>
+        <div class="absolute inset-0 h-full w-full bg-gradient-to-b from-transparent to-white"></div>
       </div>
-      <div class="text-[15px] font-medium text-slate-500">
-        Reduce clutter and allow your team to focus on the work that really matters.
+
+      <div class="px-10 pb-8 pt-4">
+        <div class="mb-3 text-sm font-medium tracking-tight text-blue-600">Organize</div>
+        <div class="mb-3 text-[20px] font-medium tracking-tight text-slate-900">
+          Free your backlog from "maybe one day" tasks
+        </div>
+        <div class="text-[15px] font-medium text-slate-500">
+          Reduce clutter and allow your team to focus on what really matters.
+        </div>
       </div>
     </div>
 
-    <div class="w-full rounded-2xl border border-slate-200 bg-white px-10 py-8 shadow-sm md:w-[350px]">
-      <div class="mb-3 text-sm font-medium tracking-tight text-blue-600">Convenience</div>
-      <div class="mb-3 text-[20px] font-medium tracking-tight text-slate-900">Stimulate creativity & innovation</div>
-      <div class="text-[15px] font-medium text-slate-500">
-        Capture ideas as they arise, without worrying if they are fully formed yet or thought-through.
+    <div class="w-full rounded-2xl border border-slate-200 bg-white shadow-sm md:w-[450px]">
+      <div class="relative flex h-[300px]">
+        <div
+          class="h-full w-full rounded-t-2xl"
+          style="
+            background-image: url('/marketing/quick-capture.png');
+            background-position-x: -35px;
+            background-position-y: -70px;
+            background-size: 500px;
+          "
+        ></div>
+        <div class="absolute inset-0 h-full w-full bg-gradient-to-b from-transparent to-white"></div>
+      </div>
+
+      <div class="px-10 pb-8 pt-4">
+        <div class="mb-3 text-sm font-medium tracking-tight text-blue-600">Create</div>
+        <div class="mb-3 text-[20px] font-medium tracking-tight text-slate-900">Stimulate creativity & innovation</div>
+        <div class="text-[15px] font-medium text-slate-500">
+          Capture ideas as they arise, without worrying if they are fully formed yet or thought-through.
+        </div>
       </div>
     </div>
 
-    <div class="w-full rounded-2xl border border-slate-200 bg-white px-10 py-8 shadow-sm md:w-[350px]">
-      <div class="mb-3 text-sm font-medium tracking-tight text-blue-600">Collaboration</div>
-      <div class="mb-3 text-[20px] font-medium tracking-tight text-slate-900">
-        Ideate and perfect solutions in context
+    <div class="w-full rounded-2xl border border-slate-200 bg-white shadow-sm md:w-[450px]">
+      <div class="relative flex h-[300px]">
+        <div
+          class="h-full w-full rounded-t-2xl"
+          style="
+            background-image: url('/marketing/create-team.png');
+            background-position-x: 0px;
+            background-position-y: 0px;
+            background-size: 500px;
+          "
+        ></div>
+        <div class="absolute inset-0 h-full w-full bg-gradient-to-b from-transparent to-white"></div>
       </div>
-      <div class="text-[15px] font-medium text-slate-500">
-        Pavrel's teams functionality allows you to share and collaborate on ideas with the right people.
+
+      <div class="px-10 pb-8 pt-4">
+        <div class="mb-3 text-sm font-medium tracking-tight text-blue-600">Collaborate</div>
+        <div class="mb-3 text-[20px] font-medium tracking-tight text-slate-900">
+          Ideate and perfect solutions in context
+        </div>
+        <div class="text-[15px] font-medium text-slate-500">
+          Pavrel's teams functionality allows you to share and collaborate on ideas with the right people.
+        </div>
       </div>
     </div>
 
-    <div class="w-full rounded-2xl border border-slate-200 bg-white px-10 py-8 shadow-sm md:w-[350px]">
-      <div class="mb-3 text-sm font-medium tracking-tight text-blue-600">Speed</div>
-      <div class="mb-3 text-[20px] font-medium tracking-tight text-slate-900">Move fast, break nothing</div>
-      <div class="text-[15px] font-medium text-slate-500">
-        By separating ideas and maybes from real thought-through work, watch your team's productivity soar.
+    <div class="w-full rounded-2xl border border-slate-200 bg-white shadow-sm md:w-[450px]">
+      <div class="relative flex h-[300px]">
+        <div
+          class="h-full w-full rounded-t-2xl"
+          style="
+            background-image: url('/marketing/drag-drop.png');
+            background-position-x: -50px;
+            background-position-y: -90px;
+            background-size: 500px;
+          "
+        ></div>
+        <div class="absolute inset-0 h-full w-full bg-gradient-to-b from-transparent to-white"></div>
       </div>
-    </div>
 
-    <div class="w-full rounded-2xl border border-slate-200 bg-white px-10 py-8 shadow-sm md:w-[350px]">
-      <div class="mb-3 text-sm font-medium tracking-tight text-blue-600">Intuitiveness</div>
-      <div class="mb-3 text-[20px] font-medium tracking-tight text-slate-900">
-        Everything you need, right at your fingertips
-      </div>
-      <div class="text-[15px] font-medium text-slate-500">
-        Your team will love the crisp and modern interface, with blazing fast interactions and real-time sync.
+      <div class="px-10 pb-8 pt-4">
+        <div class="mb-3 text-sm font-medium tracking-tight text-blue-600">Focus</div>
+        <div class="mb-3 text-[20px] font-medium tracking-tight text-slate-900">
+          Everything you need, right at your fingertips
+        </div>
+        <div class="text-[15px] font-medium text-slate-500">
+          Your team will love the crisp and modern interface, with blazing fast interactions and real-time sync.
+        </div>
       </div>
     </div>
   </section>
