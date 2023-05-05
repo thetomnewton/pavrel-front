@@ -4,6 +4,7 @@ import { getSsrColorTheme, watchForDarkMode } from '~/helpers/dark'
 import { dialogState } from '~/helpers/dialog-state'
 
 watchForDarkMode()
+useCsrf()
 
 useHead({
   htmlAttrs: { class: getSsrColorTheme() ?? '' },
