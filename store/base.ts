@@ -891,9 +891,7 @@ export default {
 
     async getCurrentWorkspaceTeams({ getters, commit }: VuexAction) {
       const { data } = await api.get(`/workspaces/${getters.currentWorkspace.id}/teams`)
-      commit('setWorkspaceTeams', {
-        teams: data,
-      })
+      commit('setWorkspaceTeams', { teams: data })
     },
 
     async getIdeas({ getters, commit }: VuexAction) {
