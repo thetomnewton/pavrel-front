@@ -119,8 +119,7 @@ function selectIdea(idea: Idea) {
       <div
         v-for="status in sortedTeamStatuses"
         :key="status.id"
-        :data-statusid="status.id"
-        class="status-column mr-8 flex h-full w-[290px] min-w-[290px] max-w-[290px] flex-col pt-6"
+        class="mr-8 flex h-full w-[290px] min-w-[290px] max-w-[290px] flex-col pt-6"
       >
         <div class="mb-6 flex items-center text-[13px] font-medium">
           <StatusIcon :category="status.category" class="mr-2" />
@@ -136,7 +135,10 @@ function selectIdea(idea: Idea) {
           </div>
         </div>
 
-        <div class="status-column-list max-h-[calc(100vh-127px)] flex-1 overflow-y-auto pb-6">
+        <div
+          class="status-column-list max-h-[calc(100vh-127px)] flex-1 overflow-y-auto pb-6"
+          :data-statusid="status.id"
+        >
           <template v-for="idea in ideasGroupedByStatus[status.id] ?? []">
             <IdeaBoardItem
               :idea="idea"
