@@ -1,19 +1,21 @@
 {
-    "name": "Pavrel",
-    "short_name": "Pavrel",
-    "icons": [
-        {
-            "src": "/android-chrome-192x192.png",
-            "sizes": "192x192",
-            "type": "image/png"
-        },
-        {
-            "src": "/android-chrome-256x256.png",
-            "sizes": "256x256",
-            "type": "image/png"
-        }
-    ],
-    "theme_color": "#0f172a",
-    "background_color": "#0f172a",
-    "display": "standalone"
+  "name": "Pavrel",
+  "short_name": "Pavrel",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-256x256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#13181e",
+  "background_color": "#13181e",
+  "display": "standalone",
+  "dir": "ltr",
+  "lang": "en"
 }
