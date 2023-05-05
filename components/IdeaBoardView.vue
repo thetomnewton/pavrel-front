@@ -43,6 +43,15 @@ function handleMousemove(e: MouseEvent) {
 
   if (mouseDown.value && dragging.value) {
     dragCoords.value = { x: e.clientX, y: e.clientY }
+
+    const statusColumns: Element[] = [...document.querySelectorAll('.status-column-list')]
+    statusColumns.forEach(col => {
+      const rect = (col as HTMLElement).getBoundingClientRect()
+
+      // If we are hovering over a status column, highlight it
+      if (e.clientX > rect.x && e.clientX < rect.x + rect.width) col.classList.add('drag-hovered')
+      else col.classList.remove('drag-hovered')
+    })
   }
 }
 
@@ -65,8 +74,11 @@ function handleMouseup(e: MouseEvent) {
 
     // Deduce which section we have dropped the element over
     // If it's a relevant status column, update the idea's status to the new one
-    const cols = document.querySelectorAll('.status-column')
-    const col = [...cols].find(col => {
+    const cols = [...document.querySelectorAll('.status-column-list')]
+
+    cols.forEach(col => col.classList.remove('drag-hovered'))
+
+    const col = cols.find(col => {
       const rect = (col as HTMLElement).getBoundingClientRect()
       return e.clientX > rect.x && e.clientX < rect.x + rect.width
     })
@@ -103,12 +115,12 @@ function selectIdea(idea: Idea) {
     @mouseup="handleMouseup"
     :class="{ 'select-none': dragging }"
   >
-    <div class="flex items-start">
+    <div class="flex h-full items-start">
       <div
         v-for="status in sortedTeamStatuses"
         :key="status.id"
         :data-statusid="status.id"
-        class="status-column flex h-full w-[290px] min-w-[290px] max-w-[290px] flex-col pr-8 pt-6"
+        class="status-column mr-8 flex h-full w-[290px] min-w-[290px] max-w-[290px] flex-col pt-6"
       >
         <div class="mb-6 flex items-center text-[13px] font-medium">
           <StatusIcon :category="status.category" class="mr-2" />
@@ -124,7 +136,7 @@ function selectIdea(idea: Idea) {
           </div>
         </div>
 
-        <div class="max-h-[calc(100vh-127px)] flex-1 overflow-y-auto pb-6">
+        <div class="status-column-list max-h-[calc(100vh-127px)] flex-1 overflow-y-auto pb-6">
           <template v-for="idea in ideasGroupedByStatus[status.id] ?? []">
             <IdeaBoardItem
               :idea="idea"
@@ -158,3 +170,9 @@ function selectIdea(idea: Idea) {
     </div>
   </section>
 </template>
+
+<style scoped>
+.drag-hovered {
+  @apply bg-slate-50 dark:bg-zinc-800;
+}
+</style>
