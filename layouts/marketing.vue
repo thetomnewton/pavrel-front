@@ -17,6 +17,7 @@ useHead({
       content: '#18181b',
     },
     { name: 'msapplication-TileColor', content: '#18181b' },
+    { name: 'apple-mobile-web-app-capable', content: 'yes' },
   ],
   link: [
     { rel: 'preload', href: '/fonts/Inter-roman.var.woff2', as: 'font', type: 'font/woff2', crossorigin: '' },
@@ -28,7 +29,7 @@ useHead({
     {
       rel: 'apple-touch-icon',
       sizes: '180x180',
-      href: '/apple-touch-icon.png',
+      href: '/icons/apple-icon-180.png',
     },
   ],
 })
