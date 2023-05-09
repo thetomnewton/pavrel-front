@@ -4,7 +4,8 @@ import { useStore } from 'vuex'
 import { useRouter } from 'vue-router'
 import { cloneDeep } from 'lodash-es'
 import { Bars3BottomRightIcon } from '@heroicons/vue/24/solid'
-import { Idea, Label, Team } from '../../../../types'
+import { Idea, Label, Team } from '~/types'
+import { useLocalStorage } from '@vueuse/core'
 
 definePageMeta({
   middleware: 'auth',
@@ -13,6 +14,7 @@ definePageMeta({
 const store = useStore()
 const router = useRouter()
 const route = useRoute()
+const sidebarToggled = useLocalStorage('sidebar-toggled', false)
 
 const workspaceSlug = route.params.workspaceSlug
 const ideaSlug = route.params.ideaSlug as string
@@ -101,7 +103,8 @@ watch(
       :show-filters="false"
       v-if="idea"
       :team="team"
-      class="alongside-sidebar fixed left-0 top-0 right-0 z-10 bg-white/80 backdrop-blur dark:border-b dark:border-zinc-800 dark:bg-zinc-900 lg:right-[270px] xl:right-[270px]"
+      class="fixed left-0 top-0 right-0 z-10 bg-white/80 backdrop-blur dark:border-b dark:border-zinc-800 dark:bg-zinc-900 lg:right-[270px] xl:right-[270px]"
+      :class="{ 'lg:left-[var(--sidebar-width)]': !sidebarToggled }"
     >
       <div class="flex min-w-0 items-center">
         <NuxtLink
@@ -158,11 +161,3 @@ watch(
     </div>
   </div>
 </template>
-
-<style scoped>
-@media (min-width: 1024px) {
-  .alongside-sidebar {
-    left: var(--sidebar-width);
-  }
-}
-</style>

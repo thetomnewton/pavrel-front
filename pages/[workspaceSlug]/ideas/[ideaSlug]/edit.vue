@@ -5,6 +5,7 @@ import { RouteLocationNormalized, useRouter } from 'vue-router'
 import { Bars3BottomRightIcon } from '@heroicons/vue/24/solid'
 import { cloneDeep } from 'lodash-es'
 import { Idea, Team } from '../../../../types'
+import { useLocalStorage } from '@vueuse/core'
 
 definePageMeta({
   middleware: 'auth',
@@ -13,6 +14,7 @@ definePageMeta({
 const store = useStore()
 const route = useRoute()
 const router = useRouter()
+const sidebarToggled = useLocalStorage('sidebar-toggled', false)
 
 const ideaSlug = route.params.ideaSlug as string
 const [teamSlug, teamIdeaId] = ideaSlug.split('-')
@@ -90,7 +92,8 @@ export default {
         :team="team"
         :show-options="false"
         :show-filters="false"
-        class="alongside-sidebar fixed left-0 top-0 right-0 z-10 bg-white/80 backdrop-blur dark:border-b dark:border-zinc-800 dark:bg-zinc-900 lg:right-[250px] xl:right-[250px]"
+        class="fixed left-0 top-0 right-0 z-10 bg-white/80 backdrop-blur dark:border-b dark:border-zinc-800 dark:bg-zinc-900 lg:right-[250px] xl:right-[250px]"
+        :class="{ 'lg:left-[var(--sidebar-width)]': !sidebarToggled }"
       >
         <span class="cursor-default font-medium text-slate-700 dark:text-zinc-300">
           Edit {{ team.slug }}-{{ idea.team_idea_id }}
@@ -150,11 +153,3 @@ export default {
     />
   </div>
 </template>
-
-<style scoped>
-@media (min-width: 1024px) {
-  .alongside-sidebar {
-    left: var(--sidebar-width);
-  }
-}
-</style>
