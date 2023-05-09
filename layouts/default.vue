@@ -33,7 +33,7 @@ useHead({
     {
       rel: 'apple-touch-icon',
       sizes: '180x180',
-      href: '/apple-touch-icon.png',
+      href: '/icons/apple-icon-180.png',
     },
   ],
 })
