@@ -19,6 +19,7 @@ import {
   ArrowRightIcon,
   EllipsisHorizontalIcon,
   LockClosedIcon,
+  ChevronDoubleLeftIcon,
 } from '@heroicons/vue/20/solid'
 import { cloneDeep, find } from 'lodash-es'
 import { useLocalStorage } from '@vueuse/core'
@@ -43,6 +44,7 @@ const router = useRouter()
 const route = useRoute()
 const theme = useLocalStorage('theme', defaultTheme)
 const sidebarToggled = useLocalStorage('sidebar-toggled', false)
+
 const expandedTeams = useLocalStorage<Team['id'][]>('expanded-teams', [])
 const { logout } = useLogout()
 const { unreadNotificationsCount } = useInbox()
@@ -170,7 +172,7 @@ onUnmounted(() => {
 <template>
   <nav
     ref="nav"
-    class="fixed top-0 left-0 z-20 flex h-full w-[300px] min-w-[200px] max-w-[80%] flex-col border-r border-slate-150 bg-[#fcfcfe] text-slate-700 shadow transition dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300 lg:w-[200px] lg:shadow-none"
+    class="group/sidebar fixed top-0 left-0 z-20 flex h-full w-[300px] min-w-[200px] max-w-[80%] flex-col border-r border-slate-150 bg-[#fcfcfe] text-slate-700 shadow transition dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300 lg:w-[200px] lg:shadow-none"
     :class="{
       'translate-x-[-100%] lg:translate-x-0': !appSidebarOpenMobile,
       'lg:fixed lg:left-[calc(var(--sidebar-width)*-1)]': sidebarToggled,
@@ -191,7 +193,7 @@ onUnmounted(() => {
           </div>
 
           <div class="flex flex-1">
-            <div class="w-full">
+            <div class="flex w-full items-center">
               <!-- Workspace Selector -->
               <Dropdown width="230px" align="left" trigger-wrapper-classes="w-full">
                 <template #trigger="{ open }">
@@ -212,7 +214,7 @@ onUnmounted(() => {
                       <WorkspaceIcon v-else class="mr-[10px] bg-blue-500" :initial="currentWorkspace.initial" />
 
                       <span
-                        class="inline-block max-w-[95px] truncate whitespace-nowrap text-[.8125rem] font-medium leading-[18px]"
+                        class="inline-block max-w-[125px] truncate whitespace-nowrap text-[.8125rem] font-medium leading-[18px]"
                       >
                         {{ currentWorkspace.name }}
                       </span>
@@ -273,6 +275,14 @@ onUnmounted(() => {
                   </div>
                 </template>
               </Dropdown>
+
+              <button
+                type="button"
+                class="ml-auto hidden rounded-md p-1 text-slate-500 hover:bg-slate-100 active:bg-slate-150 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-200 dark:active:bg-zinc-700 group-hover/sidebar:lg:block"
+                @click="sidebarToggled = true"
+              >
+                <ChevronDoubleLeftIcon class="h-5 w-5" />
+              </button>
             </div>
           </div>
         </div>
