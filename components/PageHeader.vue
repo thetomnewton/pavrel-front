@@ -7,8 +7,10 @@ import { computed, ref } from 'vue'
 import { IdeaFilter, Idea, Team } from '../types'
 import { ulid } from 'ulid'
 import { truncate } from 'lodash-es'
+import { useLocalStorage } from '@vueuse/core'
 
 const store = useStore()
+const sidebarToggled = useLocalStorage('sidebar-toggled', false)
 
 const emit = defineEmits(['apply-filter', 'update-filter', 'remove-filter', 'set-idea-view'])
 
@@ -69,6 +71,12 @@ onUnmounted(() => {
       <Bars3Icon
         class="mr-5 -ml-1 h-5 w-5 min-w-[1.25rem] text-slate-700 dark:text-zinc-400 lg:hidden"
         @click="toggleAppSidebarMobile"
+      />
+
+      <Bars3Icon
+        v-if="sidebarToggled"
+        class="mr-5 -ml-1 hidden h-5 w-5 min-w-[1.25rem] text-slate-700 dark:text-zinc-400 lg:block"
+        @click="sidebarToggled = false"
       />
 
       <slot />
