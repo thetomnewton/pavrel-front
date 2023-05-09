@@ -137,6 +137,10 @@ const keydownListener = (e: KeyboardEvent) => {
     e.preventDefault()
     e.stopPropagation()
     toggleQuickCreateIdeaModal()
+  } else if (e.key.toLowerCase() === 'm') {
+    e.preventDefault()
+    e.stopPropagation()
+    sidebarToggled.value = !sidebarToggled.value
   }
 }
 
@@ -166,8 +170,12 @@ onUnmounted(() => {
 <template>
   <nav
     ref="nav"
-    class="fixed top-0 left-0 z-20 flex h-full w-[300px] min-w-[200px] max-w-[80%] flex-col border-r border-slate-150 bg-[#fcfcfe] text-slate-700 shadow transition dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300 lg:relative lg:w-[200px] lg:shadow-none lg:transition-none"
-    :class="[!appSidebarOpenMobile ? 'translate-x-[-100%] lg:translate-x-0' : '']"
+    class="fixed top-0 left-0 z-20 flex h-full w-[300px] min-w-[200px] max-w-[80%] flex-col border-r border-slate-150 bg-[#fcfcfe] text-slate-700 shadow transition dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300 lg:w-[200px] lg:shadow-none"
+    :class="{
+      'translate-x-[-100%] lg:translate-x-0': !appSidebarOpenMobile,
+      'lg:fixed lg:left-[calc(var(--sidebar-width)*-1)]': sidebarToggled,
+      'lg:relative': !sidebarToggled,
+    }"
   >
     <ResizeHandler
       @resize="handleResize"
