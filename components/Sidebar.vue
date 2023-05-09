@@ -42,6 +42,7 @@ const store = useStore()
 const router = useRouter()
 const route = useRoute()
 const theme = useLocalStorage('theme', defaultTheme)
+const sidebarToggled = useLocalStorage('sidebar-toggled', false)
 const expandedTeams = useLocalStorage<Team['id'][]>('expanded-teams', [])
 const { logout } = useLogout()
 const { unreadNotificationsCount } = useInbox()
@@ -57,7 +58,7 @@ const { getTeamById } = useTeams()
 const { workspaces, currentWorkspace, currentWorkspaceSlug } = useWorkspace()
 
 const quickCreateIdeaModalOpen = computed<boolean>(() => store.state.base.quickCreateIdeaModalOpen)
-const appSidebarOpen = computed<boolean>(() => store.state.base.appSidebarOpen)
+const appSidebarOpenMobile = computed<boolean>(() => store.state.base.appSidebarOpenMobile)
 
 const currentWorkspaceTeams = computed<Team[]>(() => store.getters['base/currentWorkspaceTeams'])
 const favoriteIdeas = computed<Idea[]>(() => store.getters['base/favoriteIdeas'])
@@ -79,7 +80,7 @@ const toggleExpandedTeam = (id: Team['id'], force = false) => {
 }
 
 const toggleQuickCreateIdeaModal = () => store.commit('base/toggleQuickCreateIdeaModal')
-const toggleAppSidebar = () => store.commit('base/toggleAppSidebar')
+const toggleAppSidebarMobile = () => store.commit('base/toggleAppSidebarMobile')
 
 const searchModalOpen = ref(false)
 
@@ -132,9 +133,7 @@ const keydownListener = (e: KeyboardEvent) => {
       e.stopPropagation()
       searchModalOpen.value = true
     }
-  }
-
-  if (e.key.toLowerCase() === 'q') {
+  } else if (e.key.toLowerCase() === 'q') {
     e.preventDefault()
     e.stopPropagation()
     toggleQuickCreateIdeaModal()
@@ -144,7 +143,7 @@ const keydownListener = (e: KeyboardEvent) => {
 const cantCreateNewIdeas = computed(() => route.name === 'idea.create' || route.name === 'idea.edit')
 
 function handleQuickCreateExpand() {
-  if (appSidebarOpen.value) toggleAppSidebar()
+  if (appSidebarOpenMobile.value) toggleAppSidebarMobile()
 }
 
 function selectTeam(team: Team) {
@@ -168,7 +167,7 @@ onUnmounted(() => {
   <nav
     ref="nav"
     class="fixed top-0 left-0 z-20 flex h-full w-[300px] min-w-[200px] max-w-[80%] flex-col border-r border-slate-150 bg-[#fcfcfe] text-slate-700 shadow transition dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300 lg:relative lg:w-[200px] lg:shadow-none lg:transition-none"
-    :class="[!appSidebarOpen ? 'translate-x-[-100%] lg:translate-x-0' : '']"
+    :class="[!appSidebarOpenMobile ? 'translate-x-[-100%] lg:translate-x-0' : '']"
   >
     <ResizeHandler
       @resize="handleResize"
@@ -180,7 +179,7 @@ onUnmounted(() => {
       <div class="py-3 px-[14px]" v-if="currentWorkspace && currentWorkspaceTeams">
         <div class="flex items-center">
           <div class="lg:hidden">
-            <Bars3Icon class="mr-3 ml-2 h-5 w-5 text-slate-700 dark:text-zinc-400" @click="toggleAppSidebar" />
+            <Bars3Icon class="mr-3 ml-2 h-5 w-5 text-slate-700 dark:text-zinc-400" @click="toggleAppSidebarMobile" />
           </div>
 
           <div class="flex flex-1">
@@ -597,7 +596,11 @@ onUnmounted(() => {
     </div>
   </nav>
 
-  <div v-if="appSidebarOpen" class="fixed inset-0 z-10 transition lg:hidden" @click="toggleAppSidebar"></div>
+  <div
+    v-if="appSidebarOpenMobile"
+    class="fixed inset-0 z-10 transition lg:hidden"
+    @click="toggleAppSidebarMobile"
+  ></div>
 
   <QuickCreateIdeaModal
     :open="quickCreateIdeaModalOpen"

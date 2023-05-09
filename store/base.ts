@@ -63,7 +63,7 @@ export default {
     pageLoaded: false,
     workspaceContentLoaded: false,
     workspaceContentError: false,
-    appSidebarOpen: false,
+    appSidebarOpenMobile: false,
     toastVisible: false,
     toastType: null,
     toastData: null,
@@ -195,7 +195,7 @@ export default {
       state.workspaceNotifications = []
       state.pageLoaded = false
       state.workspaceContentLoaded = false
-      state.appSidebarOpen = false
+      state.appSidebarOpenMobile = false
       state.toastVisible = false
       state.toastType = null
       state.toastData = null
@@ -218,8 +218,8 @@ export default {
       state.ideaUpvotes = data
     },
 
-    toggleAppSidebar(state: BaseModuleState) {
-      state.appSidebarOpen = !state.appSidebarOpen
+    toggleAppSidebarMobile(state: BaseModuleState) {
+      state.appSidebarOpenMobile = !state.appSidebarOpenMobile
     },
 
     setPageLoaded(state: BaseModuleState) {

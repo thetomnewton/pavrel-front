@@ -39,7 +39,7 @@ export interface BaseModuleState {
   pageLoaded: boolean
   workspaceContentLoaded: boolean
   workspaceContentError: boolean
-  appSidebarOpen: boolean
+  appSidebarOpenMobile: boolean
   toastVisible: boolean
   toastTimeout: NodeJS.Timeout | null
   toastType: string | null

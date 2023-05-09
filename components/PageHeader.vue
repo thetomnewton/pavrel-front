@@ -26,7 +26,7 @@ const setViewOptions = (options: object) => store.commit('base/setViewOptions', 
 
 const { currentWorkspace } = useWorkspace()
 
-const toggleAppSidebar = () => store.commit('base/toggleAppSidebar')
+const toggleAppSidebarMobile = () => store.commit('base/toggleAppSidebarMobile')
 const applyFilter = (filter: IdeaFilter) => emit('apply-filter', filter)
 const updateFilter = (filter: IdeaFilter) => emit('update-filter', filter)
 
@@ -68,7 +68,7 @@ onUnmounted(() => {
     <div class="flex items-center py-2 pr-6 pl-6 leading-[36px] lg:pl-10">
       <Bars3Icon
         class="mr-5 -ml-1 h-5 w-5 min-w-[1.25rem] text-slate-700 dark:text-zinc-400 lg:hidden"
-        @click="toggleAppSidebar"
+        @click="toggleAppSidebarMobile"
       />
 
       <slot />
