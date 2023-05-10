@@ -193,9 +193,9 @@ onUnmounted(() => {
           </div>
 
           <div class="flex flex-1">
-            <div class="flex w-full items-center">
+            <div class="flex w-full items-center space-x-1">
               <!-- Workspace Selector -->
-              <Dropdown width="230px" align="left" trigger-wrapper-classes="w-full">
+              <Dropdown width="230px" align="left" trigger-wrapper-classes="w-full" class="flex-1">
                 <template #trigger="{ open }">
                   <div
                     class="group flex w-full items-center rounded"
