@@ -278,7 +278,7 @@ onUnmounted(() => {
 
               <button
                 type="button"
-                class="ml-auto hidden rounded-md p-1 text-slate-500 hover:bg-slate-100 active:bg-slate-150 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-200 dark:active:bg-zinc-700 group-hover/sidebar:lg:block"
+                class="ml-auto hidden cursor-default rounded-md p-1 text-slate-500 hover:bg-slate-100 active:bg-slate-150 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-200 dark:active:bg-zinc-700 group-hover/sidebar:lg:block"
                 @click="sidebarToggled = true"
               >
                 <ChevronDoubleLeftIcon class="h-5 w-5" />

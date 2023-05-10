@@ -76,7 +76,7 @@ onUnmounted(() => {
       <button
         type="button"
         v-if="sidebarToggled"
-        class="mr-5 -ml-1 hidden rounded py-0.5 px-1 text-slate-700 hover:bg-slate-100 active:bg-slate-150 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-200 dark:active:bg-zinc-700 lg:inline-flex"
+        class="mr-5 -ml-1 hidden cursor-default rounded py-0.5 px-1 text-slate-700 hover:bg-slate-100 active:bg-slate-150 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-200 dark:active:bg-zinc-700 lg:inline-flex"
         @click="sidebarToggled = false"
       >
         <svg
