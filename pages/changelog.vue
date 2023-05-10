@@ -36,6 +36,22 @@ useHead({
       out and let us know how we can improve things even further!
     </p>
 
+    <h3 id="may-2023-fold-sidebar">Ability to fold the sidebar</h3>
+
+    <p>
+      On desktop and larger screens, you can now fold the sidebar away. This is ideal for when you need a little more
+      screen space, particularly when looking at the board view.
+    </p>
+
+    <p>It's also great for distraction-free writing for creating or updating ideas.</p>
+
+    <p>
+      Press the double left chevron icon in the sidebar next to your workspace name to fold the sidebar away. You may
+      need to hover over the sidebar first before you can see this button.
+    </p>
+
+    <p>Alternatively, use the `m` key on your keyboard as a shortcut.</p>
+
     <h2 id="april-2023">April 2023</h2>
 
     <h3 id="april-2023-kanban-board">New board view</h3>
