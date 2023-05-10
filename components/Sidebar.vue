@@ -172,11 +172,11 @@ onUnmounted(() => {
 <template>
   <nav
     ref="nav"
-    class="group/sidebar fixed top-0 left-0 z-20 flex h-full w-[300px] min-w-[200px] max-w-[80%] flex-col border-r border-slate-150 bg-[#fcfcfe] text-slate-700 shadow transition dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300 lg:w-[200px] lg:shadow-none"
+    class="group/sidebar fixed top-0 left-0 z-20 flex h-full w-[300px] min-w-[200px] max-w-[80%] flex-col border-r border-slate-150 bg-[#fcfcfe] text-slate-700 shadow transition-[transform,margin] dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300 lg:relative lg:w-[200px] lg:shadow-none"
     :class="{
       'translate-x-[-100%] lg:translate-x-0': !appSidebarOpenMobile,
-      'lg:fixed lg:left-[calc(var(--sidebar-width)*-1)]': sidebarToggled,
-      'lg:relative': !sidebarToggled,
+      'lg:ml-[calc(var(--sidebar-width)*-1)]': sidebarToggled,
+      '': !sidebarToggled,
     }"
   >
     <ResizeHandler
