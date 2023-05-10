@@ -73,11 +73,27 @@ onUnmounted(() => {
         @click="toggleAppSidebarMobile"
       />
 
-      <Bars3Icon
+      <button
+        type="button"
         v-if="sidebarToggled"
-        class="mr-5 -ml-1 hidden h-5 w-5 min-w-[1.25rem] text-slate-700 dark:text-zinc-400 lg:block"
+        class="mr-5 -ml-1 hidden rounded py-0.5 px-1 text-slate-700 hover:bg-slate-100 active:bg-slate-150 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-200 dark:active:bg-zinc-700 lg:inline-flex"
         @click="sidebarToggled = false"
-      />
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 20"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <rect x="2" y="2" width="20" height="16" rx="2" ry="2" />
+          <line x1="9" y1="3" x2="9" y2="18" />
+        </svg>
+      </button>
 
       <slot />
 
