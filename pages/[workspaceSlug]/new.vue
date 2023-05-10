@@ -114,13 +114,20 @@ onMounted(() => {
           <span class="ml-auto flex items-center">
             <RouterLink
               v-if="currentWorkspace && team"
-              class="mr-2 cursor-default rounded px-[10px] py-1 text-xs font-medium leading-[22px] text-slate-700 hover:bg-slate-100 hover:text-slate-900 active:bg-slate-200 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-300 dark:active:bg-zinc-700/50 dark:active:text-zinc-200"
+              class="mr-2 cursor-default rounded-md px-[10px] py-1 text-xs font-medium leading-[22px] text-slate-700 hover:bg-slate-100 hover:text-slate-900 active:bg-slate-200 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-300 dark:active:bg-zinc-700/50 dark:active:text-zinc-200"
               :to="`/${currentWorkspace.slug}/teams/${team.slug}/ideas/all`"
             >
               Cancel
             </RouterLink>
 
-            <Button @click="create" type="button" :disabled="cantCreateNewIdeas"> Save </Button>
+            <button
+              @click="create"
+              type="button"
+              class="inline-flex cursor-default items-center rounded-md bg-blue-600 px-[10px] py-1 text-xs font-medium leading-[22px] text-white hover:bg-blue-700 active:bg-blue-800 disabled:pointer-events-none disabled:opacity-50"
+              :disabled="cantCreateNewIdeas"
+            >
+              Save
+            </button>
 
             <span class="ml-2 rounded py-[5px] px-[6px] hover:bg-slate-100 lg:hidden" @click="sidebarOpen = true">
               <Bars3BottomRightIcon class="h-5 w-5 min-w-[1.25rem] text-slate-600" />
