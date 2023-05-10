@@ -50,7 +50,7 @@ useHead({
       need to hover over the sidebar first before you can see this button.
     </p>
 
-    <p>Alternatively, use the `m` key on your keyboard as a shortcut.</p>
+    <p>Alternatively, use the <code>m</code> key on your keyboard as a shortcut.</p>
 
     <h2 id="april-2023">April 2023</h2>
 
