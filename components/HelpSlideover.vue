@@ -33,7 +33,7 @@ const keyboardShortcuts = computed(() => [
     keys: ['/'],
   },
   {
-    text: 'Open Help & Support',
+    text: 'Toggle Help & Support',
     keys: ['?'],
   },
   {
@@ -43,6 +43,10 @@ const keyboardShortcuts = computed(() => [
   {
     text: 'Switch to board view',
     keys: [']'],
+  },
+  {
+    text: 'Toggle ideas side menu',
+    keys: ['m'],
   },
   {
     text: 'Select all ideas',
