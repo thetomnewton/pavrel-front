@@ -106,6 +106,37 @@ function selectIdea(idea: Idea) {
   if (dragEnd.value) return
   emit('select-idea', idea)
 }
+
+const keydownListener = (e: KeyboardEvent) => {
+  if (
+    // @ts-ignore
+    ['input', 'textarea'].includes(e.target?.localName) ||
+    // @ts-ignore
+    e.target?.attributes?.contenteditable
+  )
+    return
+
+  // If we're dragging and press escape, cancel everything
+  if (e.key === 'Escape' && mouseDown.value && dragging.value) {
+    mouseDown.value = false
+    dragging.value = false
+    draggingIdea.value = null
+    dragWidth.value = 0
+    dragElCoords.value = { x: 0, y: 0 }
+    dragCoords.value = { x: 0, y: 0 }
+
+    const cols = [...document.querySelectorAll('.status-column-list')]
+    cols.forEach(col => col.classList.remove('drag-hovered'))
+  }
+}
+
+onMounted(() => {
+  window.addEventListener('keydown', keydownListener)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('keydown', keydownListener)
+})
 </script>
 
 <template>
