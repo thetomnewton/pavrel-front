@@ -17,6 +17,12 @@ useHead({
   <article class="prose prose-slate mx-auto max-w-4xl py-16 px-8">
     <h1>Changelog</h1>
 
+    <p class="mb-10 border-b border-slate-200 pb-10 text-lg">
+      Follow our
+      <a href="//twitter.com/usePavrel" target="_blank" rel="noreferrer" class="text-blue-500">Twitter</a> page to stay
+      updated on everything we ship.
+    </p>
+
     <h2 id="may-2023">May 2023</h2>
 
     <h3 id="may-2023-board-enhancements">Board view enhancements</h3>
