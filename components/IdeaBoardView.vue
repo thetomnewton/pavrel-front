@@ -141,7 +141,7 @@ onUnmounted(() => {
 
 <template>
   <section
-    class="max-h-[calc(100vh-53px)] w-full flex-1 overflow-x-auto pr-6 pl-6 lg:pl-10"
+    class="max-h-[calc(100vh-53px)] w-full flex-1 overflow-x-auto bg-[#fcfcfe] pr-6 pl-6 dark:bg-inherit lg:pl-10"
     @mousemove="handleMousemove"
     @mouseup="handleMouseup"
     :class="{ 'select-none': dragging }"

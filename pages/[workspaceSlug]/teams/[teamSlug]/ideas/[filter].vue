@@ -96,7 +96,7 @@ useHead({
       class="border-b"
       :class="[
         applyFiltersToIdeas(relevantTeamIdeas).length
-          ? 'border-slate-100 dark:border-zinc-700'
+          ? 'border-slate-150 dark:border-zinc-700'
           : 'border-slate-50 dark:border-zinc-800',
       ]"
     >
