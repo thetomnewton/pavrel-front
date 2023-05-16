@@ -150,7 +150,7 @@ onUnmounted(() => {
       <div
         v-for="status in sortedTeamStatuses"
         :key="status.id"
-        class="mr-8 flex h-full w-[290px] min-w-[290px] max-w-[290px] flex-col pt-6"
+        class="mr-6 flex h-full w-[290px] min-w-[290px] max-w-[290px] flex-col pt-6"
       >
         <div class="mb-6 flex items-center text-[13px] font-medium">
           <StatusIcon :category="status.category" class="mr-2" />

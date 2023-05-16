@@ -73,10 +73,9 @@ onUnmounted(() => {
         @click="toggleAppSidebarMobile"
       />
 
-      <Tooltip class="mr-5 -ml-1 hidden lg:inline-flex">
+      <Tooltip v-if="sidebarToggled" class="mr-5 -ml-1 hidden lg:inline-flex">
         <button
           type="button"
-          v-if="sidebarToggled"
           class="cursor-default rounded py-0.5 px-1 text-slate-700 hover:bg-slate-100 active:bg-slate-150 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-200 dark:active:bg-zinc-700"
           @click="sidebarToggled = false"
         >
