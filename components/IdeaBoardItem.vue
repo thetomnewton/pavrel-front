@@ -15,10 +15,10 @@ const { ideaLabels } = useIdeaLabels()
 
 <template>
   <div
-    class="w-full cursor-default rounded-md border py-2 px-3 shadow-sm active:translate-y-px"
+    class="w-full cursor-default rounded border py-2 px-3 shadow-sm active:translate-y-px"
     :class="{
       'border-blue-300 bg-blue-100 dark:border-blue-600 dark:bg-blue-900': checked,
-      'border-slate-300 bg-white dark:border-zinc-600 dark:bg-zinc-800': !checked,
+      'border-slate-300 bg-white dark:border-zinc-700 dark:bg-zinc-800': !checked,
       'fixed z-50 shadow-xl': dragging,
       'mb-4 active:shadow-none': !dragging,
     }"
