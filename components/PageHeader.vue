@@ -73,70 +73,98 @@ onUnmounted(() => {
         @click="toggleAppSidebarMobile"
       />
 
-      <button
-        type="button"
-        v-if="sidebarToggled"
-        class="mr-5 -ml-1 hidden cursor-default rounded py-0.5 px-1 text-slate-700 hover:bg-slate-100 active:bg-slate-150 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-200 dark:active:bg-zinc-700 lg:inline-flex"
-        @click="sidebarToggled = false"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="20"
-          height="20"
-          viewBox="0 0 24 20"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.8"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+      <Tooltip class="mr-5 -ml-1 hidden lg:inline-flex">
+        <button
+          type="button"
+          v-if="sidebarToggled"
+          class="cursor-default rounded py-0.5 px-1 text-slate-700 hover:bg-slate-100 active:bg-slate-150 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-200 dark:active:bg-zinc-700"
+          @click="sidebarToggled = false"
         >
-          <rect x="2" y="2" width="20" height="16" rx="2" ry="2" />
-          <line x1="9" y1="3" x2="9" y2="18" />
-        </svg>
-      </button>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 20"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect x="2" y="2" width="20" height="16" rx="2" ry="2" />
+            <line x1="9" y1="3" x2="9" y2="18" />
+          </svg>
+        </button>
+
+        <template #content>
+          <span>Show sidebar</span>
+          <KeyboardShortcut class="ml-2">m</KeyboardShortcut>
+        </template>
+      </Tooltip>
 
       <slot />
 
-      <span v-if="ideas && (showFilters ?? true) && team" class="ml-2">
-        <IdeaFilterDropdown
-          v-if="ideas.length"
-          :team="team"
-          :workspace="currentWorkspace"
-          :active-filters="filters ?? []"
-          :ideas="ideas"
-          @apply-filter="applyFilter"
-          @update-filter="updateFilter"
-          @open-modal="openModal"
-        />
-      </span>
+      <div v-if="ideas && (showFilters ?? true) && team" class="ml-2">
+        <Tooltip>
+          <IdeaFilterDropdown
+            v-if="ideas.length"
+            :team="team"
+            :workspace="currentWorkspace"
+            :active-filters="filters ?? []"
+            :ideas="ideas"
+            @apply-filter="applyFilter"
+            @update-filter="updateFilter"
+            @open-modal="openModal"
+          />
+
+          <template #content>
+            <span>Filter ideas</span>
+          </template>
+        </Tooltip>
+      </div>
 
       <span v-if="ideas && !!ideaView && team" class="ml-2">
         <span class="flex w-[60px] items-center rounded-[5px] bg-slate-100 p-px dark:bg-zinc-800">
-          <button
-            type="button"
-            @click="$emit('setIdeaView', 'list')"
-            class="inline-flex w-1/2 cursor-default appearance-none items-center justify-center rounded py-[3px] leading-6"
-            :class="{
-              'border border-slate-200 bg-white text-slate-600 shadow-sm dark:border-zinc-600 dark:bg-zinc-700 dark:text-zinc-300':
-                ideaView === 'list',
-              'text-slate-500 active:bg-slate-150 dark:text-zinc-500 dark:active:bg-zinc-700/50': ideaView !== 'list',
-            }"
-          >
-            <ListBulletIcon class="h-[18px] w-[18px]" />
-          </button>
+          <Tooltip class="inline-flex w-1/2">
+            <button
+              type="button"
+              @click="$emit('setIdeaView', 'list')"
+              class="flex w-full cursor-default appearance-none items-center justify-center rounded py-[3px] leading-6"
+              :class="{
+                'border border-slate-200 bg-white text-slate-600 shadow-sm dark:border-zinc-600 dark:bg-zinc-700 dark:text-zinc-300':
+                  ideaView === 'list',
+                'text-slate-500 active:bg-slate-150 dark:text-zinc-500 dark:active:bg-zinc-700/50': ideaView !== 'list',
+              }"
+            >
+              <ListBulletIcon class="h-[18px] w-[18px]" />
+            </button>
 
-          <button
-            type="button"
-            @click="$emit('setIdeaView', 'board')"
-            class="inline-flex w-1/2 cursor-default appearance-none items-center justify-center rounded py-[3px] leading-6"
-            :class="{
-              'border border-slate-200 bg-white text-slate-600 shadow-sm dark:border-zinc-600 dark:bg-zinc-700 dark:text-zinc-300':
-                ideaView === 'board',
-              'text-slate-500 active:bg-slate-150 dark:text-zinc-500 dark:active:bg-zinc-700/50': ideaView !== 'board',
-            }"
-          >
-            <ViewColumnsIcon class="h-[18px] w-[18px]" />
-          </button>
+            <template #content>
+              <span>List view</span>
+              <KeyboardShortcut class="ml-2">[</KeyboardShortcut>
+            </template>
+          </Tooltip>
+
+          <Tooltip class="inline-flex w-1/2">
+            <button
+              type="button"
+              @click="$emit('setIdeaView', 'board')"
+              class="flex w-full cursor-default appearance-none items-center justify-center rounded py-[3px] leading-6"
+              :class="{
+                'border border-slate-200 bg-white text-slate-600 shadow-sm dark:border-zinc-600 dark:bg-zinc-700 dark:text-zinc-300':
+                  ideaView === 'board',
+                'text-slate-500 active:bg-slate-150 dark:text-zinc-500 dark:active:bg-zinc-700/50':
+                  ideaView !== 'board',
+              }"
+            >
+              <ViewColumnsIcon class="h-[18px] w-[18px]" />
+            </button>
+
+            <template #content>
+              <span>Board view</span>
+              <KeyboardShortcut class="ml-2">]</KeyboardShortcut>
+            </template>
+          </Tooltip>
         </span>
       </span>
 

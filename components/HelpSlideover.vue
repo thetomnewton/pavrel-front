@@ -146,13 +146,9 @@ const keyboardShortcuts = computed(() => [
           >
             <span>{{ shortcut.text }}</span>
             <span class="ml-auto flex items-center space-x-1">
-              <div
-                v-for="key in shortcut.keys"
-                :key="key"
-                class="rounded bg-slate-100 px-1.5 text-[13px] font-medium leading-6 text-slate-600"
-              >
+              <KeyboardShortcut v-for="key in shortcut.keys" :key="key">
                 {{ key }}
-              </div>
+              </KeyboardShortcut>
             </span>
           </div>
         </div>

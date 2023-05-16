@@ -276,13 +276,20 @@ onUnmounted(() => {
                 </template>
               </Dropdown>
 
-              <button
-                type="button"
-                class="ml-auto hidden cursor-default rounded-md p-1 text-slate-500 hover:bg-slate-100 active:bg-slate-150 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-200 dark:active:bg-zinc-700 group-hover/sidebar:lg:block"
-                @click="sidebarToggled = true"
-              >
-                <ChevronDoubleLeftIcon class="h-5 w-5" />
-              </button>
+              <Tooltip>
+                <button
+                  type="button"
+                  class="ml-auto hidden cursor-default rounded-md p-1 text-slate-500 hover:bg-slate-100 active:bg-slate-150 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-200 dark:active:bg-zinc-700 group-hover/sidebar:lg:block"
+                  @click="sidebarToggled = true"
+                >
+                  <ChevronDoubleLeftIcon class="h-5 w-5" />
+                </button>
+
+                <template #content>
+                  <span>Fold sidebar</span>
+                  <KeyboardShortcut class="ml-2">m</KeyboardShortcut>
+                </template>
+              </Tooltip>
             </div>
           </div>
         </div>
@@ -290,31 +297,45 @@ onUnmounted(() => {
     </div>
 
     <div class="mx-4 mb-3 mt-1">
-      <button
-        type="button"
-        @click="toggleQuickCreateIdeaModal"
-        :disabled="cantCreateNewIdeas"
-        class="group inline-flex w-full cursor-default items-center rounded-md border border-slate-400 bg-slate-50 py-1.5 pl-[7px] text-[13px] font-medium leading-5 shadow-sm transition-shadow hover:shadow active:translate-y-px active:bg-slate-100 active:shadow-none disabled:pointer-events-none disabled:opacity-50 dark:border-zinc-600 dark:bg-zinc-800 dark:hover:bg-zinc-800/70"
-      >
-        <PlusIcon
-          class="mr-[7px] h-[18px] w-[18px] text-slate-600 transition dark:text-zinc-300 dark:group-hover:text-zinc-200"
-        />
-        <span>New idea</span>
-      </button>
+      <Tooltip>
+        <button
+          type="button"
+          @click="toggleQuickCreateIdeaModal"
+          :disabled="cantCreateNewIdeas"
+          class="group inline-flex w-full cursor-default items-center rounded-md border border-slate-400 bg-slate-50 py-1.5 pl-[7px] text-[13px] font-medium leading-5 shadow-sm transition-shadow hover:shadow active:translate-y-px active:bg-slate-100 active:shadow-none disabled:pointer-events-none disabled:opacity-50 dark:border-zinc-600 dark:bg-zinc-800 dark:hover:bg-zinc-800/70"
+        >
+          <PlusIcon
+            class="mr-[7px] h-[18px] w-[18px] text-slate-600 transition dark:text-zinc-300 dark:group-hover:text-zinc-200"
+          />
+          <span>New idea</span>
+        </button>
+
+        <template #content>
+          <span>Create new idea</span>
+          <KeyboardShortcut class="ml-2">q</KeyboardShortcut>
+        </template>
+      </Tooltip>
     </div>
 
     <!-- Nav Links -->
     <div class="px-4" v-if="currentWorkspace">
-      <button
-        type="button"
-        @click="searchModalOpen = true"
-        class="group mb-px flex w-full cursor-default items-center rounded px-2 text-[.8125rem] font-medium leading-7 hover:bg-slate-150 dark:hover:bg-zinc-800"
-      >
-        <MagnifyingGlassIcon
-          class="mr-[9px] ml-px h-4 w-4 text-slate-500 group-hover:text-slate-800 dark:text-zinc-400 dark:group-hover:text-slate-200"
-        />
-        <span>Search</span>
-      </button>
+      <Tooltip>
+        <button
+          type="button"
+          @click="searchModalOpen = true"
+          class="group mb-px flex w-full cursor-default items-center rounded px-2 text-[.8125rem] font-medium leading-7 hover:bg-slate-150 dark:hover:bg-zinc-800"
+        >
+          <MagnifyingGlassIcon
+            class="mr-[9px] ml-px h-4 w-4 text-slate-500 group-hover:text-slate-800 dark:text-zinc-400 dark:group-hover:text-slate-200"
+          />
+          <span>Search</span>
+        </button>
+
+        <template #content>
+          <span>Search ideas</span>
+          <KeyboardShortcut class="ml-2">/</KeyboardShortcut>
+        </template>
+      </Tooltip>
 
       <NuxtLink
         :to="`/${currentWorkspace.slug}/inbox`"
