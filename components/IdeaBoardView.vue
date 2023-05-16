@@ -159,9 +159,10 @@ onUnmounted(() => {
           <div class="ml-auto">
             <button
               type="button"
+              @click="toggleQuickCreateIdeaModal"
               class="cursor-default rounded p-0.5 text-slate-700 hover:bg-slate-100 active:bg-slate-150 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:active:text-zinc-300"
             >
-              <PlusIcon class="h-[18px] w-[18px]" @click="toggleQuickCreateIdeaModal" />
+              <PlusIcon class="h-[18px] w-[18px]" />
             </button>
           </div>
         </div>

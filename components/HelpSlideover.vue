@@ -62,7 +62,7 @@ const keyboardShortcuts = computed(() => [
     @click.self="emit('close')"
   >
     <div
-      class="min-w-[350px] bg-white shadow-md transition dark:border-l dark:border-zinc-600 dark:bg-zinc-900 lg:min-w-[400px]"
+      class="min-w-[350px] bg-white shadow-md transition dark:border-l dark:border-zinc-700 dark:bg-zinc-900 lg:min-w-[400px]"
       :class="{ 'translate-x-[20px]': !open }"
     >
       <div v-if="panel === 'main'">
@@ -142,7 +142,7 @@ const keyboardShortcuts = computed(() => [
           <div
             v-for="shortcut in keyboardShortcuts"
             :key="shortcut.text"
-            class="flex items-center text-sm leading-8 text-slate-700"
+            class="flex items-center text-sm leading-8 text-slate-700 dark:text-zinc-400"
           >
             <span>{{ shortcut.text }}</span>
             <span class="ml-auto flex items-center space-x-1">
