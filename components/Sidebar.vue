@@ -286,7 +286,7 @@ onUnmounted(() => {
                 </button>
 
                 <template #content>
-                  <span>Fold sidebar</span>
+                  <span>Hide sidebar</span>
                   <KeyboardShortcut class="ml-2">m</KeyboardShortcut>
                 </template>
               </Tooltip>

@@ -8,9 +8,17 @@ const props = defineProps<{
 
 const actualPos = computed(() => props.position ?? 'bottom')
 
-const posClasses = {
-  top: '-top-[calc(24px+.5rem)] left-[50%] translate-x-[-50%]',
-  bottom: 'top-[calc(100%+.5rem)] left-[50%] translate-x-[-50%]',
+const posStyles = {
+  top: {
+    top: 'calc((24px + .5rem) * -1)',
+    left: '50%',
+    transform: 'translateX(-50%)',
+  },
+  bottom: {
+    top: 'calc(100% + .5rem)',
+    left: '50%',
+    transform: 'translateX(-50%)',
+  },
 }
 
 function triggerShow() {
@@ -33,7 +41,7 @@ function triggerHide() {
     <div
       v-if="show"
       class="absolute z-20 flex min-h-[26px] items-center whitespace-nowrap rounded border border-slate-300 bg-white px-1.5 py-0.5 text-xs font-medium leading-4 text-slate-600 shadow-sm dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-300"
-      :class="posClasses[actualPos]"
+      :style="posStyles[actualPos]"
     >
       <slot name="content" />
     </div>
