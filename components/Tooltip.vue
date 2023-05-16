@@ -38,12 +38,21 @@ function triggerHide() {
   <div class="relative" @mouseenter="triggerShow" @mouseleave="triggerHide" @click="triggerHide">
     <slot name="default" />
 
-    <div
-      v-if="show"
-      class="absolute z-20 flex min-h-[26px] items-center whitespace-nowrap rounded border border-slate-300 bg-white px-1.5 py-0.5 text-xs font-medium leading-4 text-slate-600 shadow-sm dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-300"
-      :style="posStyles[actualPos]"
+    <Transition
+      enter-active-class="transition"
+      enter-from-class="transform opacity-0 scale-90"
+      enter-to-class="transform opacity-100 scale-100"
+      leave-active-class="transition"
+      leave-from-class="transform opacity-100 scale-100"
+      leave-to-class="transform opacity-0 scale-90"
     >
-      <slot name="content" />
-    </div>
+      <div
+        v-if="show"
+        class="absolute z-20 flex min-h-[26px] items-center whitespace-nowrap rounded border border-slate-300 bg-white px-1.5 py-0.5 text-xs font-medium leading-4 text-slate-600 shadow-sm dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-300"
+        :style="posStyles[actualPos]"
+      >
+        <slot name="content" />
+      </div>
+    </Transition>
   </div>
 </template>
