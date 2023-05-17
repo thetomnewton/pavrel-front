@@ -37,6 +37,12 @@ const usageFeatures = ref<Feature[]>([
     pro: '✓ Unlimited',
   },
   {
+    name: 'Teams',
+    desc: '',
+    free: '✓ Unlimited',
+    pro: '✓ Unlimited',
+  },
+  {
     name: 'Team members',
     desc: '',
     free: '✓ Unlimited',

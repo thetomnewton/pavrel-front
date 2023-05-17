@@ -57,23 +57,23 @@ defineEmits(['close'])
                   <span
                     class="absolute top-0 left-0 h-full rounded-l"
                     :class="{
-                      'bg-green-700 dark:bg-green-400': ideas < 80,
-                      'bg-orange-600': ideas >= 80 && ideas < 100,
-                      'rounded-r bg-red-700': ideas >= 100,
+                      'bg-green-700 dark:bg-green-400': ideas < 40,
+                      'bg-orange-600': ideas >= 40 && ideas < 50,
+                      'rounded-r bg-red-700': ideas >= 50,
                     }"
-                    :style="{ width: `${ideas <= 100 ? ideas : 100}%` }"
+                    :style="{ width: `${ideas <= 50 ? ideas * 2 : 100}%` }"
                   ></span>
                 </div>
                 <div class="mt-1.5 text-[.8125rem] text-slate-500 dark:text-zinc-300">
                   <span
                     :class="{
-                      'text-green-700 dark:text-green-400': ideas < 80,
-                      'text-orange-600': ideas >= 80 && ideas < 100,
-                      'rounded-r text-red-700': ideas >= 100,
+                      'text-green-700 dark:text-green-400': ideas < 40,
+                      'text-orange-600': ideas >= 40 && ideas < 50,
+                      'rounded-r text-red-700': ideas >= 50,
                     }"
                     >{{ ideas }}</span
                   >
-                  / 100 ideas
+                  / 50 ideas
                 </div>
               </div>
             </div>
