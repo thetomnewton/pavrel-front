@@ -21,7 +21,7 @@ export function useWorkspace() {
   const workspaceContentLoaded = computed(() => store.state.base.workspaceContentLoaded)
 
   const workspaceIdeasCount = computed(() => store.state.base.ideas.length)
-  const cantCreateNewIdeas = computed(() => currentWorkspace.value.plan === 'free' && workspaceIdeasCount.value >= 100)
+  const cantCreateNewIdeas = computed(() => currentWorkspace.value.plan === 'free' && workspaceIdeasCount.value >= 50)
 
   const getWorkspaceFromSlug = (slug: string) => workspaces.value?.find(workspace => workspace.slug === slug)
 
