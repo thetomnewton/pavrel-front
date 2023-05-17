@@ -21,7 +21,7 @@ useHead({
 </script>
 
 <template>
-  <div class="mx-auto max-w-5xl px-6 py-10 lg:px-8" v-if="workspace">
+  <div class="mx-auto max-w-4xl px-6 py-10 lg:px-8" v-if="workspace">
     <div class="mb-8 border-b border-slate-200 pb-8 dark:border-zinc-700">
       <div class="text-[22px] font-medium">Plans & Upgrade</div>
 

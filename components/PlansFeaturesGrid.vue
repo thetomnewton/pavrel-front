@@ -144,7 +144,7 @@ const supportFeatures = ref<Feature[]>([
       </div>
     </div>
 
-    <div class="-mx-4 rounded-t bg-slate-50 px-4 pt-4 pb-4 dark:bg-zinc-800">
+    <div class="-ml-4 rounded-t bg-slate-50 px-4 pt-4 pb-4 dark:bg-zinc-800">
       <div class="mb-2 flex items-center font-semibold">
         <span>Pro</span>
         <span v-if="!isMonthlyBilling" class="ml-2 rounded bg-green-200 px-1 py-px text-xs font-medium text-green-800"
