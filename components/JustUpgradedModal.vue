@@ -19,7 +19,7 @@ defineEmits(['close'])
         <CheckBadgeIcon class="h-10 w-10 text-green-600" />
       </div>
       <div class="mb-2 text-sm font-medium">Success! Your workspace has been upgraded.</div>
-      <p class="text-sm text-slate-600 dark:text-zinc-500">
+      <p class="text-sm text-slate-600 dark:text-zinc-400">
         Please check your email for confirmation.<br />We hope your team enjoys Pavrel Pro!
       </p>
 
