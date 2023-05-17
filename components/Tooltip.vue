@@ -48,7 +48,7 @@ function triggerHide() {
     >
       <div
         v-if="show"
-        class="absolute z-20 flex min-h-[26px] items-center whitespace-nowrap rounded border border-slate-300 bg-white px-1.5 py-0.5 text-xs font-medium leading-4 text-slate-600 shadow-sm dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-300"
+        class="pointer-events-none absolute z-20 flex min-h-[26px] items-center whitespace-nowrap rounded border border-slate-300 bg-white px-1.5 py-0.5 text-xs font-medium leading-4 text-slate-600 shadow-sm dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-300"
         :style="posStyles[actualPos]"
       >
         <slot name="content" />
