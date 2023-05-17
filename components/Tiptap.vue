@@ -287,15 +287,18 @@ export default {
             // if dropping external files
             let file = event.dataTransfer.files[0] // the dropped file
             let filesize = (file.size / 1024 / 1024).toFixed(4) // get the filesize in MB
-            if ((file.type === 'image/jpeg' || file.type === 'image/png') && filesize < 10) {
-              // check valid image type under 10MB
+
+            if (filesize > 5 && vm.currentWorkspace.plan === 'free') {
+              window.alert('Images greater than 5mb in size can only be uploaded with the Pro plan.')
+            } else if ((file.type === 'image/jpeg' || file.type === 'image/png') && filesize < 20) {
+              // check valid image type under 20MB
               // check the dimensions
               let _URL = window.URL || window.webkitURL
               let img = new Image() /* global Image */
               img.src = _URL.createObjectURL(file)
               img.onload = function () {
                 if (this.width > 5000 || this.height > 5000) {
-                  window.alert('Your images need to be less than 5000 pixels in height and width.') // display alert
+                  window.alert('Images should to be less than 5000 pixels in height and width.')
                 } else {
                   // valid image so upload to server
                   // uploadImage will be your function to upload the image to the server or s3 bucket somewhere
@@ -323,7 +326,7 @@ export default {
                 }
               }
             } else {
-              window.alert('Images need to be in jpg or png format and less than 10mb in size.')
+              window.alert('Images need to be in JPG or PNG format.')
             }
             return true // handled
           }
