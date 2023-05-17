@@ -297,8 +297,8 @@ export default {
               let img = new Image() /* global Image */
               img.src = _URL.createObjectURL(file)
               img.onload = function () {
-                if (this.width > 5000 || this.height > 5000) {
-                  window.alert('Images should to be less than 5000 pixels in height and width.')
+                if (this.width > 10000 || this.height > 10000) {
+                  window.alert('Images should to be less than 10000 pixels in height and width.')
                 } else {
                   // valid image so upload to server
                   // uploadImage will be your function to upload the image to the server or s3 bucket somewhere
