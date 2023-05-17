@@ -13,7 +13,7 @@ defineEmits(['close'])
 <template>
   <BaseDialog :open="open" @close="$emit('close')">
     <div
-      class="mx-auto mt-12 flex w-[90%] max-w-[550px] flex-col overflow-hidden rounded-lg bg-white py-10 px-8 text-center text-slate-800 shadow-xl dark:bg-zinc-800 dark:text-zinc-300"
+      class="mx-auto mt-12 flex w-[90%] max-w-[550px] flex-col overflow-hidden rounded-lg bg-white py-10 px-8 text-center text-slate-800 shadow-xl dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-300"
     >
       <div class="mb-4 flex justify-center">
         <CheckBadgeIcon class="h-10 w-10 text-green-600" />
