@@ -163,7 +163,7 @@ const supportFeatures = ref<Feature[]>([
           v-if="!hasSubscription(products.pro)"
           :href="`${config.public.backendUrl}/workspaces/${workspace.id}/subscribe/${products.pro}/${prices[billingFrequency]}`"
           type="button"
-          class="block w-full appearance-none rounded-md border border-transparent bg-blue-600 px-4 py-2 text-center text-sm font-medium leading-5 text-white hover:shadow active:translate-y-px active:bg-blue-700"
+          class="block w-full cursor-default appearance-none rounded-md border border-transparent bg-blue-600 px-4 py-2 text-center text-sm font-medium leading-5 text-white hover:shadow active:translate-y-px active:bg-blue-700"
         >
           Upgrade now
         </a>

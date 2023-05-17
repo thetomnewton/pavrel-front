@@ -2,6 +2,7 @@
 import { Dialog, DialogPanel, TransitionRoot } from '@headlessui/vue'
 import {
   AdjustmentsVerticalIcon,
+  ArrowRightIcon,
   ClockIcon,
   CodeBracketIcon,
   LifebuoyIcon,
@@ -131,7 +132,8 @@ defineEmits(['close'])
               :to="`/${currentWorkspace.slug}/settings/plans`"
               class="inline-flex cursor-default appearance-none items-center justify-center rounded-md bg-blue-600 px-3 py-1.5 text-[.8125rem] font-medium leading-5 text-white active:bg-blue-700"
             >
-              Select plan
+              <span>Continue</span>
+              <ArrowRightIcon class="ml-2 h-4 w-4" />
             </RouterLink>
           </div>
         </DialogPanel>
