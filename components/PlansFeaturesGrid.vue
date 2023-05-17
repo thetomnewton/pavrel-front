@@ -6,14 +6,14 @@ import { priceValues, priceIds, productIds } from '../config/products'
 import { clone } from 'lodash-es'
 import { CheckIcon } from '@heroicons/vue/20/solid'
 
-defineProps<{
+const props = defineProps<{
   workspace: Workspace
+  isMonthlyBilling: boolean
 }>()
 
 const config = useRuntimeConfig()
 
-const isMonthlyBilling = ref(false)
-const billingFrequency = computed(() => (isMonthlyBilling.value ? 'monthly' : 'yearly'))
+const billingFrequency = computed(() => (props.isMonthlyBilling ? 'monthly' : 'yearly'))
 
 const proPrice = computed(() => priceValues[billingFrequency.value])
 
@@ -110,13 +110,7 @@ const supportFeatures = ref<Feature[]>([
 
 <template>
   <div class="grid min-w-[800px] grid-cols-3 gap-x-8">
-    <div class="flex items-end pt-4">
-      <div class="flex items-center text-[.8125rem] leading-[38px] text-slate-700 dark:text-zinc-400">
-        <span class="cursor-default" @click="isMonthlyBilling = false"> Pay yearly </span>
-        <Switch class="mx-2" v-model="isMonthlyBilling" :size="14" />
-        <span class="cursor-default" @click="isMonthlyBilling = true">Monthly</span>
-      </div>
-    </div>
+    <div></div>
 
     <div class="pt-4">
       <div class="mb-2 flex items-center space-x-2 font-semibold">
