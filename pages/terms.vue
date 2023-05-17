@@ -115,7 +115,7 @@ useHead({
     </p>
     <p>
       3. <strong>Third-Party Applications</strong>. The Service may work together with third party products, services or
-      applications that are not owned or controlled by Pavrel, (e.g., Github) (“<strong>Third-Party Applications</strong
+      applications that are not owned or controlled by Pavrel, (e.g., GitHub) (“<strong>Third-Party Applications</strong
       >”) and Customer, at its sole option, may choose to use such Third-Party Applications. If necessary for the
       Service and the Third-Party Application to work together, Customer will provide its login information to Pavrel
       for the sole purpose of Pavrel providing the Service to Customer and Customer represents and warrants that
