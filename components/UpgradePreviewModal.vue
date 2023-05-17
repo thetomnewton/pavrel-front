@@ -92,11 +92,11 @@ defineEmits(['close'])
                 </div>
                 <div class="flex items-center space-x-2">
                   <PaperClipIcon class="h-4 w-4 text-blue-500" />
-                  <span>Unlimited file uploads</span>
+                  <span>Larger file uploads</span>
                 </div>
                 <div class="flex items-center space-x-2">
                   <ClockIcon class="h-4 w-4 text-blue-500" />
-                  <span>Version history</span>
+                  <span>Version history (soon)</span>
                 </div>
                 <div class="flex items-center space-x-2">
                   <LifebuoyIcon class="h-4 w-4 text-blue-500" />
@@ -104,15 +104,15 @@ defineEmits(['close'])
                 </div>
                 <div class="flex items-center space-x-2">
                   <LinkIcon class="h-4 w-4 text-blue-500" />
-                  <span>Integrations</span>
+                  <span>Integrations (soon)</span>
                 </div>
                 <div class="flex items-center space-x-2">
                   <CodeBracketIcon class="h-4 w-4 text-blue-500" />
-                  <span>API</span>
+                  <span>API (soon)</span>
                 </div>
                 <div class="flex items-center space-x-2">
                   <AdjustmentsVerticalIcon class="h-4 w-4 text-blue-500" />
-                  <span>Admin tools</span>
+                  <span>Admin tools (soon)</span>
                 </div>
               </div>
             </div>
