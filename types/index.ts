@@ -110,7 +110,7 @@ export interface Workspace {
   updated_at: string
   logo_url: string | null
   initial: string
-  plan: 'free' | 'pro' | 'enterprise'
+  plan: 'free' | 'pro'
 }
 
 export interface WorkspaceInvitation {

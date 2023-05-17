@@ -1,6 +1,5 @@
 export const productIds = {
   pro: 'prod_M1K67JwsTDuIRj',
-  enterprise: 'prod_MtO8t7muCtHsFB',
 }
 
 export const priceIds = {

@@ -335,9 +335,7 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
         </button>
       </div>
 
-      <div
-        class="mt-12 space-y-4 sm:mt-16 sm:grid sm:grid-cols-2 sm:gap-6 sm:space-y-0 lg:mx-auto lg:max-w-4xl xl:mx-0 xl:max-w-none xl:grid-cols-3"
-      >
+      <div class="mt-12 space-y-4 sm:mt-16 sm:grid sm:grid-cols-2 sm:gap-6 sm:space-y-0 lg:mx-auto lg:max-w-4xl">
         <div class="flex flex-col rounded-xl border border-slate-200 shadow-sm">
           <div class="p-6">
             <h2 class="flex items-center text-lg font-medium leading-6 text-slate-900"><span>Free</span></h2>
@@ -449,6 +447,7 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
               Buy Pro
             </NuxtLink>
           </div>
+
           <div class="mx-6 mb-6 flex-1 rounded-[8px] bg-slate-50 p-6">
             <h3 class="text-sm font-medium text-slate-900">What's included</h3>
             <ul role="list" class="mt-6 space-y-4">
@@ -531,56 +530,6 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
                   ></path>
                 </svg>
                 <span class="text-sm text-slate-600">API + integrations</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="flex flex-col rounded-xl border border-slate-200 shadow-sm">
-          <div class="p-6">
-            <h2 class="flex items-center text-lg font-medium leading-6 text-slate-900"><span>Enterprise</span></h2>
-            <p class="mt-4 text-sm text-slate-500">Get even more with a Pavrel Enterprise plan</p>
-            <p class="mt-8"><span class="text-4xl font-bold tracking-tight text-slate-900">Contact us</span></p>
-            <RouterLink
-              to="/login"
-              class="mt-8 block w-full rounded-md border border-blue-600 bg-blue-600 py-2 text-center text-sm font-semibold text-white hover:bg-blue-700"
-            >
-              Contact us
-            </RouterLink>
-          </div>
-          <div class="mx-6 mb-6 flex-1 rounded-[8px] bg-slate-50 p-6">
-            <h3 class="text-sm font-medium text-slate-900">What's included</h3>
-            <ul role="list" class="mt-6 space-y-4">
-              <li class="flex space-x-3">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  aria-hidden="true"
-                  class="h-5 w-5 flex-shrink-0 text-green-500"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-                <span class="text-sm text-slate-600">Everything in Pro</span>
-              </li>
-              <li class="flex space-x-3">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  aria-hidden="true"
-                  class="h-5 w-5 flex-shrink-0 text-green-500"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-                <span class="text-sm text-slate-600">Unlimited version history</span>
               </li>
             </ul>
           </div>

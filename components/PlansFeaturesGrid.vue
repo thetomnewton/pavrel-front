@@ -27,37 +27,32 @@ interface Feature {
   desc: string
   free: string
   pro: string
-  enterprise: string
 }
 
 const usageFeatures = ref<Feature[]>([
   {
     name: 'Ideas',
     desc: '',
-    free: '✓ 100',
+    free: '✓ 50',
     pro: '✓ Unlimited',
-    enterprise: '✓ Unlimited',
   },
   {
     name: 'Team members',
     desc: '',
     free: '✓ Unlimited',
     pro: '✓ Unlimited',
-    enterprise: '✓ Unlimited',
   },
   {
     name: 'Max upload file size',
     desc: '',
-    free: '✓ 10mb',
+    free: '✓ 5mb',
     pro: '✓ Unlimited',
-    enterprise: '✓ Unlimited',
   },
   {
     name: 'Private teams',
     desc: '',
     free: '',
     pro: '✓',
-    enterprise: '✓',
   },
 ])
 
@@ -67,14 +62,12 @@ const collabFeatures = ref<Feature[]>([
     desc: '',
     free: '✓',
     pro: '✓',
-    enterprise: '✓',
   },
   {
     name: 'Link sharing',
     desc: '',
     free: '✓',
     pro: '✓',
-    enterprise: '✓',
   },
 ])
 
@@ -84,21 +77,18 @@ const otherFeatures = ref<Feature[]>([
     desc: '',
     free: '',
     pro: '30 days',
-    enterprise: 'Unlimited',
   },
   {
     name: 'Integrations',
     desc: '',
     free: '',
     pro: '✓',
-    enterprise: '✓',
   },
   {
     name: 'API',
     desc: '',
     free: '',
     pro: '✓',
-    enterprise: '✓',
   },
 ])
 
@@ -108,13 +98,12 @@ const supportFeatures = ref<Feature[]>([
     desc: '',
     free: '',
     pro: '✓',
-    enterprise: '✓',
   },
 ])
 </script>
 
 <template>
-  <div class="grid min-w-[800px] grid-cols-4 gap-x-8">
+  <div class="grid min-w-[800px] grid-cols-3 gap-x-8">
     <div class="flex items-end pt-4">
       <div class="flex items-center text-[.8125rem] leading-[38px] text-slate-700 dark:text-zinc-400">
         <span class="cursor-default" @click="isMonthlyBilling = false"> Pay yearly </span>
@@ -181,23 +170,9 @@ const supportFeatures = ref<Feature[]>([
       </div>
     </div>
 
-    <div class="pt-4">
-      <div class="mb-2 font-semibold">Enterprise</div>
-      <div class="mb-4 text-xl leading-8">Contact us</div>
-      <div>
-        <button
-          type="button"
-          class="block w-full appearance-none rounded-md border border-transparent bg-blue-600 px-4 py-2 text-center text-sm font-medium leading-5 text-white hover:shadow active:translate-y-px active:bg-blue-700"
-        >
-          Contact us
-        </button>
-      </div>
-    </div>
-
     <div class="pt-6 pb-2 text-[15px] font-medium leading-6 text-slate-900">Usage</div>
     <div></div>
     <div class="-mx-4 bg-slate-50 px-4 dark:bg-zinc-800"></div>
-    <div></div>
 
     <template v-for="feature in usageFeatures" :key="feature.name">
       <div>
@@ -211,16 +186,11 @@ const supportFeatures = ref<Feature[]>([
       <div class="-mx-4 bg-slate-50 px-4 dark:bg-zinc-800">
         <div class="text-sm leading-10 text-slate-900 dark:text-zinc-300">{{ feature.pro }}</div>
       </div>
-
-      <div>
-        <div class="text-sm leading-10 text-slate-900 dark:text-zinc-300">{{ feature.enterprise }}</div>
-      </div>
     </template>
 
     <div class="pt-6 pb-2 text-[15px] font-medium leading-6 text-slate-900">Collaboration</div>
     <div></div>
     <div class="-mx-4 bg-slate-50 px-4 dark:bg-zinc-800"></div>
-    <div></div>
 
     <template v-for="feature in collabFeatures" :key="feature.name">
       <div>
@@ -234,16 +204,11 @@ const supportFeatures = ref<Feature[]>([
       <div class="-mx-4 bg-slate-50 px-4 dark:bg-zinc-800">
         <div class="text-sm leading-10 text-slate-900 dark:text-zinc-300">{{ feature.pro }}</div>
       </div>
-
-      <div>
-        <div class="text-sm leading-10 text-slate-900 dark:text-zinc-300">{{ feature.enterprise }}</div>
-      </div>
     </template>
 
     <div class="pt-6 pb-2 text-[15px] font-medium leading-6 text-slate-900">Features</div>
     <div></div>
     <div class="-mx-4 bg-slate-50 px-4 dark:bg-zinc-800"></div>
-    <div></div>
 
     <template v-for="feature in otherFeatures" :key="feature.name">
       <div>
@@ -257,16 +222,11 @@ const supportFeatures = ref<Feature[]>([
       <div class="-mx-4 bg-slate-50 px-4 dark:bg-zinc-800">
         <div class="text-sm leading-10 text-slate-900 dark:text-zinc-300">{{ feature.pro }}</div>
       </div>
-
-      <div>
-        <div class="text-sm leading-10 text-slate-900 dark:text-zinc-300">{{ feature.enterprise }}</div>
-      </div>
     </template>
 
     <div class="pt-6 pb-2 text-[15px] font-medium leading-6 text-slate-900">Support</div>
     <div></div>
     <div class="-mx-4 bg-slate-50 px-4 dark:bg-zinc-800"></div>
-    <div></div>
 
     <template v-for="feature in supportFeatures" :key="feature.name">
       <div>
@@ -279,10 +239,6 @@ const supportFeatures = ref<Feature[]>([
 
       <div class="-mx-4 bg-slate-50 px-4 dark:bg-zinc-800">
         <div class="text-sm leading-10 text-slate-900 dark:text-zinc-300">{{ feature.pro }}</div>
-      </div>
-
-      <div>
-        <div class="text-sm leading-10 text-slate-900 dark:text-zinc-300">{{ feature.enterprise }}</div>
       </div>
     </template>
 
