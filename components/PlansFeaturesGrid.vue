@@ -127,15 +127,6 @@ const supportFeatures = ref<Feature[]>([
         <span class="mr-1 text-2xl font-medium">$0</span>
         <span class="text-[.8125rem] text-slate-700 dark:text-zinc-400">per user / month</span>
       </div>
-      <div>
-        <button
-          type="button"
-          v-if="hasSubscription(products.pro)"
-          class="w-full appearance-none rounded-md border px-4 py-2 text-sm leading-5 disabled:pointer-events-none disabled:opacity-70"
-        >
-          Downgrade
-        </button>
-      </div>
     </div>
 
     <div class="-ml-4 rounded-t bg-slate-50 px-4 pt-4 pb-4 dark:bg-zinc-800">
@@ -167,6 +158,13 @@ const supportFeatures = ref<Feature[]>([
         >
           Upgrade now
         </a>
+
+        <button
+          v-else
+          class="block w-full cursor-default appearance-none rounded-md border border-slate-200 px-4 py-2 leading-5 dark:border-zinc-700"
+        >
+          Cancel
+        </button>
       </div>
     </div>
 
