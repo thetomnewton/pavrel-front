@@ -2,12 +2,15 @@
 import { useOnline } from '@vueuse/core'
 import api from '../api'
 import { Dialog, DialogPanel, TransitionRoot } from '@headlessui/vue'
+import { useStore } from 'vuex'
 
 defineProps<{
   open: boolean
 }>()
 
 const emit = defineEmits(['close'])
+
+const store = useStore()
 
 const cancelling = ref(false)
 
@@ -21,6 +24,10 @@ function cancel() {
     .post(`/workspaces/${currentWorkspace.value.id}/subscriptions/cancel`)
     .then(() => {
       emit('close')
+
+      store.commit('base/showToast', {
+        type: 'subscription-cancel',
+      })
 
       setTimeout(() => {
         cancelling.value = false
