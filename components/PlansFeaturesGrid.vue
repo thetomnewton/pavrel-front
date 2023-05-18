@@ -20,6 +20,12 @@ const proPrice = computed(() => priceValues[billingFrequency.value])
 const prices = clone(priceIds)
 const products = ref(productIds)
 
+const cancelModalOpen = ref(false)
+
+function openCancelModal() {
+  cancelModalOpen.value = true
+}
+
 const { hasSubscription } = useSubscriptions()
 
 interface Feature {
@@ -162,6 +168,7 @@ const supportFeatures = ref<Feature[]>([
         <button
           v-else
           class="block w-full cursor-default appearance-none rounded-md border border-slate-200 px-4 py-2 text-sm font-medium leading-5 text-slate-600 dark:border-zinc-700 dark:text-zinc-300"
+          @click="openCancelModal"
         >
           Cancel
         </button>
@@ -245,4 +252,6 @@ const supportFeatures = ref<Feature[]>([
     <div class="-mx-4 rounded-b bg-slate-50 dark:bg-zinc-800"></div>
     <div></div>
   </div>
+
+  <CancelModal :open="cancelModalOpen" @close="cancelModalOpen = false" />
 </template>
