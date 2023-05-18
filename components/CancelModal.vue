@@ -18,7 +18,7 @@ function cancel() {
   cancelling.value = true
 
   api
-    .post(`/workspaces/${currentWorkspace.value}/subscriptions/cancel`)
+    .post(`/workspaces/${currentWorkspace.value.id}/subscriptions/cancel`)
     .then(() => {
       emit('close')
 
