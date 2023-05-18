@@ -1,14 +1,35 @@
 <script setup lang="ts">
+import { useOnline } from '@vueuse/core'
+import api from '../api'
 import { Dialog, DialogPanel, TransitionRoot } from '@headlessui/vue'
 
 defineProps<{
   open: boolean
 }>()
 
-defineEmits(['close'])
+const emit = defineEmits(['close'])
+
+const cancelling = ref(false)
+
+const online = useOnline()
+const { currentWorkspace } = useWorkspace()
 
 function cancel() {
-  //
+  cancelling.value = true
+
+  api
+    .post(`/workspaces/${currentWorkspace.value}/subscriptions/cancel`)
+    .then(() => {
+      emit('close')
+
+      setTimeout(() => {
+        cancelling.value = false
+      }, 150)
+    })
+    .catch(() => {
+      // todo: error handling
+      cancelling.value = false
+    })
 }
 </script>
 
@@ -34,7 +55,8 @@ function cancel() {
               >
                 Close
               </button>
-              <Button>Cancel subscription</Button>
+
+              <Button :disabled="!online || cancelling">Cancel subscription</Button>
             </p>
           </form>
         </DialogPanel>
