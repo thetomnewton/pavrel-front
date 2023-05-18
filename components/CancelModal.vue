@@ -14,7 +14,7 @@ function cancel() {
 
 <template>
   <TransitionRoot :show="open" as="template">
-    <Dialog as="div" class="relative z-10" @click.self="$emit('close')">
+    <Dialog as="div" class="relative z-10" @click="$emit('close')">
       <ModalBg />
 
       <ModalWrapper>
