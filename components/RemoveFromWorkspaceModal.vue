@@ -26,7 +26,7 @@ function attemptRemove() {
         <DialogPanel class="mx-auto w-full max-w-[500px] rounded-md bg-white shadow-3xl dark:bg-zinc-800 md:mt-[12vh]">
           <form @submit.prevent="attemptRemove" class="px-8 py-6" v-if="user">
             <p class="mb-4">
-              Are you sure you wish to remove <span class="font-semibold">{{ user.name }}</span> from this workspace?
+              Are you sure you want to remove <span class="font-semibold">{{ user.name }}</span> from this workspace?
             </p>
 
             <p class="mb-4">

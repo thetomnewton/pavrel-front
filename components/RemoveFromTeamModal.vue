@@ -41,7 +41,7 @@ function attemptRemoveFromTeam() {
           <form @submit.prevent="attemptRemoveFromTeam" class="px-8 py-6" v-if="team">
             <div class="space-y-4">
               <p>
-                Are you sure you wish to remove <span class="font-semibold">{{ user.name }}</span> from the team
+                Are you sure you want to remove <span class="font-semibold">{{ user.name }}</span> from the team
                 <span class="font-semibold">{{ team.name }}</span
                 >?
               </p>

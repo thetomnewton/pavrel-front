@@ -16,7 +16,7 @@ defineProps<{
       class="mx-auto mt-[100px] w-full max-w-[500px] rounded-lg bg-white px-8 py-6 text-[15px] font-normal leading-6 text-slate-800 shadow-3xl dark:bg-zinc-800 dark:text-zinc-200"
     >
       <div class="font-medium">
-        Are you sure you wish to delete {{ ideaIds.length }} {{ ideaIds.length !== 1 ? 'ideas' : 'idea' }}?
+        Are you sure you want to delete {{ ideaIds.length }} {{ ideaIds.length !== 1 ? 'ideas' : 'idea' }}?
       </div>
       <div class="mt-3">This can't be undone.</div>
       <div class="mt-4 flex items-center justify-end">

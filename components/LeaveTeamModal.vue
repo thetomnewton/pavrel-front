@@ -41,7 +41,7 @@ function attemptLeaveTeam() {
           <form @submit.prevent="attemptLeaveTeam" class="px-8 py-6" v-if="team">
             <div class="space-y-4">
               <p>
-                Are you sure you wish to leave the team <span class="font-semibold">{{ team.name }}</span
+                Are you sure you want to leave the team <span class="font-semibold">{{ team.name }}</span
                 >?
               </p>
 
