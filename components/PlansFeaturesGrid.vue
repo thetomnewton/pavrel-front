@@ -161,7 +161,7 @@ const supportFeatures = ref<Feature[]>([
 
         <button
           v-else
-          class="block w-full cursor-default appearance-none rounded-md border border-slate-200 px-4 py-2 leading-5 dark:border-zinc-700"
+          class="block w-full cursor-default appearance-none rounded-md border border-slate-200 px-4 py-2 text-sm font-medium leading-5 text-slate-600 dark:border-zinc-700 dark:text-zinc-300"
         >
           Cancel
         </button>
