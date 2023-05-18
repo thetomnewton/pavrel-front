@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import dayjs from 'dayjs'
+import { User } from '@/types'
 
 definePageMeta({
   layout: 'settings',
@@ -9,7 +10,7 @@ definePageMeta({
 
 const route = useRoute()
 const { getWorkspaceFromSlug } = useWorkspace()
-const { users } = useUsers()
+const { user, users } = useUsers()
 
 const workspace = getWorkspaceFromSlug(route.params.workspaceSlug as string)
 
@@ -21,6 +22,23 @@ useHead({
 
 function niceDate(date: string) {
   return dayjs(date).format('MMM DD YYYY')
+}
+
+const removeUserModalOpen = ref(false)
+const userToRemove = ref<User>()
+
+function openRemoveUserFromWorkspaceModal(user: User) {
+  removeUserModalOpen.value = true
+  userToRemove.value = user
+}
+
+function openLeaveWorkspaceModal() {
+  //
+}
+
+function closeRemoveUserModal() {
+  removeUserModalOpen.value = false
+  userToRemove.value = undefined
 }
 </script>
 
@@ -45,14 +63,14 @@ function niceDate(date: string) {
       </div>
 
       <div class="space-y-4">
-        <div v-for="user in users" :key="user.id" class="flex items-center">
+        <div v-for="workspaceUser in users" :key="workspaceUser.id" class="flex items-center">
           <div class="mr-4">
-            <img class="block h-8 w-8 min-w-[2rem] rounded-full object-cover" :src="user.profile_photo_url" />
+            <img class="block h-8 w-8 min-w-[2rem] rounded-full object-cover" :src="workspaceUser.profile_photo_url" />
           </div>
 
           <div class="mr-6">
-            <div class="truncate lg:max-w-[200px]">{{ user.name }}</div>
-            <div class="text-[13px] leading-5 text-slate-600 dark:text-zinc-400">{{ user.email }}</div>
+            <div class="truncate lg:max-w-[200px]">{{ workspaceUser.name }}</div>
+            <div class="text-[13px] leading-5 text-slate-600 dark:text-zinc-400">{{ workspaceUser.email }}</div>
           </div>
 
           <div class="ml-auto">
@@ -63,17 +81,40 @@ function niceDate(date: string) {
                 { value: 'member', text: 'Member' },
                 { value: 'admin', text: 'Admin' },
               ]"
-              :value="user.pivot.role"
+              :value="workspaceUser.pivot.role"
             ></Listbox>
           </div>
 
           <div class="ml-6 max-w-[180px]">
-            <div class="text-[.8125rem] text-slate-600 dark:text-zinc-400">Since {{ niceDate(user.created_at) }}</div>
+            <div class="text-[.8125rem] text-slate-600 dark:text-zinc-400">
+              Since {{ niceDate(workspaceUser.created_at) }}
+            </div>
+          </div>
+
+          <div class="ml-6" v-if="workspace.pivot.user_id === user.id && workspace.pivot.role === 'admin'">
+            <template v-if="workspaceUser.id !== user.id">
+              <button
+                @click="openRemoveUserFromWorkspaceModal(workspaceUser)"
+                class="min-w-[55px] cursor-pointer appearance-none text-sm font-medium text-red-500 hover:underline"
+              >
+                Remove
+              </button>
+            </template>
+
+            <template v-else>
+              <button
+                @click="openLeaveWorkspaceModal"
+                class="min-w-[55px] cursor-pointer appearance-none text-sm font-medium text-red-500 hover:underline"
+              >
+                Leave
+              </button>
+            </template>
           </div>
         </div>
       </div>
     </div>
 
     <WorkspaceInviteModal :open="modalOpen" @close="modalOpen = false" :workspace="workspace" />
+    <RemoveFromWorkspaceModal :open="removeUserModalOpen" :user="userToRemove" @close="closeRemoveUserModal" />
   </div>
 </template>

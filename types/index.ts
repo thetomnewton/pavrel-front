@@ -111,6 +111,7 @@ export interface Workspace {
   logo_url: string | null
   initial: string
   plan: 'free' | 'pro'
+  pivot: { user_id: User['id']; role: 'admin' | 'member'; workspace_id: Workspace['id'] }
 }
 
 export interface WorkspaceInvitation {
