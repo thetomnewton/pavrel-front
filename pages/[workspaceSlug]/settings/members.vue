@@ -102,12 +102,12 @@ function closeRemoveUserModal() {
             </template>
 
             <template v-else>
-              <button
+              <!-- <button
                 @click="openLeaveWorkspaceModal"
                 class="min-w-[55px] cursor-pointer appearance-none text-left text-sm font-medium text-red-500 hover:underline"
               >
                 Leave
-              </button>
+              </button> -->
             </template>
           </div>
         </div>
