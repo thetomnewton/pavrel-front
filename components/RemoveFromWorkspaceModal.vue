@@ -47,7 +47,7 @@ function attemptRemove() {
                 Cancel
               </button>
 
-              <Button type="submit" :disabled="!online">Remove</Button>
+              <Button type="submit" :disabled="!online">Remove member</Button>
             </p>
           </form>
         </DialogPanel>

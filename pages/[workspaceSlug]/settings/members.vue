@@ -95,7 +95,7 @@ function closeRemoveUserModal() {
             <template v-if="workspaceUser.id !== user.id">
               <button
                 @click="openRemoveUserFromWorkspaceModal(workspaceUser)"
-                class="min-w-[55px] cursor-pointer appearance-none text-sm font-medium text-red-500 hover:underline"
+                class="min-w-[55px] cursor-pointer appearance-none text-left text-sm font-medium text-red-500 hover:underline"
               >
                 Remove
               </button>
@@ -104,7 +104,7 @@ function closeRemoveUserModal() {
             <template v-else>
               <button
                 @click="openLeaveWorkspaceModal"
-                class="min-w-[55px] cursor-pointer appearance-none text-sm font-medium text-red-500 hover:underline"
+                class="min-w-[55px] cursor-pointer appearance-none text-left text-sm font-medium text-red-500 hover:underline"
               >
                 Leave
               </button>
