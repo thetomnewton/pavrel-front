@@ -1153,6 +1153,10 @@ export default {
       }
     },
 
+    async removeUserFromWorkspace({ getters }: VuexAction, user: User) {
+      return await api.delete(`/workspaces/${getters.currentWorkspace.id}/users/${user.id}`)
+    },
+
     async logIdeaUpdate({ getters, commit }: VuexAction, { orig, idea }: { idea: Idea; orig?: Idea }) {
       if (!orig) return
 

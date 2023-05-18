@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Dialog, DialogPanel, TransitionRoot } from '@headlessui/vue'
 import { useOnline } from '@vueuse/core'
+import { useStore } from 'vuex'
 import { User } from '~/types'
 
 const props = defineProps<{
@@ -9,11 +10,26 @@ const props = defineProps<{
 }>()
 
 const online = useOnline()
+const store = useStore()
 
-const emit = defineEmits(['close', 'leave'])
+const emit = defineEmits(['close'])
+
+const removing = ref(false)
 
 function attemptRemove() {
-  //
+  if (!props.user) return
+
+  removing.value = true
+
+  store
+    .dispatch('base/removeUserFromWorkspace', props.user)
+    .then(response => {
+      removing.value = false
+      emit('close')
+    })
+    .catch(() => {
+      removing.value = false
+    })
 }
 </script>
 
