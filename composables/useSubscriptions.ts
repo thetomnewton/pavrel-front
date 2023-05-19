@@ -5,13 +5,15 @@ export function useSubscriptions() {
   const store = useStore()
   const { currentWorkspace } = useWorkspace()
 
-  const hasActiveSubscription = (productId: string) =>
-    store.state.base.subscriptions.find((subscription: Subscription) => subscription.name === productId)
+  const getActiveSubscription = (productId: string) =>
+    store.state.base.subscriptions.find(
+      (subscription: Subscription) => subscription.name === productId && subscription.stripe_status === 'active'
+    ) as Subscription | undefined
+
+  const hasActiveSubscription = (productId: string) => !!getActiveSubscription(productId)
 
   const subscriptionIsEnding = (productId: string) => {
-    const subscription = store.state.base.subscriptions.find(
-      (subscription: Subscription) => subscription.name === productId
-    ) as Subscription | undefined
+    const subscription = getActiveSubscription(productId)
 
     if (!subscription || !subscription.ends_at) return false
 
