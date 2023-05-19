@@ -17,7 +17,7 @@ export function useSubscriptions() {
 
     if (!subscription || !subscription.ends_at) return false
 
-    return new Date(subscription.ends_at) < new Date()
+    return new Date(subscription.ends_at) > new Date()
   }
 
   const isPro = computed<boolean>(() => currentWorkspace.value.plan !== 'free')

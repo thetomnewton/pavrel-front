@@ -170,7 +170,7 @@ const supportFeatures = ref<Feature[]>([
           class="block w-full cursor-default appearance-none rounded-md border border-transparent bg-blue-600 px-4 py-2 text-center text-sm font-medium leading-5 text-white hover:shadow active:translate-y-px active:bg-blue-700"
           v-else-if="subscriptionIsEnding(products.pro)"
         >
-          Plan cancelled - re-upgrade now
+          Subscription ending: re-upgrade now
         </a>
 
         <button
