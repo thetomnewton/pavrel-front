@@ -177,7 +177,7 @@ const supportFeatures = ref<Feature[]>([
 
     <div class="pt-6 pb-2 text-[15px] font-medium leading-6 text-slate-900">Usage</div>
     <div></div>
-    <div class="-mx-4 bg-slate-50 px-4 dark:bg-zinc-800"></div>
+    <div class="-ml-4 bg-slate-50 px-4 dark:bg-zinc-800"></div>
 
     <template v-for="feature in usageFeatures" :key="feature.name">
       <div>
@@ -188,14 +188,14 @@ const supportFeatures = ref<Feature[]>([
         <div class="text-sm leading-10 text-slate-900 dark:text-zinc-300">{{ feature.free }}</div>
       </div>
 
-      <div class="-mx-4 bg-slate-50 px-4 dark:bg-zinc-800">
+      <div class="-ml-4 bg-slate-50 px-4 dark:bg-zinc-800">
         <div class="text-sm leading-10 text-slate-900 dark:text-zinc-300">{{ feature.pro }}</div>
       </div>
     </template>
 
     <div class="pt-6 pb-2 text-[15px] font-medium leading-6 text-slate-900">Collaboration</div>
     <div></div>
-    <div class="-mx-4 bg-slate-50 px-4 dark:bg-zinc-800"></div>
+    <div class="-ml-4 bg-slate-50 px-4 dark:bg-zinc-800"></div>
 
     <template v-for="feature in collabFeatures" :key="feature.name">
       <div>
@@ -206,14 +206,14 @@ const supportFeatures = ref<Feature[]>([
         <div class="text-sm leading-10 text-slate-900 dark:text-zinc-300">{{ feature.free }}</div>
       </div>
 
-      <div class="-mx-4 bg-slate-50 px-4 dark:bg-zinc-800">
+      <div class="-ml-4 bg-slate-50 px-4 dark:bg-zinc-800">
         <div class="text-sm leading-10 text-slate-900 dark:text-zinc-300">{{ feature.pro }}</div>
       </div>
     </template>
 
     <div class="pt-6 pb-2 text-[15px] font-medium leading-6 text-slate-900">Features</div>
     <div></div>
-    <div class="-mx-4 bg-slate-50 px-4 dark:bg-zinc-800"></div>
+    <div class="-ml-4 bg-slate-50 px-4 dark:bg-zinc-800"></div>
 
     <template v-for="feature in otherFeatures" :key="feature.name">
       <div>
@@ -224,14 +224,14 @@ const supportFeatures = ref<Feature[]>([
         <div class="text-sm leading-10 text-slate-900 dark:text-zinc-300">{{ feature.free }}</div>
       </div>
 
-      <div class="-mx-4 bg-slate-50 px-4 dark:bg-zinc-800">
+      <div class="-ml-4 bg-slate-50 px-4 dark:bg-zinc-800">
         <div class="text-sm leading-10 text-slate-900 dark:text-zinc-300">{{ feature.pro }}</div>
       </div>
     </template>
 
     <div class="pt-6 pb-2 text-[15px] font-medium leading-6 text-slate-900">Support</div>
     <div></div>
-    <div class="-mx-4 bg-slate-50 px-4 dark:bg-zinc-800"></div>
+    <div class="-ml-4 bg-slate-50 px-4 dark:bg-zinc-800"></div>
 
     <template v-for="feature in supportFeatures" :key="feature.name">
       <div>
@@ -242,14 +242,14 @@ const supportFeatures = ref<Feature[]>([
         <div class="text-sm leading-10 text-slate-900 dark:text-zinc-300">{{ feature.free }}</div>
       </div>
 
-      <div class="-mx-4 bg-slate-50 px-4 dark:bg-zinc-800">
+      <div class="-ml-4 bg-slate-50 px-4 dark:bg-zinc-800">
         <div class="text-sm leading-10 text-slate-900 dark:text-zinc-300">{{ feature.pro }}</div>
       </div>
     </template>
 
     <div class="h-4"></div>
     <div></div>
-    <div class="-mx-4 rounded-b bg-slate-50 dark:bg-zinc-800"></div>
+    <div class="-ml-4 rounded-b bg-slate-50 dark:bg-zinc-800"></div>
     <div></div>
   </div>
 
