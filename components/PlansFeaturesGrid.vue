@@ -26,7 +26,7 @@ function openCancelModal() {
   cancelModalOpen.value = true
 }
 
-const { hasSubscription } = useSubscriptions()
+const { hasActiveSubscription, subscriptionIsEnding } = useSubscriptions()
 
 interface Feature {
   name: string
@@ -122,7 +122,7 @@ const supportFeatures = ref<Feature[]>([
       <div class="mb-2 flex items-center space-x-2 font-semibold">
         <div>Free</div>
         <div
-          v-if="!hasSubscription(products.pro)"
+          v-if="!hasActiveSubscription(products.pro)"
           class="inline-flex items-center space-x-1 rounded bg-blue-200 px-1 py-px text-xs font-medium text-blue-800"
         >
           <CheckIcon class="h-[14px] w-[14px]" />
@@ -142,7 +142,7 @@ const supportFeatures = ref<Feature[]>([
           >-20%</span
         >
         <div
-          v-if="hasSubscription(products.pro)"
+          v-if="hasActiveSubscription(products.pro)"
           class="ml-2 inline-flex items-center space-x-1 rounded bg-blue-200 px-1 py-px text-xs font-medium text-blue-800"
         >
           <CheckIcon class="h-[14px] w-[14px]" />
@@ -157,12 +157,20 @@ const supportFeatures = ref<Feature[]>([
 
       <div>
         <a
-          v-if="!hasSubscription(products.pro)"
+          v-if="!hasActiveSubscription(products.pro)"
           :href="`${config.public.backendUrl}/workspaces/${workspace.id}/subscribe/${products.pro}/${prices[billingFrequency]}`"
           type="button"
           class="block w-full cursor-default appearance-none rounded-md border border-transparent bg-blue-600 px-4 py-2 text-center text-sm font-medium leading-5 text-white hover:shadow active:translate-y-px active:bg-blue-700"
         >
           Upgrade now
+        </a>
+
+        <a
+          :href="`${config.public.backendUrl}/workspaces/${workspace.id}/subscribe/${products.pro}/${prices[billingFrequency]}`"
+          class="block w-full cursor-default appearance-none rounded-md border border-transparent bg-blue-600 px-4 py-2 text-center text-sm font-medium leading-5 text-white hover:shadow active:translate-y-px active:bg-blue-700"
+          v-else-if="subscriptionIsEnding(products.pro)"
+        >
+          Plan cancelled - re-upgrade now
         </a>
 
         <button

@@ -9,7 +9,7 @@ definePageMeta({
 
 const route = useRoute()
 const { getWorkspaceFromSlug } = useWorkspace()
-const { hasSubscription } = useSubscriptions()
+const { hasActiveSubscription } = useSubscriptions()
 
 const products = ref(productIds)
 
@@ -30,7 +30,7 @@ const isAnnualBilling = ref(true)
       <p class="mt-4 text-sm text-slate-700 dark:text-zinc-400">
         This workspace is currently on the
         <span class="font-medium text-slate-800 dark:text-zinc-300">
-          {{ hasSubscription(products.pro) ? 'Pro' : 'Free' }}
+          {{ hasActiveSubscription(products.pro) ? 'Pro' : 'Free' }}
         </span>
         plan. Upgrade to do even more with Pavrel.
       </p>

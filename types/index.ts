@@ -220,6 +220,7 @@ export interface Subscription {
   workspace_id: Workspace['id']
   created_at: string
   updated_at: string
+  ends_at: string | null
   stripe_id: string
   stripe_price: string
   stripe_status: string

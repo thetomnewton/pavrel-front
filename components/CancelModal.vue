@@ -52,7 +52,7 @@ function cancel() {
           <form @submit.prevent="cancel" class="px-8 py-6">
             <p class="mb-4">Are you sure you wish to cancel your subscription?</p>
 
-            <p class="mb-4">You will lose access to all Pro features.</p>
+            <p class="mb-4">Once your current billing cycle ends, you will lose access to all Pro features.</p>
 
             <p class="flex items-center justify-end space-x-2">
               <button
