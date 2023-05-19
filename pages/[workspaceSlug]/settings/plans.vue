@@ -9,7 +9,7 @@ definePageMeta({
 
 const route = useRoute()
 const { getWorkspaceFromSlug } = useWorkspace()
-const { hasActiveSubscription } = useSubscriptions()
+const { hasActiveSubscription, subscriptionIsEnding } = useSubscriptions()
 
 const products = ref(productIds)
 
@@ -32,7 +32,12 @@ const isAnnualBilling = ref(true)
         <span class="font-medium text-slate-800 dark:text-zinc-300">
           {{ hasActiveSubscription(products.pro) ? 'Pro' : 'Free' }}
         </span>
-        plan. Upgrade to do even more with Pavrel.
+        plan.<template v-if="!hasActiveSubscription(products.pro)"> Upgrade to do even more with Pavrel.</template>
+      </p>
+
+      <p class="mt-4 text-sm text-slate-700 dark:text-zinc-400" v-if="subscriptionIsEnding(products.pro)">
+        Your subscription has been cancelled and is due to expire soon. Please re-upgrade to avoid losing access to Pro
+        features.
       </p>
 
       <p class="mt-2 flex">
