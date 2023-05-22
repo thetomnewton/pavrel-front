@@ -66,7 +66,7 @@ const slugAlreadyExists = computed(() => currentWorkspaceTeams.value?.find(team 
 
 <template>
   <TransitionRoot :show="open" as="template">
-    <Dialog as="div" class="relative z-10" @click.self="$emit('close')">
+    <Dialog as="div" class="relative z-10" @click.self="$emit('close')" @click="$emit('close')">
       <ModalBg />
 
       <ModalWrapper>
