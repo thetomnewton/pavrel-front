@@ -107,7 +107,7 @@ useHead({
 
     <IdeaViewWrapper
       v-if="ideaView && team"
-      :view="ideaView"
+      :view="filter === 'all' ? ideaView : 'list'"
       :ideas="applyFiltersToIdeas(relevantTeamIdeas)"
       :team="team"
       :category-filter="filter || 'all'"

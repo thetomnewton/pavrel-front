@@ -68,7 +68,9 @@ function attemptMove(team: Team) {
           </Alert>
 
           <div class="relative -mx-8">
-            <TeamList :teams="teamsToMoveTo" @select-team="attemptMove" />
+            <div class="max-h-400px overflow-y-auto">
+              <TeamList :teams="teamsToMoveTo" @select-team="attemptMove" />
+            </div>
 
             <div
               v-if="movingStatus === 'processing'"
