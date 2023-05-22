@@ -55,7 +55,39 @@ const isAnnualBilling = ref(true)
     </div>
 
     <div class="w-full overflow-x-auto pb-12">
-      <PlansFeaturesGrid :workspace="workspace" :is-monthly-billing="!isAnnualBilling" />
+      <div class="border-b border-slate-200 pb-12 dark:border-zinc-700">
+        <PlansFeaturesGrid :workspace="workspace" :is-monthly-billing="!isAnnualBilling" />
+      </div>
+
+      <div class="mt-12 text-slate-900 dark:text-zinc-300">
+        <h2 class="mb-4 text-2xl font-bold">FAQs</h2>
+
+        <h4 class="font-semibold">Will my whole workspace be upgraded?</h4>
+        <p class="mb-4">
+          Yes, your whole workspace and everyone inside it will instantly gain access to the Pro features.
+        </p>
+
+        <h4 class="font-semibold">Can I cancel at any time?</h4>
+        <p class="mb-4">
+          Yes, you can cancel your subscription at any time by returning this page and selecting the option.
+        </p>
+
+        <h4 class="font-semibold">What happens if I add someone to my existing plan?</h4>
+        <p class="mb-4">
+          Your subscription will be updated accordingly for your next billing cycle. There may also be a pro-rated
+          charge for usage of that additional person in your current billing cycle.
+        </p>
+
+        <h4 class="font-semibold">Can I contact you with additional questions?</h4>
+        <p class="mb-4">
+          Absolutely, please email
+          <a href="mailto:support@pavrel.com" class="font-medium underline">support@pavrel.com</a> with any additional
+          questions.
+        </p>
+
+        <h4 class="font-semibold">Do you offer enterprise plans?</h4>
+        <p class="mb-4">Yes, please contact us to discuss.</p>
+      </div>
     </div>
   </div>
 </template>
