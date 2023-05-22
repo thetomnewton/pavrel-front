@@ -21,7 +21,7 @@ const ideaStatusesSortedByCategory = computed(() => {
   return props.team.statuses
     .sort((a: IdeaStatus, b: IdeaStatus) => {
       if (props.categoryFilter === 'planning') {
-        return ideaStatusSort(a.category, b.category) * -1
+        return ideaStatusSort(a.category, b.category)
       } else {
         return ideaStatusSort(a.category, b.category)
       }
