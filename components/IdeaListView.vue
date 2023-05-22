@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import { groupBy } from 'lodash-es'
+import { cloneDeep, groupBy } from 'lodash-es'
 import { ideaStatusSort } from '@/helpers/ideas'
 import { Idea, IdeaStatus, PossibleCategoryFilters, Team } from '@/types'
 
@@ -18,10 +18,10 @@ const ideasGroupedByStatus = computed(() => groupBy(props.ideas, 'status_id'))
 const ideaStatusesSortedByCategory = computed(() => {
   if (props.team == null) return []
 
-  return props.team.statuses
+  return cloneDeep(props.team.statuses)
     .sort((a: IdeaStatus, b: IdeaStatus) => {
       if (props.categoryFilter === 'planning') {
-        return ideaStatusSort(a.category, b.category)
+        return ideaStatusSort(b.category, a.category)
       } else {
         return ideaStatusSort(a.category, b.category)
       }
