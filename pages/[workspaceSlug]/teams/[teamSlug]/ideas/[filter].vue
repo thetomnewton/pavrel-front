@@ -61,8 +61,7 @@ const relevantTeamIdeas = computed(() => {
   }
 
   return ideas.value
-    .filter(({ team_id }) => team_id === team.value?.id)
-    .filter(idea => idea.deleted_at === null)
+    .filter(({ team_id, deleted_at }) => team_id === team.value?.id && deleted_at === null)
     .sort(sorts[options.value.sort])
     .filter(filters[filter ?? 'all'])
 })

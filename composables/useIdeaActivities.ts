@@ -16,7 +16,7 @@ export function useIdeaActivities() {
   const initiatorName = (activity: IdeaActivity) => {
     if (activity.initiator_type === 'system') return 'Pavrel'
 
-    return users.value.find(user => user.id === activity.initiator_id)?.name ?? 'Unknown user'
+    return users.value.find(user => user.id === activity.initiator_id)?.name ?? 'Unknown member'
   }
 
   return {
