@@ -36,8 +36,8 @@ const isAnnualBilling = ref(true)
       </p>
 
       <p class="mt-4 text-sm text-slate-700 dark:text-zinc-400" v-if="subscriptionIsEnding(products.pro)">
-        Your subscription has been cancelled and is due to expire soon. Please re-upgrade to avoid losing access to Pro
-        features.
+        Your subscription has been cancelled and is due to expire soon. To avoid losing access to Pro features, set up a
+        new subscription.
       </p>
 
       <p class="mt-2 flex">
