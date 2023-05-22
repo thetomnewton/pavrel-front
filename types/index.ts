@@ -177,7 +177,7 @@ export interface LabelRemovedActivity extends IdeaActivity {
 
 export type PossibleViewSorts = 'created' | 'updated' | 'upvotes'
 
-export type PossibleCategoryFilters = 'all' | 'review' | 'backlog' | 'planning' | 'active'
+export type PossibleCategoryFilters = 'all' | 'review' | 'planning' | 'active'
 
 interface StatusFilter {
   id: string

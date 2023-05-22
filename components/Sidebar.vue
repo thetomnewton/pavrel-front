@@ -529,17 +529,6 @@ onUnmounted(() => {
             </NuxtLink>
 
             <NuxtLink
-              :to="`/${currentWorkspace.slug}/teams/${team.slug}/ideas/backlog`"
-              class="group mb-px flex cursor-default rounded px-2 leading-7 hover:bg-slate-150 dark:hover:bg-zinc-800"
-              :class="{
-                'bg-slate-150 dark:bg-zinc-800':
-                  $route.fullPath === `/${currentWorkspace.slug}/teams/${team.slug}/ideas/backlog`,
-              }"
-            >
-              <div>Backlog</div>
-            </NuxtLink>
-
-            <NuxtLink
               :to="`/${currentWorkspace.slug}/teams/${team.slug}/ideas/planning`"
               class="group mb-px flex cursor-default rounded px-2 leading-7 hover:bg-slate-150 dark:hover:bg-zinc-800"
               :class="{

@@ -13,7 +13,7 @@ const route = useRoute()
 const store = useStore()
 
 const teamSlug = route.params.teamSlug as string
-const filter = route.params.filter as 'all' | 'review' | 'backlog' | 'planning' | 'active'
+const filter = route.params.filter as 'all' | 'review' | 'planning' | 'active'
 
 const ideaView = useLocalStorage<'list' | 'board' | undefined>('idea-view-preference', 'list')
 
@@ -24,7 +24,6 @@ const title = computed(
     ({
       all: 'All ideas',
       review: 'Review',
-      backlog: 'Backlog',
       planning: 'Planning',
       active: 'Active ideas',
     }[filter] ?? 'Ideas')
@@ -57,9 +56,8 @@ const relevantTeamIdeas = computed(() => {
   const filters = {
     all: (idea: Idea) => idea != null,
     review: (idea: Idea) => getIdeaStatusCategory(idea.status_id)?.category === 1,
-    backlog: (idea: Idea) => getIdeaStatusCategory(idea.status_id)?.category === 2,
-    planning: (idea: Idea) => getIdeaStatusCategory(idea.status_id)?.category === 3,
-    active: (idea: Idea) => [4, 5].includes(getIdeaStatusCategory(idea.status_id)?.category || 0),
+    planning: (idea: Idea) => [2, 3].includes(getIdeaStatusCategory(idea.status_id)?.category ?? 0),
+    active: (idea: Idea) => [4, 5].includes(getIdeaStatusCategory(idea.status_id)?.category ?? 0),
   }
 
   return ideas.value
