@@ -58,6 +58,25 @@ useHead({
 
     <p>Alternatively, use the <code>m</code> key on your keyboard as a shortcut.</p>
 
+    <h3 id="may-2023-improve-help-setion">Help section improvements</h3>
+
+    <p>We've recently upgraded the help section to help you navigate Pavrel even easier than before.</p>
+
+    <p>
+      You can now access the help section by typing `?` on your keyboard in the main workspace view. Alternatively, you
+      can access it by clicking your name in the sidebar and clicking "Help & support" in the menu which appears.
+    </p>
+
+    <p>
+      This gives you access to contact us with your queries, view all available keyboard shortcuts, and also provides a
+      link to our new documentation section.
+    </p>
+
+    <p>
+      The documentation area is still in progress, but will soon be a comprehensive guide to everything you can do on
+      Pavrel.
+    </p>
+
     <h2 id="april-2023">April 2023</h2>
 
     <h3 id="april-2023-kanban-board">New board view</h3>
