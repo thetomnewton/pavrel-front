@@ -18,13 +18,13 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
 <template>
   <section class="mx-auto max-w-4xl px-6 pt-20 pb-20 text-center sm:pt-24 lg:px-8">
     <h1 class="mb-4 text-3xl font-semibold tracking-tight text-slate-900 sm:text-5xl">
-      Idea management for modern software teams
+      The home for your team's ideas
     </h1>
 
     <p class="leading-6 text-slate-700">
-      <span class="font-semibold text-slate-700">Before Pavrel</span>: Ideas are scattered, backlog feels
-      insurmountable, unclear how to go from from "idea" to "planned out and ready for work".
-      <span class="font-semibold text-slate-700">After Pavrel</span>: Ideas captured in a central, searchable,
+      <span class="font-semibold text-slate-800">Before Pavrel</span>: Ideas are scattered, your backlog feels
+      insurmountable, unclear how to get from from "idea" to "planned out and ready for work".
+      <span class="font-semibold text-slate-800">After Pavrel</span>: Ideas captured in a central, searchable,
       collaborative place, you feel in control of your backlog again, your team has less overwhelm and less stress.
     </p>
 
