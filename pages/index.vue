@@ -62,7 +62,7 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
           Free your backlog from "maybe one day" tasks
         </div>
         <div class="text-[15px] font-medium text-slate-500">
-          Reduce clutter and allow your team to focus on what really matters.
+          Keep your backlog from feeling overwhelming, and save it for only committed and planned-out work.
         </div>
       </div>
     </div>
@@ -83,7 +83,7 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
 
       <div class="px-10 pb-8 pt-4">
         <div class="mb-3 text-sm font-medium tracking-tight text-blue-600">Create</div>
-        <div class="mb-3 text-[20px] font-medium tracking-tight text-slate-900">Stimulate creativity & innovation</div>
+        <div class="mb-3 text-[20px] font-medium tracking-tight text-slate-900">Capture now, shape later</div>
         <div class="text-[15px] font-medium text-slate-500">
           Capture ideas as they arise, without worrying if they are fully formed yet or thought-through.
         </div>
