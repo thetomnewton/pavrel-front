@@ -25,7 +25,7 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
       <span class="font-semibold text-slate-700">Before Pavrel</span>: Ideas are scattered, backlog feels
       insurmountable, unclear how to go from from "idea" to "planned out and ready for work".
       <span class="font-semibold text-slate-700">After Pavrel</span>: Ideas captured in a central, searchable,
-      collaborative place, you feel in control of your backlog again with less overwhelm and less stress.
+      collaborative place, you feel in control of your backlog again, your team has less overwhelm and less stress.
     </p>
 
     <div class="mt-8">
