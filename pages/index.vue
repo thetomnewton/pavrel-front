@@ -16,12 +16,16 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
 </script>
 
 <template>
-  <section class="mx-auto max-w-4xl px-6 pt-20 pb-20 sm:pt-24 lg:px-8">
-    <h1 class="text-3xl font-semibold tracking-tight text-slate-900 sm:text-5xl">
-      Idea tracker for modern software teams
+  <section class="mx-auto max-w-4xl px-6 pt-20 pb-20 text-center sm:pt-24 lg:px-8">
+    <h1 class="mb-4 text-3xl font-semibold tracking-tight text-slate-900 sm:text-5xl">
+      Idea management for modern software teams
     </h1>
-    <p class="mt-3 text-lg font-medium leading-8 text-slate-500">
-      Pavrel is a home for your ideas. Designed for modern software teams.
+
+    <p class="leading-6 text-slate-700">
+      <span class="font-semibold text-slate-700">Before Pavrel</span>: Ideas are scattered, backlog feels
+      insurmountable, unclear how to go from from "idea" to "planned out and ready for work".
+      <span class="font-semibold text-slate-700">After Pavrel</span>: Ideas captured in a central, searchable,
+      collaborative place, you feel in control of your backlog again with less overwhelm and less stress.
     </p>
 
     <div class="mt-8">
