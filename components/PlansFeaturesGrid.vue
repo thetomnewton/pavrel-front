@@ -129,8 +129,7 @@ const supportFeatures = ref<Feature[]>([
         </div>
       </div>
       <div class="mb-4">
-        <span class="mr-1 text-2xl font-medium">$0</span>
-        <span class="text-[.8125rem] text-slate-700 dark:text-zinc-400">per user / month</span>
+        <span class="mr-1 text-2xl font-medium">FREE</span>
       </div>
     </div>
 

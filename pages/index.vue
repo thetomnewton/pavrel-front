@@ -343,7 +343,7 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
             <h2 class="flex items-center text-lg font-medium leading-6 text-slate-900"><span>Free</span></h2>
             <p class="mt-4 text-sm text-slate-500">Get your whole team using Pavrel, completely free</p>
             <p class="mt-8">
-              <span class="text-4xl font-bold tracking-tight text-slate-900">$0</span>
+              <span class="text-4xl font-bold tracking-tight text-slate-900">FREE</span>
             </p>
             <NuxtLink
               to="/register"
@@ -438,9 +438,9 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
               <span class="text-4xl font-bold tracking-tight text-slate-900">
                 {{ billingStrategy === 'monthly' ? '$10' : '$96' }}
               </span>
-              <span class="text-base font-medium text-slate-500"
-                >/user/{{ billingStrategy === 'monthly' ? 'month' : 'year' }}</span
-              >
+              <span class="text-base font-medium text-slate-500">
+                /user/{{ billingStrategy === 'monthly' ? 'month' : 'year' }}
+              </span>
             </p>
             <NuxtLink
               to="/login"
