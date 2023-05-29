@@ -3,7 +3,7 @@ import { ArrowUpRightIcon } from '@heroicons/vue/20/solid'
 import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
 
 useHead({
-  bodyAttrs: { class: 'antialiased h-screen text-slate-900 dark:text-zinc-200 bg-slate-100' },
+  bodyAttrs: { class: 'antialiased h-screen text-slate-900 dark:text-zinc-200' },
   title: 'Pavrel',
   meta: [
     {
