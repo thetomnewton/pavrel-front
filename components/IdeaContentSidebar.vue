@@ -127,14 +127,20 @@ function closeViaOutsideClick() {
       <span v-else>Details</span>
 
       <span class="ml-auto flex items-center space-x-1">
-        <span
-          v-if="!creating"
-          @click="userIsSubscribedTo(idea) ? unsubscribeFromIdeaAction(idea) : subscribeToIdeaAction(idea)"
-          class="cursor-default rounded p-[10px] hover:bg-slate-150 active:bg-slate-200 dark:hover:bg-zinc-800 dark:hover:text-zinc-300 dark:active:bg-zinc-700/50"
-        >
-          <EyeSlashIcon v-if="userIsSubscribedTo(idea)" class="h-4 w-4" />
-          <EyeIcon v-else class="h-4 w-4" />
-        </span>
+        <Tooltip class="flex">
+          <span
+            v-if="!creating"
+            @click="userIsSubscribedTo(idea) ? unsubscribeFromIdeaAction(idea) : subscribeToIdeaAction(idea)"
+            class="cursor-default rounded p-[10px] hover:bg-slate-150 active:bg-slate-200 dark:hover:bg-zinc-800 dark:hover:text-zinc-300 dark:active:bg-zinc-700/50"
+          >
+            <EyeSlashIcon v-if="userIsSubscribedTo(idea)" class="h-4 w-4" />
+            <EyeIcon v-else class="h-4 w-4" />
+          </span>
+
+          <template #content>
+            {{ userIsSubscribedTo(idea) ? 'Unwatch' : 'Watch' }}
+          </template>
+        </Tooltip>
 
         <span
           v-if="hideMenuCloseIcon !== true"
