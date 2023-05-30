@@ -94,15 +94,21 @@ const openContentFilterModal = () => {
 
 <template>
   <Menu as="div" class="relative flex">
-    <MenuButton
-      as="div"
-      @click="screen = 'base'"
-      class="cursor-default rounded px-1.5 py-[5px] text-[.8125rem] font-medium leading-5 hover:bg-slate-100 active:bg-slate-200 ui-open:bg-slate-200 dark:hover:bg-zinc-800 dark:ui-open:bg-zinc-700/50"
-    >
-      <slot>
-        <FunnelIcon class="h-[18px] w-[18px] text-slate-800 dark:text-zinc-400" />
-      </slot>
-    </MenuButton>
+    <Tooltip>
+      <MenuButton
+        as="div"
+        @click="screen = 'base'"
+        class="cursor-default rounded px-1.5 py-[5px] text-[.8125rem] font-medium leading-5 hover:bg-slate-100 active:bg-slate-200 ui-open:bg-slate-200 dark:hover:bg-zinc-800 dark:ui-open:bg-zinc-700/50"
+      >
+        <slot>
+          <FunnelIcon class="h-[18px] w-[18px] text-slate-800 dark:text-zinc-400" />
+        </slot>
+      </MenuButton>
+
+      <template #content>
+        <span>Filter ideas</span>
+      </template>
+    </Tooltip>
 
     <transition
       enter-active-class="transition duration-100 ease-out"

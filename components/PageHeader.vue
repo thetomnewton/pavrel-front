@@ -104,22 +104,16 @@ onUnmounted(() => {
       <slot />
 
       <div v-if="ideas && (showFilters ?? true) && team" class="ml-2">
-        <Tooltip>
-          <IdeaFilterDropdown
-            v-if="ideas.length"
-            :team="team"
-            :workspace="currentWorkspace"
-            :active-filters="filters ?? []"
-            :ideas="ideas"
-            @apply-filter="applyFilter"
-            @update-filter="updateFilter"
-            @open-modal="openModal"
-          />
-
-          <template #content>
-            <span>Filter ideas</span>
-          </template>
-        </Tooltip>
+        <IdeaFilterDropdown
+          v-if="ideas.length"
+          :team="team"
+          :workspace="currentWorkspace"
+          :active-filters="filters ?? []"
+          :ideas="ideas"
+          @apply-filter="applyFilter"
+          @update-filter="updateFilter"
+          @open-modal="openModal"
+        />
       </div>
 
       <span v-if="ideas && !!ideaView && team" class="ml-2">
