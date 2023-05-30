@@ -62,8 +62,13 @@ const isAnnualBilling = ref(true)
           <img src="/climate.svg" alt="" class="w-6" />
           <span class="ml-2">
             Pavrel contributes 1% of your subscription to help remove CO₂ from the atmosphere through
-            <a href="https://climate.stripe.com/ClSXsZ" class="text-blue-600 underline" target="_blank" rel="noreferrer"
-              >Stripe Climate</a
+            <a
+              href="https://climate.stripe.com/ClSXsZ"
+              class="text-blue-600 underline"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Stripe Climate </a
             >.
           </span>
         </div>
