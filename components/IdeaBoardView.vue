@@ -207,6 +207,6 @@ onUnmounted(() => {
 
 <style scoped>
 .drag-hovered {
-  @apply bg-slate-50 dark:bg-zinc-800;
+  @apply bg-slate-100 dark:bg-zinc-800;
 }
 </style>
