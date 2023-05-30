@@ -57,6 +57,16 @@ const isAnnualBilling = ref(true)
     <div class="w-full overflow-x-auto pb-12">
       <div class="border-b border-slate-200 pb-12 dark:border-zinc-700">
         <PlansFeaturesGrid :workspace="workspace" :is-monthly-billing="!isAnnualBilling" />
+
+        <div class="mt-8 flex items-center text-[13px]">
+          <img src="/climate.svg" alt="" class="w-6" />
+          <span class="ml-2">
+            Pavrel contributes 1% of your subscription to help remove CO₂ from the atmosphere through
+            <a href="https://climate.stripe.com/ClSXsZ" class="text-blue-600 underline" target="_blank" rel="noreferrer"
+              >Stripe Climate</a
+            >.
+          </span>
+        </div>
       </div>
 
       <div class="mt-12 text-slate-900 dark:text-zinc-300">
