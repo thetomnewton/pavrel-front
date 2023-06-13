@@ -130,7 +130,7 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
       <div class="px-10 pb-8 pt-4">
         <div class="mb-3 text-sm font-medium tracking-tight text-blue-600">Focus</div>
         <div class="mb-3 text-[20px] font-medium tracking-tight text-slate-900">
-          Everything you need, right at your fingertips
+          Create an innovation culture in your team
         </div>
         <div class="text-[15px] font-medium text-slate-500">
           Your team will love the crisp and modern interface, with blazing fast interactions and real-time sync.
