@@ -19,11 +19,10 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
   <section class="mx-auto max-w-4xl px-6 pt-20 pb-20 text-center sm:pt-24 lg:px-8">
     <h1 class="mb-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-5xl">The home for your team's ideas</h1>
 
-    <p class="leading-6 text-slate-700">
-      <span class="font-semibold text-slate-800">Before Pavrel</span>: Ideas are scattered, your backlog feels
-      insurmountable, unclear how to get from from "idea" to "planned out and ready for work".
-      <span class="font-semibold text-slate-800">After Pavrel</span>: Ideas captured in a central, searchable,
-      collaborative place, you feel in control of your backlog again, your team has less overwhelm and less stress.
+    <p class="text-lg leading-7 text-slate-700">
+      <span class="font-semibold text-slate-800">Take control</span> of your team's idea-to-feature workflow and
+      <span class="font-semibold text-slate-800">create an innovation culture</span> in your team with Pavrel. Built for
+      modern software teams.
     </p>
 
     <div class="mt-8">
@@ -44,8 +43,46 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
     </div>
   </section>
 
+  <section class="mx-auto hidden max-w-3xl py-12 px-6 text-lg text-slate-800 lg:block lg:py-20 lg:px-8">
+    <h2 class="mb-8 text-2xl font-semibold text-slate-800">Does this sound familiar?</h2>
+
+    <p class="mb-6">
+      Through building our own products over the last decade and speaking to countless software teams, we have seen the
+      same frustrations appearing.
+    </p>
+
+    <ul class="pl-5">
+      <li class="mb-4 list-disc pl-3">
+        Ideas for new features or improvements from team members are
+        <span class="font-semibold">scattered</span> across different platforms or mediums, or get lost or forgotten.
+      </li>
+
+      <li class="mb-4 list-disc pl-3">
+        Your <span class="font-semibold">backlog is growing</span> faster than work can be completed, and it contains a
+        mixture of "planned out, thought-through" type work and also "maybe one day" type work.
+      </li>
+
+      <li class="mb-4 list-disc pl-3">
+        You <span class="font-semibold">don't have a consistent strategy</span> to get from "idea" to "planned out and
+        ready for work".
+      </li>
+
+      <li class="list-disc pl-3">
+        You'd <span class="font-semibold">like to foster an innovation culture</span> in your team, but it feels unclear
+        how to get there.
+      </li>
+    </ul>
+
+    <p class="mt-6">
+      We found ourselves having these exact issues, and when we learned that others had the same frustrations, we built
+      Pavrel as the solution we wish we had years ago.
+    </p>
+
+    <p class="mt-6">We're proud of it, and we hope you like it.</p>
+  </section>
+
   <section class="mx-auto flex flex-wrap justify-center gap-6 px-6 pt-20 pb-20 lg:px-8" id="features">
-    <div class="w-full rounded-2xl border border-slate-200 bg-white shadow-sm md:w-[450px]">
+    <div class="w-full rounded-2xl border border-slate-200 bg-white shadow-sm md:w-[400px]">
       <div class="relative flex h-[300px]">
         <div
           class="h-full w-full rounded-t-2xl"
@@ -65,7 +102,7 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
       </div>
     </div>
 
-    <div class="w-full rounded-2xl border border-slate-200 bg-white shadow-sm md:w-[450px]">
+    <div class="w-full rounded-2xl border border-slate-200 bg-white shadow-sm md:w-[400px]">
       <div class="relative flex h-[300px]">
         <div
           class="h-full w-full rounded-t-2xl"
@@ -88,7 +125,7 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
       </div>
     </div>
 
-    <div class="w-full rounded-2xl border border-slate-200 bg-white shadow-sm md:w-[450px]">
+    <div class="w-full rounded-2xl border border-slate-200 bg-white shadow-sm md:w-[400px]">
       <div class="relative flex h-[300px]">
         <div
           class="h-full w-full rounded-t-2xl"
@@ -109,31 +146,6 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
         </div>
         <div class="text-[15px] font-medium text-slate-500">
           Pavrel's teams functionality allows you to share and collaborate on ideas with the right people.
-        </div>
-      </div>
-    </div>
-
-    <div class="w-full rounded-2xl border border-slate-200 bg-white shadow-sm md:w-[450px]">
-      <div class="relative flex h-[300px]">
-        <div
-          class="h-full w-full rounded-t-2xl"
-          style="
-            background-image: url('/marketing/drag-drop.png');
-            background-position-x: -50px;
-            background-position-y: -90px;
-            background-size: 500px;
-          "
-        ></div>
-        <div class="absolute inset-0 h-full w-full bg-gradient-to-b from-transparent to-white"></div>
-      </div>
-
-      <div class="px-10 pb-8 pt-4">
-        <div class="mb-3 text-sm font-medium tracking-tight text-blue-600">Focus</div>
-        <div class="mb-3 text-[20px] font-medium tracking-tight text-slate-900">
-          Create an innovation culture in your team
-        </div>
-        <div class="text-[15px] font-medium text-slate-500">
-          Your team will love the crisp and modern interface, with blazing fast interactions and real-time sync.
         </div>
       </div>
     </div>
@@ -337,22 +349,23 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
         </button>
       </div>
 
-      <div class="mt-12 space-y-4 sm:mt-16 sm:grid sm:grid-cols-2 sm:gap-6 sm:space-y-0 lg:mx-auto lg:max-w-4xl">
+      <div class="mt-12 space-y-6 sm:mt-16 sm:grid sm:grid-cols-2 sm:gap-6 sm:space-y-0 lg:mx-auto lg:max-w-4xl">
         <div class="flex flex-col rounded-xl border border-slate-200 shadow-sm">
-          <div class="p-6">
+          <div class="px-8 py-8">
             <h2 class="flex items-center text-lg font-medium leading-6 text-slate-900"><span>Free</span></h2>
-            <p class="mt-4 text-sm text-slate-500">Get your whole team using Pavrel, completely free</p>
+            <p class="text mt-4 text-slate-500">Get your whole team on board and trial Pavrel</p>
             <p class="mt-8">
-              <span class="text-4xl font-bold tracking-tight text-slate-900">FREE</span>
+              <span class="text-4xl font-bold tracking-tight text-slate-900">$0</span>
             </p>
             <NuxtLink
               to="/register"
               class="mt-8 block w-full rounded-md border border-blue-600 bg-blue-600 py-2 text-center text-sm font-semibold text-white hover:bg-blue-700"
             >
-              Sign up for free
+              Get started free
             </NuxtLink>
           </div>
-          <div class="mx-6 mb-6 flex-1 rounded-[8px] bg-slate-50 p-6">
+
+          <div class="mx-8 mb-8 flex-1 rounded-[8px] bg-slate-50 p-6">
             <h3 class="text-sm font-medium text-slate-900">What's included</h3>
             <ul role="list" class="mt-6 space-y-4">
               <li class="flex space-x-3">
@@ -369,8 +382,9 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
                     clip-rule="evenodd"
                   ></path>
                 </svg>
-                <span class="text-sm text-slate-600">100 ideas</span>
+                <span class="text-sm text-slate-600">50 ideas</span>
               </li>
+
               <li class="flex space-x-3">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -387,6 +401,7 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
                 </svg>
                 <span class="text-sm text-slate-600">Unlimited teams</span>
               </li>
+
               <li class="flex space-x-3">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -403,6 +418,7 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
                 </svg>
                 <span class="text-sm text-slate-600">Unlimited team members</span>
               </li>
+
               <li class="flex space-x-3">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -422,8 +438,9 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
             </ul>
           </div>
         </div>
+
         <div class="flex flex-col rounded-xl border border-slate-200 shadow-sm">
-          <div class="p-6">
+          <div class="px-8 py-8">
             <h2 class="flex items-center text-lg font-medium leading-6 text-slate-900">
               <span>Pro</span>
               <span
@@ -433,7 +450,7 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
                 -20%
               </span>
             </h2>
-            <p class="mt-4 text-sm text-slate-500">Take your company to the next level with Pavrel Pro</p>
+            <p class="mt-4 text-slate-500">Take your company to the next level with Pro</p>
             <p class="mt-8">
               <span class="text-4xl font-bold tracking-tight text-slate-900">
                 {{ billingStrategy === 'monthly' ? '$10' : '$96' }}
@@ -446,11 +463,11 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
               to="/login"
               class="mt-8 block w-full rounded-md border border-blue-600 bg-blue-600 py-2 text-center text-sm font-semibold text-white hover:bg-blue-700"
             >
-              Buy Pro
+              Get Pavrel Pro
             </NuxtLink>
           </div>
 
-          <div class="mx-6 mb-6 flex-1 rounded-[8px] bg-slate-50 p-6">
+          <div class="mx-8 mb-8 flex-1 rounded-[8px] bg-slate-50 p-6">
             <h3 class="text-sm font-medium text-slate-900">What's included</h3>
             <ul role="list" class="mt-6 space-y-4">
               <li class="flex space-x-3">
@@ -469,6 +486,7 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
                 </svg>
                 <span class="text-sm text-slate-600">Everything in Free</span>
               </li>
+
               <li class="flex space-x-3">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -485,6 +503,7 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
                 </svg>
                 <span class="text-sm text-slate-600">Unlimited workspaces</span>
               </li>
+
               <li class="flex space-x-3">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -501,6 +520,7 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
                 </svg>
                 <span class="text-sm text-slate-600">Private teams</span>
               </li>
+
               <li class="flex space-x-3">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -515,8 +535,9 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
                     clip-rule="evenodd"
                   ></path>
                 </svg>
-                <span class="text-sm text-slate-600">30 days version history</span>
+                <span class="text-sm text-slate-600">Version history</span>
               </li>
+
               <li class="flex space-x-3">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
