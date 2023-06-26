@@ -109,7 +109,7 @@ const mobileMenuOpen = ref(false)
     <slot />
   </main>
 
-  <footer class="border-t border-slate-150 bg-gradient-to-b from-slate-50 to-white py-16 px-4 sm:px-6">
+  <footer class="border-t border-slate-150 bg-gradient-to-b from-slate-50 to-white py-16 px-2">
     <div class="mx-auto max-w-4xl space-y-8 px-6 md:flex md:items-start md:justify-between md:space-y-0 lg:px-8">
       <div class="w-full max-w-[250px] pt-1">
         <svg
@@ -205,6 +205,6 @@ const mobileMenuOpen = ref(false)
   </footer>
 
   <div class="absolute inset-0 -z-20 bg-repeat" style="background-image: url('/cube.svg'); background-size: 50px">
-    <div class="absolute inset-0 -z-10 bg-gradient-to-tr from-slate-100 via-slate-50"></div>
+    <div class="absolute inset-0 -z-10 bg-gradient-to-tr from-white via-white"></div>
   </div>
 </template>

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { CloudIcon, CodeBracketIcon, FireIcon, HeartIcon } from '@heroicons/vue/24/outline'
+
 definePageMeta({
   layout: 'marketing',
   middleware: 'guest',
@@ -8,7 +10,7 @@ useHead({
   title: 'Pavrel',
   meta: [{ name: 'description', content: 'Unleash your creativity. Pavrel is a home for your ideas.' }],
   bodyAttrs: {
-    class: 'bg-slate-50 antialiased font-sans',
+    class: 'bg-white antialiased font-sans',
   },
 })
 
@@ -17,12 +19,13 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
 
 <template>
   <section class="mx-auto max-w-4xl px-6 pt-20 pb-20 text-center sm:pt-24 lg:px-8">
-    <h1 class="mb-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-5xl">The home for your team's ideas</h1>
+    <h1 class="mb-4 text-3xl font-semibold tracking-tight text-slate-900 sm:text-5xl">
+      The home for your team's ideas
+    </h1>
 
     <p class="text-lg leading-7 text-slate-700">
-      <span class="font-semibold text-slate-800">Take control</span> of your team's idea-to-feature workflow and
-      <span class="font-semibold text-slate-800">create an innovation culture</span> in your team with Pavrel. Built for
-      modern software teams.
+      <span class="font-semibold text-slate-900">Take control</span> of your idea-to-feature workflow and
+      <span class="font-semibold text-slate-900">develop an innovation culture</span> in your team with Pavrel.
     </p>
 
     <div class="mt-8">
@@ -37,18 +40,18 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
     <div class="mt-3 text-xs text-slate-500">No credit card required.</div>
   </section>
 
-  <section class="mx-auto hidden max-w-[1249px] py-8 px-6 lg:block lg:py-12 lg:px-8">
-    <div class="rounded-lg bg-gradient-to-r from-blue-500 to-sky-500 p-1 shadow-md">
+  <section class="mx-auto hidden max-w-[1249px] px-6 py-10 lg:block lg:px-8">
+    <div class="rounded-lg bg-gradient-to-r from-blue-500 to-sky-500 p-[2px]">
       <img src="/app-ss1.png" class="rounded-[6px]" />
     </div>
   </section>
 
-  <section class="mx-auto hidden max-w-3xl py-12 px-6 text-lg text-slate-800 lg:block lg:py-20 lg:px-8">
-    <h2 class="mb-8 text-2xl font-semibold text-slate-800">Does this sound familiar?</h2>
+  <section class="mx-auto max-w-3xl px-6 py-16 leading-7 text-slate-900 lg:px-8">
+    <h2 class="mb-8 text-2xl font-[450]">Does this sound familiar?</h2>
 
     <p class="mb-6">
-      Through building our own products over the last decade and speaking to countless software teams, we have seen the
-      same frustrations appearing.
+      Through building our own products over the last decade and speaking to countless software teams, we've seen the
+      same frustrations appearing:
     </p>
 
     <ul class="pl-5">
@@ -63,8 +66,8 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
       </li>
 
       <li class="mb-4 list-disc pl-3">
-        You <span class="font-semibold">don't have a consistent strategy</span> to get from "idea" to "planned out and
-        ready for work".
+        A lot of <span class="font-semibold">good ideas don't make it</span> to the "planned out and ready for work"
+        stage.
       </li>
 
       <li class="list-disc pl-3">
@@ -81,7 +84,7 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
     <p class="mt-6">We're proud of it, and we hope you like it.</p>
   </section>
 
-  <section class="mx-auto flex flex-wrap justify-center gap-6 px-6 pt-20 pb-20 lg:px-8" id="features">
+  <section class="mx-auto flex flex-wrap justify-center gap-6 px-6 pt-20 pb-20 leading-7 lg:px-8" id="features">
     <div class="w-full rounded-2xl border border-slate-200 bg-white shadow-sm md:w-[400px]">
       <div class="relative flex h-[300px]">
         <div
@@ -92,11 +95,9 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
       </div>
 
       <div class="px-10 pb-8 pt-4">
-        <div class="mb-3 text-sm font-medium tracking-tight text-blue-600">Organize</div>
-        <div class="mb-3 text-[20px] font-medium tracking-tight text-slate-900">
-          Free your backlog from "maybe one day" tasks
-        </div>
-        <div class="text-[15px] font-medium text-slate-500">
+        <div class="mb-3 text-base text-blue-600">Organize</div>
+        <div class="mb-3 text-[20px] font-medium text-slate-900">Free your backlog from "maybe one day" tasks</div>
+        <div class="text-slate-600">
           Keep your backlog from feeling overwhelming, and save it for only committed and planned-out work.
         </div>
       </div>
@@ -117,9 +118,9 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
       </div>
 
       <div class="px-10 pb-8 pt-4">
-        <div class="mb-3 text-sm font-medium tracking-tight text-blue-600">Create</div>
-        <div class="mb-3 text-[20px] font-medium tracking-tight text-slate-900">Capture now, shape later</div>
-        <div class="text-[15px] font-medium text-slate-500">
+        <div class="mb-3 text-base text-blue-600">Create</div>
+        <div class="mb-3 text-[20px] font-medium text-slate-900">Capture now, shape later</div>
+        <div class="text-slate-600">
           Capture ideas as they arise, without worrying if they are fully formed yet or thought-through.
         </div>
       </div>
@@ -140,192 +141,87 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
       </div>
 
       <div class="px-10 pb-8 pt-4">
-        <div class="mb-3 text-sm font-medium tracking-tight text-blue-600">Collaborate</div>
-        <div class="mb-3 text-[20px] font-medium tracking-tight text-slate-900">
-          Ideate and perfect solutions in context
-        </div>
-        <div class="text-[15px] font-medium text-slate-500">
+        <div class="mb-3 text-base text-blue-600">Collaborate</div>
+        <div class="mb-3 text-[20px] font-medium text-slate-900">Ideate and perfect solutions in context</div>
+        <div class="text-slate-600">
           Pavrel's teams functionality allows you to share and collaborate on ideas with the right people.
         </div>
       </div>
     </div>
   </section>
 
-  <section class="mx-auto max-w-7xl py-16 px-6 lg:grid lg:grid-cols-3 lg:gap-x-8 lg:px-8 lg:py-24">
-    <div>
-      <h2 class="text-base font-medium text-blue-600">Manage ideas like a pro</h2>
-      <p class="mt-2 text-3xl font-semibold tracking-tight text-slate-900">
-        Delightfully simple, deceptively powerful.
-      </p>
-      <p class="mt-4 text-lg text-slate-500">
-        Allow your team to capture, organize, collaborate, and focus with Pavrel.
-      </p>
+  <section class="mx-auto flex max-w-5xl flex-col items-center gap-y-24 px-6 py-16 lg:flex-row lg:px-8" id="overview">
+    <div class="mr-6 text-slate-800 lg:w-1/2">
+      <h2 class="mb-8 text-2xl font-[450]">Built for modern software teams</h2>
+
+      <div class="mb-8 flex items-start">
+        <span class="mr-4">
+          <FireIcon class="h-7 w-6 fill-orange-100 text-orange-600" />
+        </span>
+
+        <span class="flex flex-1 flex-col">
+          <span class="mb-2 text-lg font-[450] text-slate-900">Blazing fast with real-time sync</span>
+          <span class="leading-7 text-slate-600">
+            Collaborate on ideas in real-time with your team, and see updates reflected immediately.
+          </span>
+        </span>
+      </div>
+
+      <div class="mb-8 flex items-start">
+        <span class="mr-4">
+          <CloudIcon class="fill h-7 w-6 text-blue-600" />
+        </span>
+
+        <span class="flex flex-1 flex-col">
+          <span class="mb-2 text-lg font-[450] text-slate-900">Works offline</span>
+          <span class="leading-7 text-slate-600">
+            Capture ideas wherever you are, across all your devices, then sync up with your team when your connection
+            returns.
+          </span>
+        </span>
+      </div>
+
+      <div class="flex items-start">
+        <span class="mr-4">
+          <CodeBracketIcon class="h-7 w-6 fill-slate-100 text-slate-800" />
+        </span>
+
+        <span class="flex flex-1 flex-col">
+          <span class="mb-2 text-lg font-[450] text-slate-900">Designed with precision</span>
+          <span class="leading-7 text-slate-600">Your team will enjoy Pavrel's crisp and elegant interface.</span>
+        </span>
+      </div>
     </div>
-    <div class="mt-12 lg:col-span-2 lg:mt-0">
-      <dl
-        class="space-y-10 sm:grid sm:grid-flow-col sm:grid-cols-2 sm:grid-rows-4 sm:gap-x-6 sm:gap-y-10 sm:space-y-0 lg:gap-x-8"
-      >
-        <div class="relative">
-          <dt>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              aria-hidden="true"
-              class="absolute h-6 w-6 text-green-500"
-            >
-              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path>
-            </svg>
-            <p class="ml-9 text-lg font-medium leading-6 text-slate-900">Blazing fast</p>
-          </dt>
-          <dd class="mt-2 ml-9 text-base text-slate-500">
-            Built for speed and productivity, with most interactions feeling instantaneous.
-          </dd>
-        </div>
-        <div class="relative">
-          <dt>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              aria-hidden="true"
-              class="absolute h-6 w-6 text-green-500"
-            >
-              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path>
-            </svg>
-            <p class="ml-9 text-lg font-medium leading-6 text-slate-900">Searchable archive</p>
-          </dt>
-          <dd class="mt-2 ml-9 text-base text-slate-500">
-            Easily find and connect ideas throughout your workspace's lifespan.
-          </dd>
-        </div>
-        <div class="relative">
-          <dt>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              aria-hidden="true"
-              class="absolute h-6 w-6 text-green-500"
-            >
-              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path>
-            </svg>
-            <p class="ml-9 text-lg font-medium leading-6 text-slate-900">Collaborate with your team</p>
-          </dt>
-          <dd class="mt-2 ml-9 text-base text-slate-500">
-            Pavrel is perfect for both solo projects and large teams or projects.
-          </dd>
-        </div>
-        <div class="relative">
-          <dt>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              aria-hidden="true"
-              class="absolute h-6 w-6 text-green-500"
-            >
-              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path>
-            </svg>
-            <p class="ml-9 text-lg font-medium leading-6 text-slate-900">Keyboard shortcuts</p>
-          </dt>
-          <dd class="mt-2 ml-9 text-base text-slate-500">
-            Supercharge your productivity - your team will love using Pavrel.
-          </dd>
-        </div>
-        <div class="relative">
-          <dt>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              aria-hidden="true"
-              class="absolute h-6 w-6 text-green-500"
-            >
-              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path>
-            </svg>
-            <p class="ml-9 text-lg font-medium leading-6 text-slate-900">Real-time sync</p>
-          </dt>
-          <dd class="mt-2 ml-9 text-base text-slate-500">
-            Updates are shared between your team in real-time. No refreshing required.
-          </dd>
-        </div>
-        <div class="relative">
-          <dt>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              aria-hidden="true"
-              class="absolute h-6 w-6 text-green-500"
-            >
-              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path>
-            </svg>
-            <p class="ml-9 text-lg font-medium leading-6 text-slate-900">Shared &amp; private boards</p>
-          </dt>
-          <dd class="mt-2 ml-9 text-base text-slate-500">
-            Collaborate on upcoming work, or brainstorm before unveiling them to your team.
-          </dd>
-        </div>
-        <div class="relative">
-          <dt>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              aria-hidden="true"
-              class="absolute h-6 w-6 text-green-500"
-            >
-              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path>
-            </svg>
-            <p class="ml-9 text-lg font-medium leading-6 text-slate-900">Advanced filters</p>
-          </dt>
-          <dd class="mt-2 ml-9 text-base text-slate-500">
-            Find exactly what you need with advanced filters and bulk actions.
-          </dd>
-        </div>
-        <div class="relative">
-          <dt>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              aria-hidden="true"
-              class="absolute h-6 w-6 text-green-500"
-            >
-              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path>
-            </svg>
-            <p class="ml-9 text-lg font-medium leading-6 text-slate-900">Notifications</p>
-          </dt>
-          <dd class="mt-2 ml-9 text-base text-slate-500">
-            Everyone stays in the loop with intelligent notifications and subscriptions.
-          </dd>
-        </div>
-      </dl>
+
+    <div class="max-w-[550px] rounded-2xl border border-slate-200 bg-white shadow-xl lg:w-1/2 lg:max-w-none">
+      <div class="relative">
+        <img src="/marketing/drag-drop.png" class="rounded-t-2xl" />
+        <div class="absolute inset-0 z-10 bg-gradient-to-b from-transparent via-transparent to-white"></div>
+      </div>
+
+      <div class="mt-6 mb-16 px-10 pt-6 text-slate-900">
+        <h4 class="flex items-center text-xl font-[450]">
+          <HeartIcon class="mr-2 -ml-0.5 h-6 w-6 text-blue-600" /> Loved by hundreds of teams
+        </h4>
+        <p class="mt-3 leading-7 text-slate-600">
+          Our customers love the way Pavrel is accelerating their work. Feel free to join our
+          <a
+            href="https://join.slack.com/t/pavrelcommunity/shared_invite/zt-1t5h5g1tz-32KKfZL0QbEDIIpLsRMJTw"
+            target="_blank"
+            class="font-[450] text-slate-800 underline"
+            >Slack</a
+          >
+          community to see how teams are using Pavrel.
+        </p>
+      </div>
     </div>
   </section>
 
-  <section id="pricing" class="bg-white py-24 px-4 sm:px-6 lg:px-8">
+  <section id="pricing" class="bg-white py-24 px-6 lg:px-8">
     <div class="sm:align-center mx-auto max-w-7xl sm:flex sm:flex-col">
-      <h1 class="text-4xl font-semibold tracking-tight text-slate-900 sm:text-center">Pricing plans</h1>
+      <h2 class="text-2xl font-[450] sm:text-center">Choose a plan</h2>
 
-      <p class="mt-5 text-lg text-slate-500 sm:text-center">
+      <p class="mt-4 text-slate-600 sm:text-center">
         Start building for free, then upgrade to get even more done with Pavrel.
       </p>
 
@@ -353,9 +249,9 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
         <div class="flex flex-col rounded-xl border border-slate-200 shadow-sm">
           <div class="px-8 py-8">
             <h2 class="flex items-center text-lg font-medium leading-6 text-slate-900"><span>Free</span></h2>
-            <p class="text mt-4 text-slate-500">Get your whole team on board and trial Pavrel</p>
-            <p class="mt-8">
-              <span class="text-4xl font-bold tracking-tight text-slate-900">$0</span>
+            <p class="text mt-4 text-slate-600">Get your whole team on board and trial Pavrel</p>
+            <p class="mt-5">
+              <span class="text-4xl font-semibold tracking-tight text-slate-900">$0</span>
             </p>
             <NuxtLink
               to="/register"
@@ -450,12 +346,13 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
                 -20%
               </span>
             </h2>
-            <p class="mt-4 text-slate-500">Take your company to the next level with Pro</p>
-            <p class="mt-8">
-              <span class="text-4xl font-bold tracking-tight text-slate-900">
+
+            <p class="mt-4 text-slate-600">Take your company to the next level with Pro</p>
+            <p class="mt-5">
+              <span class="text-4xl font-semibold tracking-tight text-slate-900">
                 {{ billingStrategy === 'monthly' ? '$10' : '$96' }}
               </span>
-              <span class="text-base font-medium text-slate-500">
+              <span class="text-base font-medium text-slate-600">
                 /user/{{ billingStrategy === 'monthly' ? 'month' : 'year' }}
               </span>
             </p>
