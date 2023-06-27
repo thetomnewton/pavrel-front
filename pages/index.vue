@@ -195,14 +195,18 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
 
     <div class="max-w-[550px] rounded-2xl border border-slate-200 bg-white shadow-xl lg:w-1/2 lg:max-w-none">
       <div class="relative">
-        <img src="/marketing/drag-drop.png" class="rounded-t-2xl" />
+        <div
+          class="min-h-[400px] rounded-t-2xl bg-cover"
+          style="background-image: url('/marketing/drag-drop.png'); background-position: center right"
+        ></div>
         <div class="absolute inset-0 z-10 bg-gradient-to-b from-transparent via-transparent to-white"></div>
       </div>
 
-      <div class="mt-6 mb-16 px-10 pt-6 text-slate-900">
+      <div class="mt-6 mb-20 px-10 pt-6 text-slate-900">
         <h4 class="flex items-center text-xl font-[450]">
           <HeartIcon class="mr-2 -ml-0.5 h-6 w-6 text-blue-600" /> Loved by hundreds of teams
         </h4>
+
         <p class="mt-3 leading-7 text-slate-600">
           Our customers love the way Pavrel is accelerating their work. Feel free to join our
           <a
