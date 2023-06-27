@@ -402,7 +402,7 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
                     clip-rule="evenodd"
                   ></path>
                 </svg>
-                <span class="text-sm text-slate-600">Unlimited workspaces</span>
+                <span class="text-sm text-slate-600">Unlimited ideas</span>
               </li>
 
               <li class="flex space-x-3">
@@ -436,7 +436,7 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
                     clip-rule="evenodd"
                   ></path>
                 </svg>
-                <span class="text-sm text-slate-600">Version history</span>
+                <span class="text-sm text-slate-600">Version history (soon)</span>
               </li>
 
               <li class="flex space-x-3">
@@ -453,7 +453,7 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
                     clip-rule="evenodd"
                   ></path>
                 </svg>
-                <span class="text-sm text-slate-600">API + integrations</span>
+                <span class="text-sm text-slate-600">API + integrations (soon)</span>
               </li>
             </ul>
           </div>
