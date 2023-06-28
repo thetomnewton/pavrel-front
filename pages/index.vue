@@ -222,7 +222,7 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
 
   <section id="pricing" class="bg-white py-24 px-6 lg:px-8">
     <div class="sm:align-center mx-auto max-w-7xl sm:flex sm:flex-col">
-      <h2 class="text-2xl font-[450] sm:text-center">Choose a plan</h2>
+      <h2 class="text-2xl font-[450] text-slate-800 sm:text-center">Choose a plan</h2>
 
       <p class="mt-4 text-slate-600 sm:text-center">
         Start building for free, then upgrade to get even more done with Pavrel.
