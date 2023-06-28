@@ -50,8 +50,8 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
     <h2 class="mb-8 text-2xl font-[450]">Does this sound familiar?</h2>
 
     <p class="mb-6">
-      Through building our own products over the last decade and speaking to countless software teams, we've seen the
-      same frustrations appearing:
+      Through building products over the last decade and speaking to countless software teams, we've seen the same
+      frustrations appearing:
     </p>
 
     <ul class="pl-5">
@@ -62,7 +62,7 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
 
       <li class="mb-4 list-disc pl-3">
         Your <span class="font-semibold">backlog is growing</span> faster than work can be completed, and it contains a
-        mixture of "planned out, thought-through" type work and also "maybe one day" type work.
+        mixture of "planned out, thought-through" type work as well as "maybe one day" type work.
       </li>
 
       <li class="mb-4 list-disc pl-3">
@@ -71,8 +71,7 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
       </li>
 
       <li class="list-disc pl-3">
-        You'd <span class="font-semibold">like to foster an innovation culture</span> in your team, but it feels unclear
-        how to get there.
+        You'd <span class="font-semibold">like to foster more of an innovation culture</span> in your team.
       </li>
     </ul>
 

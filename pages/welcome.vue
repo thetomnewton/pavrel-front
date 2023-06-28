@@ -69,12 +69,12 @@ function logout() {
 
 <template>
   <main class="absolute inset-0 z-50 flex min-h-screen justify-center bg-slate-50 dark:bg-zinc-900">
-    <div class="mx-4 mt-4">
+    <div class="absolute left-4 top-4 z-10">
       <button
         @click="logout"
-        class="inline-flex cursor-default items-center rounded bg-slate-100 px-3 py-[6px] text-[.8125rem] font-medium leading-5 text-slate-700 hover:text-slate-900 active:bg-slate-200 dark:bg-zinc-800 dark:text-zinc-300 dark:active:bg-zinc-700"
+        class="inline-flex cursor-default items-center rounded-md bg-slate-150 px-4 py-2 text-[.8125rem] font-medium leading-5 text-slate-700 hover:text-slate-900 active:bg-slate-200 dark:bg-zinc-800 dark:text-zinc-300 dark:active:bg-zinc-700"
       >
-        <span><ChevronLeftIcon class="mr-1 -ml-[2px] h-4 w-4" /></span>
+        <span><ChevronLeftIcon class="mr-1 -ml-1 h-4 w-4" /></span>
         <span>Log out</span>
       </button>
     </div>
