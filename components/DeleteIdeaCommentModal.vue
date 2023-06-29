@@ -36,20 +36,9 @@ function destroy() {
 
       <div class="mt-4 flex items-center justify-end">
         <form @submit.prevent="destroy" class="flex items-center">
-          <span
-            class="mr-3 inline-block cursor-pointer rounded px-4 py-2 text-sm font-medium leading-[22px] hover:bg-slate-100 active:bg-slate-200"
-            @click="$emit('close')"
-          >
-            Cancel
-          </span>
+          <ModalCancelButton class="mr-2" @click="$emit('close')">Cancel</ModalCancelButton>
 
-          <button
-            type="submit"
-            :disabled="deleting"
-            class="mr-3 inline-block cursor-pointer rounded bg-red-500 px-4 py-2 text-sm font-medium leading-[22px] text-white ring-red-500 hover:bg-red-600 active:ring-2"
-          >
-            Delete
-          </button>
+          <DangerButton type="submit" :disabled="deleting"> Delete </DangerButton>
         </form>
       </div>
     </div>

@@ -58,13 +58,7 @@ function attemptRemoveFromTeam() {
             </div>
 
             <div class="mt-6 text-right">
-              <button
-                type="button"
-                @click="$emit('close')"
-                class="mr-2 cursor-default px-4 py-2 text-sm font-medium leading-5 text-slate-600 hover:text-slate-800 dark:text-zinc-300"
-              >
-                Cancel
-              </button>
+              <ModalCancelButton @click="$emit('close')" class="mr-2">Cancel</ModalCancelButton>
 
               <button
                 type="submit"

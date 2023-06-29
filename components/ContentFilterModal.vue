@@ -40,10 +40,11 @@ const applyFilter = () => {
 
     <form @submit.prevent="applyFilter">
       <div>
-        <FormTextInput ref="content" v-model="textContent" />
+        <FormTextInput ref="content" v-model="textContent" placeholder="Idea content..." />
       </div>
 
-      <div class="mt-4 flex justify-end">
+      <div class="mt-4 flex justify-end space-x-2">
+        <ModalCancelButton @click="$emit('close')">Cancel</ModalCancelButton>
         <Button type="submit">Apply</Button>
       </div>
     </form>
