@@ -41,36 +41,18 @@ const isAnnualBilling = ref(true)
       </p>
 
       <div class="mt-4">
-        <div class="inline-flex rounded-xl bg-slate-200 p-0.5 dark:bg-zinc-600">
-          <button
-            type="button"
-            @click="isAnnualBilling = false"
-            class="rounded-l-[10px] px-4 py-1.5 text-[13px] font-medium"
-            :class="{
-              'bg-white dark:bg-zinc-600 dark:text-zinc-100': !isAnnualBilling,
-              'text-slate-600 dark:bg-zinc-900 dark:text-zinc-400': isAnnualBilling,
-            }"
-          >
-            <span>Pay monthly</span>
-          </button>
+        <TextSwitch :value="!isAnnualBilling" @change="value => (isAnnualBilling = !value)">
+          <template #option1>Pay monthly</template>
 
-          <button
-            type="button"
-            @click="isAnnualBilling = true"
-            class="rounded-r-[10px] px-4 py-1.5 text-[13px] font-medium"
-            :class="{
-              'bg-white dark:bg-zinc-600 dark:text-zinc-100': isAnnualBilling,
-              'text-slate-600 dark:bg-zinc-900 dark:text-zinc-400': !isAnnualBilling,
-            }"
-          >
+          <template #option2>
             <span>Pay yearly</span>
             <span
               class="-mr-1.5 ml-1.5 whitespace-nowrap rounded bg-green-200 px-1 py-0.5 text-xs font-medium text-green-800"
               :class="{ 'text-zinc-900 dark:bg-zinc-400': !isAnnualBilling }"
               >-20%</span
             >
-          </button>
-        </div>
+          </template>
+        </TextSwitch>
       </div>
     </div>
 
