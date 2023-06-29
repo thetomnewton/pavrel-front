@@ -70,13 +70,7 @@ function attemptAddTeamMembers() {
             </div>
 
             <div class="flex items-center justify-end space-x-2 px-8 py-6">
-              <button
-                type="button"
-                @click="$emit('close')"
-                class="inline-flex cursor-default appearance-none items-center rounded-md px-4 py-2 text-sm font-medium leading-5 text-slate-600 hover:bg-slate-100 active:bg-slate-150 dark:text-zinc-300 dark:hover:bg-zinc-800 dark:active:bg-zinc-700"
-              >
-                Close
-              </button>
+              <ModalCancelButton @click="$emit('close')">Close</ModalCancelButton>
 
               <Button v-if="usersNotInTeam.length">Add members</Button>
             </div>

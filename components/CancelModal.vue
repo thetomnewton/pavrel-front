@@ -55,13 +55,7 @@ function cancel() {
             <p class="mb-6">Once your current billing cycle ends, you will lose access to all Pro features.</p>
 
             <p class="flex items-center justify-end space-x-2">
-              <button
-                type="button"
-                @click="$emit('close')"
-                class="cursor-default rounded-md px-4 py-2 text-sm font-medium leading-5 active:bg-slate-100 dark:active:bg-zinc-800"
-              >
-                Close
-              </button>
+              <ModalCancelButton @click="$emit('close')">Close</ModalCancelButton>
 
               <Button :disabled="!online || cancelling">Cancel subscription</Button>
             </p>
