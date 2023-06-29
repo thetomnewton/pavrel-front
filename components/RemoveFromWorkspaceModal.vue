@@ -55,13 +55,7 @@ function attemptRemove() {
             </p>
 
             <p class="flex items-center justify-end space-x-2">
-              <button
-                type="button"
-                @click="emit('close')"
-                class="cursor-default rounded-md px-4 py-2 text-sm font-medium leading-5 hover:bg-slate-100 dark:hover:bg-zinc-800 dark:hover:text-zinc-100"
-              >
-                Cancel
-              </button>
+              <ModalCancelButton @click="emit('close')">Cancel</ModalCancelButton>
 
               <Button type="submit" :disabled="!online">Remove member</Button>
             </p>

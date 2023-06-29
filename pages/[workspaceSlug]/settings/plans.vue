@@ -40,18 +40,38 @@ const isAnnualBilling = ref(true)
         new subscription.
       </p>
 
-      <p class="mt-2 flex">
-        <span class="flex items-end pt-4">
-          <span class="flex items-center text-sm font-medium leading-[38px] text-slate-600 dark:text-zinc-400">
-            <span class="cursor-default" @click="isAnnualBilling = false"> Pay monthly </span>
-            <Switch class="mx-3" v-model="isAnnualBilling" :size="20" />
-            <span class="inline-flex cursor-default items-center" @click="isAnnualBilling = true">
-              <span>Pay yearly</span>
-              <span class="ml-1.5 rounded bg-green-200 px-1 py-px text-xs font-medium text-green-800">-20%</span>
-            </span>
-          </span>
-        </span>
-      </p>
+      <div class="mt-4">
+        <div class="inline-flex rounded-xl bg-slate-200 p-0.5 dark:bg-zinc-600">
+          <button
+            type="button"
+            @click="isAnnualBilling = false"
+            class="rounded-l-[10px] px-4 py-1.5 text-[13px] font-medium"
+            :class="{
+              'bg-white dark:bg-zinc-600 dark:text-zinc-100': !isAnnualBilling,
+              'text-slate-600 dark:bg-zinc-900 dark:text-zinc-400': isAnnualBilling,
+            }"
+          >
+            <span>Pay monthly</span>
+          </button>
+
+          <button
+            type="button"
+            @click="isAnnualBilling = true"
+            class="rounded-r-[10px] px-4 py-1.5 text-[13px] font-medium"
+            :class="{
+              'bg-white dark:bg-zinc-600 dark:text-zinc-100': isAnnualBilling,
+              'text-slate-600 dark:bg-zinc-900 dark:text-zinc-400': !isAnnualBilling,
+            }"
+          >
+            <span>Pay yearly</span>
+            <span
+              class="-mr-1.5 ml-1.5 whitespace-nowrap rounded bg-green-200 px-1 py-0.5 text-xs font-medium text-green-800"
+              :class="{ 'text-zinc-900 dark:bg-zinc-400': !isAnnualBilling }"
+              >-20%</span
+            >
+          </button>
+        </div>
+      </div>
     </div>
 
     <div class="w-full overflow-x-auto pb-12">
