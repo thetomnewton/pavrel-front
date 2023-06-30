@@ -155,6 +155,12 @@ export interface IdeaActivity {
   initiator_type: 'user' | 'system'
 }
 
+export interface IdeaHistory {
+  hash: string
+  idea_id: Idea['id']
+  workspace_id: Workspace['id']
+}
+
 export interface StatusUpdateActivity extends IdeaActivity {
   type: 'status.updated'
   meta: { prevStatusId: Idea['status_id']; newStatusId: Idea['status_id'] }
