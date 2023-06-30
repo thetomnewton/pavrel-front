@@ -12,7 +12,9 @@ const store = useStore()
 
 const relatedHistoryEntry = computed(() =>
   (store.state.base.ideaHistory as IdeaHistory[]).find(
-    history => history.idea_id === props.activity.idea_id && history.hash === props.activity.meta.newDescriptionHash
+    ({ idea_id, hash }) =>
+      idea_id === props.activity.idea_id &&
+      hash === (props.activity.meta as { newDescriptionHash: string }).newDescriptionHash
   )
 )
 
