@@ -81,6 +81,15 @@ function copyLink() {
           </div>
         </MenuItem>
 
+        <MenuItem as="div" @click="movingTeam = true" v-slot="{ active }">
+          <div
+            class="cursor-default px-3 leading-7 text-slate-700 hover:bg-slate-100 hover:text-slate-900 active:bg-slate-200 dark:text-zinc-300 dark:hover:bg-zinc-700/70 dark:hover:text-zinc-200 dark:active:bg-zinc-700"
+            :class="{ 'bg-slate-200 text-slate-900': active }"
+          >
+            View history
+          </div>
+        </MenuItem>
+
         <div class="my-1 h-px bg-slate-100 dark:bg-zinc-700"></div>
 
         <MenuItem as="div" @click="deleting = true" v-slot="{ active }">
