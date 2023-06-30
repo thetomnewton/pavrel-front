@@ -29,7 +29,7 @@ const { fromNow, initiatorName } = useIdeaActivities()
       </div>
     </div>
 
-    <div class="flex cursor-default flex-wrap items-center text-[.8125rem] text-slate-500 dark:text-zinc-400">
+    <div class="flex flex-1 cursor-default flex-wrap items-center text-[.8125rem] text-slate-500 dark:text-zinc-400">
       <span class="mr-1 font-medium text-slate-800 dark:text-zinc-300">{{ initiatorName(activity) }} </span>
       <span>updated the description.</span>
 
@@ -38,7 +38,7 @@ const { fromNow, initiatorName } = useIdeaActivities()
       <button
         type="button"
         v-if="!!relatedHistoryEntry"
-        class="ml-2 inline-flex appearance-none items-center rounded bg-slate-150 px-1 py-0.5 text-xs font-medium text-slate-700"
+        class="ml-auto inline-flex appearance-none items-center rounded bg-slate-150 px-1.5 py-px text-[13px] font-medium text-slate-700 dark:bg-zinc-600 dark:text-zinc-300"
       >
         <ClockIcon class="mr-1 h-4 w-4 stroke-2" />
         <span>View</span>
