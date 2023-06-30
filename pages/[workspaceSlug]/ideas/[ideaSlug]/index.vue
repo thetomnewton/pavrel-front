@@ -26,6 +26,7 @@ const { pushToRecentIdeas } = useRecentIdeas()
 const newIdea = ref<Idea | null>(null)
 const sidebarOpen = ref(false)
 const viewHistoryVisible = ref(false)
+const viewHistoryHash = ref<string>()
 
 const currentWorkspace = computed(() => store.getters['base/currentWorkspace'])
 const currentWorkspaceTeams = computed(() => store.getters['base/currentWorkspaceTeams'])
@@ -74,6 +75,11 @@ function showViewHistory() {
   viewHistoryVisible.value = true
 }
 
+function openViewHistory(hash?: string) {
+  showViewHistory()
+  if (hash) viewHistoryHash.value = hash
+}
+
 if (idea.value) newIdea.value = cloneDeep(idea.value)
 
 watch(
@@ -102,7 +108,7 @@ watch(
       @add-label="addLabel"
       @remove-label="removeLabel"
       @close-sidebar="sidebarOpen = false"
-      @view-history="viewHistoryVisible = true"
+      @view-history="$event => openViewHistory($event)"
     >
       <PageHeader
         :show-options="false"
@@ -140,7 +146,12 @@ watch(
       </PageHeader>
     </IdeaContent>
 
-    <IdeaHistoryModal :open="viewHistoryVisible" @close="viewHistoryVisible = false" :idea="newIdea" />
+    <IdeaHistoryModal
+      :open="viewHistoryVisible"
+      @close="viewHistoryVisible = false"
+      :idea="newIdea"
+      :hash="viewHistoryHash"
+    />
   </div>
 
   <div v-else-if="team && !newIdea">

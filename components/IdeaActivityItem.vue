@@ -33,7 +33,7 @@ defineEmits(['view-history'])
   </template>
 
   <template v-else-if="activity.type === 'description.updated'">
-    <DescriptionUpdateActivity :activity="activity" @view-history="$emit('view-history')" />
+    <DescriptionUpdateActivity :activity="activity" @view-history="$event => $emit('view-history', $event)" />
   </template>
 
   <template v-else-if="activity.type === 'label.added' || activity.type === 'label.removed'">

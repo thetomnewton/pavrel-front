@@ -51,7 +51,7 @@ const team = computed<Team | undefined>(() =>
           <IdeaActivity
             :idea="idea"
             class="mx-5 mt-8 border-t border-slate-150 pt-8 dark:border-zinc-800"
-            @view-history="$emit('view-history')"
+            @view-history="$event => $emit('view-history', $event)"
           />
         </div>
       </div>

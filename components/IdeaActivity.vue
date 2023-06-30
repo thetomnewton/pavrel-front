@@ -47,7 +47,7 @@ const activities = computed(() => {
       :comments="comments"
       :activities="activities ?? []"
       @editing="setEditing"
-      @view-history="$emit('view-history')"
+      @view-history="$event => $emit('view-history', $event)"
     />
 
     <AddIdeaCommentInput v-if="!editing" :idea="idea" class="mb-16 mt-6" />

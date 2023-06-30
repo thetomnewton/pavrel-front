@@ -12,11 +12,12 @@ const emit = defineEmits(['view-history'])
 
 const store = useStore()
 
+type Meta = { newDescriptionHash: string }
+
 const relatedHistoryEntry = computed(() =>
   (store.state.base.ideaHistory as IdeaHistory[]).find(
     ({ idea_id, hash }) =>
-      idea_id === props.activity.idea_id &&
-      hash === (props.activity.meta as { newDescriptionHash: string }).newDescriptionHash
+      idea_id === props.activity.idea_id && hash === (props.activity.meta as Meta).newDescriptionHash
   )
 )
 
@@ -39,7 +40,7 @@ const { fromNow, initiatorName } = useIdeaActivities()
 
       <button
         type="button"
-        @click="emit('view-history')"
+        @click="emit('view-history', (activity.meta as Meta).newDescriptionHash)"
         v-if="!!relatedHistoryEntry"
         class="ml-auto inline-flex appearance-none items-center rounded bg-slate-150 px-1.5 py-px text-[13px] font-medium text-slate-700 dark:bg-zinc-600 dark:text-zinc-300"
       >

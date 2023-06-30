@@ -7,6 +7,7 @@ import ModalWrapper from './ModalWrapper.vue'
 defineProps<{
   open: boolean
   idea: Idea
+  hash?: string
 }>()
 
 defineEmits(['close'])

@@ -76,7 +76,10 @@ function emitEditing(value: boolean) {
           </template>
 
           <template v-if="type === 'activity'">
-            <IdeaActivityItem :activity="(item as IdeaActivity)" @view-history="emit('view-history')" />
+            <IdeaActivityItem
+              :activity="(item as IdeaActivity)"
+              @view-history="$event => emit('view-history', $event)"
+            />
           </template>
         </div>
       </div>
