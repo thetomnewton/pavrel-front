@@ -9,9 +9,7 @@ defineProps<{
   idea: Idea
 }>()
 
-const emit = defineEmits(['close'])
-
-const { joinTeam } = useTeams()
+defineEmits(['close'])
 </script>
 
 <template>
@@ -23,10 +21,12 @@ const { joinTeam } = useTeams()
         <DialogPanel
           class="mx-auto w-full max-w-[550px] rounded-md bg-white px-8 py-6 shadow-3xl dark:border dark:border-zinc-700 dark:bg-zinc-900 md:mt-[12vh]"
         >
-          <h3 class="mb-4 font-semibold">Join a team</h3>
+          <h3 class="mb-4 font-semibold">Idea history</h3>
 
           <p class="mb-6 text-sm text-slate-600 dark:text-zinc-300">
-            Select a public team from the list below. To join a private team, you must be added by an existing member.
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos eveniet sequi blanditiis, expedita nobis sed,
+            quo perspiciatis doloribus praesentium, dignissimos consequatur dolore incidunt nostrum cumque illum unde
+            iure velit eos.
           </p>
 
           <div class="mt-6 text-right">
