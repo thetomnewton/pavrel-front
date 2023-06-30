@@ -102,6 +102,7 @@ watch(
       @add-label="addLabel"
       @remove-label="removeLabel"
       @close-sidebar="sidebarOpen = false"
+      @view-history="viewHistoryVisible = true"
     >
       <PageHeader
         :show-options="false"

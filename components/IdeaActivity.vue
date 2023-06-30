@@ -15,6 +15,8 @@ const props = defineProps<{
   idea: Idea
 }>()
 
+defineEmits(['view-history'])
+
 const editing = ref(false)
 const setEditing = (value: boolean) => (editing.value = value)
 
@@ -41,8 +43,13 @@ const activities = computed(() => {
   <div class="text-slate-800 dark:text-zinc-300">
     <div class="mb-3 text-sm font-medium text-slate-700 dark:text-zinc-300">Activity</div>
 
-    <IdeaActivityStream :comments="comments" :activities="activities ?? []" @editing="setEditing" />
+    <IdeaActivityStream
+      :comments="comments"
+      :activities="activities ?? []"
+      @editing="setEditing"
+      @view-history="$emit('view-history')"
+    />
 
-    <AddIdeaCommentInput v-if="!editing" :idea="idea" class="mt-6 mb-16" />
+    <AddIdeaCommentInput v-if="!editing" :idea="idea" class="mb-16 mt-6" />
   </div>
 </template>

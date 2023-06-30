@@ -8,6 +8,8 @@ const props = defineProps<{
   activity: IdeaActivity
 }>()
 
+const emit = defineEmits(['view-history'])
+
 const store = useStore()
 
 const relatedHistoryEntry = computed(() =>
@@ -37,6 +39,7 @@ const { fromNow, initiatorName } = useIdeaActivities()
 
       <button
         type="button"
+        @click="emit('view-history')"
         v-if="!!relatedHistoryEntry"
         class="ml-auto inline-flex appearance-none items-center rounded bg-slate-150 px-1.5 py-px text-[13px] font-medium text-slate-700 dark:bg-zinc-600 dark:text-zinc-300"
       >

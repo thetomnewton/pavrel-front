@@ -15,6 +15,8 @@ import TitleUpdateActivity from './TitleUpdateActivity.vue'
 defineProps<{
   activity: IdeaActivity
 }>()
+
+defineEmits(['view-history'])
 </script>
 
 <template>
@@ -31,7 +33,7 @@ defineProps<{
   </template>
 
   <template v-else-if="activity.type === 'description.updated'">
-    <DescriptionUpdateActivity :activity="activity" />
+    <DescriptionUpdateActivity :activity="activity" @view-history="$emit('view-history')" />
   </template>
 
   <template v-else-if="activity.type === 'label.added' || activity.type === 'label.removed'">
