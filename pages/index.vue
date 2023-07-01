@@ -86,7 +86,11 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
       <div class="relative flex h-[300px]">
         <div
           class="h-full w-full rounded-t-2xl"
-          style="background-image: url('/marketing/list-view.png'); background-position-x: -8px; background-size: 500px"
+          style="
+            background-image: url('/marketing/list-view-dark.png');
+            background-position-x: -8px;
+            background-size: 500px;
+          "
         ></div>
         <div class="absolute inset-0 h-full w-full bg-gradient-to-b from-transparent to-slate-900"></div>
       </div>
@@ -105,7 +109,7 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
         <div
           class="h-full w-full rounded-t-2xl"
           style="
-            background-image: url('/marketing/quick-capture.png');
+            background-image: url('/marketing/quick-capture-dark.png');
             background-position-x: -35px;
             background-position-y: -70px;
             background-size: 500px;
@@ -128,7 +132,7 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
         <div
           class="h-full w-full rounded-t-2xl"
           style="
-            background-image: url('/marketing/create-team.png');
+            background-image: url('/marketing/create-team-dark.png');
             background-position-x: 0px;
             background-position-y: 0px;
             background-size: 500px;

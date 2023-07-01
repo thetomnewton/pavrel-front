@@ -216,6 +216,6 @@ const mobileMenuOpen = ref(false)
   </footer>
 
   <div class="absolute inset-0 -z-20 bg-repeat" style="background-image: url('/cube.svg'); background-size: 45px">
-    <div class="absolute inset-0 -z-10 bg-gradient-to-tr from-slate-900 via-slate-900"></div>
+    <div class="absolute inset-0 -z-10 bg-gradient-to-tr from-slate-900 via-slate-900/60"></div>
   </div>
 </template>
