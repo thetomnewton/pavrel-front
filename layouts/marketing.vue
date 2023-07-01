@@ -3,7 +3,7 @@ import { ArrowUpRightIcon } from '@heroicons/vue/20/solid'
 import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
 
 useHead({
-  bodyAttrs: { class: 'antialiased h-screen text-slate-900 dark:text-zinc-200' },
+  bodyAttrs: { class: 'antialiased h-screen text-slate-100 dark:text-zinc-200 bg-slate-900' },
   title: 'Pavrel',
   meta: [
     {
@@ -37,42 +37,53 @@ const mobileMenuOpen = ref(false)
 </script>
 
 <template>
-  <header class="mx-auto max-w-4xl border-b border-slate-150 px-6 lg:px-8">
+  <header class="mx-auto max-w-4xl border-b border-slate-800 pl-6 pr-0 lg:px-0">
     <div class="flex items-center">
       <NuxtLink to="/" class="py-3">
         <span class="sr-only">Pavrel</span>
-        <LogoColorText class="h-[30px] w-[96px] text-slate-800" />
+        <LogoColorText class="h-[30px] w-[96px] text-white" />
       </NuxtLink>
 
-      <div class="ml-10 hidden items-center sm:flex">
-        <NuxtLink href="/#features" class="py-4 px-3 text-sm font-medium text-slate-900 hover:text-slate-900"
-          >Features</NuxtLink
+      <div class="ml-6 hidden items-center sm:flex">
+        <NuxtLink
+          href="/#features"
+          class="px-3 py-4 text-sm font-medium text-white transition-colors hover:text-slate-300"
         >
-        <NuxtLink href="/#pricing" class="py-4 px-3 text-sm font-medium text-slate-900 hover:text-slate-900"
-          >Pricing</NuxtLink
+          Features
+        </NuxtLink>
+
+        <NuxtLink
+          href="/#pricing"
+          class="px-3 py-4 text-sm font-medium text-white transition-colors hover:text-slate-300"
         >
-        <NuxtLink href="/changelog" class="px-3 py-4 text-sm font-medium text-slate-900 hover:text-slate-900"
-          >Changelog</NuxtLink
+          Pricing
+        </NuxtLink>
+
+        <NuxtLink
+          href="/changelog"
+          class="px-3 py-4 text-sm font-medium text-white transition-colors hover:text-slate-300"
         >
+          Changelog
+        </NuxtLink>
       </div>
 
-      <div class="relative ml-auto flex items-center space-x-2">
+      <div class="relative ml-auto flex items-center pr-6 lg:pr-0">
         <NuxtLink
           to="/login"
-          class="inline-block whitespace-nowrap rounded-lg border-2 border-blue-600 bg-transparent px-3 py-1.5 text-sm font-semibold leading-5 text-blue-600 transition-all hover:shadow-sm active:translate-y-px active:shadow-none"
+          class="inline-block whitespace-nowrap rounded-lg border-none bg-blue-600 px-[14px] py-1.5 text-sm font-semibold leading-5 text-white transition-all hover:shadow-sm active:translate-y-px active:shadow-none"
         >
           Log in
         </NuxtLink>
 
-        <div class="flex sm:hidden">
-          <button type="button" class="rounded-md py-2 px-3" @click="mobileMenuOpen = true">
+        <div class="flex sm:hidden ml-1 -mr-1">
+          <button type="button" class="rounded-md px-3 py-2" @click="mobileMenuOpen = true">
             <Bars3Icon class="h-6 w-6" />
           </button>
         </div>
 
         <div
           v-if="mobileMenuOpen"
-          class="absolute top-0 right-0 w-full max-w-[250px] rounded-lg border border-slate-200 bg-white pb-1.5 shadow-md sm:hidden"
+          class="absolute right-0 top-0 w-full max-w-[250px] rounded-lg border border-slate-700 bg-slate-900 pb-1.5 shadow-md sm:hidden text-white"
         >
           <div class="pr-0.5 text-right">
             <button type="button" class="p-2" @click="mobileMenuOpen = false">
@@ -109,7 +120,7 @@ const mobileMenuOpen = ref(false)
     <slot />
   </main>
 
-  <footer class="border-t border-slate-150 bg-gradient-to-b from-slate-50 to-white py-16 px-2">
+  <footer class="border-t border-slate-150 bg-gradient-to-b from-slate-50 to-white px-2 py-16">
     <div class="mx-auto max-w-4xl space-y-8 px-6 md:flex md:items-start md:justify-between md:space-y-0 lg:px-8">
       <div class="w-full max-w-[250px] pt-1">
         <svg
@@ -204,7 +215,7 @@ const mobileMenuOpen = ref(false)
     </div>
   </footer>
 
-  <div class="absolute inset-0 -z-20 bg-repeat" style="background-image: url('/cube.svg'); background-size: 50px">
-    <div class="absolute inset-0 -z-10 bg-gradient-to-tr from-white via-white"></div>
+  <div class="absolute inset-0 -z-20 bg-repeat" style="background-image: url('/cube.svg'); background-size: 45px">
+    <div class="absolute inset-0 -z-10 bg-gradient-to-tr from-slate-900 via-slate-900"></div>
   </div>
 </template>

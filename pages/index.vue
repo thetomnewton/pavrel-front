@@ -10,7 +10,7 @@ useHead({
   title: 'Pavrel',
   meta: [{ name: 'description', content: 'Unleash your creativity. Pavrel is a home for your ideas.' }],
   bodyAttrs: {
-    class: 'bg-white antialiased font-sans',
+    class: 'bg-slate-900 antialiased font-sans',
   },
 })
 
@@ -18,14 +18,12 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
 </script>
 
 <template>
-  <section class="mx-auto max-w-4xl px-6 pt-20 pb-20 text-center sm:pt-24 lg:px-8">
-    <h1 class="mb-4 text-3xl font-semibold tracking-tight text-slate-900 sm:text-5xl">
-      The home for your team's ideas
-    </h1>
+  <section class="mx-auto max-w-4xl px-6 pb-20 pt-20 text-center sm:pt-24 lg:px-8">
+    <h1 class="mb-4 text-3xl font-semibold tracking-tight text-white sm:text-5xl">A home for your team's ideas</h1>
 
-    <p class="text-lg leading-7 text-slate-700">
-      <span class="font-semibold text-slate-900">Take control</span> of your idea-to-feature workflow and
-      <span class="font-semibold text-slate-900">develop an innovation culture</span> in your team with Pavrel.
+    <p class="text-xl leading-7 text-slate-300">
+      <span class="font-semibold text-slate-100">Take control</span> of your workflow and
+      <span class="font-semibold text-slate-100">develop an innovation culture</span> in your team with Pavrel.
     </p>
 
     <div class="mt-8">
@@ -37,21 +35,21 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
       </NuxtLink>
     </div>
 
-    <div class="mt-3 text-xs text-slate-500">No credit card required.</div>
+    <div class="mt-3 text-xs text-slate-300">No credit card required.</div>
   </section>
 
   <section class="mx-auto hidden max-w-[1249px] px-6 py-10 lg:block lg:px-8">
-    <div class="rounded-lg bg-gradient-to-r from-blue-500 to-sky-500 p-[2px]">
-      <img src="/app-ss1.png" class="rounded-[6px]" />
+    <div class="rounded-lg bg-gradient-to-r from-slate-700 to-slate-700 p-[2px]">
+      <img src="/app-ss1-dark.png" class="rounded-[6px]" />
     </div>
   </section>
 
-  <section class="mx-auto max-w-3xl px-6 py-16 leading-7 text-slate-900 lg:px-8">
-    <h2 class="mb-8 text-2xl font-[450]">Does this sound familiar?</h2>
+  <section class="mx-auto max-w-3xl px-6 py-16 text-lg leading-7 text-white lg:px-8">
+    <h2 class="mb-8 text-2xl font-medium">Does this sound familiar?</h2>
 
     <p class="mb-6">
       Through building products over the last decade and speaking to countless software teams, we've seen the same
-      frustrations appearing:
+      frustrations appearing.
     </p>
 
     <ul class="pl-5">
@@ -83,26 +81,26 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
     <p class="mt-6">We're proud of it, and we hope you like it.</p>
   </section>
 
-  <section class="mx-auto flex flex-wrap justify-center gap-6 px-6 pt-20 pb-20 leading-7 lg:px-8" id="features">
-    <div class="w-full rounded-2xl border border-slate-200 bg-white shadow-sm md:w-[400px]">
+  <section class="mx-auto flex flex-wrap justify-center gap-6 px-6 pb-20 pt-20 leading-7 lg:px-8" id="features">
+    <div class="w-full rounded-2xl border border-slate-700 bg-slate-900 shadow-sm md:w-[400px]">
       <div class="relative flex h-[300px]">
         <div
           class="h-full w-full rounded-t-2xl"
           style="background-image: url('/marketing/list-view.png'); background-position-x: -8px; background-size: 500px"
         ></div>
-        <div class="absolute inset-0 h-full w-full bg-gradient-to-b from-transparent to-white"></div>
+        <div class="absolute inset-0 h-full w-full bg-gradient-to-b from-transparent to-slate-900"></div>
       </div>
 
       <div class="px-10 pb-8 pt-4">
-        <div class="mb-3 text-base text-blue-600">Organize</div>
-        <div class="mb-3 text-[20px] font-medium text-slate-900">Free your backlog from "maybe one day" tasks</div>
-        <div class="text-slate-600">
+        <div class="mb-3 text-base font-medium text-blue-500">Organize</div>
+        <div class="mb-3 text-[20px] font-medium text-slate-100">Free your backlog from "maybe one day" tasks</div>
+        <div class="text-slate-400">
           Keep your backlog from feeling overwhelming, and save it for only committed and planned-out work.
         </div>
       </div>
     </div>
 
-    <div class="w-full rounded-2xl border border-slate-200 bg-white shadow-sm md:w-[400px]">
+    <div class="w-full rounded-2xl border border-slate-700 bg-slate-900 shadow-sm md:w-[400px]">
       <div class="relative flex h-[300px]">
         <div
           class="h-full w-full rounded-t-2xl"
@@ -113,19 +111,19 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
             background-size: 500px;
           "
         ></div>
-        <div class="absolute inset-0 h-full w-full bg-gradient-to-b from-transparent to-white"></div>
+        <div class="absolute inset-0 h-full w-full bg-gradient-to-b from-transparent to-slate-900"></div>
       </div>
 
       <div class="px-10 pb-8 pt-4">
-        <div class="mb-3 text-base text-blue-600">Create</div>
-        <div class="mb-3 text-[20px] font-medium text-slate-900">Capture now, shape later</div>
-        <div class="text-slate-600">
+        <div class="mb-3 text-base font-medium text-blue-500">Create</div>
+        <div class="mb-3 text-[20px] font-medium text-slate-100">Capture now, shape later</div>
+        <div class="text-slate-400">
           Capture ideas as they arise, without worrying if they are fully formed yet or thought-through.
         </div>
       </div>
     </div>
 
-    <div class="w-full rounded-2xl border border-slate-200 bg-white shadow-sm md:w-[400px]">
+    <div class="w-full rounded-2xl border border-slate-700 bg-slate-900 shadow-sm md:w-[400px]">
       <div class="relative flex h-[300px]">
         <div
           class="h-full w-full rounded-t-2xl"
@@ -136,13 +134,13 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
             background-size: 500px;
           "
         ></div>
-        <div class="absolute inset-0 h-full w-full bg-gradient-to-b from-transparent to-white"></div>
+        <div class="absolute inset-0 h-full w-full bg-gradient-to-b from-transparent to-slate-900"></div>
       </div>
 
       <div class="px-10 pb-8 pt-4">
-        <div class="mb-3 text-base text-blue-600">Collaborate</div>
-        <div class="mb-3 text-[20px] font-medium text-slate-900">Ideate and perfect solutions in context</div>
-        <div class="text-slate-600">
+        <div class="mb-3 text-base font-medium text-blue-500">Collaborate</div>
+        <div class="mb-3 text-[20px] font-medium text-slate-100">Ideate and perfect solutions in context</div>
+        <div class="text-slate-400">
           Pavrel's teams functionality allows you to share and collaborate on ideas with the right people.
         </div>
       </div>
@@ -150,17 +148,17 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
   </section>
 
   <section class="mx-auto flex max-w-5xl flex-col items-center gap-y-24 px-6 py-16 lg:flex-row lg:px-8" id="overview">
-    <div class="mr-6 text-slate-800 lg:w-1/2">
+    <div class="mr-6 text-slate-100 lg:w-1/2">
       <h2 class="mb-8 text-2xl font-[450]">Built for modern software teams</h2>
 
       <div class="mb-8 flex items-start">
         <span class="mr-4">
-          <FireIcon class="h-7 w-6 fill-orange-100 text-orange-600" />
+          <FireIcon class="h-7 w-6 text-orange-600" />
         </span>
 
         <span class="flex flex-1 flex-col">
-          <span class="mb-2 text-lg font-[450] text-slate-900">Blazing fast with real-time sync</span>
-          <span class="leading-7 text-slate-600">
+          <span class="mb-2 text-lg font-[450] text-slate-100">Blazing fast with real-time sync</span>
+          <span class="leading-7 text-slate-400">
             Collaborate on ideas in real-time with your team, and see updates reflected immediately.
           </span>
         </span>
@@ -168,12 +166,12 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
 
       <div class="mb-8 flex items-start">
         <span class="mr-4">
-          <CloudIcon class="fill h-7 w-6 text-blue-600" />
+          <CloudIcon class="fill h-7 w-6 text-blue-500" />
         </span>
 
         <span class="flex flex-1 flex-col">
-          <span class="mb-2 text-lg font-[450] text-slate-900">Works offline</span>
-          <span class="leading-7 text-slate-600">
+          <span class="mb-2 text-lg font-[450] text-slate-100">Works offline</span>
+          <span class="leading-7 text-slate-400">
             Capture ideas wherever you are, across all your devices, then sync up with your team when your connection
             returns.
           </span>
@@ -182,36 +180,36 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
 
       <div class="flex items-start">
         <span class="mr-4">
-          <CodeBracketIcon class="h-7 w-6 fill-slate-100 text-slate-800" />
+          <CodeBracketIcon class="h-7 w-6 text-slate-300" />
         </span>
 
         <span class="flex flex-1 flex-col">
-          <span class="mb-2 text-lg font-[450] text-slate-900">Designed with precision</span>
-          <span class="leading-7 text-slate-600">Your team will enjoy Pavrel's crisp and elegant interface.</span>
+          <span class="mb-2 text-lg font-[450] text-slate-100">Designed with precision</span>
+          <span class="leading-7 text-slate-400">Your team will enjoy Pavrel's crisp and elegant interface.</span>
         </span>
       </div>
     </div>
 
-    <div class="max-w-[550px] rounded-2xl border border-slate-200 bg-white shadow-xl lg:w-1/2 lg:max-w-none">
+    <div class="max-w-[550px] rounded-2xl border border-slate-600 bg-slate-800 shadow-xl lg:w-1/2 lg:max-w-none">
       <div class="relative">
         <div
           class="min-h-[400px] rounded-t-2xl bg-cover"
           style="background-image: url('/marketing/drag-drop.png'); background-position: center right"
         ></div>
-        <div class="absolute inset-0 z-10 bg-gradient-to-b from-transparent via-transparent to-white"></div>
+        <div class="absolute inset-0 z-10 bg-gradient-to-b from-transparent via-transparent to-slate-800"></div>
       </div>
 
-      <div class="mt-6 mb-20 px-10 pt-6 text-slate-900">
+      <div class="mb-20 mt-6 px-10 pt-6 text-slate-100">
         <h4 class="flex items-center text-xl font-[450]">
-          <HeartIcon class="mr-2 -ml-0.5 h-6 w-6 text-blue-600" /> Loved by hundreds of teams
+          <HeartIcon class="-ml-0.5 mr-2 h-6 w-6 text-blue-500" /> Loved by hundreds of teams
         </h4>
 
-        <p class="mt-3 leading-7 text-slate-600">
+        <p class="mt-3 leading-7 text-slate-300">
           Our customers love the way Pavrel is accelerating their work. Feel free to join our
           <a
             href="https://join.slack.com/t/pavrelcommunity/shared_invite/zt-1t5h5g1tz-32KKfZL0QbEDIIpLsRMJTw"
             target="_blank"
-            class="font-[450] text-slate-800 underline"
+            class="font-[450] text-slate-100 underline"
             >Slack</a
           >
           community to see how teams are using Pavrel.
@@ -220,41 +218,41 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
     </div>
   </section>
 
-  <section id="pricing" class="bg-white py-24 px-6 lg:px-8">
+  <section id="pricing" class="bg-slate-900 px-6 py-24 lg:px-8">
     <div class="sm:align-center mx-auto max-w-7xl sm:flex sm:flex-col">
-      <h2 class="text-2xl font-[450] text-slate-800 sm:text-center">Choose a plan</h2>
+      <h2 class="text-2xl font-[450] text-slate-100 sm:text-center">Choose a plan</h2>
 
-      <p class="mt-4 text-slate-600 sm:text-center">
+      <p class="mt-4 text-lg text-slate-300 sm:text-center">
         Start building for free, then upgrade to get even more done with Pavrel.
       </p>
 
-      <div class="relative mt-6 flex self-center rounded-lg bg-slate-100 p-0.5 sm:mt-8">
+      <div class="relative mt-6 flex self-center rounded-[10px] bg-slate-700 p-0.5 sm:mt-8">
         <button
           type="button"
-          class="relative w-1/2 whitespace-nowrap rounded-md py-2 text-sm font-medium text-slate-900 shadow-sm focus:z-10 focus:outline-none focus:ring-2 focus:ring-blue-500 sm:w-auto sm:px-8"
+          class="relative w-1/2 whitespace-nowrap rounded-lg py-2 text-sm font-medium text-slate-100 shadow-sm focus:z-10 focus:outline-none focus:ring-2 focus:ring-slate-500 sm:w-auto sm:px-8"
           @click="billingStrategy = 'yearly'"
-          :class="[billingStrategy === 'yearly' ? 'border-slate-200 bg-white shadow-sm' : 'border-transparent']"
+          :class="[billingStrategy === 'yearly' ? 'border-slate-200 bg-slate-500 shadow-sm' : 'border-transparent']"
         >
           Yearly billing
         </button>
 
         <button
           type="button"
-          class="relative ml-0.5 w-1/2 whitespace-nowrap rounded-md py-2 text-sm font-medium text-slate-900 focus:z-10 focus:outline-none focus:ring-2 focus:ring-blue-500 sm:w-auto sm:px-8"
+          class="relative ml-0.5 w-1/2 whitespace-nowrap rounded-lg py-2 text-sm font-medium text-slate-100 focus:z-10 focus:outline-none focus:ring-2 focus:ring-slate-500 sm:w-auto sm:px-8"
           @click="billingStrategy = 'monthly'"
-          :class="[billingStrategy === 'monthly' ? 'border-slate-200 bg-white shadow-sm' : 'border-transparent']"
+          :class="[billingStrategy === 'monthly' ? 'border-slate-200 bg-slate-500 shadow-sm' : 'border-transparent']"
         >
           Monthly billing
         </button>
       </div>
 
       <div class="mt-12 space-y-6 sm:mt-16 sm:grid sm:grid-cols-2 sm:gap-6 sm:space-y-0 lg:mx-auto lg:max-w-4xl">
-        <div class="flex flex-col rounded-xl border border-slate-200 shadow-sm">
+        <div class="flex flex-col rounded-xl border border-slate-600 shadow-sm">
           <div class="px-8 py-8">
-            <h2 class="flex items-center text-lg font-medium leading-6 text-slate-900"><span>Free</span></h2>
-            <p class="text mt-4 text-slate-600">Get your whole team on board and trial Pavrel</p>
+            <h2 class="flex items-center text-lg font-medium leading-6 text-slate-100"><span>Free</span></h2>
+            <p class="mt-4 text-slate-300">Get your whole team on board and trial Pavrel</p>
             <p class="mt-5">
-              <span class="text-4xl font-semibold tracking-tight text-slate-900">$0</span>
+              <span class="text-4xl font-semibold tracking-tight text-white">$0</span>
             </p>
             <NuxtLink
               to="/register"
@@ -264,8 +262,9 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
             </NuxtLink>
           </div>
 
-          <div class="mx-8 mb-8 flex-1 rounded-[8px] bg-slate-50 p-6">
+          <div class="mx-8 mb-8 flex-1 rounded-[8px] bg-slate-800 p-6">
             <h3 class="text-sm font-medium text-slate-900">What's included</h3>
+
             <ul role="list" class="mt-6 space-y-4">
               <li class="flex space-x-3">
                 <svg
@@ -338,9 +337,9 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
           </div>
         </div>
 
-        <div class="flex flex-col rounded-xl border border-slate-200 shadow-sm">
+        <div class="flex flex-col rounded-xl border border-slate-600 shadow-sm">
           <div class="px-8 py-8">
-            <h2 class="flex items-center text-lg font-medium leading-6 text-slate-900">
+            <h2 class="flex items-center text-lg font-medium leading-6 text-slate-100">
               <span>Pro</span>
               <span
                 v-if="billingStrategy === 'yearly'"
@@ -350,12 +349,12 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
               </span>
             </h2>
 
-            <p class="mt-4 text-slate-600">Take your company to the next level with Pro</p>
+            <p class="mt-4 text-slate-300">Take your company to the next level with Pro</p>
             <p class="mt-5">
-              <span class="text-4xl font-semibold tracking-tight text-slate-900">
+              <span class="text-4xl font-semibold tracking-tight text-white">
                 {{ billingStrategy === 'monthly' ? '$10' : '$96' }}
               </span>
-              <span class="text-base font-medium text-slate-600">
+              <span class="text-base font-medium text-slate-300">
                 /user/{{ billingStrategy === 'monthly' ? 'month' : 'year' }}
               </span>
             </p>
@@ -367,7 +366,7 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
             </NuxtLink>
           </div>
 
-          <div class="mx-8 mb-8 flex-1 rounded-[8px] bg-slate-50 p-6">
+          <div class="mx-8 mb-8 flex-1 rounded-[8px] bg-slate-800 p-6">
             <h3 class="text-sm font-medium text-slate-900">What's included</h3>
             <ul role="list" class="mt-6 space-y-4">
               <li class="flex space-x-3">
