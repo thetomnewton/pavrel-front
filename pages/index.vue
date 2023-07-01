@@ -198,7 +198,7 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
       <div class="relative">
         <div
           class="min-h-[400px] rounded-t-2xl bg-cover"
-          style="background-image: url('/marketing/drag-drop.png'); background-position: center right"
+          style="background-image: url('/marketing/drag-drop-dark.png'); background-position: top left"
         ></div>
         <div class="absolute inset-0 z-10 bg-gradient-to-b from-transparent via-transparent to-slate-800"></div>
       </div>
