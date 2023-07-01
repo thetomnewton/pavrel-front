@@ -263,7 +263,7 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
           </div>
 
           <div class="mx-8 mb-8 flex-1 rounded-[8px] bg-slate-800 p-6">
-            <h3 class="text-sm font-medium text-slate-900">What's included</h3>
+            <h3 class="text-sm font-medium text-slate-200">What's included</h3>
 
             <ul role="list" class="mt-6 space-y-4">
               <li class="flex space-x-3">
@@ -280,7 +280,7 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
                     clip-rule="evenodd"
                   ></path>
                 </svg>
-                <span class="text-sm text-slate-600">50 ideas</span>
+                <span class="text-sm text-slate-200">50 ideas</span>
               </li>
 
               <li class="flex space-x-3">
@@ -297,7 +297,7 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
                     clip-rule="evenodd"
                   ></path>
                 </svg>
-                <span class="text-sm text-slate-600">Unlimited teams</span>
+                <span class="text-sm text-slate-200">Unlimited teams</span>
               </li>
 
               <li class="flex space-x-3">
@@ -314,7 +314,7 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
                     clip-rule="evenodd"
                   ></path>
                 </svg>
-                <span class="text-sm text-slate-600">Unlimited team members</span>
+                <span class="text-sm text-slate-200">Unlimited team members</span>
               </li>
 
               <li class="flex space-x-3">
@@ -331,7 +331,7 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
                     clip-rule="evenodd"
                   ></path>
                 </svg>
-                <span class="text-sm text-slate-600">Unlimited workspaces</span>
+                <span class="text-sm text-slate-200">Unlimited workspaces</span>
               </li>
             </ul>
           </div>
@@ -343,7 +343,7 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
               <span>Pro</span>
               <span
                 v-if="billingStrategy === 'yearly'"
-                class="ml-auto cursor-default rounded bg-green-200 px-1.5 py-0.5 text-sm leading-5 text-green-800"
+                class="ml-auto cursor-default rounded bg-green-200 px-1.5 py-0.5 text-sm leading-5 text-green-900"
               >
                 -20%
               </span>
@@ -367,7 +367,7 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
           </div>
 
           <div class="mx-8 mb-8 flex-1 rounded-[8px] bg-slate-800 p-6">
-            <h3 class="text-sm font-medium text-slate-900">What's included</h3>
+            <h3 class="text-sm font-medium text-slate-200">What's included</h3>
             <ul role="list" class="mt-6 space-y-4">
               <li class="flex space-x-3">
                 <svg
@@ -383,7 +383,7 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
                     clip-rule="evenodd"
                   ></path>
                 </svg>
-                <span class="text-sm text-slate-600">Everything in Free</span>
+                <span class="text-sm text-slate-200">Everything in Free</span>
               </li>
 
               <li class="flex space-x-3">
@@ -400,7 +400,7 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
                     clip-rule="evenodd"
                   ></path>
                 </svg>
-                <span class="text-sm text-slate-600">Unlimited ideas</span>
+                <span class="text-sm text-slate-200">Unlimited ideas</span>
               </li>
 
               <li class="flex space-x-3">
@@ -417,7 +417,7 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
                     clip-rule="evenodd"
                   ></path>
                 </svg>
-                <span class="text-sm text-slate-600">Private teams</span>
+                <span class="text-sm text-slate-200">Private teams</span>
               </li>
 
               <li class="flex space-x-3">
@@ -434,7 +434,7 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
                     clip-rule="evenodd"
                   ></path>
                 </svg>
-                <span class="text-sm text-slate-600">Version history (soon)</span>
+                <span class="text-sm text-slate-200">Version history (soon)</span>
               </li>
 
               <li class="flex space-x-3">
@@ -451,7 +451,7 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
                     clip-rule="evenodd"
                   ></path>
                 </svg>
-                <span class="text-sm text-slate-600">API + integrations (soon)</span>
+                <span class="text-sm text-slate-200">API + integrations (soon)</span>
               </li>
             </ul>
           </div>

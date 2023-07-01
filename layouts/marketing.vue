@@ -75,7 +75,7 @@ const mobileMenuOpen = ref(false)
           Log in
         </NuxtLink>
 
-        <div class="flex sm:hidden ml-1 -mr-1">
+        <div class="-mr-1 ml-1 flex sm:hidden">
           <button type="button" class="rounded-md px-3 py-2" @click="mobileMenuOpen = true">
             <Bars3Icon class="h-6 w-6" />
           </button>
@@ -83,7 +83,7 @@ const mobileMenuOpen = ref(false)
 
         <div
           v-if="mobileMenuOpen"
-          class="absolute right-0 top-0 w-full max-w-[250px] rounded-lg border border-slate-700 bg-slate-900 pb-1.5 shadow-md sm:hidden text-white"
+          class="absolute right-0 top-0 w-full max-w-[250px] rounded-lg border border-slate-700 bg-slate-900 pb-1.5 text-white shadow-md sm:hidden"
         >
           <div class="pr-0.5 text-right">
             <button type="button" class="p-2" @click="mobileMenuOpen = false">
@@ -120,7 +120,7 @@ const mobileMenuOpen = ref(false)
     <slot />
   </main>
 
-  <footer class="border-t border-slate-150 bg-gradient-to-b from-slate-50 to-white px-2 py-16">
+  <footer class="border-t border-slate-600 bg-gradient-to-b from-slate-950 to-slate-950 px-2 py-16">
     <div class="mx-auto max-w-4xl space-y-8 px-6 md:flex md:items-start md:justify-between md:space-y-0 lg:px-8">
       <div class="w-full max-w-[250px] pt-1">
         <svg
@@ -133,80 +133,80 @@ const mobileMenuOpen = ref(false)
         >
           <path
             d="M46 73.5V50.7435L83 29.6621V71.7565L46 92.8379V73.5ZM40 92.8379L3 71.7565V29.6621L40 50.7435V73.5V92.8379ZM79.94 24.5L43 45.5472L6.05999 24.5L43 3.45278L79.94 24.5Z"
-            class="fill-slate-400 stroke-white"
+            class="fill-slate-200 stroke-white"
             stroke-width="1"
           />
         </svg>
       </div>
 
       <div class="w-full max-w-[250px]">
-        <div class="mb-2 text-[13px] font-medium text-slate-700">Product</div>
-        <NuxtLink href="/" class="block cursor-pointer text-[13px] leading-7 text-slate-500 hover:text-slate-800">
+        <div class="mb-2 text-[13px] font-medium text-slate-200">Product</div>
+        <NuxtLink href="/" class="block cursor-pointer text-[13px] leading-7 text-slate-300 hover:text-slate-400">
           Home
         </NuxtLink>
         <NuxtLink
           href="/#features"
-          class="block cursor-pointer text-[13px] leading-7 text-slate-500 hover:text-slate-700"
+          class="block cursor-pointer text-[13px] leading-7 text-slate-300 hover:text-slate-400"
         >
           Features
         </NuxtLink>
         <NuxtLink
           href="/#pricing"
-          class="block cursor-pointer text-[13px] leading-7 text-slate-500 hover:text-slate-700"
+          class="block cursor-pointer text-[13px] leading-7 text-slate-300 hover:text-slate-400"
         >
           Pricing
         </NuxtLink>
         <NuxtLink
           href="/changelog"
-          class="block cursor-pointer text-[13px] leading-7 text-slate-500 hover:text-slate-700"
+          class="block cursor-pointer text-[13px] leading-7 text-slate-300 hover:text-slate-400"
         >
           Changelog
         </NuxtLink>
-        <NuxtLink href="/docs" class="block cursor-pointer text-[13px] leading-7 text-slate-500 hover:text-slate-700">
+        <NuxtLink href="/docs" class="block cursor-pointer text-[13px] leading-7 text-slate-300 hover:text-slate-400">
           Docs
         </NuxtLink>
       </div>
 
       <div class="w-full max-w-[250px]">
-        <div class="mb-2 text-[13px] font-medium text-slate-700">Company</div>
-        <NuxtLink href="/terms" class="block cursor-pointer text-[13px] leading-7 text-slate-500 hover:text-slate-700">
+        <div class="mb-2 text-[13px] font-medium text-slate-200">Company</div>
+        <NuxtLink href="/terms" class="block cursor-pointer text-[13px] leading-7 text-slate-300 hover:text-slate-400">
           Terms
         </NuxtLink>
         <NuxtLink
           href="/privacy"
-          class="block cursor-pointer text-[13px] leading-7 text-slate-500 hover:text-slate-700"
+          class="block cursor-pointer text-[13px] leading-7 text-slate-300 hover:text-slate-400"
         >
           Privacy
         </NuxtLink>
         <a
           href="mailto:support@pavrel.com"
-          class="block cursor-pointer text-[13px] leading-7 text-slate-500 hover:text-slate-700"
+          class="block cursor-pointer text-[13px] leading-7 text-slate-300 hover:text-slate-400"
         >
           Contact
         </a>
-        <NuxtLink href="/login" class="block cursor-pointer text-[13px] leading-7 text-slate-500 hover:text-slate-700">
+        <NuxtLink href="/login" class="block cursor-pointer text-[13px] leading-7 text-slate-300 hover:text-slate-400">
           Log in
         </NuxtLink>
         <NuxtLink
           href="/register"
-          class="block cursor-pointer text-[13px] leading-7 text-slate-500 hover:text-slate-700"
+          class="block cursor-pointer text-[13px] leading-7 text-slate-300 hover:text-slate-400"
         >
           Register
         </NuxtLink>
       </div>
 
       <div class="w-full max-w-[250px]">
-        <div class="mb-2 text-[13px] font-medium text-slate-700">Community</div>
+        <div class="mb-2 text-[13px] font-medium text-slate-200">Community</div>
         <a
           href="https://join.slack.com/t/pavrelcommunity/shared_invite/zt-1t5h5g1tz-32KKfZL0QbEDIIpLsRMJTw"
-          class="flex cursor-pointer items-center text-[13px] leading-7 text-slate-500 hover:text-slate-700"
+          class="flex cursor-pointer items-center text-[13px] leading-7 text-slate-300 hover:text-slate-400"
           target="_blank"
         >
           <span>Slack</span> <ArrowUpRightIcon class="ml-0.5 h-4 w-4" />
         </a>
         <a
           href="https://twitter.com/usePavrel"
-          class="flex cursor-pointer items-center text-[13px] leading-7 text-slate-500 hover:text-slate-700"
+          class="flex cursor-pointer items-center text-[13px] leading-7 text-slate-300 hover:text-slate-400"
           target="_blank"
         >
           <span>Twitter</span> <ArrowUpRightIcon class="ml-0.5 h-4 w-4" />
