@@ -94,6 +94,10 @@ function updateStatus(id: string) {
   updateIdea({ ...idea.value, ...{ status_id: id } })
 }
 
+function showViewHistory() {
+  // todo: show view history modal
+}
+
 function setUrl() {
   // todo: refactor to implement vue router
   window.history.pushState(
@@ -125,7 +129,7 @@ function handleTeamMove(team: Team) {
         class="mx-auto flex h-full w-full max-w-[1280px] flex-col overflow-hidden rounded-lg bg-white shadow-md dark:border-zinc-800 dark:bg-zinc-900 dark:lg:border dark:lg:border-zinc-700"
         v-if="open"
       >
-        <div class="flex items-center border-b border-slate-150 py-[10px] px-[18px] dark:border-zinc-800">
+        <div class="flex items-center border-b border-slate-150 px-[18px] py-[10px] dark:border-zinc-800">
           <button
             type="button"
             class="mr-[6px] flex cursor-default items-center rounded border border-slate-300 px-[3px] py-[3px] font-medium leading-[20px] hover:bg-slate-50 active:border-slate-400 active:bg-slate-100 dark:border-zinc-600 dark:bg-zinc-800 dark:hover:bg-zinc-700/50 dark:active:border-zinc-600 dark:active:bg-zinc-700/70"
@@ -186,11 +190,11 @@ function handleTeamMove(team: Team) {
             <span class="ml-auto flex items-center">
               <IdeaEditButton :url="`/${currentWorkspace?.slug}/ideas/${team?.slug}-${idea.team_idea_id}/edit`" />
 
-              <IdeaActionsDropdown :idea="idea" @move-teams="handleTeamMove" />
+              <IdeaActionsDropdown :idea="idea" @move-teams="handleTeamMove" @view-history="showViewHistory" />
 
               <span
                 @click="sidebarOpen = !sidebarOpen"
-                class="ml-2 rounded py-1 px-[6px] hover:bg-slate-100 active:bg-slate-200 dark:hover:bg-zinc-800/70 dark:active:bg-zinc-800 lg:hidden"
+                class="ml-2 rounded px-[6px] py-1 hover:bg-slate-100 active:bg-slate-200 dark:hover:bg-zinc-800/70 dark:active:bg-zinc-800 lg:hidden"
               >
                 <Bars3BottomRightIcon class="h-5 w-5 min-w-[1.25rem] text-slate-600 dark:text-zinc-400" />
               </span>

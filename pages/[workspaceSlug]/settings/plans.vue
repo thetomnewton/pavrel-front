@@ -40,18 +40,20 @@ const isAnnualBilling = ref(true)
         new subscription.
       </p>
 
-      <p class="mt-2 flex">
-        <span class="flex items-end pt-4">
-          <span class="flex items-center text-sm font-medium leading-[38px] text-slate-600 dark:text-zinc-400">
-            <span class="cursor-default" @click="isAnnualBilling = false"> Pay monthly </span>
-            <Switch class="mx-3" v-model="isAnnualBilling" :size="20" />
-            <span class="inline-flex cursor-default items-center" @click="isAnnualBilling = true">
-              <span>Pay yearly</span>
-              <span class="ml-1.5 rounded bg-green-200 px-1 py-px text-xs font-medium text-green-800">-20%</span>
-            </span>
-          </span>
-        </span>
-      </p>
+      <div class="mt-4">
+        <TextSwitch :value="!isAnnualBilling" @change="value => (isAnnualBilling = !value)">
+          <template #option1>Pay monthly</template>
+
+          <template #option2>
+            <span>Pay yearly</span>
+            <span
+              class="-mr-1.5 ml-1.5 whitespace-nowrap rounded bg-green-200 px-1 py-0.5 text-xs font-medium text-green-800"
+              :class="{ 'text-zinc-900 dark:bg-zinc-400': !isAnnualBilling }"
+              >-20%</span
+            >
+          </template>
+        </TextSwitch>
+      </div>
     </div>
 
     <div class="w-full overflow-x-auto pb-12">

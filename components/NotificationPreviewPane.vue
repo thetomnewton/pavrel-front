@@ -29,6 +29,10 @@ function toggleNotificationRead() {
   if (props.notification.read_at == null) markNotificationAsRead(props.notification)
   else markNotificationAsUnread(props.notification)
 }
+
+function showViewHistory() {
+  // todo: show view history modal
+}
 </script>
 
 <template>
@@ -36,7 +40,7 @@ function toggleNotificationRead() {
     <div class="flex min-h-[53px] items-center border-b border-slate-100 px-6 py-2 leading-[36px] dark:border-zinc-800">
       <div class="mr-3 flex items-center">
         <button
-          class="mr-2 -ml-2 inline-flex cursor-default appearance-none items-center whitespace-nowrap rounded-full bg-white p-2 text-[.8125rem] font-medium leading-5 text-slate-700 hover:bg-slate-100 active:bg-slate-200 dark:bg-zinc-800 dark:text-zinc-300 dark:hover:bg-zinc-700 dark:active:bg-zinc-700/30 lg:hidden"
+          class="-ml-2 mr-2 inline-flex cursor-default appearance-none items-center whitespace-nowrap rounded-full bg-white p-2 text-[.8125rem] font-medium leading-5 text-slate-700 hover:bg-slate-100 active:bg-slate-200 dark:bg-zinc-800 dark:text-zinc-300 dark:hover:bg-zinc-700 dark:active:bg-zinc-700/30 lg:hidden"
           @click="$emit('back')"
         >
           <ArrowLeftIcon class="h-4 w-4" />
@@ -44,7 +48,7 @@ function toggleNotificationRead() {
 
         <button
           type="button"
-          class="inline-flex cursor-default appearance-none items-center whitespace-nowrap rounded border border-slate-300 bg-white py-1 px-[10px] text-[.8125rem] font-medium leading-5 text-slate-700 active:bg-slate-100 dark:border-zinc-700 dark:bg-zinc-800/40 dark:text-zinc-300 dark:active:bg-zinc-700/30"
+          class="inline-flex cursor-default appearance-none items-center whitespace-nowrap rounded border border-slate-300 bg-white px-[10px] py-1 text-[.8125rem] font-medium leading-5 text-slate-700 active:bg-slate-100 dark:border-zinc-700 dark:bg-zinc-800/40 dark:text-zinc-300 dark:active:bg-zinc-700/30"
           @click="toggleNotificationRead"
         >
           <template v-if="notification.read_at == null">
@@ -60,7 +64,7 @@ function toggleNotificationRead() {
 
         <button
           type="button"
-          class="ml-3 inline-flex cursor-default appearance-none items-center whitespace-nowrap rounded border border-slate-300 bg-white py-1 px-[10px] text-[.8125rem] font-medium leading-5 text-slate-700 active:bg-slate-100 dark:border-zinc-700 dark:bg-zinc-800/40 dark:text-zinc-300 dark:active:bg-zinc-700/30"
+          class="ml-3 inline-flex cursor-default appearance-none items-center whitespace-nowrap rounded border border-slate-300 bg-white px-[10px] py-1 text-[.8125rem] font-medium leading-5 text-slate-700 active:bg-slate-100 dark:border-zinc-700 dark:bg-zinc-800/40 dark:text-zinc-300 dark:active:bg-zinc-700/30"
           @click="toggleIdeaSubscription(idea)"
         >
           <template v-if="userIsSubscribedTo(idea)">
@@ -76,7 +80,7 @@ function toggleNotificationRead() {
 
         <button
           type="button"
-          class="group ml-3 inline-flex cursor-default appearance-none items-center whitespace-nowrap rounded border border-slate-300 bg-white py-1 px-[10px] text-[.8125rem] font-medium leading-5 text-slate-700 active:border-rose-700 active:bg-rose-50 active:text-rose-800 dark:border-zinc-700 dark:bg-zinc-800/40 dark:text-zinc-300 dark:active:bg-rose-700 dark:active:text-white"
+          class="group ml-3 inline-flex cursor-default appearance-none items-center whitespace-nowrap rounded border border-slate-300 bg-white px-[10px] py-1 text-[.8125rem] font-medium leading-5 text-slate-700 active:border-rose-700 active:bg-rose-50 active:text-rose-800 dark:border-zinc-700 dark:bg-zinc-800/40 dark:text-zinc-300 dark:active:bg-rose-700 dark:active:text-white"
           @click="deleteNotification(notification)"
         >
           <XMarkIcon class="mr-[6px] h-4 w-4 text-rose-700 dark:group-active:text-rose-300" />
@@ -124,7 +128,7 @@ function toggleNotificationRead() {
           <IdeaEditButton
             :url="`/${currentWorkspace?.slug}/ideas/${getTeamFromIdea(idea)?.slug}-${idea.team_idea_id}/edit`"
           />
-          <IdeaActionsDropdown :idea="idea" />
+          <IdeaActionsDropdown :idea="idea" @view-history="showViewHistory" />
         </div>
       </div>
     </IdeaContent>

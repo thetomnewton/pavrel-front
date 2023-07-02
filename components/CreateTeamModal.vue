@@ -92,13 +92,7 @@ const slugAlreadyExists = computed(() => currentWorkspaceTeams.value?.find(team 
             />
 
             <div class="mt-8 text-right">
-              <button
-                type="button"
-                @click="$emit('close')"
-                class="mr-2 cursor-default px-4 py-2 text-sm font-medium leading-5 text-slate-600 hover:text-slate-800 dark:text-zinc-300"
-              >
-                Cancel
-              </button>
+              <ModalCancelButton @click="$emit('close')" class="mr-2">Cancel</ModalCancelButton>
               <Button type="submit" :disabled="!online || status === 'creating' || slugAlreadyExists">
                 Create team
               </Button>

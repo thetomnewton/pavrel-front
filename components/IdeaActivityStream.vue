@@ -12,7 +12,7 @@ const props = defineProps<{
   activities: IdeaActivity[]
 }>()
 
-const emit = defineEmits(['editing'])
+const emit = defineEmits(['editing', 'view-history'])
 
 const deleteIdeaComment = ref<{
   open: boolean
@@ -64,7 +64,7 @@ function emitEditing(value: boolean) {
   <div class="mb-4">
     <div class="space-y-5">
       <div v-for="streamDay in stream" class="relative space-y-3">
-        <div class="absolute top-[calc(100%+3px)] left-[10px] h-4 w-px bg-slate-200 dark:bg-zinc-700"></div>
+        <div class="absolute left-[10px] top-[calc(100%+3px)] h-4 w-px bg-slate-200 dark:bg-zinc-700"></div>
         <div v-for="{ type, item } in streamDay">
           <template v-if="type === 'comment'">
             <IdeaCommentItem
@@ -76,7 +76,10 @@ function emitEditing(value: boolean) {
           </template>
 
           <template v-if="type === 'activity'">
-            <IdeaActivityItem :activity="(item as IdeaActivity)" />
+            <IdeaActivityItem
+              :activity="(item as IdeaActivity)"
+              @view-history="$event => emit('view-history', $event)"
+            />
           </template>
         </div>
       </div>

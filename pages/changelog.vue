@@ -8,16 +8,16 @@ useHead({
   title: 'Changelog | Pavrel',
   meta: [{ name: 'description', content: 'Unleash your creativity. Pavrel is a home for your ideas.' }],
   bodyAttrs: {
-    class: 'bg-slate-50 antialiased font-sans',
+    class: 'antialiased font-sans text-white',
   },
 })
 </script>
 
 <template>
-  <article class="prose prose-slate mx-auto max-w-4xl py-16 px-8">
+  <article class="prose prose-invert mx-auto max-w-4xl px-8 py-16">
     <h1>Changelog</h1>
 
-    <p class="mb-10 border-b border-slate-200 pb-10 text-lg">
+    <p class="mb-10 border-b border-zinc-700 pb-10 text-lg">
       Follow our
       <a href="//twitter.com/usePavrel" target="_blank" rel="noreferrer" class="text-blue-500">Twitter</a> page to stay
       updated on everything we ship.

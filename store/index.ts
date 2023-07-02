@@ -4,6 +4,7 @@ import {
   IdeaActivity,
   IdeaComment,
   IdeaFavorite,
+  IdeaHistory,
   IdeaSubscription,
   IdeaUpvote,
   Team,
@@ -31,6 +32,7 @@ export interface BaseModuleState {
   ideaComments: IdeaComment[]
   ideaSubscriptions: IdeaSubscription[]
   ideaActivities: IdeaActivity[]
+  ideaHistory: IdeaHistory[]
   ideaUpvotes: IdeaUpvote[]
   quickCreateIdeaModalOpen: boolean
   currentWorkspaceSlug: string | null

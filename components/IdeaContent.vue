@@ -16,6 +16,8 @@ const props = defineProps<{
   hideSidebarCloseIcon?: boolean
 }>()
 
+defineEmits(['view-history'])
+
 const store = useStore()
 
 const { ideaUpvoteCount, isIdeaUpvoted, toggleUpvoteIdea } = useIdeaUpvotes()
@@ -46,7 +48,11 @@ const team = computed<Team | undefined>(() =>
             />
           </div>
 
-          <IdeaActivity :idea="idea" class="mx-5 mt-8 border-t border-slate-150 pt-8 dark:border-zinc-800" />
+          <IdeaActivity
+            :idea="idea"
+            class="mx-5 mt-8 border-t border-slate-150 pt-8 dark:border-zinc-800"
+            @view-history="$event => $emit('view-history', $event)"
+          />
         </div>
       </div>
     </section>

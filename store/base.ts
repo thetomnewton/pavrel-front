@@ -9,6 +9,7 @@ import {
   IdeaActivity,
   IdeaComment,
   IdeaFavorite,
+  IdeaHistory,
   IdeaSubscription,
   IdeaUpvote,
   Label,
@@ -54,6 +55,7 @@ export default {
     ideaComments: [],
     ideaSubscriptions: [],
     ideaActivities: [],
+    ideaHistory: [],
     ideaUpvotes: [],
     subscriptions: [],
     quickCreateIdeaModalOpen: false,
@@ -618,6 +620,10 @@ export default {
       state.ideaActivities = activities
     },
 
+    setIdeaHistory(state: BaseModuleState, history: IdeaHistory[]) {
+      state.ideaHistory = history
+    },
+
     updateOrCreateIdeaActivity(state: BaseModuleState, activity: IdeaActivity) {
       const search = state.ideaActivities.findIndex(localActivity => {
         return (
@@ -814,6 +820,7 @@ export default {
         dispatch('getSubscriptions'),
         dispatch('getUpvotes'),
         dispatch('getIdeaActivities'),
+        dispatch('getIdeaHistory'),
       ])
         .then(() => commit('setWorkspaceContentLoaded'))
         .catch(() => commit('setWorkspaceContentError'))
@@ -1001,6 +1008,13 @@ export default {
       if (data == null) return
 
       commit('setIdeaActivities', data)
+    },
+
+    async getIdeaHistory({ getters, commit }: VuexAction) {
+      const { data } = await api.get(`/workspaces/${getters.currentWorkspace.id}/idea-history`)
+      if (data == null) return
+
+      commit('setIdeaHistory', data)
     },
 
     async getIdeaComments({ getters, commit }: VuexAction) {

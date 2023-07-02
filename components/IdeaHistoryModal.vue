@@ -1,21 +1,16 @@
 <script setup lang="ts">
 import { Dialog, DialogPanel, TransitionRoot } from '@headlessui/vue'
-import { Team } from '../types'
+import { Idea } from '../types'
 import ModalBg from './ModalBg.vue'
 import ModalWrapper from './ModalWrapper.vue'
 
 defineProps<{
   open: boolean
+  idea: Idea
+  hash?: string
 }>()
 
-const emit = defineEmits(['close'])
-
-const { publicTeamsToJoin, joinTeam } = useTeams()
-
-function attemptJoinTeam(id: Team['id']) {
-  joinTeam(id)
-  emit('close')
-}
+defineEmits(['close'])
 </script>
 
 <template>
@@ -27,25 +22,13 @@ function attemptJoinTeam(id: Team['id']) {
         <DialogPanel
           class="mx-auto w-full max-w-[550px] rounded-md bg-white px-8 py-6 shadow-3xl dark:border dark:border-zinc-700 dark:bg-zinc-900 md:mt-[12vh]"
         >
-          <h3 class="mb-4 font-semibold">Join a team</h3>
+          <h3 class="mb-4 font-semibold">Idea history</h3>
 
           <p class="mb-6 text-sm text-slate-600 dark:text-zinc-300">
-            Select a public team from the list below. To join a private team, you must be added by an existing member.
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos eveniet sequi blanditiis, expedita nobis sed,
+            quo perspiciatis doloribus praesentium, dignissimos consequatur dolore incidunt nostrum cumque illum unde
+            iure velit eos.
           </p>
-
-          <TeamList
-            :teams="publicTeamsToJoin"
-            @select-team="($event: Team) => attemptJoinTeam($event.id)"
-            v-if="publicTeamsToJoin.length"
-            class="-mx-8 max-h-[300px] overflow-auto pt-1"
-          />
-
-          <div
-            v-else
-            class="flex cursor-default items-center justify-center rounded-md border border-slate-200 px-10 py-5 text-sm text-slate-500 dark:border-zinc-700 dark:text-zinc-400"
-          >
-            No public teams to join
-          </div>
 
           <div class="mt-6 text-right">
             <ModalCancelButton @click="$emit('close')">Close</ModalCancelButton>

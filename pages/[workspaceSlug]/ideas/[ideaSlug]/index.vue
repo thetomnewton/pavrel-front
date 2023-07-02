@@ -25,6 +25,8 @@ const { pushToRecentIdeas } = useRecentIdeas()
 
 const newIdea = ref<Idea | null>(null)
 const sidebarOpen = ref(false)
+const viewHistoryVisible = ref(false)
+const viewHistoryHash = ref<string>()
 
 const currentWorkspace = computed(() => store.getters['base/currentWorkspace'])
 const currentWorkspaceTeams = computed(() => store.getters['base/currentWorkspaceTeams'])
@@ -69,6 +71,15 @@ function handleDeletion() {
   router.push(`/${workspaceSlug}/drafts`)
 }
 
+function showViewHistory() {
+  viewHistoryVisible.value = true
+}
+
+function openViewHistory(hash?: string) {
+  showViewHistory()
+  if (hash) viewHistoryHash.value = hash
+}
+
 if (idea.value) newIdea.value = cloneDeep(idea.value)
 
 watch(
@@ -85,54 +96,63 @@ watch(
 </script>
 
 <template>
-  <IdeaContent
-    v-if="team && newIdea"
-    :idea="newIdea"
-    :team-id="team.id"
-    :sidebar-open="sidebarOpen"
-    has-sidebar
-    class="h-full lg:px-5"
-    content-classes="pt-[52px]"
-    @status-update="updateStatus"
-    @add-label="addLabel"
-    @remove-label="removeLabel"
-    @close-sidebar="sidebarOpen = false"
-  >
-    <PageHeader
-      :show-options="false"
-      :show-filters="false"
-      v-if="idea"
-      :team="team"
-      class="fixed left-0 top-0 right-0 z-10 bg-white/80 backdrop-blur dark:border-b dark:border-zinc-800 dark:bg-zinc-900 lg:right-[270px] xl:right-[270px]"
-      :class="{ 'lg:left-[var(--sidebar-width)]': !sidebarToggled }"
+  <div v-if="team && newIdea">
+    <IdeaContent
+      :idea="newIdea"
+      :team-id="team.id"
+      :sidebar-open="sidebarOpen"
+      has-sidebar
+      class="h-full lg:px-5"
+      content-classes="pt-[52px]"
+      @status-update="updateStatus"
+      @add-label="addLabel"
+      @remove-label="removeLabel"
+      @close-sidebar="sidebarOpen = false"
+      @view-history="$event => openViewHistory($event)"
     >
-      <div class="flex min-w-0 items-center">
-        <NuxtLink
-          :href="
-            !team.personal
-              ? `/${currentWorkspace.slug}/teams/${team.slug}/ideas/all`
-              : `/${currentWorkspace.slug}/drafts`
-          "
-          class="hidden cursor-default truncate whitespace-nowrap rounded px-1 leading-6 hover:bg-slate-100 active:bg-slate-150 dark:hover:bg-zinc-800 dark:active:bg-zinc-700/50 xs:block"
-          >{{ team.name }}</NuxtLink
-        >
-        <div class="mr-1 hidden xs:block">›</div>
-        <div class="cursor-default whitespace-nowrap">#{{ idea.team_idea_id }}</div>
-      </div>
+      <PageHeader
+        :show-options="false"
+        :show-filters="false"
+        v-if="idea"
+        :team="team"
+        class="fixed left-0 right-0 top-0 z-10 bg-white/80 backdrop-blur dark:border-b dark:border-zinc-800 dark:bg-zinc-900 lg:right-[270px] xl:right-[270px]"
+        :class="{ 'lg:left-[var(--sidebar-width)]': !sidebarToggled }"
+      >
+        <div class="flex min-w-0 items-center">
+          <NuxtLink
+            :href="
+              !team.personal
+                ? `/${currentWorkspace.slug}/teams/${team.slug}/ideas/all`
+                : `/${currentWorkspace.slug}/drafts`
+            "
+            class="hidden cursor-default truncate whitespace-nowrap rounded px-1 leading-6 hover:bg-slate-100 active:bg-slate-150 dark:hover:bg-zinc-800 dark:active:bg-zinc-700/50 xs:block"
+            >{{ team.name }}</NuxtLink
+          >
+          <div class="mr-1 hidden xs:block">›</div>
+          <div class="cursor-default whitespace-nowrap">#{{ idea.team_idea_id }}</div>
+        </div>
 
-      <FavoriteButton class="ml-4" @click="idea ? toggleFavorite(idea) : ''" :on="isFavorite(idea)" />
+        <FavoriteButton class="ml-4" @click="idea ? toggleFavorite(idea) : ''" :on="isFavorite(idea)" />
 
-      <span class="ml-auto flex items-center">
-        <IdeaEditButton :url="`/${currentWorkspace.slug}/ideas/${team.slug}-${idea.team_idea_id}/edit`" />
+        <span class="ml-auto flex items-center">
+          <IdeaEditButton :url="`/${currentWorkspace.slug}/ideas/${team.slug}-${idea.team_idea_id}/edit`" />
 
-        <IdeaActionsDropdown :idea="idea" @delete-idea="handleDeletion" />
+          <IdeaActionsDropdown :idea="idea" @delete-idea="handleDeletion" @view-history="showViewHistory" />
 
-        <span @click="sidebarOpen = !sidebarOpen" class="ml-2 rounded py-1 px-[6px] lg:hidden">
-          <Bars3BottomRightIcon class="h-5 w-5 min-w-[1.25rem] text-slate-700 dark:text-zinc-400" />
+          <span @click="sidebarOpen = !sidebarOpen" class="ml-2 rounded px-[6px] py-1 lg:hidden">
+            <Bars3BottomRightIcon class="h-5 w-5 min-w-[1.25rem] text-slate-700 dark:text-zinc-400" />
+          </span>
         </span>
-      </span>
-    </PageHeader>
-  </IdeaContent>
+      </PageHeader>
+    </IdeaContent>
+
+    <IdeaHistoryModal
+      :open="viewHistoryVisible"
+      @close="viewHistoryVisible = false"
+      :idea="newIdea"
+      :hash="viewHistoryHash"
+    />
+  </div>
 
   <div v-else-if="team && !newIdea">
     <div class="flex h-screen w-full items-center px-6 text-center">
@@ -151,7 +171,7 @@ watch(
         </div>
 
         <div class="mt-3 text-sm">
-          <div class="mt-3 mb-1 font-medium text-slate-800 dark:text-zinc-200">Idea not found.</div>
+          <div class="mb-1 mt-3 font-medium text-slate-800 dark:text-zinc-200">Idea not found.</div>
 
           <RouterLink :to="`/${currentWorkspace.slug}/drafts`" class="font-medium text-blue-500 hover:underline">
             Go to my drafts
