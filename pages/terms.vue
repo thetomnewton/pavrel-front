@@ -10,7 +10,7 @@ useHead({
 </script>
 
 <template>
-  <div class="prose prose-slate mx-auto max-w-4xl px-6 py-16 lg:px-8">
+  <div class="prose prose-invert mx-auto max-w-4xl px-6 py-16 lg:px-8">
     <h1>Terms of Service</h1>
 
     <p><strong>Effective date</strong>: May 30th, 2023</p>

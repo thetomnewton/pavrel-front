@@ -3,7 +3,7 @@ import { ArrowUpRightIcon } from '@heroicons/vue/20/solid'
 import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
 
 useHead({
-  bodyAttrs: { class: 'antialiased h-screen text-slate-100 dark:text-zinc-200 bg-zinc-900' },
+  bodyAttrs: { class: 'antialiased h-screen text-zinc-100 dark:text-zinc-200 bg-zinc-900' },
   title: 'Pavrel',
   meta: [
     {
@@ -37,7 +37,7 @@ const mobileMenuOpen = ref(false)
 </script>
 
 <template>
-  <header class="mx-auto max-w-4xl border-b border-slate-800 pl-6 pr-0 lg:px-0">
+  <header class="mx-auto max-w-4xl border-b border-zinc-800 pl-6 pr-0 lg:px-0">
     <div class="flex items-center">
       <NuxtLink to="/" class="py-3">
         <span class="sr-only">Pavrel</span>
@@ -47,21 +47,21 @@ const mobileMenuOpen = ref(false)
       <div class="ml-6 hidden items-center sm:flex">
         <NuxtLink
           href="/#features"
-          class="px-3 py-4 text-sm font-medium text-white transition-colors hover:text-slate-300"
+          class="px-3 py-4 text-sm font-medium text-white transition-colors hover:text-zinc-300"
         >
           Features
         </NuxtLink>
 
         <NuxtLink
           href="/#pricing"
-          class="px-3 py-4 text-sm font-medium text-white transition-colors hover:text-slate-300"
+          class="px-3 py-4 text-sm font-medium text-white transition-colors hover:text-zinc-300"
         >
           Pricing
         </NuxtLink>
 
         <NuxtLink
           href="/changelog"
-          class="px-3 py-4 text-sm font-medium text-white transition-colors hover:text-slate-300"
+          class="px-3 py-4 text-sm font-medium text-white transition-colors hover:text-zinc-300"
         >
           Changelog
         </NuxtLink>
@@ -83,7 +83,7 @@ const mobileMenuOpen = ref(false)
 
         <div
           v-if="mobileMenuOpen"
-          class="absolute right-0 top-0 w-full max-w-[250px] rounded-lg border border-slate-700 bg-slate-950 pb-1.5 text-white shadow-md sm:hidden"
+          class="absolute right-0 top-0 w-full max-w-[250px] rounded-lg border border-zinc-700 bg-zinc-950 pb-1.5 text-white shadow-md sm:hidden"
         >
           <div class="pr-0.5 text-right">
             <button type="button" class="p-2" @click="mobileMenuOpen = false">
@@ -95,19 +95,19 @@ const mobileMenuOpen = ref(false)
             <NuxtLink
               @click="mobileMenuOpen = false"
               href="/#features"
-              class="block w-full px-3 py-1.5 text-sm font-medium text-slate-900 hover:bg-slate-100 hover:text-slate-900"
+              class="block w-full px-3 py-1.5 text-sm font-medium text-zinc-900 hover:bg-zinc-100 hover:text-zinc-900"
               >Features</NuxtLink
             >
             <NuxtLink
               @click="mobileMenuOpen = false"
               href="/#pricing"
-              class="block w-full px-3 py-1.5 text-sm font-medium text-slate-900 hover:bg-slate-100 hover:text-slate-900"
+              class="block w-full px-3 py-1.5 text-sm font-medium text-zinc-900 hover:bg-zinc-100 hover:text-zinc-900"
               >Pricing</NuxtLink
             >
             <NuxtLink
               @click="mobileMenuOpen = false"
               href="/changelog"
-              class="block w-full px-3 py-1.5 text-sm font-medium text-slate-900 hover:bg-slate-100 hover:text-slate-900"
+              class="block w-full px-3 py-1.5 text-sm font-medium text-zinc-900 hover:bg-zinc-100 hover:text-zinc-900"
               >Changelog</NuxtLink
             >
           </div>
@@ -133,80 +133,71 @@ const mobileMenuOpen = ref(false)
         >
           <path
             d="M46 73.5V50.7435L83 29.6621V71.7565L46 92.8379V73.5ZM40 92.8379L3 71.7565V29.6621L40 50.7435V73.5V92.8379ZM79.94 24.5L43 45.5472L6.05999 24.5L43 3.45278L79.94 24.5Z"
-            class="fill-slate-200 stroke-white"
+            class="fill-zinc-100 stroke-transparent"
             stroke-width="1"
           />
         </svg>
       </div>
 
       <div class="w-full max-w-[250px]">
-        <div class="mb-2 text-[13px] font-medium text-slate-200">Product</div>
-        <NuxtLink href="/" class="block cursor-pointer text-[13px] leading-7 text-slate-300 hover:text-slate-400">
+        <div class="mb-2 text-[13px] font-medium text-zinc-200">Product</div>
+        <NuxtLink href="/" class="block cursor-pointer text-[13px] leading-7 text-zinc-300 hover:text-zinc-400">
           Home
         </NuxtLink>
         <NuxtLink
           href="/#features"
-          class="block cursor-pointer text-[13px] leading-7 text-slate-300 hover:text-slate-400"
+          class="block cursor-pointer text-[13px] leading-7 text-zinc-300 hover:text-zinc-400"
         >
           Features
         </NuxtLink>
-        <NuxtLink
-          href="/#pricing"
-          class="block cursor-pointer text-[13px] leading-7 text-slate-300 hover:text-slate-400"
-        >
+        <NuxtLink href="/#pricing" class="block cursor-pointer text-[13px] leading-7 text-zinc-300 hover:text-zinc-400">
           Pricing
         </NuxtLink>
         <NuxtLink
           href="/changelog"
-          class="block cursor-pointer text-[13px] leading-7 text-slate-300 hover:text-slate-400"
+          class="block cursor-pointer text-[13px] leading-7 text-zinc-300 hover:text-zinc-400"
         >
           Changelog
         </NuxtLink>
-        <NuxtLink href="/docs" class="block cursor-pointer text-[13px] leading-7 text-slate-300 hover:text-slate-400">
+        <NuxtLink href="/docs" class="block cursor-pointer text-[13px] leading-7 text-zinc-300 hover:text-zinc-400">
           Docs
         </NuxtLink>
       </div>
 
       <div class="w-full max-w-[250px]">
-        <div class="mb-2 text-[13px] font-medium text-slate-200">Company</div>
-        <NuxtLink href="/terms" class="block cursor-pointer text-[13px] leading-7 text-slate-300 hover:text-slate-400">
+        <div class="mb-2 text-[13px] font-medium text-zinc-200">Company</div>
+        <NuxtLink href="/terms" class="block cursor-pointer text-[13px] leading-7 text-zinc-300 hover:text-zinc-400">
           Terms
         </NuxtLink>
-        <NuxtLink
-          href="/privacy"
-          class="block cursor-pointer text-[13px] leading-7 text-slate-300 hover:text-slate-400"
-        >
+        <NuxtLink href="/privacy" class="block cursor-pointer text-[13px] leading-7 text-zinc-300 hover:text-zinc-400">
           Privacy
         </NuxtLink>
         <a
           href="mailto:support@pavrel.com"
-          class="block cursor-pointer text-[13px] leading-7 text-slate-300 hover:text-slate-400"
+          class="block cursor-pointer text-[13px] leading-7 text-zinc-300 hover:text-zinc-400"
         >
           Contact
         </a>
-        <NuxtLink href="/login" class="block cursor-pointer text-[13px] leading-7 text-slate-300 hover:text-slate-400">
+        <NuxtLink href="/login" class="block cursor-pointer text-[13px] leading-7 text-zinc-300 hover:text-zinc-400">
           Log in
         </NuxtLink>
-        <NuxtLink
-          href="/register"
-          class="block cursor-pointer text-[13px] leading-7 text-slate-300 hover:text-slate-400"
-        >
+        <NuxtLink href="/register" class="block cursor-pointer text-[13px] leading-7 text-zinc-300 hover:text-zinc-400">
           Register
         </NuxtLink>
       </div>
 
       <div class="w-full max-w-[250px]">
-        <div class="mb-2 text-[13px] font-medium text-slate-200">Community</div>
+        <div class="mb-2 text-[13px] font-medium text-zinc-200">Community</div>
         <a
           href="https://join.slack.com/t/pavrelcommunity/shared_invite/zt-1t5h5g1tz-32KKfZL0QbEDIIpLsRMJTw"
-          class="flex cursor-pointer items-center text-[13px] leading-7 text-slate-300 hover:text-slate-400"
+          class="flex cursor-pointer items-center text-[13px] leading-7 text-zinc-300 hover:text-zinc-400"
           target="_blank"
         >
           <span>Slack</span> <ArrowUpRightIcon class="ml-0.5 h-4 w-4" />
         </a>
         <a
           href="https://twitter.com/usePavrel"
-          class="flex cursor-pointer items-center text-[13px] leading-7 text-slate-300 hover:text-slate-400"
+          class="flex cursor-pointer items-center text-[13px] leading-7 text-zinc-300 hover:text-zinc-400"
           target="_blank"
         >
           <span>Twitter</span> <ArrowUpRightIcon class="ml-0.5 h-4 w-4" />
