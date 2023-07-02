@@ -10,7 +10,7 @@ useHead({
   title: 'Pavrel',
   meta: [{ name: 'description', content: 'Unleash your creativity. Pavrel is a home for your ideas.' }],
   bodyAttrs: {
-    class: 'bg-slate-900 antialiased font-sans',
+    class: 'bg-zinc-900 antialiased font-sans',
   },
 })
 
@@ -39,7 +39,7 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
   </section>
 
   <section class="mx-auto hidden max-w-[1249px] px-6 py-10 lg:block lg:px-8">
-    <div class="rounded-lg bg-gradient-to-r from-slate-700 to-slate-700 p-[2px]">
+    <div class="rounded-lg bg-gradient-to-r from-zinc-700 to-zinc-700 p-[2px]">
       <img src="/app-ss1-dark.png" class="rounded-[6px]" />
     </div>
   </section>
@@ -82,7 +82,7 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
   </section>
 
   <section class="mx-auto flex flex-wrap justify-center gap-6 px-6 pb-20 pt-20 leading-7 lg:px-8" id="features">
-    <div class="w-full rounded-2xl border border-slate-700 bg-slate-900 shadow-sm md:w-[400px]">
+    <div class="w-full rounded-2xl border border-slate-700 bg-zinc-900 shadow-sm md:w-[400px]">
       <div class="relative flex h-[300px]">
         <div
           class="h-full w-full rounded-t-2xl"
@@ -92,7 +92,7 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
             background-size: 500px;
           "
         ></div>
-        <div class="absolute inset-0 h-full w-full bg-gradient-to-b from-transparent to-slate-900"></div>
+        <div class="absolute inset-0 h-full w-full bg-gradient-to-b from-transparent to-zinc-900"></div>
       </div>
 
       <div class="px-10 pb-8 pt-4">
@@ -104,7 +104,7 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
       </div>
     </div>
 
-    <div class="w-full rounded-2xl border border-slate-700 bg-slate-900 shadow-sm md:w-[400px]">
+    <div class="w-full rounded-2xl border border-slate-700 bg-zinc-900 shadow-sm md:w-[400px]">
       <div class="relative flex h-[300px]">
         <div
           class="h-full w-full rounded-t-2xl"
@@ -115,7 +115,7 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
             background-size: 500px;
           "
         ></div>
-        <div class="absolute inset-0 h-full w-full bg-gradient-to-b from-transparent to-slate-900"></div>
+        <div class="absolute inset-0 h-full w-full bg-gradient-to-b from-transparent to-zinc-900"></div>
       </div>
 
       <div class="px-10 pb-8 pt-4">
@@ -127,7 +127,7 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
       </div>
     </div>
 
-    <div class="w-full rounded-2xl border border-slate-700 bg-slate-900 shadow-sm md:w-[400px]">
+    <div class="w-full rounded-2xl border border-slate-700 bg-zinc-900 shadow-sm md:w-[400px]">
       <div class="relative flex h-[300px]">
         <div
           class="h-full w-full rounded-t-2xl"
@@ -138,7 +138,7 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
             background-size: 500px;
           "
         ></div>
-        <div class="absolute inset-0 h-full w-full bg-gradient-to-b from-transparent to-slate-900"></div>
+        <div class="absolute inset-0 h-full w-full bg-gradient-to-b from-transparent to-zinc-900"></div>
       </div>
 
       <div class="px-10 pb-8 pt-4">
@@ -194,13 +194,13 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
       </div>
     </div>
 
-    <div class="max-w-[550px] rounded-2xl border border-slate-600 bg-slate-800 shadow-xl lg:w-1/2 lg:max-w-none">
+    <div class="max-w-[550px] rounded-2xl border border-slate-600 bg-zinc-800 shadow-xl lg:w-1/2 lg:max-w-none">
       <div class="relative">
         <div
           class="min-h-[400px] rounded-t-2xl bg-cover"
           style="background-image: url('/marketing/drag-drop-dark.png'); background-position: top left"
         ></div>
-        <div class="absolute inset-0 z-10 bg-gradient-to-b from-transparent via-transparent to-slate-800"></div>
+        <div class="absolute inset-0 z-10 bg-gradient-to-b from-transparent via-transparent to-zinc-800"></div>
       </div>
 
       <div class="mb-20 mt-6 px-10 pt-6 text-slate-100">
@@ -222,7 +222,7 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
     </div>
   </section>
 
-  <section id="pricing" class="bg-slate-900 px-6 py-24 lg:px-8">
+  <section id="pricing" class="bg-zinc-900 px-6 py-24 lg:px-8">
     <div class="sm:align-center mx-auto max-w-7xl sm:flex sm:flex-col">
       <h2 class="text-2xl font-[450] text-slate-100 sm:text-center">Choose a plan</h2>
 
@@ -266,7 +266,7 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
             </NuxtLink>
           </div>
 
-          <div class="mx-8 mb-8 flex-1 rounded-[8px] bg-slate-800 p-6">
+          <div class="mx-8 mb-8 flex-1 rounded-[8px] bg-zinc-800 p-6">
             <h3 class="text-sm font-medium text-slate-200">What's included</h3>
 
             <ul role="list" class="mt-6 space-y-4">
@@ -370,7 +370,7 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
             </NuxtLink>
           </div>
 
-          <div class="mx-8 mb-8 flex-1 rounded-[8px] bg-slate-800 p-6">
+          <div class="mx-8 mb-8 flex-1 rounded-[8px] bg-zinc-800 p-6">
             <h3 class="text-sm font-medium text-slate-200">What's included</h3>
             <ul role="list" class="mt-6 space-y-4">
               <li class="flex space-x-3">

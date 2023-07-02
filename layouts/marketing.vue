@@ -3,7 +3,7 @@ import { ArrowUpRightIcon } from '@heroicons/vue/20/solid'
 import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
 
 useHead({
-  bodyAttrs: { class: 'antialiased h-screen text-slate-100 dark:text-zinc-200 bg-slate-900' },
+  bodyAttrs: { class: 'antialiased h-screen text-slate-100 dark:text-zinc-200 bg-zinc-900' },
   title: 'Pavrel',
   meta: [
     {
@@ -83,7 +83,7 @@ const mobileMenuOpen = ref(false)
 
         <div
           v-if="mobileMenuOpen"
-          class="absolute right-0 top-0 w-full max-w-[250px] rounded-lg border border-slate-700 bg-slate-900 pb-1.5 text-white shadow-md sm:hidden"
+          class="absolute right-0 top-0 w-full max-w-[250px] rounded-lg border border-slate-700 bg-slate-950 pb-1.5 text-white shadow-md sm:hidden"
         >
           <div class="pr-0.5 text-right">
             <button type="button" class="p-2" @click="mobileMenuOpen = false">
@@ -120,7 +120,7 @@ const mobileMenuOpen = ref(false)
     <slot />
   </main>
 
-  <footer class="border-t border-slate-600 bg-gradient-to-b from-slate-950 to-slate-950 px-2 py-16">
+  <footer class="border-t border-zinc-600 bg-zinc-950 px-2 py-16">
     <div class="mx-auto max-w-4xl space-y-8 px-6 md:flex md:items-start md:justify-between md:space-y-0 lg:px-8">
       <div class="w-full max-w-[250px] pt-1">
         <svg
@@ -216,6 +216,6 @@ const mobileMenuOpen = ref(false)
   </footer>
 
   <div class="absolute inset-0 -z-20 bg-repeat" style="background-image: url('/cube.svg'); background-size: 45px">
-    <div class="absolute inset-0 -z-10 bg-gradient-to-tr from-slate-900 via-slate-900/60"></div>
+    <div class="absolute inset-0 -z-10 bg-gradient-to-tr from-zinc-900 via-zinc-900"></div>
   </div>
 </template>
