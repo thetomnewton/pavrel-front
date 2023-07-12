@@ -8,12 +8,6 @@ useHead({
   meta: [
     {
       name: 'theme-color',
-      media: '(prefers-color-scheme: light)',
-      content: '#ffffff',
-    },
-    {
-      name: 'theme-color',
-      media: '(prefers-color-scheme: dark)',
       content: '#18181b',
     },
     { name: 'msapplication-TileColor', content: '#18181b' },
