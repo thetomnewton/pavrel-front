@@ -63,6 +63,13 @@ const mobileMenuOpen = ref(false)
 
       <div class="relative ml-auto flex items-center pr-6 lg:pr-0">
         <NuxtLink
+          href="/register"
+          class="mr-2 px-3 py-[14px] text-sm font-medium text-white transition-colors hover:text-zinc-300"
+        >
+          Sign up
+        </NuxtLink>
+
+        <NuxtLink
           to="/login"
           class="inline-block whitespace-nowrap rounded-lg border-none bg-gradient-to-b from-blue-600 to-blue-700 px-[14px] py-1.5 text-sm font-semibold leading-5 text-white transition-all hover:shadow-sm active:translate-y-px active:shadow-none"
         >
