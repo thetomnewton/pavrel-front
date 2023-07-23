@@ -3,7 +3,7 @@ import { ArrowUpRightIcon } from '@heroicons/vue/20/solid'
 import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
 
 useHead({
-  bodyAttrs: { class: 'antialiased h-screen text-zinc-100 dark:text-zinc-200 bg-zinc-900' },
+  bodyAttrs: { class: 'antialiased h-screen text-zinc-100 dark:text-zinc-200 bg-zinc-950' },
   title: 'Pavrel',
   meta: [
     {
@@ -31,9 +31,9 @@ const mobileMenuOpen = ref(false)
 </script>
 
 <template>
-  <header class="mx-auto max-w-4xl border-b border-zinc-800 pl-6 pr-0 lg:px-0">
-    <div class="flex items-center">
-      <NuxtLink to="/" class="py-3">
+  <header class="fixed inset-x-0 top-0 z-30 backdrop-blur">
+    <div class="mx-auto flex max-w-4xl items-center border-b border-zinc-700/70 pl-6 pr-0 lg:px-0">
+      <NuxtLink to="/" class="py-2">
         <span class="sr-only">Pavrel</span>
         <LogoColorText class="h-[30px] w-[96px] text-white" />
       </NuxtLink>
@@ -41,21 +41,21 @@ const mobileMenuOpen = ref(false)
       <div class="ml-6 hidden items-center sm:flex">
         <NuxtLink
           href="/#features"
-          class="px-3 py-4 text-sm font-medium text-white transition-colors hover:text-zinc-300"
+          class="px-3 py-[14px] text-sm font-medium text-white transition-colors hover:text-zinc-300"
         >
           Features
         </NuxtLink>
 
         <NuxtLink
           href="/#pricing"
-          class="px-3 py-4 text-sm font-medium text-white transition-colors hover:text-zinc-300"
+          class="px-3 py-[14px] text-sm font-medium text-white transition-colors hover:text-zinc-300"
         >
           Pricing
         </NuxtLink>
 
         <NuxtLink
           href="/changelog"
-          class="px-3 py-4 text-sm font-medium text-white transition-colors hover:text-zinc-300"
+          class="px-3 py-[14px] text-sm font-medium text-white transition-colors hover:text-zinc-300"
         >
           Changelog
         </NuxtLink>
@@ -64,7 +64,7 @@ const mobileMenuOpen = ref(false)
       <div class="relative ml-auto flex items-center pr-6 lg:pr-0">
         <NuxtLink
           to="/login"
-          class="inline-block whitespace-nowrap rounded-lg border-none bg-blue-600 px-[14px] py-1.5 text-sm font-semibold leading-5 text-white transition-all hover:shadow-sm active:translate-y-px active:shadow-none"
+          class="inline-block whitespace-nowrap rounded-lg border-none bg-gradient-to-b from-blue-600 to-blue-700 px-[14px] py-1.5 text-sm font-semibold leading-5 text-white transition-all hover:shadow-sm active:translate-y-px active:shadow-none"
         >
           Log in
         </NuxtLink>
@@ -110,7 +110,10 @@ const mobileMenuOpen = ref(false)
     </div>
   </header>
 
-  <main>
+  <main
+    class="pt-[55px]"
+    style="background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(120, 119, 198, 0.5), transparent)"
+  >
     <slot />
   </main>
 
@@ -138,21 +141,25 @@ const mobileMenuOpen = ref(false)
         <NuxtLink href="/" class="block cursor-pointer text-[13px] leading-7 text-zinc-300 hover:text-zinc-400">
           Home
         </NuxtLink>
+
         <NuxtLink
           href="/#features"
           class="block cursor-pointer text-[13px] leading-7 text-zinc-300 hover:text-zinc-400"
         >
           Features
         </NuxtLink>
+
         <NuxtLink href="/#pricing" class="block cursor-pointer text-[13px] leading-7 text-zinc-300 hover:text-zinc-400">
           Pricing
         </NuxtLink>
+
         <NuxtLink
           href="/changelog"
           class="block cursor-pointer text-[13px] leading-7 text-zinc-300 hover:text-zinc-400"
         >
           Changelog
         </NuxtLink>
+
         <NuxtLink href="/docs" class="block cursor-pointer text-[13px] leading-7 text-zinc-300 hover:text-zinc-400">
           Docs
         </NuxtLink>
@@ -163,18 +170,22 @@ const mobileMenuOpen = ref(false)
         <NuxtLink href="/terms" class="block cursor-pointer text-[13px] leading-7 text-zinc-300 hover:text-zinc-400">
           Terms
         </NuxtLink>
+
         <NuxtLink href="/privacy" class="block cursor-pointer text-[13px] leading-7 text-zinc-300 hover:text-zinc-400">
           Privacy
         </NuxtLink>
+
         <a
           href="mailto:support@pavrel.com"
           class="block cursor-pointer text-[13px] leading-7 text-zinc-300 hover:text-zinc-400"
         >
           Contact
         </a>
+
         <NuxtLink href="/login" class="block cursor-pointer text-[13px] leading-7 text-zinc-300 hover:text-zinc-400">
           Log in
         </NuxtLink>
+
         <NuxtLink href="/register" class="block cursor-pointer text-[13px] leading-7 text-zinc-300 hover:text-zinc-400">
           Register
         </NuxtLink>
@@ -189,6 +200,7 @@ const mobileMenuOpen = ref(false)
         >
           <span>Slack</span> <ArrowUpRightIcon class="ml-0.5 h-4 w-4" />
         </a>
+
         <a
           href="https://twitter.com/usePavrel"
           class="flex cursor-pointer items-center text-[13px] leading-7 text-zinc-300 hover:text-zinc-400"
@@ -199,8 +211,4 @@ const mobileMenuOpen = ref(false)
       </div>
     </div>
   </footer>
-
-  <div class="absolute inset-0 -z-20 bg-repeat" style="background-image: url('/cube.svg'); background-size: 45px">
-    <div class="absolute inset-0 -z-10 bg-gradient-to-tr from-zinc-900 via-zinc-900"></div>
-  </div>
 </template>

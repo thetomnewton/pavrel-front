@@ -19,17 +19,21 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
 
 <template>
   <section class="mx-auto max-w-4xl px-6 pb-20 pt-20 text-center sm:pt-24 lg:px-8">
-    <h1 class="mb-4 text-3xl font-semibold tracking-tight text-white sm:text-5xl">A home for your team's ideas</h1>
+    <h1
+      class="mb-6 bg-gradient-to-b from-white to-white/80 bg-clip-text text-3xl font-semibold tracking-tight text-transparent sm:text-6xl sm:leading-[68px]"
+    >
+      A home for your team's ideas
+    </h1>
 
-    <p class="text-xl leading-7 text-zinc-300">
-      <span class="font-semibold text-zinc-100">Take control</span> of your workflow and
-      <span class="font-semibold text-zinc-100">foster an innovation culture</span> in your team with Pavrel.
+    <p class="text-xl font-medium leading-7 text-white/80">
+      <span class="">Take control</span> of your workflow and <span class="">foster an innovation culture</span> in your
+      team with Pavrel.
     </p>
 
     <div class="mt-8">
       <NuxtLink
         to="/register"
-        class="inline-block rounded-lg border border-blue-600 bg-gradient-to-b from-blue-600 to-blue-700 px-6 py-1.5 text-base font-semibold leading-7 text-white shadow-md outline-none ring-0 ring-blue-600 transition-all hover:bg-blue-700 hover:ring-blue-700 focus:ring-2 focus:ring-offset-2 active:translate-y-px active:from-blue-700"
+        class="inline-block rounded-xl border border-blue-600 bg-gradient-to-b from-blue-600 to-blue-700 px-6 py-1.5 text-base font-semibold leading-7 text-white shadow-md outline-none ring-0 ring-blue-600 transition-all hover:bg-blue-700 hover:ring-blue-700 focus:ring-2 focus:ring-offset-2 active:translate-y-px active:from-blue-700"
       >
         Get started free
       </NuxtLink>
