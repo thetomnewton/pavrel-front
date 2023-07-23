@@ -27,7 +27,7 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
 
     <p class="text-xl font-medium leading-7 text-white/80">
       <span class="">Take control</span> of your workflow and <span class="">foster an innovation culture</span> in your
-      team with Pavrel.
+      team with Pavrel. Built for modern software teams.
     </p>
 
     <div class="mt-8">
