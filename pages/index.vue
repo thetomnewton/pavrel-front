@@ -234,21 +234,29 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
         Start building for free, then upgrade to get even more done with Pavrel.
       </p>
 
-      <div class="relative mt-6 flex self-center rounded-[10px] bg-zinc-700 p-0.5 sm:mt-8">
+      <div class="relative mt-6 flex self-center rounded-[10px] bg-zinc-800 p-0.5 ring-1 ring-zinc-700/70 sm:mt-8">
         <button
           type="button"
-          class="relative w-1/2 whitespace-nowrap rounded-lg py-2 text-sm font-medium text-zinc-100 shadow-sm focus:z-10 focus:outline-none focus:ring-2 focus:ring-zinc-500 sm:w-auto sm:px-8"
+          class="relative w-1/2 whitespace-nowrap rounded-lg py-2 text-sm font-medium shadow-sm focus:z-10 focus:outline-none focus:ring-2 focus:ring-zinc-500 sm:w-auto sm:px-8"
           @click="billingStrategy = 'yearly'"
-          :class="[billingStrategy === 'yearly' ? 'border-zinc-200 bg-zinc-500 shadow-sm' : 'border-transparent']"
+          :class="[
+            billingStrategy === 'yearly'
+              ? 'border-zinc-200 bg-zinc-600/80 text-white shadow-sm'
+              : 'border-transparent text-zinc-100',
+          ]"
         >
           Yearly billing
         </button>
 
         <button
           type="button"
-          class="relative ml-0.5 w-1/2 whitespace-nowrap rounded-lg py-2 text-sm font-medium text-zinc-100 focus:z-10 focus:outline-none focus:ring-2 focus:ring-zinc-500 sm:w-auto sm:px-8"
+          class="relative ml-0.5 w-1/2 whitespace-nowrap rounded-lg py-2 text-sm font-medium focus:z-10 focus:outline-none focus:ring-2 focus:ring-zinc-500 sm:w-auto sm:px-8"
           @click="billingStrategy = 'monthly'"
-          :class="[billingStrategy === 'monthly' ? 'border-zinc-200 bg-zinc-500 shadow-sm' : 'border-transparent']"
+          :class="[
+            billingStrategy === 'monthly'
+              ? 'border-zinc-200 bg-zinc-600/80 text-white shadow-sm'
+              : 'border-transparent text-zinc-100',
+          ]"
         >
           Monthly billing
         </button>
