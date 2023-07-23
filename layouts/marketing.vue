@@ -112,7 +112,7 @@ const mobileMenuOpen = ref(false)
 
   <main
     class="pt-[55px]"
-    style="background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(120, 119, 198, 0.5), transparent)"
+    style="background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(120, 119, 198, 0.4), transparent)"
   >
     <slot />
   </main>
