@@ -23,7 +23,7 @@ const billingStrategy = ref<'yearly' | 'monthly'>('yearly')
 
     <p class="text-xl leading-7 text-zinc-300">
       <span class="font-semibold text-zinc-100">Take control</span> of your workflow and
-      <span class="font-semibold text-zinc-100">develop an innovation culture</span> in your team with Pavrel.
+      <span class="font-semibold text-zinc-100">foster an innovation culture</span> in your team with Pavrel.
     </p>
 
     <div class="mt-8">
